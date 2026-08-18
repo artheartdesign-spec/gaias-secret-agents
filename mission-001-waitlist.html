@@ -425,16 +425,14 @@
       line-height: 1.62;
     }
 
-    .waitlist-note {
-      margin: 0 0 22px;
-      padding: 11px 13px;
-      color: #14575c;
-      background: rgba(40, 174, 176, .10);
-      border: 1px solid rgba(12, 98, 104, .20);
-      border-radius: 11px;
-      font-size: .8rem;
-      font-weight: 800;
-      line-height: 1.45;
+    #sib-form-container,
+    #sib-container {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      border: 0;
     }
 
     .email-form label {
@@ -646,47 +644,49 @@
 
           <h2>Receive the opening signal.</h2>
           <p class="form-intro">Enter a parent or guardian’s email. Secret Headquarters will send the Operation Blue Planet release alert, your founding-agent printable, and occasional mission updates.</p>
-          <p class="waitlist-note">This is the Operation Blue Planet waitlist—not a general newsletter.</p>
-
-          <div id="error-message" class="sib-form-message-panel" style="color:#661d1d; background-color:#ffeded; border-color:#ff4949;">
-            <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-              <span class="sib-form-message-panel__inner-text">Your place could not be saved. Please try again.</span>
-            </div>
-          </div>
-
-          <div id="success-message" class="sib-form-message-panel" style="color:#085229; background-color:#e7faf0; border-color:#13ce66;">
-            <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-              <span class="sib-form-message-panel__inner-text">You have been chosen! You’re now on the Operation Blue Planet founding-agent waitlist.</span>
-            </div>
-          </div>
-
-          <form
-            id="sib-form"
-            class="email-form"
-            method="POST"
-            action="https://4b3c9254.sibforms.com/serve/MUIFAFGVEg2WRHtB46kP2kTSrSWwbj-yIvehm7tBiMH64M38Nrau42wHBRG_Wvd4K7VnSt-aX4mAsOhyKI-joOV6lKuFP5-ehpxErFGBa804jx44kVERCSzU-gw9HJIOOaDoeiUvKD6vpSq-sFHKqlzUybHd4Z2yh5O2VpJNfmXzBpHaz3b0xMFgkTaWwNOywMyZm4eXd0ZnicRHKg=="
-            data-type="subscription"
-            novalidate>
-            <div class="sib-input sib-form-block">
-              <div class="form__entry entry_block">
-                <div class="form__label-row">
-                  <label class="entry__label" for="EMAIL" data-required="*">Grown-up’s email address</label>
-                  <div class="entry__field">
-                    <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="email" inputmode="email" placeholder="you@example.com" data-required="true" required>
-                  </div>
-                </div>
-                <label class="entry__error entry__error--primary"></label>
+          <div id="sib-form-container" class="sib-form-container">
+            <div id="error-message" class="sib-form-message-panel" style="color:#661d1d; background-color:#ffeded; border-color:#ff4949;">
+              <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                <span class="sib-form-message-panel__inner-text">Your place could not be saved. Please try again.</span>
               </div>
             </div>
-            <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit">
-              <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" aria-hidden="true">
-                <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z"></path>
-              </svg>
-              Join the founding-agent waitlist
-            </button>
-            <input type="text" name="email_address_check" class="input--hidden" aria-hidden="true">
-            <input type="hidden" name="locale" value="en">
-          </form>
+
+            <div id="success-message" class="sib-form-message-panel" style="color:#085229; background-color:#e7faf0; border-color:#13ce66;">
+              <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                <span class="sib-form-message-panel__inner-text">You have been chosen! You’re now on the Operation Blue Planet founding-agent waitlist.</span>
+              </div>
+            </div>
+
+            <div id="sib-container" class="sib-container--large sib-container--vertical">
+              <form
+                id="sib-form"
+                class="email-form"
+                method="POST"
+                action="https://4b3c9254.sibforms.com/serve/MUIFAFGVEg2WRHtB46kP2kTSrSWwbj-yIvehm7tBiMH64M38Nrau42wHBRG_Wvd4K7VnSt-aX4mAsOhyKI-joOV6lKuFP5-ehpxErFGBa804jx44kVERCSzU-gw9HJIOOaDoeiUvKD6vpSq-sFHKqlzUybHd4Z2yh5O2VpJNfmXzBpHaz3b0xMFgkTaWwNOywMyZm4eXd0ZnicRHKg=="
+                data-type="subscription"
+                novalidate>
+                <div class="sib-input sib-form-block">
+                  <div class="form__entry entry_block">
+                    <div class="form__label-row">
+                      <label class="entry__label" for="EMAIL" data-required="*">Grown-up’s email address</label>
+                      <div class="entry__field">
+                        <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="email" inputmode="email" placeholder="you@example.com" data-required="true" required>
+                      </div>
+                    </div>
+                    <label class="entry__error entry__error--primary"></label>
+                  </div>
+                </div>
+                <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit">
+                  <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" aria-hidden="true">
+                    <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z"></path>
+                  </svg>
+                  Join the founding-agent waitlist
+                </button>
+                <input type="text" name="email_address_check" class="input--hidden" aria-hidden="true">
+                <input type="hidden" name="locale" value="en">
+              </form>
+            </div>
+          </div>
 
           <div class="trust-row" aria-label="Waitlist assurances">
             <span>Free to join</span>
