@@ -1,0 +1,174 @@
+name: One-time Starter Kit shop cleanup
+
+on:
+  push:
+    paths:
+      - ".github/workflows/one-time-shop-cleanup.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch-homepage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Make Starter Kit the sole customer-facing product
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("index.html")
+          s = path.read_text(encoding="utf-8")
+
+          def replace_once(old, new, label):
+              global s
+              count = s.count(old)
+              if count != 1:
+                  raise SystemExit(f"{label}: expected exactly 1 match, found {count}")
+              s = s.replace(old, new, 1)
+
+          replace_once(
+              '<p class="lead">Gaia’s Secret Agents is a mission-based environmental subscription movement that empowers children to take real-world action for the planet through hands-on challenges, storytelling, and community impact.</p>',
+              '<p class="lead">Gaia’s Secret Agents turns environmental learning into a story-led, screen-free adventure for children aged 6–11.</p>',
+              'hero lead',
+          )
+
+          replace_once(
+              '''<div class="button-row">
+<a class="btn primary" href="#join">Join the Mission</a>
+<a class="btn secondary" href="#recruit-kit">Get the Free Recruit Kit</a>
+</div>''',
+              '''<div class="button-row">
+<a class="btn primary" href="https://artheartdesign.gumroad.com/l/gsa-starter-kit">Get the Starter Kit — A$19</a>
+<a class="btn secondary" href="#shop">See What’s Inside</a>
+</div>''',
+              'hero buttons',
+          )
+
+          replace_once(
+              '''<section class="section ocean" id="recruit-kit">
+<div class="section-inner narrow center">
+<div>
+<p class="eyebrow">Free Digital Recruit Kit</p>
+<h2>A first taste of the agency.</h2>
+<p class="large-line">Let new agents step into the world before they begin their first full mission.</p>
+<p>The Recruit Kit is a small taster designed to introduce the agency, the mission feeling, and the first sense of purpose — without replacing the paid mission pack.</p>
+<div class="button-row"><a class="btn primary" href="#join">Get the Free Recruit Kit</a></div>
+</div>
+
+</div>
+</section>''',
+              '''<section class="section ocean" id="recruit-kit">
+<div class="section-inner narrow center">
+<div>
+<p class="eyebrow">The Starter Kit</p>
+<h2>Your first briefing starts here.</h2>
+<p class="large-line">Everything a new agent needs to step into the world of Gaia’s Secret Agents.</p>
+<p>A premium printable adventure built around story, environmental action, creativity, and family connection.</p>
+<div class="button-row"><a class="btn primary" href="https://artheartdesign.gumroad.com/l/gsa-starter-kit">Get the Starter Kit — A$19</a></div>
+</div>
+
+</div>
+</section>''',
+              'recruit section',
+          )
+
+          replace_once(
+              '''<section class="section ocean" id="shop">
+<div class="section-inner">
+<div class="center narrow">
+<p class="eyebrow">Shop</p>
+<h2>Choose the first mission.</h2>
+<p class="large-line">Start with the free Recruit Kit, buy Mission 01, or join the monthly mission club.</p>
+</div>
+<div class="shop-grid">
+<div class="shop-card"><h3>Free Recruit Kit</h3><p>A small digital taster for new agents.</p><div class="price">Free</div><a class="btn secondary" href="#join">Get Kit</a></div>
+<div class="shop-card"><h3>Mission 01 Digital Pack</h3><p>Operation Blue Planet as a downloadable mission adventure.</p><div class="price">Digital</div><a class="btn primary" href="#join">Buy Mission 01</a></div>
+<div class="shop-card"><h3>Monthly Digital Mission Club</h3><p>A new story-led environmental mission each month.</p><div class="price">Monthly</div><a class="btn secondary" href="#join">Join Digital</a></div>
+<div class="shop-card"><h3>Physical Mission Pack</h3><p>Printed mission materials sent in the post when available.</p><div class="price">Pre-order</div><a class="btn secondary" href="#join">Join Waitlist</a></div>
+</div>
+</div>
+</section>''',
+              '''<section class="section ocean" id="shop">
+<div class="section-inner">
+<div class="center narrow">
+<p class="eyebrow">Starter Kit</p>
+<h2>Begin the first mission.</h2>
+<p class="large-line">One beautifully designed printable adventure. One clear starting point for every new agent.</p>
+</div>
+<div class="shop-grid" style="max-width:720px;margin:32px auto 0;grid-template-columns:1fr">
+<div class="shop-card">
+<span class="seal">Recruitment File — Digital Download</span>
+<h3>Gaia’s Secret Agents Starter Kit</h3>
+<p>A premium printable recruitment adventure for children aged 6–11, combining story, hands-on environmental discovery, creativity, and family connection.</p>
+<p>Print it at home, assemble the agent materials, and begin.</p>
+<div class="price">A$19</div>
+<a class="btn primary" href="https://artheartdesign.gumroad.com/l/gsa-starter-kit">Get the Starter Kit</a>
+</div>
+</div>
+</div>
+</section>''',
+              'shop section',
+          )
+
+          replace_once(
+              '''<section class="section ocean" id="join">
+<div class="section-inner center narrow">
+<span class="seal">Top Secret — Eyes Only</span>
+<h2>Will you answer the call?</h2>
+<p class="large-line">The first mission begins with the ocean.</p>
+<div class="button-row" style="justify-content:center"><a class="btn primary" href="#shop">Join the Mission</a><a class="btn secondary" href="#recruit-kit">Get the Free Recruit Kit</a></div>
+</div>
+</section>''',
+              '''<section class="section ocean" id="join">
+<div class="section-inner center narrow">
+<span class="seal">Top Secret — Eyes Only</span>
+<h2>Will you answer the call?</h2>
+<p class="large-line">The Starter Kit is the official starting point for every new agent.</p>
+<div class="button-row" style="justify-content:center"><a class="btn primary" href="https://artheartdesign.gumroad.com/l/gsa-starter-kit">Get the Starter Kit — A$19</a></div>
+</div>
+</section>''',
+              'join section',
+          )
+
+          replace_once(
+              '<section class="section ocean" id="mission01">',
+              '<section class="section ocean" id="mission01" style="display:none">',
+              'Mission 01 section',
+          )
+
+          # Remove obsolete Mission 01 navigation links while keeping the hidden source section for rebuilding later.
+          s = s.replace('<a href="#mission01">Mission 01</a>', '')
+
+          # Update any compact navigation labels that still call the paid Starter Kit a Recruit Kit.
+          s = s.replace('<a href="#recruit-kit">Recruit Kit</a>', '<a href="#recruit-kit">Starter Kit</a>')
+          s = s.replace('<a href="#recruit-kit">Free Recruit Kit</a>', '<a href="#recruit-kit">Starter Kit</a>')
+
+          obsolete = [
+              'Free Digital Recruit Kit',
+              'Free Recruit Kit',
+              'Mission 01 Digital Pack',
+              'Monthly Digital Mission Club',
+              'Physical Mission Pack',
+              'Buy Mission 01',
+              'Join Digital',
+              'Join Waitlist',
+          ]
+          leftovers = [term for term in obsolete if term in s]
+          if leftovers:
+              raise SystemExit('Obsolete customer-facing product copy remains: ' + ', '.join(leftovers))
+
+          path.write_text(s, encoding="utf-8")
+          PY
+      - name: Commit homepage
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "No homepage changes were needed."
+            exit 0
+          fi
+          git commit -m "Make Starter Kit the sole shop offer"
+          git push
