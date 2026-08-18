@@ -1,0 +1,136 @@
+name: Starter Kit homepage patch
+
+on:
+  pull_request:
+    paths:
+      - ".starter-kit-update-trigger"
+
+permissions:
+  contents: write
+
+jobs:
+  patch-homepage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Patch homepage without rewriting embedded artwork
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path("index.html")
+          s = p.read_text(encoding="utf-8")
+
+          def sub_once(pattern, replacement, label, flags=0):
+              global s
+              s2, n = re.subn(pattern, replacement, s, count=1, flags=flags)
+              if n != 1:
+                  raise SystemExit(f"{label}: expected 1 match, found {n}")
+              s = s2
+
+          sub_once(
+              r'<p class="lead">Gaia’s Secret Agents is a mission-based environmental subscription movement.*?</p>',
+              '<p class="lead">Gaia’s Secret Agents turns environmental learning into a story-led, screen-free adventure for children aged 6–11.</p>',
+              'hero lead',
+          )
+
+          sub_once(
+              r'<div class="button-row">\s*<a class="btn primary" href="#join">Join the Mission</a>\s*<a class="btn secondary" href="#recruit-kit">Get the Free Recruit Kit</a>\s*</div>',
+              '<div class="button-row">\n<a class="btn primary" href="https://artheartdesign.gumroad.com/l/gsa-starter-kit">Get the Starter Kit — A$19</a>\n<a class="btn secondary" href="#shop">See What’s Inside</a>\n</div>',
+              'hero buttons',
+          )
+
+          sub_once(
+              r'<section class="section ocean" id="recruit-kit">.*?</section>',
+              '''<section class="section ocean" id="recruit-kit">
+<div class="section-inner narrow center">
+<div>
+<p class="eyebrow">The Starter Kit</p>
+<h2>Your first briefing starts here.</h2>
+<p class="large-line">Everything a new agent needs to step into the world of Gaia’s Secret Agents.</p>
+<p>A premium printable adventure built around story, environmental action, creativity, and family connection.</p>
+<div class="button-row"><a class="btn primary" href="https://artheartdesign.gumroad.com/l/gsa-starter-kit">Get the Starter Kit — A$19</a></div>
+</div>
+</div>
+</section>''',
+              'Starter Kit introduction',
+              re.S,
+          )
+
+          sub_once(
+              r'<section class="section ocean" id="shop">.*?</section>',
+              '''<section class="section ocean" id="shop">
+<div class="section-inner">
+<div class="center narrow">
+<p class="eyebrow">Starter Kit</p>
+<h2>Begin the first mission.</h2>
+<p class="large-line">One beautifully designed printable adventure. One clear starting point for every new agent.</p>
+</div>
+<div class="shop-grid" style="max-width:720px;margin:32px auto 0;grid-template-columns:1fr">
+<div class="shop-card">
+<span class="seal">Recruitment File — Digital Download</span>
+<h3>Gaia’s Secret Agents Starter Kit</h3>
+<p>A premium printable recruitment adventure for children aged 6–11, combining story, hands-on environmental discovery, creativity, and family connection.</p>
+<p>Print it at home, assemble the agent materials, and begin.</p>
+<div class="price">A$19</div>
+<a class="btn primary" href="https://artheartdesign.gumroad.com/l/gsa-starter-kit">Get the Starter Kit</a>
+</div>
+</div>
+</div>
+</section>''',
+              'shop',
+              re.S,
+          )
+
+          sub_once(
+              r'<section class="section ocean" id="join">.*?</section>',
+              '''<section class="section ocean" id="join">
+<div class="section-inner center narrow">
+<span class="seal">Top Secret — Eyes Only</span>
+<h2>Will you answer the call?</h2>
+<p class="large-line">The Starter Kit is the official starting point for every new agent.</p>
+<div class="button-row" style="justify-content:center"><a class="btn primary" href="https://artheartdesign.gumroad.com/l/gsa-starter-kit">Get the Starter Kit — A$19</a></div>
+</div>
+</section>''',
+              'final CTA',
+              re.S,
+          )
+
+          if '<section class="section ocean" id="mission01">' not in s:
+              raise SystemExit('Mission 01 section opener not found')
+          s = s.replace(
+              '<section class="section ocean" id="mission01">',
+              '<section class="section ocean" id="mission01" style="display:none">',
+              1,
+          )
+          s = s.replace('<a href="#mission01">Mission 01</a>', '')
+          s = s.replace('<a href="#recruit-kit">Recruit Kit</a>', '<a href="#recruit-kit">Starter Kit</a>')
+          s = s.replace('<a href="#recruit-kit">Free Recruit Kit</a>', '<a href="#recruit-kit">Starter Kit</a>')
+
+          obsolete = [
+              'Free Digital Recruit Kit', 'Free Recruit Kit', 'Mission 01 Digital Pack',
+              'Monthly Digital Mission Club', 'Physical Mission Pack', 'Buy Mission 01',
+              'Join Digital', 'Join Waitlist'
+          ]
+          leftovers = [x for x in obsolete if x in s]
+          if leftovers:
+              raise SystemExit('Obsolete product copy remains: ' + ', '.join(leftovers))
+
+          required = ['Gaia’s Secret Agents Starter Kit', 'A$19', 'https://artheartdesign.gumroad.com/l/gsa-starter-kit']
+          missing = [x for x in required if x not in s]
+          if missing:
+              raise SystemExit('Required Starter Kit copy missing: ' + ', '.join(missing))
+
+          p.write_text(s, encoding="utf-8")
+          Path('.starter-kit-update-trigger').unlink(missing_ok=True)
+          PY
+      - name: Commit patched homepage to PR branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html .starter-kit-update-trigger
+          git commit -m "Make Starter Kit the sole shop offer"
+          git push origin HEAD:${{ github.head_ref }}
