@@ -2,6 +2,11 @@ name: Pinterest Sandbox Test
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/pinterest-trigger.txt'
 
 jobs:
   pinterest-sandbox-test:
