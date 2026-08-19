@@ -7,6 +7,11 @@ on:
       - main
     paths:
       - '.github/pinterest-trigger.txt'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/pinterest-trigger.txt'
 
 jobs:
   pinterest-sandbox-test:
