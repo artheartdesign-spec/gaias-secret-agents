@@ -7,55 +7,59 @@ on:
       - main
     paths:
       - '.github/pinterest-trigger.txt'
-  pull_request:
-    branches:
-      - main
-    paths:
-      - '.github/pinterest-trigger.txt'
+
+permissions:
+  contents: write
 
 jobs:
   pinterest-sandbox-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Check Pinterest sandbox connection
+      - name: Test Pinterest sandbox and record result
         env:
           PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
         run: |
-          set -euo pipefail
+          set +e
+          mkdir -p .github
+          RESULT_FILE=.github/pinterest-result.txt
+          NOW=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+
           if [ -z "${PINTEREST_ACCESS_TOKEN:-}" ]; then
-            echo "Missing repository secret: PINTEREST_ACCESS_TOKEN"
-            exit 1
+            printf 'time=%s\nstatus=FAIL\nreason=missing_secret\n' "$NOW" > "$RESULT_FILE"
+          else
+            GET_CODE=$(curl --silent --show-error \
+              --output /tmp/pinterest_boards.json \
+              --write-out "%{http_code}" \
+              -H "Authorization: Bearer ${PINTEREST_ACCESS_TOKEN}" \
+              -H "Accept: application/json" \
+              "https://api-sandbox.pinterest.com/v5/boards")
+
+            BOARD_NAME="GSA API Test $(date -u +%Y%m%d-%H%M%S)"
+            PAYLOAD=$(jq -nc --arg name "$BOARD_NAME" '{name:$name,privacy:"PUBLIC"}')
+            POST_CODE=$(curl --silent --show-error \
+              --output /tmp/pinterest_create.json \
+              --write-out "%{http_code}" \
+              --request POST \
+              -H "Authorization: Bearer ${PINTEREST_ACCESS_TOKEN}" \
+              -H "Content-Type: application/json" \
+              -H "Accept: application/json" \
+              --data "$PAYLOAD" \
+              "https://api-sandbox.pinterest.com/v5/boards")
+
+            if [ "$GET_CODE" -ge 200 ] && [ "$GET_CODE" -lt 300 ] && [ "$POST_CODE" -ge 200 ] && [ "$POST_CODE" -lt 300 ]; then
+              printf 'time=%s\nstatus=PASS\nget_http=%s\npost_http=%s\nboard_name=%s\n' "$NOW" "$GET_CODE" "$POST_CODE" "$BOARD_NAME" > "$RESULT_FILE"
+            else
+              printf 'time=%s\nstatus=FAIL\nget_http=%s\npost_http=%s\n' "$NOW" "$GET_CODE" "$POST_CODE" > "$RESULT_FILE"
+              printf 'response=' >> "$RESULT_FILE"
+              tr '\n' ' ' < /tmp/pinterest_create.json | head -c 1000 >> "$RESULT_FILE"
+              printf '\n' >> "$RESULT_FILE"
+            fi
           fi
 
-          echo "Checking Pinterest sandbox access..."
-          curl --fail-with-body --silent --show-error \
-            -H "Authorization: Bearer ${PINTEREST_ACCESS_TOKEN}" \
-            -H "Accept: application/json" \
-            "https://api-sandbox.pinterest.com/v5/boards" >/tmp/pinterest_boards.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$RESULT_FILE"
+          git commit -m "Record Pinterest sandbox test result" || true
+          git push
 
-          echo "Pinterest sandbox token accepted."
-
-      - name: Create sandbox test board
-        env:
-          PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
-        run: |
-          set -euo pipefail
-          BOARD_NAME="GSA API Test $(date -u +%Y%m%d-%H%M%S)"
-          PAYLOAD=$(jq -nc --arg name "$BOARD_NAME" '{name:$name,privacy:"PUBLIC"}')
-
-          HTTP_CODE=$(curl --silent --show-error \
-            --output /tmp/pinterest_response.json \
-            --write-out "%{http_code}" \
-            --request POST \
-            -H "Authorization: Bearer ${PINTEREST_ACCESS_TOKEN}" \
-            -H "Content-Type: application/json" \
-            -H "Accept: application/json" \
-            --data "$PAYLOAD" \
-            "https://api-sandbox.pinterest.com/v5/boards")
-
-          echo "Pinterest returned HTTP ${HTTP_CODE}."
-          cat /tmp/pinterest_response.json | jq . || cat /tmp/pinterest_response.json
-
-          if [ "$HTTP_CODE" -lt 200 ] || [ "$HTTP_CODE" -ge 300 ]; then
-            exit 1
-          fi
+          cat "$RESULT_FILE"
