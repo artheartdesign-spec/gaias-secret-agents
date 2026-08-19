@@ -1,78 +1,16 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GSA × Pinterest — Integration Demo</title>
-<meta name="robots" content="noindex,nofollow">
-<style>
-:root{--navy:#071f2d;--navy2:#0c3343;--gold:#d3ae59;--cream:#f5ecd5;--muted:#b9c8c8;--green:#6ec08f;--red:#d66b6b}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 10%,#155064 0,var(--navy2) 28%,var(--navy) 72%);color:var(--cream);font-family:Arial,sans-serif;padding:24px}.wrap{max-width:760px;margin:0 auto;padding:34px 0 60px}.card{border:1px solid rgba(211,174,89,.55);border-radius:20px;background:rgba(4,21,31,.82);padding:28px;box-shadow:0 22px 70px rgba(0,0,0,.35)}.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:700}.brand{font-family:Georgia,serif;font-size:clamp(30px,8vw,52px);font-weight:400;margin:10px 0 6px}.sub{color:#dce7e5;line-height:1.55;margin:0 0 26px}.step{display:flex;gap:14px;margin:18px 0}.num{flex:0 0 34px;height:34px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-weight:700}.step h3{margin:2px 0 5px;font-size:17px}.step p{margin:0;color:var(--muted);line-height:1.5}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;border-radius:12px;text-decoration:none;border:1px solid var(--gold);font-weight:700;font-size:16px;cursor:pointer}.primary{background:var(--gold);color:#102630}.secondary{background:transparent;color:var(--cream);margin-left:8px}.status{margin:24px 0 0;padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04)}.ok{border-color:rgba(110,192,143,.65)}.bad{border-color:rgba(214,107,107,.65)}.status strong{display:block;margin-bottom:6px}.small{font-size:13px;color:var(--muted);line-height:1.5}.code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;word-break:break-all;background:#051722;border-radius:9px;padding:10px;margin-top:10px;color:#dce7e5}.hidden{display:none}.divider{height:1px;background:rgba(211,174,89,.25);margin:26px 0}.privacy{font-size:12px;color:#9fb0b2;margin-top:20px}.privacy b{color:#dce7e5}
-@media(max-width:560px){.card{padding:22px}.secondary{margin:10px 0 0;width:100%}.primary{width:100%}}
-</style>
-</head>
-<body>
-<div class="wrap"><div class="card">
-<div class="eyebrow">Gaia’s Secret Agents · Pinterest API Review Demo</div>
-<h1 class="brand">Connect Pinterest</h1>
-<p class="sub">This page demonstrates the OAuth authorization flow used by Gaia’s Secret Agents before Pinterest API actions are performed.</p>
-
-<div id="startView">
-  <div class="step"><div class="num">1</div><div><h3>Authorize Pinterest</h3><p>You are sent to Pinterest’s official OAuth screen and asked to approve only the permissions needed to create and manage GSA boards and Pins.</p></div></div>
-  <div class="step"><div class="num">2</div><div><h3>Return securely</h3><p>Pinterest sends an authorization code back to this registered callback page. The client secret is never placed in this webpage.</p></div></div>
-  <div class="step"><div class="num">3</div><div><h3>Demonstrate the API action</h3><p>The review test then creates a Sandbox board and Pin through the Pinterest API.</p></div></div>
-  <div style="margin-top:26px"><button id="connect" class="btn primary">Connect Pinterest</button></div>
-</div>
-
-<div id="callbackView" class="hidden">
-  <div id="callbackStatus" class="status"></div>
-  <div class="divider"></div>
-  <div class="step"><div class="num">✓</div><div><h3>OAuth redirect received</h3><p>The authorization code has returned from Pinterest. No Pinterest password or session cookie is collected by this page.</p></div></div>
-  <a class="btn primary" href="https://github.com/artheartdesign-spec/gaias-secret-agents/actions/workflows/pinterest-sandbox-test.yml">Continue to API Test</a>
-  <a class="btn secondary" href="/pinterest-oauth-demo.html">Restart</a>
-</div>
-
-<p class="privacy"><b>Security:</b> This demo page does not contain the Pinterest app secret, access token, Pinterest password, or session cookies. OAuth authorization is handled by Pinterest.</p>
-</div></div>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GSA × Pinterest — Integration Demo</title><meta name="robots" content="noindex,nofollow"><style>
+:root{--navy:#071f2d;--navy2:#0c3343;--gold:#d3ae59;--cream:#f5ecd5;--muted:#b9c8c8;--green:#6ec08f;--red:#d66b6b}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 10%,#155064 0,var(--navy2) 28%,var(--navy) 72%);color:var(--cream);font-family:Arial,sans-serif;padding:24px}.wrap{max-width:760px;margin:auto;padding:34px 0 60px}.card{border:1px solid rgba(211,174,89,.55);border-radius:20px;background:rgba(4,21,31,.82);padding:28px;box-shadow:0 22px 70px rgba(0,0,0,.35)}.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:700}.brand{font-family:Georgia,serif;font-size:clamp(30px,8vw,52px);font-weight:400;margin:10px 0 6px}.sub{color:#dce7e5;line-height:1.55;margin:0 0 26px}.step{display:flex;gap:14px;margin:18px 0}.num{flex:0 0 34px;height:34px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-weight:700}.step h3{margin:2px 0 5px;font-size:17px}.step p{margin:0;color:var(--muted);line-height:1.5}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;border-radius:12px;text-decoration:none;border:1px solid var(--gold);font-weight:700;font-size:16px;cursor:pointer}.primary{background:var(--gold);color:#102630}.secondary{background:transparent;color:var(--cream);margin-left:8px}.status{margin:20px 0;padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04)}.ok{border-color:rgba(110,192,143,.65)}.bad{border-color:rgba(214,107,107,.65)}.status strong{display:block;margin-bottom:6px}.small{font-size:13px;color:var(--muted);line-height:1.5}.hidden{display:none}.divider{height:1px;background:rgba(211,174,89,.25);margin:26px 0}.privacy{font-size:12px;color:#9fb0b2;margin-top:20px}.privacy b{color:#dce7e5}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.metric{background:#051722;border-radius:10px;padding:12px}.metric b{display:block;color:var(--gold);font-size:12px;text-transform:uppercase;letter-spacing:.08em}.metric span{font:16px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace}@media(max-width:560px){.card{padding:22px}.secondary{margin:10px 0 0;width:100%}.primary{width:100%}.metrics{grid-template-columns:1fr}}
+</style></head><body><div class="wrap"><div class="card"><div class="eyebrow">Gaia’s Secret Agents · Pinterest API Review Demo</div><h1 class="brand">Connect Pinterest</h1><p class="sub">OAuth authorization plus a live Pinterest Sandbox board-and-Pin API test.</p>
+<div id="startView"><div class="step"><div class="num">1</div><div><h3>Authorize Pinterest</h3><p>The app sends the user to Pinterest’s official OAuth screen for the minimum board and Pin permissions required.</p></div></div><div class="step"><div class="num">2</div><div><h3>Return securely</h3><p>Pinterest returns an authorization code to this registered callback page. No password, session cookie, app secret or access token is exposed here.</p></div></div><div class="step"><div class="num">3</div><div><h3>Run the API action</h3><p>The test creates a Sandbox board and Pin through Pinterest API v5.</p></div></div><button id="connect" class="btn primary">Connect Pinterest</button></div>
+<div id="callbackView" class="hidden"><div id="callbackStatus" class="status"></div><a class="btn primary" href="https://github.com/artheartdesign-spec/gaias-secret-agents/actions/workflows/pinterest-sandbox-test.yml">Open API Test Runner</a><a class="btn secondary" href="/pinterest-oauth-demo.html">Restart OAuth</a></div>
+<div class="divider"></div><div class="eyebrow">Latest API test</div><div id="apiStatus" class="status"><strong>Checking latest Pinterest result…</strong></div><button id="refreshResult" class="btn secondary" style="margin-left:0">Refresh API Result</button><p class="privacy"><b>Security:</b> Sensitive Pinterest credentials are stored as encrypted GitHub repository secrets and are not present in this webpage.</p></div></div>
 <script>
-const APP_ID='1596852';
-const REDIRECT_URI='https://gaiassecretagents.com/pinterest-oauth-demo.html';
-const SCOPES='boards:read,boards:write,pins:read,pins:write,user_accounts:read';
-const params=new URLSearchParams(location.search);
-const code=params.get('code');
-const returnedState=params.get('state');
-const error=params.get('error');
-const errorDescription=params.get('error_description');
-const start=document.getElementById('startView');
-const callback=document.getElementById('callbackView');
-const status=document.getElementById('callbackStatus');
-
-function randomState(){
-  const a=new Uint8Array(24); crypto.getRandomValues(a);
-  return Array.from(a,b=>b.toString(16).padStart(2,'0')).join('');
-}
-
-document.getElementById('connect').addEventListener('click',()=>{
-  const state=randomState();
-  sessionStorage.setItem('pinterest_oauth_state',state);
-  const q=new URLSearchParams({client_id:APP_ID,redirect_uri:REDIRECT_URI,response_type:'code',scope:SCOPES,state});
-  location.href='https://www.pinterest.com/oauth/?'+q.toString();
-});
-
-if(code || error){
-  start.classList.add('hidden'); callback.classList.remove('hidden');
-  const expected=sessionStorage.getItem('pinterest_oauth_state');
-  if(error){
-    status.className='status bad';
-    status.innerHTML='<strong>Authorization was not completed.</strong><span class="small">'+(errorDescription||error)+'</span>';
-  }else if(expected && returnedState!==expected){
-    status.className='status bad';
-    status.innerHTML='<strong>State check failed.</strong><span class="small">The returned OAuth state did not match this browser session. Restart the demo.</span>';
-  }else{
-    status.className='status ok';
-    status.innerHTML='<strong>Pinterest authorization returned successfully.</strong><span class="small">Authorization code received. The code is intentionally not displayed on screen.</span>';
-  }
-}
-</script>
-</body>
-</html>
+const APP_ID='1596852', REDIRECT_URI='https://gaiassecretagents.com/pinterest-oauth-demo.html', SCOPES='boards:read,boards:write,pins:read,pins:write,user_accounts:read';
+const p=new URLSearchParams(location.search),code=p.get('code'),state=p.get('state'),error=p.get('error'),errorDescription=p.get('error_description');const start=document.getElementById('startView'),callback=document.getElementById('callbackView'),callbackStatus=document.getElementById('callbackStatus'),apiStatus=document.getElementById('apiStatus');
+function randomState(){const a=new Uint8Array(24);crypto.getRandomValues(a);return Array.from(a,b=>b.toString(16).padStart(2,'0')).join('')}
+document.getElementById('connect').onclick=()=>{const s=randomState();sessionStorage.setItem('pinterest_oauth_state',s);const q=new URLSearchParams({client_id:APP_ID,redirect_uri:REDIRECT_URI,response_type:'code',scope:SCOPES,state:s});location.href='https://www.pinterest.com/oauth/?'+q.toString()};
+if(code||error){start.classList.add('hidden');callback.classList.remove('hidden');const expected=sessionStorage.getItem('pinterest_oauth_state');if(error){callbackStatus.className='status bad';callbackStatus.innerHTML='<strong>Authorization was not completed.</strong><span class="small">'+(errorDescription||error)+'</span>'}else if(expected&&state!==expected){callbackStatus.className='status bad';callbackStatus.innerHTML='<strong>OAuth state check failed.</strong><span class="small">Restart the demo and authorize again.</span>'}else{callbackStatus.className='status ok';callbackStatus.innerHTML='<strong>Pinterest OAuth returned successfully.</strong><span class="small">Authorization code received. It is intentionally hidden from the screen.</span>'}}
+async function loadResult(){apiStatus.className='status';apiStatus.innerHTML='<strong>Checking latest Pinterest result…</strong>';try{const r=await fetch('/pinterest-demo-result.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error();const d=await r.json();apiStatus.className='status '+(d.status==='PASS'?'ok':'bad');apiStatus.innerHTML='<strong>'+((d.status==='PASS')?'Pinterest API test passed.':'Pinterest API test failed.')+'</strong><span class="small">'+(d.environment||'Pinterest Sandbox')+' · '+(d.time||'')+'</span>'+(d.status==='PASS'?'<div class="metrics"><div class="metric"><b>Board HTTP</b><span>'+d.board_http+'</span></div><div class="metric"><b>Pin HTTP</b><span>'+d.pin_http+'</span></div><div class="metric"><b>Board ID</b><span>'+d.board_id+'</span></div><div class="metric"><b>Pin ID</b><span>'+d.pin_id+'</span></div></div>':'')}catch(e){apiStatus.className='status bad';apiStatus.innerHTML='<strong>Result not available yet.</strong><span class="small">Run the API test, wait a few seconds, then refresh.</span>'}}
+document.getElementById('refreshResult').onclick=loadResult;loadResult();
+</script></body></html>
