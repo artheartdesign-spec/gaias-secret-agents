@@ -25,10 +25,12 @@ jobs:
           set +e
           mkdir -p .github
           RESULT_FILE=.github/pinterest-result.txt
+          PUBLIC_RESULT=pinterest-demo-result.json
           NOW=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 
           if [ -z "${PINTEREST_ACCESS_TOKEN:-}" ]; then
             printf 'time=%s\nstatus=FAIL\nreason=missing_secret\n' "$NOW" > "$RESULT_FILE"
+            jq -nc --arg time "$NOW" '{time:$time,status:"FAIL",reason:"missing_secret"}' > "$PUBLIC_RESULT"
           else
             BOARD_NAME="GSA API Test $(date -u +%Y%m%d-%H%M%S)"
             BOARD_PAYLOAD=$(jq -nc --arg name "$BOARD_NAME" '{name:$name,privacy:"PUBLIC"}')
@@ -87,23 +89,26 @@ jobs:
 
               if [ "$PIN_CODE" -ge 200 ] && [ "$PIN_CODE" -lt 300 ] && [ -n "$PIN_ID" ]; then
                 printf 'time=%s\nstatus=PASS\nboard_http=%s\nboard_id=%s\nboard_name=%s\npin_http=%s\npin_id=%s\n' "$NOW" "$BOARD_CODE" "$BOARD_ID" "$BOARD_NAME" "$PIN_CODE" "$PIN_ID" > "$RESULT_FILE"
+                jq -nc --arg time "$NOW" --arg board_http "$BOARD_CODE" --arg board_id "$BOARD_ID" --arg board_name "$BOARD_NAME" --arg pin_http "$PIN_CODE" --arg pin_id "$PIN_ID" '{time:$time,status:"PASS",environment:"Pinterest Sandbox",board_http:$board_http,board_id:$board_id,board_name:$board_name,pin_http:$pin_http,pin_id:$pin_id}' > "$PUBLIC_RESULT"
               else
                 printf 'time=%s\nstatus=FAIL\nboard_http=%s\nboard_id=%s\npin_http=%s\n' "$NOW" "$BOARD_CODE" "$BOARD_ID" "$PIN_CODE" > "$RESULT_FILE"
                 printf 'pin_response=' >> "$RESULT_FILE"
                 tr '\n' ' ' < /tmp/pinterest_pin.json | head -c 1000 >> "$RESULT_FILE"
                 printf '\n' >> "$RESULT_FILE"
+                jq -nc --arg time "$NOW" --arg board_http "$BOARD_CODE" --arg board_id "$BOARD_ID" --arg pin_http "$PIN_CODE" '{time:$time,status:"FAIL",environment:"Pinterest Sandbox",board_http:$board_http,board_id:$board_id,pin_http:$pin_http,reason:"pin_create_failed"}' > "$PUBLIC_RESULT"
               fi
             else
               printf 'time=%s\nstatus=FAIL\nboard_http=%s\nreason=board_create_failed\n' "$NOW" "$BOARD_CODE" > "$RESULT_FILE"
               printf 'board_response=' >> "$RESULT_FILE"
               tr '\n' ' ' < /tmp/pinterest_board.json | head -c 1000 >> "$RESULT_FILE"
               printf '\n' >> "$RESULT_FILE"
+              jq -nc --arg time "$NOW" --arg board_http "$BOARD_CODE" '{time:$time,status:"FAIL",environment:"Pinterest Sandbox",board_http:$board_http,reason:"board_create_failed"}' > "$PUBLIC_RESULT"
             fi
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "$RESULT_FILE"
+          git add "$RESULT_FILE" "$PUBLIC_RESULT"
           git commit -m "Record Pinterest sandbox Pin test result" || true
           git push
 
