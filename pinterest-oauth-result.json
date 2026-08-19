@@ -1,1 +1,1 @@
-{"status":"READY","environment":"Pinterest Sandbox","message":"Run the OAuth review workflow after Pinterest authorization."}
+{"time":"2026-08-19T17:46:41Z","status":"PASS","environment":"Pinterest Sandbox","oauth":"Authorization Code","token_http":"200","scopes":"boards:read boards:write pins:read pins:write user_accounts:read","board_http":"201","board_id":"992621642811024216","board_name":"GSA OAuth Review 20260819-174643","pin_http":"201","pin_id":"992621574143432615"}
