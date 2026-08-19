@@ -1,0 +1,114 @@
+name: Pinterest OAuth Review Demo
+
+on:
+  workflow_dispatch:
+    inputs:
+      auth_code:
+        description: 'Pinterest authorization code from the GSA OAuth callback'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  oauth-review-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Exchange OAuth code and create Sandbox Pin
+        env:
+          AUTH_CODE: ${{ inputs.auth_code }}
+          PINTEREST_APP_SECRET: ${{ secrets.PINTEREST_APP_SECRET }}
+        run: |
+          set +e
+          NOW=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          RESULT=pinterest-oauth-result.json
+          APP_ID='1596852'
+          REDIRECT_URI='https://gaiassecretagents.com/pinterest-oauth-demo.html'
+
+          echo "::add-mask::$AUTH_CODE"
+
+          if [ -z "${PINTEREST_APP_SECRET:-}" ]; then
+            jq -nc --arg time "$NOW" '{time:$time,status:"FAIL",stage:"oauth_token",reason:"missing_app_secret"}' > "$RESULT"
+          else
+            BASIC=$(printf '%s:%s' "$APP_ID" "$PINTEREST_APP_SECRET" | base64 -w 0)
+
+            TOKEN_CODE=$(curl --silent --show-error \
+              --output /tmp/pinterest_token.json \
+              --write-out '%{http_code}' \
+              --request POST \
+              -H "Authorization: Basic $BASIC" \
+              -H 'Content-Type: application/x-www-form-urlencoded' \
+              -H 'Accept: application/json' \
+              --data-urlencode 'grant_type=authorization_code' \
+              --data-urlencode "code=$AUTH_CODE" \
+              --data-urlencode "redirect_uri=$REDIRECT_URI" \
+              'https://api-sandbox.pinterest.com/v5/oauth/token')
+
+            ACCESS_TOKEN=$(jq -r '.access_token // empty' /tmp/pinterest_token.json 2>/dev/null)
+            TOKEN_SCOPES=$(jq -r '.scope // empty' /tmp/pinterest_token.json 2>/dev/null)
+
+            if [ -n "$ACCESS_TOKEN" ]; then echo "::add-mask::$ACCESS_TOKEN"; fi
+
+            if [ "$TOKEN_CODE" -ge 200 ] && [ "$TOKEN_CODE" -lt 300 ] && [ -n "$ACCESS_TOKEN" ]; then
+              BOARD_NAME="GSA OAuth Review $(date -u +%Y%m%d-%H%M%S)"
+              BOARD_PAYLOAD=$(jq -nc --arg name "$BOARD_NAME" '{name:$name,privacy:"PUBLIC"}')
+              BOARD_CODE=$(curl --silent --show-error \
+                --output /tmp/pinterest_board.json \
+                --write-out '%{http_code}' \
+                --request POST \
+                -H "Authorization: Bearer $ACCESS_TOKEN" \
+                -H 'Content-Type: application/json' \
+                -H 'Accept: application/json' \
+                --data "$BOARD_PAYLOAD" \
+                'https://api-sandbox.pinterest.com/v5/boards')
+              BOARD_ID=$(jq -r '.id // empty' /tmp/pinterest_board.json 2>/dev/null)
+
+              if [ -n "$BOARD_ID" ] && [ "$BOARD_CODE" -ge 200 ] && [ "$BOARD_CODE" -lt 300 ]; then
+                python3 - <<'PY'
+          import struct, zlib, binascii
+          w,h=1000,1500
+          raw=bytearray()
+          for y in range(h):
+              t=y/(h-1); r=int(7+10*t); g=int(31+28*t); b=int(45+35*t)
+              raw.append(0); raw.extend(bytes((r,g,b))*w)
+          def chunk(k,d): return struct.pack('>I',len(d))+k+d+struct.pack('>I',binascii.crc32(k+d)&0xffffffff)
+          png=b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('>IIBBBBB',w,h,8,2,0,0,0))+chunk(b'IDAT',zlib.compress(bytes(raw),9))+chunk(b'IEND',b'')
+          open('/tmp/gsa-oauth-review.png','wb').write(png)
+          PY
+                IMAGE_B64=$(base64 -w 0 /tmp/gsa-oauth-review.png)
+                PIN_PAYLOAD=$(jq -nc --arg board_id "$BOARD_ID" --arg image "$IMAGE_B64" '{title:"Gaia’s Secret Agents — OAuth Review Demo",description:"Pinterest OAuth and API integration review demo.",link:"https://gaiassecretagents.com",board_id:$board_id,media_source:{source_type:"image_base64",content_type:"image/png",data:$image,is_standard:true}}')
+                PIN_CODE=$(curl --silent --show-error \
+                  --output /tmp/pinterest_pin.json \
+                  --write-out '%{http_code}' \
+                  --request POST \
+                  -H "Authorization: Bearer $ACCESS_TOKEN" \
+                  -H 'Content-Type: application/json' \
+                  -H 'Accept: application/json' \
+                  --data "$PIN_PAYLOAD" \
+                  'https://api-sandbox.pinterest.com/v5/pins')
+                PIN_ID=$(jq -r '.id // empty' /tmp/pinterest_pin.json 2>/dev/null)
+
+                if [ "$PIN_CODE" -ge 200 ] && [ "$PIN_CODE" -lt 300 ] && [ -n "$PIN_ID" ]; then
+                  jq -nc --arg time "$NOW" --arg scopes "$TOKEN_SCOPES" --arg token_http "$TOKEN_CODE" --arg board_http "$BOARD_CODE" --arg board_id "$BOARD_ID" --arg board_name "$BOARD_NAME" --arg pin_http "$PIN_CODE" --arg pin_id "$PIN_ID" '{time:$time,status:"PASS",environment:"Pinterest Sandbox",oauth:"Authorization Code",token_http:$token_http,scopes:$scopes,board_http:$board_http,board_id:$board_id,board_name:$board_name,pin_http:$pin_http,pin_id:$pin_id}' > "$RESULT"
+                else
+                  jq -nc --arg time "$NOW" --arg token_http "$TOKEN_CODE" --arg board_http "$BOARD_CODE" --arg pin_http "$PIN_CODE" '{time:$time,status:"FAIL",stage:"create_pin",token_http:$token_http,board_http:$board_http,pin_http:$pin_http}' > "$RESULT"
+                fi
+              else
+                jq -nc --arg time "$NOW" --arg token_http "$TOKEN_CODE" --arg board_http "$BOARD_CODE" '{time:$time,status:"FAIL",stage:"create_board",token_http:$token_http,board_http:$board_http}' > "$RESULT"
+              fi
+            else
+              MESSAGE=$(jq -r '.message // .error_description // .error // "OAuth token exchange failed"' /tmp/pinterest_token.json 2>/dev/null | head -c 300)
+              jq -nc --arg time "$NOW" --arg token_http "$TOKEN_CODE" --arg message "$MESSAGE" '{time:$time,status:"FAIL",stage:"oauth_token",token_http:$token_http,message:$message}' > "$RESULT"
+            fi
+          fi
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$RESULT"
+          git commit -m 'Record Pinterest OAuth review result' || true
+          git push
+          cat "$RESULT"
