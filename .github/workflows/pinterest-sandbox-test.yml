@@ -18,7 +18,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Test Pinterest sandbox and record result
+      - name: Create Pinterest sandbox board and test Pin
         env:
           PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
         run: |
@@ -30,31 +30,73 @@ jobs:
           if [ -z "${PINTEREST_ACCESS_TOKEN:-}" ]; then
             printf 'time=%s\nstatus=FAIL\nreason=missing_secret\n' "$NOW" > "$RESULT_FILE"
           else
-            GET_CODE=$(curl --silent --show-error \
-              --output /tmp/pinterest_boards.json \
-              --write-out "%{http_code}" \
-              -H "Authorization: Bearer ${PINTEREST_ACCESS_TOKEN}" \
-              -H "Accept: application/json" \
-              "https://api-sandbox.pinterest.com/v5/boards")
-
             BOARD_NAME="GSA API Test $(date -u +%Y%m%d-%H%M%S)"
-            PAYLOAD=$(jq -nc --arg name "$BOARD_NAME" '{name:$name,privacy:"PUBLIC"}')
-            POST_CODE=$(curl --silent --show-error \
-              --output /tmp/pinterest_create.json \
+            BOARD_PAYLOAD=$(jq -nc --arg name "$BOARD_NAME" '{name:$name,privacy:"PUBLIC"}')
+
+            BOARD_CODE=$(curl --silent --show-error \
+              --output /tmp/pinterest_board.json \
               --write-out "%{http_code}" \
               --request POST \
               -H "Authorization: Bearer ${PINTEREST_ACCESS_TOKEN}" \
               -H "Content-Type: application/json" \
               -H "Accept: application/json" \
-              --data "$PAYLOAD" \
+              --data "$BOARD_PAYLOAD" \
               "https://api-sandbox.pinterest.com/v5/boards")
 
-            if [ "$GET_CODE" -ge 200 ] && [ "$GET_CODE" -lt 300 ] && [ "$POST_CODE" -ge 200 ] && [ "$POST_CODE" -lt 300 ]; then
-              printf 'time=%s\nstatus=PASS\nget_http=%s\npost_http=%s\nboard_name=%s\n' "$NOW" "$GET_CODE" "$POST_CODE" "$BOARD_NAME" > "$RESULT_FILE"
+            BOARD_ID=$(jq -r '.id // empty' /tmp/pinterest_board.json 2>/dev/null)
+
+            python3 - <<'PY'
+          import struct, zlib, binascii
+          w, h = 1000, 1500
+          raw = bytearray()
+          for y in range(h):
+              t = y / (h - 1)
+              r = int(7 + 10*t)
+              g = int(31 + 28*t)
+              b = int(45 + 35*t)
+              raw.append(0)
+              raw.extend(bytes((r, g, b)) * w)
+          def chunk(kind, data):
+              return struct.pack('>I', len(data)) + kind + data + struct.pack('>I', binascii.crc32(kind + data) & 0xffffffff)
+          png = b'\x89PNG\r\n\x1a\n'
+          png += chunk(b'IHDR', struct.pack('>IIBBBBB', w, h, 8, 2, 0, 0, 0))
+          png += chunk(b'IDAT', zlib.compress(bytes(raw), 9))
+          png += chunk(b'IEND', b'')
+          open('/tmp/gsa-pinterest-test.png', 'wb').write(png)
+          PY
+
+            IMAGE_B64=$(base64 -w 0 /tmp/gsa-pinterest-test.png)
+
+            if [ -n "$BOARD_ID" ] && [ "$BOARD_CODE" -ge 200 ] && [ "$BOARD_CODE" -lt 300 ]; then
+              PIN_PAYLOAD=$(jq -nc \
+                --arg board_id "$BOARD_ID" \
+                --arg image "$IMAGE_B64" \
+                '{title:"Gaia’s Secret Agents — API Test",description:"Pinterest Sandbox API test for Gaia’s Secret Agents.",link:"https://gaiassecretagents.com",board_id:$board_id,media_source:{source_type:"image_base64",content_type:"image/png",data:$image,is_standard:true}}')
+
+              PIN_CODE=$(curl --silent --show-error \
+                --output /tmp/pinterest_pin.json \
+                --write-out "%{http_code}" \
+                --request POST \
+                -H "Authorization: Bearer ${PINTEREST_ACCESS_TOKEN}" \
+                -H "Content-Type: application/json" \
+                -H "Accept: application/json" \
+                --data "$PIN_PAYLOAD" \
+                "https://api-sandbox.pinterest.com/v5/pins")
+
+              PIN_ID=$(jq -r '.id // empty' /tmp/pinterest_pin.json 2>/dev/null)
+
+              if [ "$PIN_CODE" -ge 200 ] && [ "$PIN_CODE" -lt 300 ] && [ -n "$PIN_ID" ]; then
+                printf 'time=%s\nstatus=PASS\nboard_http=%s\nboard_id=%s\nboard_name=%s\npin_http=%s\npin_id=%s\n' "$NOW" "$BOARD_CODE" "$BOARD_ID" "$BOARD_NAME" "$PIN_CODE" "$PIN_ID" > "$RESULT_FILE"
+              else
+                printf 'time=%s\nstatus=FAIL\nboard_http=%s\nboard_id=%s\npin_http=%s\n' "$NOW" "$BOARD_CODE" "$BOARD_ID" "$PIN_CODE" > "$RESULT_FILE"
+                printf 'pin_response=' >> "$RESULT_FILE"
+                tr '\n' ' ' < /tmp/pinterest_pin.json | head -c 1000 >> "$RESULT_FILE"
+                printf '\n' >> "$RESULT_FILE"
+              fi
             else
-              printf 'time=%s\nstatus=FAIL\nget_http=%s\npost_http=%s\n' "$NOW" "$GET_CODE" "$POST_CODE" > "$RESULT_FILE"
-              printf 'response=' >> "$RESULT_FILE"
-              tr '\n' ' ' < /tmp/pinterest_create.json | head -c 1000 >> "$RESULT_FILE"
+              printf 'time=%s\nstatus=FAIL\nboard_http=%s\nreason=board_create_failed\n' "$NOW" "$BOARD_CODE" > "$RESULT_FILE"
+              printf 'board_response=' >> "$RESULT_FILE"
+              tr '\n' ' ' < /tmp/pinterest_board.json | head -c 1000 >> "$RESULT_FILE"
               printf '\n' >> "$RESULT_FILE"
             fi
           fi
@@ -62,7 +104,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add "$RESULT_FILE"
-          git commit -m "Record Pinterest sandbox test result" || true
+          git commit -m "Record Pinterest sandbox Pin test result" || true
           git push
 
           cat "$RESULT_FILE"
