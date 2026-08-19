@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GSA × Pinterest — Integration Demo</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{--navy:#071f2d;--navy2:#0c3343;--gold:#d3ae59;--cream:#f5ecd5;--muted:#b9c8c8;--green:#6ec08f;--red:#d66b6b}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 10%,#155064 0,var(--navy2) 28%,var(--navy) 72%);color:var(--cream);font-family:Arial,sans-serif;padding:24px}.wrap{max-width:760px;margin:0 auto;padding:34px 0 60px}.card{border:1px solid rgba(211,174,89,.55);border-radius:20px;background:rgba(4,21,31,.82);padding:28px;box-shadow:0 22px 70px rgba(0,0,0,.35)}.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:700}.brand{font-family:Georgia,serif;font-size:clamp(30px,8vw,52px);font-weight:400;margin:10px 0 6px}.sub{color:#dce7e5;line-height:1.55;margin:0 0 26px}.step{display:flex;gap:14px;margin:18px 0}.num{flex:0 0 34px;height:34px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-weight:700}.step h3{margin:2px 0 5px;font-size:17px}.step p{margin:0;color:var(--muted);line-height:1.5}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;border-radius:12px;text-decoration:none;border:1px solid var(--gold);font-weight:700;font-size:16px;cursor:pointer}.primary{background:var(--gold);color:#102630}.secondary{background:transparent;color:var(--cream);margin-left:8px}.status{margin:24px 0 0;padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04)}.ok{border-color:rgba(110,192,143,.65)}.bad{border-color:rgba(214,107,107,.65)}.status strong{display:block;margin-bottom:6px}.small{font-size:13px;color:var(--muted);line-height:1.5}.code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;word-break:break-all;background:#051722;border-radius:9px;padding:10px;margin-top:10px;color:#dce7e5}.hidden{display:none}.divider{height:1px;background:rgba(211,174,89,.25);margin:26px 0}.privacy{font-size:12px;color:#9fb0b2;margin-top:20px}.privacy b{color:#dce7e5}
+@media(max-width:560px){.card{padding:22px}.secondary{margin:10px 0 0;width:100%}.primary{width:100%}}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="card">
+<div class="eyebrow">Gaia’s Secret Agents · Pinterest API Review Demo</div>
+<h1 class="brand">Connect Pinterest</h1>
+<p class="sub">This page demonstrates the OAuth authorization flow used by Gaia’s Secret Agents before Pinterest API actions are performed.</p>
+
+<div id="startView">
+  <div class="step"><div class="num">1</div><div><h3>Authorize Pinterest</h3><p>You are sent to Pinterest’s official OAuth screen and asked to approve only the permissions needed to create and manage GSA boards and Pins.</p></div></div>
+  <div class="step"><div class="num">2</div><div><h3>Return securely</h3><p>Pinterest sends an authorization code back to this registered callback page. The client secret is never placed in this webpage.</p></div></div>
+  <div class="step"><div class="num">3</div><div><h3>Demonstrate the API action</h3><p>The review test then creates a Sandbox board and Pin through the Pinterest API.</p></div></div>
+  <div style="margin-top:26px"><button id="connect" class="btn primary">Connect Pinterest</button></div>
+</div>
+
+<div id="callbackView" class="hidden">
+  <div id="callbackStatus" class="status"></div>
+  <div class="divider"></div>
+  <div class="step"><div class="num">✓</div><div><h3>OAuth redirect received</h3><p>The authorization code has returned from Pinterest. No Pinterest password or session cookie is collected by this page.</p></div></div>
+  <a class="btn primary" href="https://github.com/artheartdesign-spec/gaias-secret-agents/actions/workflows/pinterest-sandbox-test.yml">Continue to API Test</a>
+  <a class="btn secondary" href="/pinterest-oauth-demo.html">Restart</a>
+</div>
+
+<p class="privacy"><b>Security:</b> This demo page does not contain the Pinterest app secret, access token, Pinterest password, or session cookies. OAuth authorization is handled by Pinterest.</p>
+</div></div>
+<script>
+const APP_ID='1596852';
+const REDIRECT_URI='https://gaiassecretagents.com/pinterest-oauth-demo.html';
+const SCOPES='boards:read,boards:write,pins:read,pins:write,user_accounts:read';
+const params=new URLSearchParams(location.search);
+const code=params.get('code');
+const returnedState=params.get('state');
+const error=params.get('error');
+const errorDescription=params.get('error_description');
+const start=document.getElementById('startView');
+const callback=document.getElementById('callbackView');
+const status=document.getElementById('callbackStatus');
+
+function randomState(){
+  const a=new Uint8Array(24); crypto.getRandomValues(a);
+  return Array.from(a,b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+document.getElementById('connect').addEventListener('click',()=>{
+  const state=randomState();
+  sessionStorage.setItem('pinterest_oauth_state',state);
+  const q=new URLSearchParams({client_id:APP_ID,redirect_uri:REDIRECT_URI,response_type:'code',scope:SCOPES,state});
+  location.href='https://www.pinterest.com/oauth/?'+q.toString();
+});
+
+if(code || error){
+  start.classList.add('hidden'); callback.classList.remove('hidden');
+  const expected=sessionStorage.getItem('pinterest_oauth_state');
+  if(error){
+    status.className='status bad';
+    status.innerHTML='<strong>Authorization was not completed.</strong><span class="small">'+(errorDescription||error)+'</span>';
+  }else if(expected && returnedState!==expected){
+    status.className='status bad';
+    status.innerHTML='<strong>State check failed.</strong><span class="small">The returned OAuth state did not match this browser session. Restart the demo.</span>';
+  }else{
+    status.className='status ok';
+    status.innerHTML='<strong>Pinterest authorization returned successfully.</strong><span class="small">Authorization code received. The code is intentionally not displayed on screen.</span>';
+  }
+}
+</script>
+</body>
+</html>
