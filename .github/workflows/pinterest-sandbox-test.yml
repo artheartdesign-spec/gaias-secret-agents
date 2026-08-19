@@ -1,0 +1,51 @@
+name: Pinterest Sandbox Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  pinterest-sandbox-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Pinterest sandbox connection
+        env:
+          PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${PINTEREST_ACCESS_TOKEN:-}" ]; then
+            echo "Missing repository secret: PINTEREST_ACCESS_TOKEN"
+            exit 1
+          fi
+
+          echo "Checking Pinterest sandbox access..."
+          curl --fail-with-body --silent --show-error \
+            -H "Authorization: Bearer ${PINTEREST_ACCESS_TOKEN}" \
+            -H "Accept: application/json" \
+            "https://api-sandbox.pinterest.com/v5/boards" >/tmp/pinterest_boards.json
+
+          echo "Pinterest sandbox token accepted."
+
+      - name: Create sandbox test board
+        env:
+          PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
+        run: |
+          set -euo pipefail
+          BOARD_NAME="GSA API Test $(date -u +%Y%m%d-%H%M%S)"
+          PAYLOAD=$(jq -nc --arg name "$BOARD_NAME" '{name:$name,privacy:"PUBLIC"}')
+
+          HTTP_CODE=$(curl --silent --show-error \
+            --output /tmp/pinterest_response.json \
+            --write-out "%{http_code}" \
+            --request POST \
+            -H "Authorization: Bearer ${PINTEREST_ACCESS_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -H "Accept: application/json" \
+            --data "$PAYLOAD" \
+            "https://api-sandbox.pinterest.com/v5/boards")
+
+          echo "Pinterest returned HTTP ${HTTP_CODE}."
+          cat /tmp/pinterest_response.json | jq . || cat /tmp/pinterest_response.json
+
+          if [ "$HTTP_CODE" -lt 200 ] || [ "$HTTP_CODE" -ge 300 ]; then
+            exit 1
+          fi
