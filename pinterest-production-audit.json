@@ -1,0 +1,1 @@
+{"time":"2026-08-22T22:59:54Z","status":"FAIL","stage":"token","environment":"Pinterest Production","auth":"Client Credentials","token_http":"401","message":"Two-factor authentication required."}
