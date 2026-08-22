@@ -54,8 +54,8 @@ html,body{margin:0;min-height:100%;background:#071f2d;color:#ead7a5;font-family:
     );
 
     patch(
-      /<section class="section ocean" id="mission01">/,
-      '<section class="section ocean" id="mission01" style="display:none">',
+      /<section class="section ocean" id="mission01">[\s\S]*?<\/section>/,
+      '',
       'old Mission 01 section'
     );
 
@@ -65,11 +65,13 @@ html,body{margin:0;min-height:100%;background:#071f2d;color:#ead7a5;font-family:
     html=html.replaceAll('Get the Free Recruit Kit','Get the Starter Kit');
     html=html.replaceAll('Free Digital Recruit Kit','The Starter Kit');
 
-    const obsolete=['Mission 01 Digital Pack','Monthly Digital Mission Club','Physical Mission Pack','Buy Mission 01','Join Digital','Join Waitlist'];
+    html=html.replace(/<title>[\s\S]*?<\/title>/i,'<title>Gaia’s Secret Agents Starter Kit | Printable Eco Adventure for Kids</title>');
+    html=html.replace('</head>','<meta name="description" content="A premium printable, story-led environmental adventure for children aged 6–11. Start with the Gaia’s Secret Agents Starter Kit for A$19."><style>[href="#mission01"]{display:none!important}</style></head>');
+
+    const obsolete=['Mission 01 Digital Pack','Monthly Digital Mission Club','Physical Mission Pack','Buy Mission 01','Join Digital','Join Waitlist','Get the Free Recruit Kit','Free Digital Recruit Kit'];
     const left=obsolete.filter(x=>html.includes(x));
     if(left.length) throw new Error('Old product offers remain: '+left.join(', '));
 
-    html=html.replace('</head>','<style>[href="#mission01"]{display:none!important}</style></head>');
     document.open();
     document.write(html);
     document.close();
