@@ -1,0 +1,101 @@
+name: Pinterest Production Audit
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/pinterest-production-audit.yml'
+      - '.pinterest/audit-trigger.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Audit real Pinterest Pins linking to ChatGPT/OpenAI
+        env:
+          PINTEREST_APP_SECRET: ${{ secrets.PINTEREST_APP_SECRET }}
+        run: |
+          set +e
+          NOW=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          RESULT=pinterest-production-audit.json
+          APP_ID='1596852'
+          SCOPES='boards:read,boards:write,pins:read,pins:write'
+
+          if [ -z "${PINTEREST_APP_SECRET:-}" ]; then
+            jq -nc --arg time "$NOW" '{time:$time,status:"FAIL",stage:"token",reason:"missing_app_secret"}' > "$RESULT"
+          else
+            BASIC=$(printf '%s:%s' "$APP_ID" "$PINTEREST_APP_SECRET" | base64 -w 0)
+            TOKEN_CODE=$(curl --silent --show-error \
+              --output /tmp/pinterest_prod_token.json \
+              --write-out '%{http_code}' \
+              --request POST \
+              -H "Authorization: Basic $BASIC" \
+              -H 'Content-Type: application/x-www-form-urlencoded' \
+              -H 'Accept: application/json' \
+              --data-urlencode 'grant_type=client_credentials' \
+              --data-urlencode "scope=$SCOPES" \
+              'https://api.pinterest.com/v5/oauth/token')
+
+            ACCESS_TOKEN=$(jq -r '.access_token // empty' /tmp/pinterest_prod_token.json 2>/dev/null)
+            TOKEN_SCOPES=$(jq -r '.scope // empty' /tmp/pinterest_prod_token.json 2>/dev/null)
+            if [ -n "$ACCESS_TOKEN" ]; then echo "::add-mask::$ACCESS_TOKEN"; fi
+
+            if [ "$TOKEN_CODE" -ge 200 ] && [ "$TOKEN_CODE" -lt 300 ] && [ -n "$ACCESS_TOKEN" ]; then
+              : > /tmp/matches.jsonl
+              BOOKMARK=''
+              PAGE=0
+              LIST_CODE=200
+
+              while [ $PAGE -lt 20 ]; do
+                PAGE=$((PAGE+1))
+                URL='https://api.pinterest.com/v5/pins'
+                CURL_ARGS=(--silent --show-error --output /tmp/pins_page.json --write-out '%{http_code}' --get "$URL" \
+                  -H "Authorization: Bearer $ACCESS_TOKEN" \
+                  -H 'Content-Type: application/json' \
+                  -H 'Accept: application/json' \
+                  --data-urlencode 'page_size=250' \
+                  --data-urlencode 'domains=chatgpt.com,chat.openai.com,openai.com')
+                if [ -n "$BOOKMARK" ]; then
+                  CURL_ARGS+=(--data-urlencode "bookmark=$BOOKMARK")
+                fi
+                LIST_CODE=$(curl "${CURL_ARGS[@]}")
+                if [ "$LIST_CODE" -lt 200 ] || [ "$LIST_CODE" -ge 300 ]; then break; fi
+
+                jq -c '.items[]? | {id,title,link,board_id,created_at}' /tmp/pins_page.json >> /tmp/matches.jsonl
+                BOOKMARK=$(jq -r '.bookmark // empty' /tmp/pins_page.json)
+                [ -z "$BOOKMARK" ] && break
+              done
+
+              if [ "$LIST_CODE" -ge 200 ] && [ "$LIST_CODE" -lt 300 ]; then
+                jq -s '.' /tmp/matches.jsonl > /tmp/matches.json
+                MATCH_COUNT=$(jq 'length' /tmp/matches.json)
+                jq -nc \
+                  --arg time "$NOW" \
+                  --arg token_http "$TOKEN_CODE" \
+                  --arg list_http "$LIST_CODE" \
+                  --arg scopes "$TOKEN_SCOPES" \
+                  --argjson count "$MATCH_COUNT" \
+                  --slurpfile matches /tmp/matches.json \
+                  '{time:$time,status:"PASS",environment:"Pinterest Production",auth:"Client Credentials",token_http:$token_http,list_http:$list_http,scopes:$scopes,match_count:$count,matched_pins:$matches[0]}' > "$RESULT"
+              else
+                MESSAGE=$(jq -r '.message // .error_description // .error // "List Pins failed"' /tmp/pins_page.json 2>/dev/null | head -c 300)
+                jq -nc --arg time "$NOW" --arg token_http "$TOKEN_CODE" --arg list_http "$LIST_CODE" --arg scopes "$TOKEN_SCOPES" --arg message "$MESSAGE" '{time:$time,status:"FAIL",stage:"list_pins",environment:"Pinterest Production",auth:"Client Credentials",token_http:$token_http,list_http:$list_http,scopes:$scopes,message:$message}' > "$RESULT"
+              fi
+            else
+              MESSAGE=$(jq -r '.message // .error_description // .error // "Production token request failed"' /tmp/pinterest_prod_token.json 2>/dev/null | head -c 300)
+              jq -nc --arg time "$NOW" --arg token_http "$TOKEN_CODE" --arg message "$MESSAGE" '{time:$time,status:"FAIL",stage:"token",environment:"Pinterest Production",auth:"Client Credentials",token_http:$token_http,message:$message}' > "$RESULT"
+            fi
+          fi
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$RESULT"
+          git commit -m 'Record Pinterest production audit' || true
+          git push
+          cat "$RESULT"
