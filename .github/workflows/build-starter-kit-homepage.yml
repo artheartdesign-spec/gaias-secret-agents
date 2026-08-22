@@ -81,6 +81,7 @@ jobs:
           s = s.replace('<a href="#recruit-kit">Free Recruit Kit</a>', '<a href="#recruit-kit">Starter Kit</a>')
           s = s.replace('Get the Free Recruit Kit', 'Get the Starter Kit')
           s = s.replace('Free Digital Recruit Kit', 'The Starter Kit')
+          s = s.replace('Begin Mission 01', '')
 
           sub_once(
               r'<title>[\s\S]*?</title>',
@@ -90,15 +91,30 @@ jobs:
           )
 
           description = '<meta name="description" content="A premium printable, story-led environmental adventure for children aged 6–11. Start with the Gaia’s Secret Agents Starter Kit for A$19.">'
-          if re.search(r'<meta\s+name=["\']description["\'][^>]*>', s, flags=re.I):
-              s = re.sub(r'<meta\s+name=["\']description["\'][^>]*>', description, s, count=1, flags=re.I)
+          description_pattern = r'<meta\b(?=[^>]*\bname=["\']description["\'])[^>]*>'
+          if re.search(description_pattern, s, flags=re.I):
+              s = re.sub(description_pattern, description, s, count=1, flags=re.I)
           else:
               s = s.replace('</head>', description + '\n</head>', 1)
+
+          og_title = '<meta property="og:title" content="Gaia’s Secret Agents Starter Kit | Printable Eco Adventure for Kids">'
+          og_title_pattern = r'<meta\b(?=[^>]*\bproperty=["\']og:title["\'])[^>]*>'
+          if re.search(og_title_pattern, s, flags=re.I):
+              s = re.sub(og_title_pattern, og_title, s, count=1, flags=re.I)
+          else:
+              s = s.replace('</head>', og_title + '\n</head>', 1)
+
+          og_description = '<meta property="og:description" content="A premium printable, story-led environmental adventure for children aged 6–11. Digital download, print at home, A$19.">'
+          og_description_pattern = r'<meta\b(?=[^>]*\bproperty=["\']og:description["\'])[^>]*>'
+          if re.search(og_description_pattern, s, flags=re.I):
+              s = re.sub(og_description_pattern, og_description, s, count=1, flags=re.I)
+          else:
+              s = s.replace('</head>', og_description + '\n</head>', 1)
 
           obsolete = [
               'Mission 01 Digital Pack', 'Monthly Digital Mission Club', 'Physical Mission Pack',
               'Buy Mission 01', 'Join Digital', 'Join Waitlist',
-              'Get the Free Recruit Kit', 'Free Digital Recruit Kit'
+              'Get the Free Recruit Kit', 'Free Digital Recruit Kit', 'Begin Mission 01'
           ]
           leftovers = [term for term in obsolete if term in s]
           if leftovers:
