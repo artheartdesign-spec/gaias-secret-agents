@@ -1,4 +1,4 @@
-name: Build static Starter Kit homepage
+name: Maintain GSA homepage sales navigation
 
 on:
   push:
@@ -10,90 +10,32 @@ permissions:
   contents: write
 
 jobs:
-  build-homepage:
+  patch-homepage:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build paid Starter Kit homepage from preserved site
+      - name: Keep sales links and Free Activities visible
         run: |
           python - <<'PY'
           from pathlib import Path
           import re
 
-          source = Path("archive/index-pre-starter-kit.html")
-          target = Path("index.html")
-          s = source.read_text(encoding="utf-8")
+          p = Path("index.html")
+          s = p.read_text(encoding="utf-8")
+          original = s
 
-          gumroad = "https://gaiassecretagents.gumroad.com/l/gsa-starter-kit"
+          current_gumroad = "https://gaiassecretagents.gumroad.com/l/gsa-starter-kit"
+          old_gumroad = "https://artheartdesign.gumroad.com/l/gsa-starter-kit"
+          s = s.replace(old_gumroad, current_gumroad)
 
-          def sub_once(pattern, replacement, label, flags=0):
-              global s
-              s2, n = re.subn(pattern, replacement, s, count=1, flags=flags)
-              if n != 1:
-                  raise SystemExit(f"{label}: expected exactly 1 match, found {n}")
-              s = s2
-
-          sub_once(
-              r'<p class="lead">Gaia’s Secret Agents is a mission-based environmental subscription movement.*?</p>',
-              '<p class="lead">Gaia’s Secret Agents turns environmental learning into a story-led, screen-free adventure for children aged 6–11.</p>',
-              'hero introduction',
-              re.S,
-          )
-
-          sub_once(
-              r'<div class="button-row">\s*<a class="btn primary" href="#join">Join the Mission</a>\s*<a class="btn secondary" href="#recruit-kit">Get the Free Recruit Kit</a>\s*</div>',
-              f'<div class="button-row"><a class="btn primary" href="{gumroad}">Get the Starter Kit — A$19</a><a class="btn secondary" href="#shop">See What’s Inside</a></div>',
-              'hero buttons',
-              re.S,
-          )
-
-          sub_once(
-              r'<section class="section ocean" id="recruit-kit">[\s\S]*?</section>',
-              f'<section class="section ocean" id="recruit-kit"><div class="section-inner narrow center"><div><p class="eyebrow">The Starter Kit</p><h2>Your first briefing starts here.</h2><p class="large-line">Everything a new agent needs to step into the world of Gaia’s Secret Agents.</p><p>A premium printable adventure built around story, environmental action, creativity, and family connection.</p><div class="button-row"><a class="btn primary" href="{gumroad}">Get the Starter Kit — A$19</a></div></div></div></section>',
-              'Starter Kit introduction',
-              re.S,
-          )
-
-          sub_once(
-              r'<section class="section ocean" id="shop">[\s\S]*?</section>',
-              f'<section class="section ocean" id="shop"><div class="section-inner"><div class="center narrow"><p class="eyebrow">Starter Kit</p><h2>Begin the first mission.</h2><p class="large-line">One beautifully designed printable adventure. One clear starting point for every new agent.</p></div><div class="shop-grid" style="max-width:720px;margin:32px auto 0;grid-template-columns:1fr"><div class="shop-card"><span class="seal">Recruitment File — Digital Download</span><h3>Gaia’s Secret Agents Starter Kit</h3><p>A premium printable recruitment adventure for children aged 6–11, combining story, hands-on environmental discovery, creativity, and family connection.</p><p>Print it at home, assemble the agent materials, and begin.</p><div class="price">A$19</div><a class="btn primary" href="{gumroad}">Get the Starter Kit</a></div></div></div></section>',
-              'shop',
-              re.S,
-          )
-
-          sub_once(
-              r'<section class="section ocean" id="join">[\s\S]*?</section>',
-              f'<section class="section ocean" id="join"><div class="section-inner center narrow"><span class="seal">Top Secret — Eyes Only</span><h2>Will you answer the call?</h2><p class="large-line">The Starter Kit is the official starting point for every new agent.</p><div class="button-row" style="justify-content:center"><a class="btn primary" href="{gumroad}">Get the Starter Kit — A$19</a></div></div></section>',
-              'final call to action',
-              re.S,
-          )
-
-          sub_once(
-              r'<section class="section ocean" id="mission01">[\s\S]*?</section>',
-              '',
-              'old Mission 01 section',
-              re.S,
-          )
-
-          s = s.replace('<a href="#mission01">Mission 01</a>', '')
-          s = s.replace('<a href="#recruit-kit">Recruit Kit</a>', '<a href="#recruit-kit">Starter Kit</a>')
-          s = s.replace('<a href="#recruit-kit">Free Recruit Kit</a>', '<a href="#recruit-kit">Starter Kit</a>')
-          s = s.replace('Get the Free Recruit Kit', 'Get the Starter Kit')
-          s = s.replace('Free Digital Recruit Kit', 'The Starter Kit')
-          s = s.replace('Begin Mission 01', '')
-
-          nav_match = re.search(r'<div class="nav-links">[\s\S]*?</div>', s)
-          if not nav_match:
-              raise SystemExit('Homepage navigation block not found')
-          nav = nav_match.group(0)
-          if '/screen-free-nature-activities.html' not in nav:
-              nav = nav.replace(
-                  '<div class="nav-links">',
-                  '<div class="nav-links"><a href="/screen-free-nature-activities.html">Free Activities</a>',
-                  1,
-              )
-              s = s[:nav_match.start()] + nav + s[nav_match.end():]
+          activities_url = "/screen-free-nature-activities.html"
+          if activities_url not in s:
+              nav_open = re.search(r'<(?:nav|div)[^>]*class="[^"]*nav-links[^"]*"[^>]*>', s, flags=re.I)
+              if not nav_open:
+                  raise SystemExit("Navigation container with class nav-links not found")
+              link = '<a href="/screen-free-nature-activities.html">Free Activities</a>'
+              s = s[:nav_open.end()] + link + s[nav_open.end():]
 
           if 'id="free-activities-home"' not in s:
               free_section = (
@@ -108,83 +50,48 @@ jobs:
                   '<a class="btn secondary" href="#recruit-kit">See the Starter Kit</a>'
                   '</div></div></div></section>'
               )
-              anchor = '<section class="section ocean" id="recruit-kit">'
-              if anchor not in s:
-                  raise SystemExit('Starter Kit section anchor not found')
-              s = s.replace(anchor, free_section + anchor, 1)
+              anchor = re.search(r'<section[^>]*id="recruit-kit"[^>]*>', s, flags=re.I)
+              if not anchor:
+                  raise SystemExit("Starter Kit section not found")
+              s = s[:anchor.start()] + free_section + s[anchor.start():]
 
-          navigation_css = (
-              '<style>/* gsa-home-navigation */'
-              '.free-activities-home{background:linear-gradient(180deg,#f6ecd7,#efe0bf);color:#15303b;padding:78px 0}'
-              '.free-activities-card{max-width:900px;margin:0 auto;border:1px solid rgba(167,125,50,.28);border-radius:28px;padding:38px;background:rgba(251,244,228,.92);box-shadow:0 18px 54px rgba(44,31,11,.12)}'
-              '.free-activities-card .eyebrow{color:#81622b}'
-              '.free-activities-card h2{color:#15303b}'
-              '.free-activities-card p{max-width:720px;margin:18px auto 0;font-size:1.05rem;line-height:1.65}'
-              '.free-activities-card .button-row{justify-content:center}'
-              '.free-activities-card .btn.secondary{color:#15303b;border-color:rgba(167,125,50,.42);background:rgba(199,154,69,.08)}'
-              '@media (max-width:820px){.nav{flex-wrap:wrap;padding:10px 0 12px;gap:10px}.brand{min-width:0}.nav-links{display:flex!important;width:100%;justify-content:center;flex-wrap:wrap;gap:8px 14px;white-space:normal}.nav-links a{font-size:.7rem}.nav-links .nav-cta{padding:8px 12px}.free-activities-home{padding:54px 0}.free-activities-card{padding:28px 22px}}'
-              '</style>'
-          )
           if '/* gsa-home-navigation */' not in s:
-              s = s.replace('</head>', navigation_css + '</head>', 1)
+              css = (
+                  '<style>/* gsa-home-navigation */'
+                  '.free-activities-home{background:linear-gradient(180deg,#f6ecd7,#efe0bf);color:#15303b;padding:78px 0}'
+                  '.free-activities-card{max-width:900px;margin:0 auto;border:1px solid rgba(167,125,50,.28);border-radius:28px;padding:38px;background:rgba(251,244,228,.92);box-shadow:0 18px 54px rgba(44,31,11,.12)}'
+                  '.free-activities-card .eyebrow{color:#81622b}'
+                  '.free-activities-card h2{color:#15303b}'
+                  '.free-activities-card p{max-width:720px;margin:18px auto 0;font-size:1.05rem;line-height:1.65}'
+                  '.free-activities-card .button-row{justify-content:center}'
+                  '.free-activities-card .btn.secondary{color:#15303b;border-color:rgba(167,125,50,.42);background:rgba(199,154,69,.08)}'
+                  '@media (max-width:820px){.nav{flex-wrap:wrap;padding:10px 0 12px;gap:10px}.brand{min-width:0}.nav-links{display:flex!important;width:100%;justify-content:center;flex-wrap:wrap;gap:8px 14px;white-space:normal}.nav-links a{font-size:.7rem}.nav-links .nav-cta{padding:8px 12px}.free-activities-home{padding:54px 0}.free-activities-card{padding:28px 22px}}'
+                  '</style>'
+              )
+              s = s.replace('</head>', css + '</head>', 1)
 
-          sub_once(
-              r'<title>[\s\S]*?</title>',
-              '<title>Gaia’s Secret Agents Starter Kit | Printable Eco Adventure for Kids</title>',
-              'page title',
-              re.I,
-          )
-
-          description = '<meta name="description" content="A premium printable, story-led environmental adventure for children aged 6–11. Start with the Gaia’s Secret Agents Starter Kit for A$19.">'
-          description_pattern = r'<meta\b(?=[^>]*\bname=["\']description["\'])[^>]*>'
-          if re.search(description_pattern, s, flags=re.I):
-              s = re.sub(description_pattern, description, s, count=1, flags=re.I)
-          else:
-              s = s.replace('</head>', description + '\n</head>', 1)
-
-          og_title = '<meta property="og:title" content="Gaia’s Secret Agents Starter Kit | Printable Eco Adventure for Kids">'
-          og_title_pattern = r'<meta\b(?=[^>]*\bproperty=["\']og:title["\'])[^>]*>'
-          if re.search(og_title_pattern, s, flags=re.I):
-              s = re.sub(og_title_pattern, og_title, s, count=1, flags=re.I)
-          else:
-              s = s.replace('</head>', og_title + '\n</head>', 1)
-
-          og_description = '<meta property="og:description" content="A premium printable, story-led environmental adventure for children aged 6–11. Digital download, print at home, A$19.">'
-          og_description_pattern = r'<meta\b(?=[^>]*\bproperty=["\']og:description["\'])[^>]*>'
-          if re.search(og_description_pattern, s, flags=re.I):
-              s = re.sub(og_description_pattern, og_description, s, count=1, flags=re.I)
-          else:
-              s = s.replace('</head>', og_description + '\n</head>', 1)
-
-          obsolete = [
-              'Mission 01 Digital Pack', 'Monthly Digital Mission Club', 'Physical Mission Pack',
-              'Buy Mission 01', 'Join Digital', 'Join Waitlist',
-              'Get the Free Recruit Kit', 'Free Digital Recruit Kit', 'Begin Mission 01'
-          ]
-          leftovers = [term for term in obsolete if term in s]
-          if leftovers:
-              raise SystemExit('Obsolete customer-facing product copy remains: ' + ', '.join(leftovers))
-
-          if s.count(gumroad) < 4:
-              raise SystemExit('Expected at least four Starter Kit checkout links')
+          if activities_url not in s:
+              raise SystemExit("Free Activities link was not added")
+          if current_gumroad not in s:
+              raise SystemExit("Current Starter Kit checkout link is missing")
           if 'A$19' not in s:
-              raise SystemExit('Starter Kit price is missing')
-          if 'id="mission01"' in s:
-              raise SystemExit('Old Mission 01 section still exists')
-          if '/screen-free-nature-activities.html' not in s:
-              raise SystemExit('Free Activities link is missing')
+              raise SystemExit("Starter Kit price is missing")
 
-          target.write_text(s, encoding="utf-8")
+          if s != original:
+              p.write_text(s, encoding="utf-8")
+              print("Homepage navigation updated")
+          else:
+              print("Homepage already current")
           PY
 
-      - name: Commit static homepage
+      - name: Commit homepage changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           if git diff --cached --quiet; then
-            echo "Homepage already matches the current GSA build."
+            echo "No homepage changes needed."
             exit 0
           fi
-          git commit -m "Publish homepage with Free Activities navigation"
+          git commit -m "Add Free Activities to homepage navigation"
           git push
