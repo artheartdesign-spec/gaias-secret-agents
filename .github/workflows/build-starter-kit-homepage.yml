@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Keep sales links and Free Activities visible
+      - name: Keep navigation and customer trust links visible
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -70,6 +70,35 @@ jobs:
               )
               s = s.replace('</head>', css + '</head>', 1)
 
+          # Keep customer-care and business identity signals visible.
+          privacy_link = '<a href="/privacy.html">Privacy Policy</a>'
+          if 'href="/contact.html"' not in s:
+              if privacy_link not in s:
+                  raise SystemExit("Privacy footer link not found")
+              trust_links = (
+                  '<a href="/contact.html">Contact</a>'
+                  '<a href="/terms.html">Terms</a>'
+                  '<a href="/refund-policy.html">Refunds</a>'
+              )
+              s = s.replace(privacy_link, privacy_link + trust_links, 1)
+
+          if 'rel="canonical"' not in s:
+              canonical = '<link rel="canonical" href="https://gaiassecretagents.com/">'
+              s = s.replace('</title>', '</title>' + canonical, 1)
+
+          if 'gsa-organization-schema' not in s:
+              schema = (
+                  '<script id="gsa-organization-schema" type="application/ld+json">'
+                  '{"@context":"https://schema.org","@type":"Organization",'
+                  '"name":"Gaia’s Secret Agents","url":"https://gaiassecretagents.com/",'
+                  '"email":"hello@gaiassecretagents.com",'
+                  '"address":{"@type":"PostalAddress","addressLocality":"Brisbane",'
+                  '"addressRegion":"Queensland","addressCountry":"AU"},'
+                  '"sameAs":["https://gaiassecretagents.gumroad.com/"]}'
+                  '</script>'
+              )
+              s = s.replace('</head>', schema + '</head>', 1)
+
           if activities_url not in s:
               raise SystemExit("Free Activities link was not added")
           if current_gumroad not in s:
@@ -93,5 +122,5 @@ jobs:
             echo "No homepage changes needed."
             exit 0
           fi
-          git commit -m "Add Free Activities to homepage navigation"
+          git commit -m "Maintain GSA homepage navigation and trust links"
           git push
