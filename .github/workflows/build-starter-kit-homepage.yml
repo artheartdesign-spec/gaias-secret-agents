@@ -86,6 +86,17 @@ jobs:
               canonical = '<link rel="canonical" href="https://gaiassecretagents.com/">'
               s = s.replace('</title>', '</title>' + canonical, 1)
 
+          if 'independent Australian children’s activity brand' not in s:
+              identity_note = (
+                  '<p class="gsa-independent-note" style="width:min(940px,calc(100% - 36px));'
+                  'margin:18px auto 0;text-align:center;font-size:.78rem;line-height:1.5;opacity:.82">'
+                  'Gaia’s Secret Agents is an independent Australian children’s activity brand '
+                  'and is not affiliated with any government agency.</p>'
+              )
+              if '</footer>' not in s:
+                  raise SystemExit("Homepage footer not found")
+              s = s.replace('</footer>', identity_note + '</footer>', 1)
+
           if 'gsa-organization-schema' not in s:
               schema = (
                   '<script id="gsa-organization-schema" type="application/ld+json">'
