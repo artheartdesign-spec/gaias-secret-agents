@@ -29,12 +29,29 @@ jobs:
           old_gumroad = "https://artheartdesign.gumroad.com/l/gsa-starter-kit"
           s = s.replace(old_gumroad, current_gumroad)
 
-          activities_url = "/screen-free-nature-activities.html"
-          if activities_url not in s:
+          guide_url = "/free-activities-guides.html"
+          old_activities_url = "/screen-free-nature-activities.html"
+          s = s.replace(
+              '<a href="' + old_activities_url + '">Free Activities</a>',
+              '<a href="' + guide_url + '">Free Activities &amp; Guides</a>'
+          )
+          s = s.replace(
+              '<p class="eyebrow dark">Free Activities</p>',
+              '<p class="eyebrow dark">Free Activities &amp; Guides</p>'
+          )
+          s = s.replace(
+              'Explore seven simple, screen-free nature activities for children aged 6–11. Turn a backyard, park or ordinary walk into a small real-world investigation — no special equipment required.',
+              'Explore free, screen-free nature and ocean field guides for children aged 6–11, with useful activities for the beach, backyard, park or home.'
+          )
+          s = s.replace(
+              '<a class="btn primary" href="' + old_activities_url + '">Explore 7 Free Nature Activities</a>',
+              '<a class="btn primary" href="' + guide_url + '">Explore Free Activities &amp; Guides</a>'
+          )
+          if guide_url not in s:
               nav_open = re.search(r'<(?:nav|div)[^>]*class="[^"]*nav-links[^"]*"[^>]*>', s, flags=re.I)
               if not nav_open:
                   raise SystemExit("Navigation container with class nav-links not found")
-              link = '<a href="/screen-free-nature-activities.html">Free Activities</a>'
+              link = '<a href="/free-activities-guides.html">Free Activities &amp; Guides</a>'
               s = s[:nav_open.end()] + link + s[nav_open.end():]
 
           if 'id="free-activities-home"' not in s:
@@ -42,11 +59,11 @@ jobs:
                   '<section class="free-activities-home" id="free-activities-home">'
                   '<div class="section-inner center">'
                   '<div class="free-activities-card">'
-                  '<p class="eyebrow dark">Free Activities</p>'
+                  '<p class="eyebrow dark">Free Activities &amp; Guides</p>'
                   '<h2>Try a field briefing before your first mission.</h2>'
-                  '<p>Explore seven simple, screen-free nature activities for children aged 6–11. Turn a backyard, park or ordinary walk into a small real-world investigation — no special equipment required.</p>'
+                  '<p>Explore free, screen-free nature and ocean field guides for children aged 6–11, with useful activities for the beach, backyard, park or home.</p>'
                   '<div class="button-row">'
-                  '<a class="btn primary" href="/screen-free-nature-activities.html">Explore 7 Free Nature Activities</a>'
+                  '<a class="btn primary" href="/free-activities-guides.html">Explore Free Activities &amp; Guides</a>'
                   '<a class="btn secondary" href="#recruit-kit">See the Starter Kit</a>'
                   '</div></div></div></section>'
               )
@@ -110,8 +127,8 @@ jobs:
               )
               s = s.replace('</head>', schema + '</head>', 1)
 
-          if activities_url not in s:
-              raise SystemExit("Free Activities link was not added")
+          if guide_url not in s:
+              raise SystemExit("Free Activities & Guides link was not added")
           if current_gumroad not in s:
               raise SystemExit("Current Starter Kit checkout link is missing")
           if 'A$19' not in s:
