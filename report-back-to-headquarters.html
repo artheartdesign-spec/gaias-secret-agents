@@ -8,7 +8,7 @@
   <meta name="robots" content="noindex,follow">
   <meta name="theme-color" content="#031b2a">
   <style>
-    :root{--navy:#031b2a;--navy2:#082d3f;--teal:#0c6268;--gold:#d3a64e;--gold2:#ecd58d;--cream:#fbf3df;--paper:#fffaf0;--ink:#102c38;--muted:#5c7074;--red:#9a3f37}
+    :root{--navy:#031b2a;--navy2:#082d3f;--teal:#0c6268;--gold:#d3a64e;--gold2:#ecd58d;--cream:#fbf3df;--paper:#fffaf0;--paper2:#f3e5c6;--ink:#102c38;--muted:#5c7074;--red:#9a3f37}
     *{box-sizing:border-box}
     body{margin:0;min-height:100vh;background:radial-gradient(circle at 82% 8%,rgba(12,98,104,.6),transparent 30rem),radial-gradient(circle at 8% 92%,rgba(211,166,78,.16),transparent 28rem),linear-gradient(145deg,#02131d,#052b3c);color:var(--cream);font-family:Arial,sans-serif}
     a{color:inherit}
@@ -24,10 +24,22 @@
     .checks{display:grid;gap:13px;max-width:690px;margin:0 auto}.check{display:flex;gap:14px;align-items:flex-start;padding:18px;border:1px solid rgba(251,243,223,.18);border-radius:15px;background:rgba(255,255,255,.04);cursor:pointer}.check input{width:24px;height:24px;min-width:24px;margin:1px 0 0;accent-color:var(--gold)}.check b{display:block;margin-bottom:4px;color:var(--cream);font-size:1.02rem}.check span{display:block;color:#bdcfcb;line-height:1.45;font-size:.91rem}
     .family{max-width:690px;margin:24px auto;padding:22px;border:1px solid rgba(211,166,78,.38);border-radius:16px;background:rgba(211,166,78,.07);text-align:center}.family small{display:block;color:var(--gold2);text-transform:uppercase;letter-spacing:.12em;font-weight:900;margin-bottom:7px}.family p{margin:0;font:normal 1.35rem/1.4 Georgia,serif}
     .file-btn{display:block;width:min(520px,100%);margin:24px auto 0;border:0;border-radius:999px;padding:17px 22px;background:linear-gradient(135deg,#c69336,#eed98f,#c89a43);color:#071b25;font-weight:950;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;font-size:.92rem}.file-btn:disabled{opacity:.42;cursor:not-allowed}.hint{text-align:center;color:#9fb4b0;font-size:.8rem;margin-top:10px}
-    .verified{display:none;max-width:720px;margin:34px auto 0}.verified.show{display:block}.certificate{position:relative;overflow:hidden;text-align:center;padding:36px 26px;border:2px solid var(--gold);border-radius:20px;background:linear-gradient(145deg,#fffaf0,#efe2c5);color:var(--ink);box-shadow:0 20px 55px rgba(0,0,0,.23)}.certificate:before{content:"";position:absolute;inset:10px;border:1px solid rgba(158,112,42,.42);border-radius:13px;pointer-events:none}.certificate .seal{width:94px;height:94px;margin:0 auto 17px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;font-family:Georgia,serif;font-size:.78rem;font-weight:900;letter-spacing:.08em;color:#6f521d;background:#f9efcf;box-shadow:inset 0 0 0 7px #fffaf0}.certificate .mini{color:#7f642e;font-size:.72rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase}.certificate h2{margin:8px 0 12px;font:normal clamp(2.4rem,7vw,4.2rem)/1 Georgia,serif;color:var(--navy)}.certificate p{max-width:560px;margin:0 auto;color:#435a60;line-height:1.6}.statusline{margin:18px auto 0;padding-top:16px;border-top:1px solid rgba(16,44,56,.18);max-width:500px;font-weight:900;color:var(--teal);letter-spacing:.08em;text-transform:uppercase}
+    .verified{display:none;max-width:760px;margin:34px auto 0}.verified.show{display:block}
+    .certificate{position:relative;overflow:hidden;text-align:center;padding:48px 34px 42px;border:2px solid var(--gold);border-radius:24px;background:radial-gradient(circle at 50% 0%,rgba(236,213,141,.55),transparent 19rem),linear-gradient(180deg,var(--paper) 0%,#f8eed9 45%,var(--paper2) 100%);color:var(--ink);box-shadow:0 24px 65px rgba(0,0,0,.24)}
+    .certificate:before,.certificate:after{content:"";position:absolute;pointer-events:none;border-radius:16px}
+    .certificate:before{inset:11px;border:1px solid rgba(158,112,42,.48)}
+    .certificate:after{inset:22px;border:1px solid rgba(158,112,42,.22)}
+    .cert-top{position:relative;z-index:1;display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:12px;text-align:left}
+    .cert-mark{max-width:220px}.cert-mark small{display:block;color:#8b6b31;font-size:.72rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;margin-bottom:7px}.cert-mark strong{display:block;font-family:Georgia,serif;font-size:1.05rem;line-height:1.15;color:#294650}
+    .seal{width:112px;height:112px;min-width:112px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 30% 25%,#fff7db,#f3deb1 60%,#e8c776 100%);box-shadow:inset 0 0 0 7px rgba(255,250,240,.95),0 8px 18px rgba(0,0,0,.12);font-family:Georgia,serif;font-size:.8rem;font-weight:900;letter-spacing:.08em;color:#6f521d;line-height:1.1}
+    .cert-kicker{position:relative;z-index:1;display:inline-block;margin:2px auto 14px;padding:7px 12px;border:1px solid rgba(158,112,42,.42);border-radius:999px;color:#7f642e;font-size:.72rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase;background:rgba(255,250,240,.62)}
+    .certificate h2{position:relative;z-index:1;margin:0 0 10px;font:normal clamp(2.7rem,7vw,4.55rem)/.96 Georgia,serif;color:var(--navy)}
+    .cert-sub{position:relative;z-index:1;max-width:560px;margin:0 auto 10px;color:#54686d;font:400 1.02rem/1.65 Arial,sans-serif}.cert-statement{position:relative;z-index:1;max-width:600px;margin:0 auto;color:#3f575d;line-height:1.65}
+    .cert-fields{position:relative;z-index:1;display:grid;grid-template-columns:1fr 220px;gap:18px;max-width:600px;margin:26px auto 0;text-align:left}.field{padding:14px 16px;border:1px solid rgba(16,44,56,.12);border-radius:14px;background:rgba(255,255,255,.42)}.field span{display:block;color:#7f642e;font-size:.68rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase;margin-bottom:10px}.line{height:30px;border-bottom:2px solid rgba(16,44,56,.28)}
+    .cert-footer{position:relative;z-index:1;display:flex;justify-content:space-between;gap:18px;align-items:end;max-width:600px;margin:22px auto 0;text-align:left}.statusline{padding-top:11px;min-width:220px;border-top:1px solid rgba(16,44,56,.22);font-weight:900;color:var(--teal);letter-spacing:.08em;text-transform:uppercase}.cert-note{max-width:280px;color:#6a7b7f;font-size:.82rem;line-height:1.55}
     .verified-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 20px;border-radius:999px;text-decoration:none;font-weight:900;letter-spacing:.05em;border:1px solid var(--gold);cursor:pointer}.print{background:transparent;color:var(--cream)}.buy{background:linear-gradient(135deg,#c69336,#eed98f,#c89a43);color:#071b25}.next{margin-top:26px;padding-top:26px;border-top:1px solid rgba(251,243,223,.16);text-align:center}.next h3{margin:0 0 9px;font:normal 2rem/1.1 Georgia,serif}.next p{max-width:620px;margin:0 auto 18px;color:#bdcfcb;line-height:1.6}.privacy{max-width:650px;margin:25px auto 0;text-align:center;color:#8ea5a1;font-size:.77rem;line-height:1.5}
-    @media(max-width:650px){.brand{align-items:flex-start;flex-direction:column}.header{padding:38px 22px 30px}.body{padding:30px 20px 36px}.check{padding:16px}.family p{font-size:1.2rem}.verified-actions{flex-direction:column}.btn{width:100%}}
-    @media print{body{background:#fff;padding:0}.wrap{width:100%;padding:0}.brand,.header,.body>.brief,.checks,.family,.file-btn,.hint,.verified-actions,.next,.privacy{display:none!important}.file{border:0;box-shadow:none;background:#fff}.body{padding:0}.verified{display:block!important;margin:0}.certificate{box-shadow:none;border-radius:0;min-height:95vh;display:flex;flex-direction:column;justify-content:center}.certificate:before{inset:18px}}
+    @media(max-width:650px){.brand{align-items:flex-start;flex-direction:column}.header{padding:38px 22px 30px}.body{padding:30px 20px 36px}.check{padding:16px}.family p{font-size:1.2rem}.cert-top,.cert-footer{flex-direction:column;align-items:center;text-align:center}.cert-mark,.cert-note{max-width:none}.cert-fields{grid-template-columns:1fr}.statusline{min-width:0;width:100%;text-align:center}.verified-actions{flex-direction:column}.btn{width:100%}}
+    @media print{body{background:#fff;padding:0}.wrap{width:100%;padding:0}.brand,.header,.body>.brief,.checks,.family,.file-btn,.hint,.verified-actions,.next,.privacy{display:none!important}.file{border:0;box-shadow:none;background:#fff}.body{padding:0}.verified{display:block!important;margin:0;max-width:none}.certificate{box-shadow:none;border-radius:0;min-height:95vh;display:flex;flex-direction:column;justify-content:center}.certificate:before{inset:18px}.certificate:after{inset:30px}}
   </style>
 </head>
 <body>
@@ -50,59 +62,25 @@
         <div class="family"><small>Agent-to-grown-up debrief</small><p>“What was the most surprising thing I found?”</p></div>
         <button class="file-btn" id="fileReport" disabled>File Mission Report</button>
         <p class="hint" id="hint">Complete all three field checks to file the report.</p>
-
         <section class="verified" id="verified" aria-live="polite">
           <div class="certificate">
-            <div class="seal">GSA<br>FIELD<br>VERIFIED</div>
-            <div class="mini">Gaia’s Secret Agents · Secret Headquarters</div>
+            <div class="cert-top"><div class="cert-mark"><small>Official Mission Record</small><strong>Secret Headquarters certifies successful completion of an approved field assignment.</strong></div><div class="seal">GSA<br>FIELD<br>VERIFIED</div></div>
+            <div class="cert-kicker">Official Field Verification</div>
             <h2>Field Verified</h2>
-            <p>This certifies that a Gaia’s Secret Agent completed <strong>The Nature Signal</strong>, observed the natural world carefully and reported a discovery to someone else.</p>
-            <div class="statusline">Mission status: Complete</div>
+            <p class="cert-sub">Presented by Gaia’s Secret Agents · Secret Headquarters</p>
+            <p class="cert-statement">This certifies that a Gaia’s Secret Agent completed <strong>The Nature Signal</strong>, observed the natural world carefully and reported a discovery to someone else.</p>
+            <div class="cert-fields"><div class="field"><span>Agent name or code name (optional)</span><div class="line"></div></div><div class="field"><span>Date</span><div class="line"></div></div></div>
+            <div class="cert-footer"><div class="cert-note">Premium printable field certificate for home display, scrapbooks or mission folders.</div><div class="statusline">Mission status: Complete</div></div>
           </div>
-          <div class="verified-actions">
-            <button class="btn print" id="printCertificate">Print / Save Field Verification</button>
-            <a class="btn buy" href="https://gaiassecretagents.gumroad.com/l/gsa-starter-kit">Continue with the Starter Kit — A$19</a>
-          </div>
-          <div class="next">
-            <h3>Your first mission was only the beginning.</h3>
-            <p>The Starter Kit opens the full Gaia’s Secret Agents recruitment experience with premium story-led activities, agent materials, environmental discovery and family connection.</p>
-          </div>
+          <div class="verified-actions"><button class="btn print" id="printCertificate">Print / Save Field Verification</button><a class="btn buy" href="https://gaiassecretagents.gumroad.com/l/gsa-starter-kit">Continue with the Starter Kit — A$19</a></div>
+          <div class="next"><h3>Your first mission was only the beginning.</h3><p>The Starter Kit opens the full Gaia’s Secret Agents recruitment experience with premium story-led activities, agent materials, environmental discovery and family connection.</p></div>
         </section>
         <p class="privacy">Privacy note: this page does not ask for a child’s name, photo, location or written report. The completion state is stored only in this browser on this device and is not transmitted to Gaia’s Secret Agents.</p>
       </section>
     </main>
   </div>
 <script>
-(function(){
-  var checks=[document.getElementById('c1'),document.getElementById('c2'),document.getElementById('c3')];
-  var button=document.getElementById('fileReport');
-  var verified=document.getElementById('verified');
-  var hint=document.getElementById('hint');
-  var filed=false;
-  function update(){button.disabled=filed||!checks.every(function(c){return c.checked;});}
-  checks.forEach(function(c){c.addEventListener('change',update);});
-  button.addEventListener('click',function(){
-    if(button.disabled)return;
-    filed=true;
-    try{localStorage.setItem('gsaNatureSignalFieldVerified','1');}catch(e){}
-    verified.classList.add('show');
-    button.textContent='Mission Report Filed';
-    hint.textContent='Headquarters has accepted your mission debrief.';
-    update();
-    verified.scrollIntoView({behavior:'smooth',block:'start'});
-  });
-  document.getElementById('printCertificate').addEventListener('click',function(){window.print();});
-  try{
-    if(localStorage.getItem('gsaNatureSignalFieldVerified')==='1'){
-      filed=true;
-      checks.forEach(function(c){c.checked=true;});
-      verified.classList.add('show');
-      button.textContent='Mission Report Filed';
-      hint.textContent='Headquarters has accepted your mission debrief.';
-    }
-  }catch(e){}
-  update();
-})();
+(function(){var checks=[document.getElementById('c1'),document.getElementById('c2'),document.getElementById('c3')];var button=document.getElementById('fileReport');var verified=document.getElementById('verified');var hint=document.getElementById('hint');var filed=false;function update(){button.disabled=filed||!checks.every(function(c){return c.checked;});}checks.forEach(function(c){c.addEventListener('change',update);});button.addEventListener('click',function(){if(button.disabled)return;filed=true;try{localStorage.setItem('gsaNatureSignalFieldVerified','1');}catch(e){}verified.classList.add('show');button.textContent='Mission Report Filed';hint.textContent='Headquarters has accepted your mission debrief.';update();verified.scrollIntoView({behavior:'smooth',block:'start'});});document.getElementById('printCertificate').addEventListener('click',function(){window.print();});try{if(localStorage.getItem('gsaNatureSignalFieldVerified')==='1'){filed=true;checks.forEach(function(c){c.checked=true;});verified.classList.add('show');button.textContent='Mission Report Filed';hint.textContent='Headquarters has accepted your mission debrief.';}}catch(e){}update();})();
 </script>
 </body>
 </html>
