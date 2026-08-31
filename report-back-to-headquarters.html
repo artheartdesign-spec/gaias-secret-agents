@@ -78,24 +78,26 @@
   var button=document.getElementById('fileReport');
   var verified=document.getElementById('verified');
   var hint=document.getElementById('hint');
-  function update(){button.disabled=!checks.every(function(c){return c.checked;});}
+  var filed=false;
+  function update(){button.disabled=filed||!checks.every(function(c){return c.checked;});}
   checks.forEach(function(c){c.addEventListener('change',update);});
   button.addEventListener('click',function(){
     if(button.disabled)return;
+    filed=true;
     try{localStorage.setItem('gsaNatureSignalFieldVerified','1');}catch(e){}
     verified.classList.add('show');
     button.textContent='Mission Report Filed';
-    button.disabled=true;
     hint.textContent='Headquarters has accepted your mission debrief.';
+    update();
     verified.scrollIntoView({behavior:'smooth',block:'start'});
   });
   document.getElementById('printCertificate').addEventListener('click',function(){window.print();});
   try{
     if(localStorage.getItem('gsaNatureSignalFieldVerified')==='1'){
+      filed=true;
       checks.forEach(function(c){c.checked=true;});
       verified.classList.add('show');
       button.textContent='Mission Report Filed';
-      button.disabled=true;
       hint.textContent='Headquarters has accepted your mission debrief.';
     }
   }catch(e){}
