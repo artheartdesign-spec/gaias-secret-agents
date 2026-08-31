@@ -87,6 +87,27 @@ jobs:
               )
               s = s.replace('</head>', css + '</head>', 1)
 
+          # Add a concise evidence-informed credibility block immediately before the Starter Kit offer.
+          research_url = "/why-we-make-kids-the-agents.html"
+          if 'id="research-behind-the-missions"' not in s:
+              research_section = (
+                  '<section class="section parchment" id="research-behind-the-missions">'
+                  '<div class="section-inner">'
+                  '<div class="paper-panel narrow center">'
+                  '<p class="eyebrow dark">Evidence-Informed Mission Design</p>'
+                  '<h2>Why we make kids the agents.</h2>'
+                  '<p class="large-line">Children learn about nature by doing, discovering and sharing — not just by reading about it.</p>'
+                  '<p>We follow current environmental-education research on action-based storytelling, hands-on discovery and parent–child learning, then use useful findings to strengthen how Gaia’s Secret Agents missions are designed.</p>'
+                  '<p><strong>They’re not just learning about the Earth. They have a role to play in protecting it.</strong></p>'
+                  '<div class="button-row" style="justify-content:center">'
+                  '<a class="btn primary" href="/why-we-make-kids-the-agents.html">See the Research Behind the Missions</a>'
+                  '</div></div></div></section>'
+              )
+              anchor = re.search(r'<section[^>]*id="recruit-kit"[^>]*>', s, flags=re.I)
+              if not anchor:
+                  raise SystemExit("Starter Kit section not found for research block")
+              s = s[:anchor.start()] + research_section + s[anchor.start():]
+
           # Keep customer-care and business identity signals visible.
           privacy_link = '<a href="/privacy.html">Privacy Policy</a>'
           if 'href="/contact.html"' not in s:
@@ -129,6 +150,8 @@ jobs:
 
           if guide_url not in s:
               raise SystemExit("Free Activities & Guides link was not added")
+          if research_url not in s:
+              raise SystemExit("Research article link was not added")
           if current_gumroad not in s:
               raise SystemExit("Current Starter Kit checkout link is missing")
           if 'A$19' not in s:
@@ -136,7 +159,7 @@ jobs:
 
           if s != original:
               p.write_text(s, encoding="utf-8")
-              print("Homepage navigation updated")
+              print("Homepage navigation and research credibility updated")
           else:
               print("Homepage already current")
           PY
@@ -150,5 +173,5 @@ jobs:
             echo "No homepage changes needed."
             exit 0
           fi
-          git commit -m "Maintain GSA homepage navigation and trust links"
+          git commit -m "Maintain GSA homepage navigation and research credibility"
           git push
