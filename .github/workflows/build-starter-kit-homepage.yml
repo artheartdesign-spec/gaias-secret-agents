@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Keep navigation and customer trust links visible
+      - name: Keep navigation, premium conversion and customer trust visible
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -54,6 +54,46 @@ jobs:
               link = '<a href="/free-activities-guides.html">Free Activities &amp; Guides</a>'
               s = s[:nav_open.end()] + link + s[nav_open.end():]
 
+          # Premium conversion module directly after the hero. It clarifies the offer without changing approved hero artwork.
+          if 'id="premium-home-conversion"' not in s:
+              premium = (
+                  '<section class="premium-home" id="premium-home-conversion">'
+                  '<div class="premium-home-shell">'
+                  '<div class="premium-home-copy">'
+                  '<p class="premium-kicker">Premium screen-free missions · Ages 6–11</p>'
+                  '<h2>A story-led adventure that gets them off the screen and into the world.</h2>'
+                  '<p class="premium-lead">Gaia’s Secret Agents combines imaginative secret missions, hands-on environmental discovery and meaningful family connection in a premium printable experience designed to feel special from the first page.</p>'
+                  '<div class="premium-actions">'
+                  '<a class="premium-btn premium-buy" href="https://gaiassecretagents.gumroad.com/l/gsa-starter-kit">Get the Starter Kit — A$19</a>'
+                  '<a class="premium-btn premium-free" href="/free-secret-agent-mission.html">Try a Free Mission</a>'
+                  '</div>'
+                  '</div>'
+                  '<div class="premium-value-grid" aria-label="Gaia’s Secret Agents product highlights">'
+                  '<div><strong>Instant download</strong><span>Print and begin at home</span></div>'
+                  '<div><strong>Screen-free</strong><span>Hands-on real-world discovery</span></div>'
+                  '<div><strong>Ages 6–11</strong><span>Designed for curious young agents</span></div>'
+                  '<div><strong>Family connection</strong><span>Built for children and grown-ups</span></div>'
+                  '</div>'
+                  '<div class="premium-how">'
+                  '<p class="premium-kicker">How the adventure works</p>'
+                  '<div class="premium-steps">'
+                  '<div><span>01</span><h3>Print the mission</h3><p>Download the materials and prepare the assignment at home.</p></div>'
+                  '<div><span>02</span><h3>Complete the adventure</h3><p>Follow the story, investigate the natural world and take meaningful action.</p></div>'
+                  '<div><span>03</span><h3>Report to Headquarters</h3><p>Notice what changed, share the discovery and continue the Agent journey.</p></div>'
+                  '</div></div>'
+                  '</div></section>'
+              )
+              hero = re.search(r'<section\b[^>]*class="[^"]*\bhero\b[^"]*"[^>]*>.*?</section>', s, flags=re.I | re.S)
+              if hero:
+                  s = s[:hero.end()] + premium + s[hero.end():]
+              else:
+                  anchor = re.search(r'<section[^>]*id="free-activities-home"[^>]*>', s, flags=re.I)
+                  if not anchor:
+                      anchor = re.search(r'<section[^>]*id="recruit-kit"[^>]*>', s, flags=re.I)
+                  if not anchor:
+                      raise SystemExit("Could not find a safe homepage insertion point for premium conversion block")
+                  s = s[:anchor.start()] + premium + s[anchor.start():]
+
           if 'id="free-activities-home"' not in s:
               free_section = (
                   '<section class="free-activities-home" id="free-activities-home">'
@@ -71,21 +111,6 @@ jobs:
               if not anchor:
                   raise SystemExit("Starter Kit section not found")
               s = s[:anchor.start()] + free_section + s[anchor.start():]
-
-          if '/* gsa-home-navigation */' not in s:
-              css = (
-                  '<style>/* gsa-home-navigation */'
-                  '.free-activities-home{background:linear-gradient(180deg,#f6ecd7,#efe0bf);color:#15303b;padding:78px 0}'
-                  '.free-activities-card{max-width:900px;margin:0 auto;border:1px solid rgba(167,125,50,.28);border-radius:28px;padding:38px;background:rgba(251,244,228,.92);box-shadow:0 18px 54px rgba(44,31,11,.12)}'
-                  '.free-activities-card .eyebrow{color:#81622b}'
-                  '.free-activities-card h2{color:#15303b}'
-                  '.free-activities-card p{max-width:720px;margin:18px auto 0;font-size:1.05rem;line-height:1.65}'
-                  '.free-activities-card .button-row{justify-content:center}'
-                  '.free-activities-card .btn.secondary{color:#15303b;border-color:rgba(167,125,50,.42);background:rgba(199,154,69,.08)}'
-                  '@media (max-width:820px){.nav{flex-wrap:wrap;padding:10px 0 12px;gap:10px}.brand{min-width:0}.nav-links{display:flex!important;width:100%;justify-content:center;flex-wrap:wrap;gap:8px 14px;white-space:normal}.nav-links a{font-size:.7rem}.nav-links .nav-cta{padding:8px 12px}.free-activities-home{padding:54px 0}.free-activities-card{padding:28px 22px}}'
-                  '</style>'
-              )
-              s = s.replace('</head>', css + '</head>', 1)
 
           # Add a concise evidence-informed credibility block immediately before the Starter Kit offer.
           research_url = "/why-we-make-kids-the-agents.html"
@@ -108,16 +133,23 @@ jobs:
                   raise SystemExit("Starter Kit section not found for research block")
               s = s[:anchor.start()] + research_section + s[anchor.start():]
 
+          # Refined premium styling across the conversion path. This is intentionally an override layer, not a redesign of approved artwork.
+          if '/* gsa-premium-pass-v1 */' not in s:
+              premium_css = '''<style>/* gsa-premium-pass-v1 */
+              html{scroll-behavior:smooth}body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}.nav{min-height:76px}.nav-links a{transition:color .2s ease,opacity .2s ease}.nav-links a:hover{color:#e2c474}.hero h1{text-wrap:balance}.hero p{text-wrap:pretty}.section{padding-top:84px;padding-bottom:84px}.paper-panel,.free-activities-card{border-radius:28px!important;box-shadow:0 22px 58px rgba(38,28,12,.12)!important}.btn{min-height:52px;border-radius:999px!important;display:inline-flex;align-items:center;justify-content:center;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}.btn:hover{transform:translateY(-1px)}.btn.primary{box-shadow:0 10px 24px rgba(126,83,18,.18)}#recruit-kit{scroll-margin-top:84px}#recruit-kit .paper-panel,#research-behind-the-missions .paper-panel{max-width:920px}.free-activities-home{padding:78px 0}.free-activities-card{max-width:900px;margin:0 auto;border:1px solid rgba(167,125,50,.28);padding:40px;background:rgba(251,244,228,.95)}.free-activities-card .eyebrow{color:#81622b}.free-activities-card h2{color:#15303b}.free-activities-card p{max-width:720px;margin:18px auto 0;font-size:1.05rem;line-height:1.7}.free-activities-card .button-row{justify-content:center}.free-activities-card .btn.secondary{color:#15303b;border-color:rgba(167,125,50,.42);background:rgba(199,154,69,.08)}
+              .premium-home{position:relative;overflow:hidden;padding:78px 18px 82px;color:#f6ecd7;background:radial-gradient(circle at 85% 12%,rgba(43,138,136,.3),transparent 25rem),radial-gradient(circle at 8% 88%,rgba(199,154,69,.13),transparent 23rem),linear-gradient(145deg,#03141f,#082d3f 62%,#0a454d);border-top:1px solid rgba(226,196,116,.22);border-bottom:1px solid rgba(226,196,116,.25)}.premium-home:after{content:"";position:absolute;width:460px;height:460px;right:-245px;bottom:-270px;border:1px solid rgba(226,196,116,.16);border-radius:50%;box-shadow:0 0 0 50px rgba(226,196,116,.025),0 0 0 100px rgba(226,196,116,.018)}.premium-home-shell{position:relative;z-index:1;width:min(1080px,100%);margin:auto}.premium-home-copy{text-align:center;max-width:860px;margin:0 auto}.premium-kicker{margin:0 0 12px;color:#e2c474;font:900 .73rem/1.3 Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}.premium-home h2{margin:0 auto;color:#fffaf0;font:500 clamp(2.45rem,6vw,4.5rem)/1 Georgia,serif;letter-spacing:-.035em;text-wrap:balance}.premium-lead{max-width:760px;margin:20px auto 0;color:rgba(246,236,215,.87);font:400 1.08rem/1.72 Arial,sans-serif}.premium-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}.premium-btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;border-radius:999px;text-decoration:none;font:900 .83rem/1 Arial,sans-serif;letter-spacing:.055em;transition:transform .18s ease,box-shadow .18s ease}.premium-btn:hover{transform:translateY(-1px)}.premium-buy{color:#071b25;background:linear-gradient(135deg,#c69336,#eed98f,#c89a43);box-shadow:0 12px 28px rgba(0,0,0,.22)}.premium-free{color:#f6ecd7;border:1px solid rgba(226,196,116,.7);background:rgba(255,255,255,.035)}.premium-value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:40px auto 0}.premium-value-grid div{padding:18px 14px;text-align:center;border:1px solid rgba(226,196,116,.22);border-radius:17px;background:rgba(255,255,255,.035)}.premium-value-grid strong{display:block;color:#fffaf0;font:800 .89rem/1.3 Arial,sans-serif}.premium-value-grid span{display:block;margin-top:5px;color:rgba(246,236,215,.68);font:400 .78rem/1.45 Arial,sans-serif}.premium-how{margin-top:52px;padding-top:38px;border-top:1px solid rgba(226,196,116,.18);text-align:center}.premium-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:20px}.premium-steps>div{padding:24px 22px;text-align:left;border:1px solid rgba(226,196,116,.2);border-radius:20px;background:rgba(3,20,31,.42)}.premium-steps span{display:block;color:#e2c474;font:900 .72rem/1 Arial,sans-serif;letter-spacing:.12em}.premium-steps h3{margin:10px 0 8px;color:#fffaf0;font:500 1.45rem/1.1 Georgia,serif}.premium-steps p{margin:0;color:rgba(246,236,215,.74);font:400 .9rem/1.6 Arial,sans-serif}
+              footer{border-top-color:rgba(226,196,116,.22)!important}footer a{transition:color .18s ease}footer a:hover{color:#e2c474}
+              @media(max-width:820px){.nav{flex-wrap:wrap;padding:10px 0 12px;gap:10px}.brand{min-width:0}.nav-links{display:flex!important;width:100%;justify-content:center;flex-wrap:wrap;gap:8px 14px;white-space:normal}.nav-links a{font-size:.7rem}.nav-links .nav-cta{padding:8px 12px}.section{padding-top:58px;padding-bottom:58px}.free-activities-home{padding:56px 0}.free-activities-card{padding:30px 22px}.premium-home{padding:58px 16px 62px}.premium-value-grid{grid-template-columns:1fr 1fr}.premium-steps{grid-template-columns:1fr}.premium-steps>div{text-align:center}.premium-actions{flex-direction:column}.premium-btn{width:100%}}
+              @media(max-width:480px){.premium-value-grid{grid-template-columns:1fr}.premium-home h2{font-size:2.55rem}.premium-lead{font-size:1rem}.paper-panel,.free-activities-card{border-radius:22px!important}}
+              </style>'''
+              s = s.replace('</head>', premium_css + '</head>', 1)
+
           # Keep customer-care and business identity signals visible.
           privacy_link = '<a href="/privacy.html">Privacy Policy</a>'
           if 'href="/contact.html"' not in s:
               if privacy_link not in s:
                   raise SystemExit("Privacy footer link not found")
-              trust_links = (
-                  '<a href="/contact.html">Contact</a>'
-                  '<a href="/terms.html">Terms</a>'
-                  '<a href="/refund-policy.html">Refunds</a>'
-              )
+              trust_links = '<a href="/contact.html">Contact</a><a href="/terms.html">Terms</a><a href="/refund-policy.html">Refunds</a>'
               s = s.replace(privacy_link, privacy_link + trust_links, 1)
 
           if 'rel="canonical"' not in s:
@@ -125,27 +157,13 @@ jobs:
               s = s.replace('</title>', '</title>' + canonical, 1)
 
           if 'independent Australian children’s activity brand' not in s:
-              identity_note = (
-                  '<p class="gsa-independent-note" style="width:min(940px,calc(100% - 36px));'
-                  'margin:18px auto 0;text-align:center;font-size:.78rem;line-height:1.5;opacity:.82">'
-                  'Gaia’s Secret Agents is an independent Australian children’s activity brand '
-                  'and is not affiliated with any government agency.</p>'
-              )
+              identity_note = '<p class="gsa-independent-note" style="width:min(940px,calc(100% - 36px));margin:18px auto 0;text-align:center;font-size:.78rem;line-height:1.5;opacity:.82">Gaia’s Secret Agents is an independent Australian children’s activity brand and is not affiliated with any government agency.</p>'
               if '</footer>' not in s:
                   raise SystemExit("Homepage footer not found")
               s = s.replace('</footer>', identity_note + '</footer>', 1)
 
           if 'gsa-organization-schema' not in s:
-              schema = (
-                  '<script id="gsa-organization-schema" type="application/ld+json">'
-                  '{"@context":"https://schema.org","@type":"Organization",'
-                  '"name":"Gaia’s Secret Agents","url":"https://gaiassecretagents.com/",'
-                  '"email":"hello@gaiassecretagents.com",'
-                  '"address":{"@type":"PostalAddress","addressLocality":"Brisbane",'
-                  '"addressRegion":"Queensland","addressCountry":"AU"},'
-                  '"sameAs":["https://gaiassecretagents.gumroad.com/"]}'
-                  '</script>'
-              )
+              schema = '<script id="gsa-organization-schema" type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Gaia’s Secret Agents","url":"https://gaiassecretagents.com/","email":"hello@gaiassecretagents.com","address":{"@type":"PostalAddress","addressLocality":"Brisbane","addressRegion":"Queensland","addressCountry":"AU"},"sameAs":["https://gaiassecretagents.gumroad.com/"]}</script>'
               s = s.replace('</head>', schema + '</head>', 1)
 
           if guide_url not in s:
@@ -154,12 +172,14 @@ jobs:
               raise SystemExit("Research article link was not added")
           if current_gumroad not in s:
               raise SystemExit("Current Starter Kit checkout link is missing")
+          if '/free-secret-agent-mission.html' not in s:
+              raise SystemExit("Free mission conversion link is missing")
           if 'A$19' not in s:
               raise SystemExit("Starter Kit price is missing")
 
           if s != original:
               p.write_text(s, encoding="utf-8")
-              print("Homepage navigation and research credibility updated")
+              print("Homepage premium conversion pass applied")
           else:
               print("Homepage already current")
           PY
@@ -173,5 +193,5 @@ jobs:
             echo "No homepage changes needed."
             exit 0
           fi
-          git commit -m "Maintain GSA homepage navigation and research credibility"
+          git commit -m "Apply premium GSA homepage conversion pass"
           git push
