@@ -1,0 +1,44 @@
+name: Pinterest Board List
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/pinterest-board-list.yml'
+      - '.pinterest/board-list-trigger.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  list-boards:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: List production Pinterest boards
+        env:
+          PINTEREST_APP_SECRET: ${{ secrets.PINTEREST_APP_SECRET }}
+          PINTEREST_APP_ID: '1596852'
+        run: |
+          set +e
+          RESULT='pinterest-production-boards.json'
+          NOW=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          BASIC=$(printf '%s:%s' "$PINTEREST_APP_ID" "$PINTEREST_APP_SECRET" | base64 -w 0)
+          TOKEN_CODE=$(curl --silent --show-error --output /tmp/token.json --write-out '%{http_code}' --request POST -H "Authorization: Basic $BASIC" -H 'Content-Type: application/x-www-form-urlencoded' -H 'Accept: application/json' --data-urlencode 'grant_type=client_credentials' --data-urlencode 'scope=boards:read' 'https://api.pinterest.com/v5/oauth/token')
+          ACCESS_TOKEN=$(jq -r '.access_token // empty' /tmp/token.json 2>/dev/null)
+          if [ -n "$ACCESS_TOKEN" ]; then echo "::add-mask::$ACCESS_TOKEN"; fi
+          if [ "$TOKEN_CODE" -ge 200 ] && [ "$TOKEN_CODE" -lt 300 ] && [ -n "$ACCESS_TOKEN" ]; then
+            curl --silent --show-error --get 'https://api.pinterest.com/v5/boards' -H "Authorization: Bearer $ACCESS_TOKEN" -H 'Accept: application/json' --data-urlencode 'page_size=250' > /tmp/boards.json
+            jq -nc --arg time "$NOW" --slurpfile data /tmp/boards.json '{time:$time,status:"PASS",boards:[ $data[0].items[]? | {id,name,privacy} ]}' > "$RESULT"
+          else
+            jq -nc --arg time "$NOW" --arg token_http "$TOKEN_CODE" '{time:$time,status:"FAIL",stage:"token",token_http:$token_http}' > "$RESULT"
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$RESULT"
+          git commit -m 'Record Pinterest production board list' || true
+          git pull --rebase origin main || true
+          git push || true
+          cat "$RESULT"
