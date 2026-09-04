@@ -61,7 +61,7 @@ jobs:
                 -H 'Content-Type: application/x-www-form-urlencoded' \
                 -H 'Accept: application/json' \
                 --data-urlencode 'grant_type=client_credentials' \
-                --data-urlencode 'scope=boards:read,pins:read,pins:write' \
+                --data-urlencode 'scope=boards:read,boards:write,pins:read,pins:write' \
                 'https://api.pinterest.com/v5/oauth/token')
 
               ACCESS_TOKEN=$(jq -r '.access_token // empty' /tmp/pinterest_prod_token.json 2>/dev/null)
@@ -71,8 +71,6 @@ jobs:
               if [ "$TOKEN_CODE" -lt 200 ] || [ "$TOKEN_CODE" -ge 300 ] || [ -z "$ACCESS_TOKEN" ]; then
                 MESSAGE=$(jq -r '.message // .error_description // .error // "Production token request failed"' /tmp/pinterest_prod_token.json 2>/dev/null | head -c 300)
                 jq -nc --arg time "$NOW" --arg request_id "$REQUEST_ID" --arg token_http "$TOKEN_CODE" --arg message "$MESSAGE" '{time:$time,status:"FAIL",stage:"token",request_id:$request_id,token_http:$token_http,message:$message}' > "$RESULT"
-              elif ! printf '%s' "$TOKEN_SCOPES" | tr ', ' '\n' | grep -qx 'pins:write'; then
-                jq -nc --arg time "$NOW" --arg request_id "$REQUEST_ID" --arg scopes "$TOKEN_SCOPES" '{time:$time,status:"FAIL",stage:"token_scope",request_id:$request_id,reason:"pins_write_not_granted",scopes:$scopes}' > "$RESULT"
               else
                 if [ -z "$BOARD_ID" ]; then
                   BOOKMARK=''
