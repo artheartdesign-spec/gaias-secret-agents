@@ -1,0 +1,65 @@
+name: Pinterest Board Lookup
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.pinterest/board-audit-trigger.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  boards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: List Pinterest production boards
+        env:
+          PINTEREST_APP_SECRET: ${{ secrets.PINTEREST_APP_SECRET }}
+          PINTEREST_APP_ID: '1596852'
+        run: |
+          set +e
+          RESULT='pinterest-board-audit.json'
+          NOW=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          BASIC=$(printf '%s:%s' "$PINTEREST_APP_ID" "$PINTEREST_APP_SECRET" | base64 -w 0)
+          TOKEN_CODE=$(curl --silent --show-error --output /tmp/token.json --write-out '%{http_code}' --request POST \
+            -H "Authorization: Basic $BASIC" \
+            -H 'Content-Type: application/x-www-form-urlencoded' \
+            -H 'Accept: application/json' \
+            --data-urlencode 'grant_type=client_credentials' \
+            --data-urlencode 'scope=boards:read' \
+            'https://api.pinterest.com/v5/oauth/token')
+          TOKEN=$(jq -r '.access_token // empty' /tmp/token.json)
+          if [ -n "$TOKEN" ]; then echo "::add-mask::$TOKEN"; fi
+          if [ "$TOKEN_CODE" -ge 200 ] && [ "$TOKEN_CODE" -lt 300 ] && [ -n "$TOKEN" ]; then
+            : > /tmp/boards.jsonl
+            BOOKMARK=''
+            PAGE=0
+            HTTP=200
+            while [ $PAGE -lt 20 ]; do
+              PAGE=$((PAGE+1))
+              ARGS=(--silent --show-error --output /tmp/page.json --write-out '%{http_code}' --get 'https://api.pinterest.com/v5/boards' -H "Authorization: Bearer $TOKEN" -H 'Accept: application/json' --data-urlencode 'page_size=250')
+              if [ -n "$BOOKMARK" ]; then ARGS+=(--data-urlencode "bookmark=$BOOKMARK"); fi
+              HTTP=$(curl "${ARGS[@]}")
+              if [ "$HTTP" -lt 200 ] || [ "$HTTP" -ge 300 ]; then break; fi
+              jq -c '.items[]? | {id,name,privacy}' /tmp/page.json >> /tmp/boards.jsonl
+              BOOKMARK=$(jq -r '.bookmark // empty' /tmp/page.json)
+              [ -z "$BOOKMARK" ] && break
+            done
+            if [ "$HTTP" -ge 200 ] && [ "$HTTP" -lt 300 ]; then
+              jq -s '.' /tmp/boards.jsonl > /tmp/boards.json
+              jq -nc --arg time "$NOW" --slurpfile boards /tmp/boards.json '{time:$time,status:"PASS",boards:$boards[0]}' > "$RESULT"
+            else
+              jq -nc --arg time "$NOW" --arg http "$HTTP" '{time:$time,status:"FAIL",stage:"boards",http:$http}' > "$RESULT"
+            fi
+          else
+            jq -nc --arg time "$NOW" --arg http "$TOKEN_CODE" '{time:$time,status:"FAIL",stage:"token",http:$http}' > "$RESULT"
+          fi
+          cat "$RESULT"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$RESULT"
+          git commit -m 'Record Pinterest board lookup' || true
+          git pull --rebase origin main || true
+          git push || true
