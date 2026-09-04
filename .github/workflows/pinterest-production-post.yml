@@ -46,8 +46,10 @@ jobs:
             ALT_TEXT=$(jq -r '.alt_text // ""' "$REQUEST")
             LINK=$(jq -r '.link // ""' "$REQUEST")
             IMAGE_URL=$(jq -r '.image_url // ""' "$REQUEST")
+            IMAGE_B64=$(jq -r '.image_base64 // ""' "$REQUEST")
+            IMAGE_CONTENT_TYPE=$(jq -r '.image_content_type // "image/jpeg"' "$REQUEST")
 
-            if [ -z "$TITLE" ] || [ -z "$IMAGE_URL" ] || { [ -z "$BOARD_ID" ] && [ -z "$BOARD_NAME" ]; }; then
+            if [ -z "$TITLE" ] || { [ -z "$IMAGE_URL" ] && [ -z "$IMAGE_B64" ]; } || { [ -z "$BOARD_ID" ] && [ -z "$BOARD_NAME" ]; }; then
               jq -nc --arg time "$NOW" --arg request_id "$REQUEST_ID" '{time:$time,status:"FAIL",stage:"request",request_id:$request_id,reason:"title_image_and_board_required"}' > "$RESULT"
             else
               BASIC=$(printf '%s:%s' "$PINTEREST_APP_ID" "$PINTEREST_APP_SECRET" | base64 -w 0)
@@ -93,14 +95,26 @@ jobs:
                 if [ -z "$BOARD_ID" ]; then
                   jq -nc --arg time "$NOW" --arg request_id "$REQUEST_ID" --arg board_name "$BOARD_NAME" '{time:$time,status:"FAIL",stage:"board_lookup",request_id:$request_id,board_name:$board_name,reason:"board_not_found"}' > "$RESULT"
                 else
-                  PIN_PAYLOAD=$(jq -nc \
-                    --arg board_id "$BOARD_ID" \
-                    --arg title "$TITLE" \
-                    --arg description "$DESCRIPTION" \
-                    --arg alt_text "$ALT_TEXT" \
-                    --arg link "$LINK" \
-                    --arg image_url "$IMAGE_URL" \
-                    '{board_id:$board_id,title:$title,description:$description,media_source:{source_type:"image_url",url:$image_url,is_standard:true}} + (if $alt_text != "" then {alt_text:$alt_text} else {} end) + (if $link != "" then {link:$link} else {} end)')
+                  if [ -n "$IMAGE_B64" ]; then
+                    PIN_PAYLOAD=$(jq -nc \
+                      --arg board_id "$BOARD_ID" \
+                      --arg title "$TITLE" \
+                      --arg description "$DESCRIPTION" \
+                      --arg alt_text "$ALT_TEXT" \
+                      --arg link "$LINK" \
+                      --arg image "$IMAGE_B64" \
+                      --arg content_type "$IMAGE_CONTENT_TYPE" \
+                      '{board_id:$board_id,title:$title,description:$description,media_source:{source_type:"image_base64",content_type:$content_type,data:$image,is_standard:true}} + (if $alt_text != "" then {alt_text:$alt_text} else {} end) + (if $link != "" then {link:$link} else {} end)')
+                  else
+                    PIN_PAYLOAD=$(jq -nc \
+                      --arg board_id "$BOARD_ID" \
+                      --arg title "$TITLE" \
+                      --arg description "$DESCRIPTION" \
+                      --arg alt_text "$ALT_TEXT" \
+                      --arg link "$LINK" \
+                      --arg image_url "$IMAGE_URL" \
+                      '{board_id:$board_id,title:$title,description:$description,media_source:{source_type:"image_url",url:$image_url,is_standard:true}} + (if $alt_text != "" then {alt_text:$alt_text} else {} end) + (if $link != "" then {link:$link} else {} end)')
+                  fi
 
                   PIN_CODE=$(curl --silent --show-error \
                     --output /tmp/pinterest_pin.json \
