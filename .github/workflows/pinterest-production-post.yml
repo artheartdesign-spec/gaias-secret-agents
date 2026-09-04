@@ -47,7 +47,12 @@ jobs:
             LINK=$(jq -r '.link // ""' "$REQUEST")
             IMAGE_URL=$(jq -r '.image_url // ""' "$REQUEST")
             IMAGE_B64=$(jq -r '.image_base64 // ""' "$REQUEST")
+            IMAGE_PARTS_PREFIX=$(jq -r '.image_base64_parts_prefix // ""' "$REQUEST")
             IMAGE_CONTENT_TYPE=$(jq -r '.image_content_type // "image/jpeg"' "$REQUEST")
+
+            if [ -z "$IMAGE_B64" ] && [ -n "$IMAGE_PARTS_PREFIX" ]; then
+              IMAGE_B64=$(cat "${IMAGE_PARTS_PREFIX}"* 2>/dev/null | tr -d '\r\n')
+            fi
 
             if [ -z "$TITLE" ] || { [ -z "$IMAGE_URL" ] && [ -z "$IMAGE_B64" ]; } || { [ -z "$BOARD_ID" ] && [ -z "$BOARD_NAME" ]; }; then
               jq -nc --arg time "$NOW" --arg request_id "$REQUEST_ID" '{time:$time,status:"FAIL",stage:"request",request_id:$request_id,reason:"title_image_and_board_required"}' > "$RESULT"
