@@ -1,13 +1,13 @@
 {
-  "enabled": false,
-  "request_id": "template",
-  "board_name": "",
-  "board_id": "",
-  "title": "",
-  "description": "",
-  "alt_text": "",
-  "link": "https://gaiassecretagents.com/",
-  "image_url": "",
+  "enabled": true,
+  "request_id": "gsa-ocean-activities-20260905-01",
+  "board_name": "Gaias Secret Agents protecting the Earth",
+  "board_id": "992621642810885556",
+  "title": "12 Screen-Free Ocean Activities for Kids Ages 6–11",
+  "description": "Turn a beach trip or an afternoon at home into an ocean investigation. Explore 12 low-prep activities including a rock-pool census, tide-line detective mission, shorebird watch, wave patterns and more. Free screen-free ideas for parents, teachers and curious young Earth Protectors.",
+  "alt_text": "Children and a grown-up respectfully exploring a coastal rock pool near the ocean, illustrating screen-free ocean activities for kids ages 6 to 11.",
+  "link": "https://gaiassecretagents.com/screen-free-ocean-activities-for-kids.html",
+  "image_url": "https://gaiassecretagents.com/assets/gsa-ocean-article-hero.webp",
   "image_base64": "",
-  "image_content_type": "image/jpeg"
+  "image_content_type": "image/webp"
 }
