@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - '.github/workflows/pinterest-board-audit.yml'
       - '.pinterest/board-audit-trigger.txt'
 
 permissions:
