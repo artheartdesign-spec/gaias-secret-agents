@@ -1,13 +1,14 @@
 {
-  "enabled": false,
-  "request_id": "gsa-ocean-activities-20260905-02",
-  "board_name": "Gaias Secret Agents protecting the Earth",
-  "board_id": "992621642810885556",
-  "title": "12 Screen-Free Ocean Activities for Kids Ages 6–11",
-  "description": "Turn a beach trip or an afternoon at home into an ocean investigation. Explore 12 low-prep activities including a rock-pool census, tide-line detective mission, shorebird watch, wave patterns and more. Free screen-free ideas for parents, teachers and curious young Earth Protectors.",
-  "alt_text": "Children and a grown-up respectfully exploring a coastal rock pool near the ocean, illustrating screen-free ocean activities for kids ages 6 to 11.",
-  "link": "https://gaiassecretagents.com/screen-free-ocean-activities-for-kids.html",
-  "image_url": "https://gaiassecretagents.com/assets/gsa-ocean-article-hero.webp",
+  "enabled": true,
+  "request_id": "gsa-nature-tracker-20260905-01",
+  "board_name": "Fun activities to do in Nature for kids",
+  "board_id": "992621642811023635",
+  "title": "Free Nature Tracker Printable for Kids",
+  "description": "Build a mini wildlife habitat, then use this free 5-day Nature Tracker to spot clues, record visitors and get kids excited about nature. A fun screen-free activity for parents, teachers and curious young Earth Protectors.",
+  "alt_text": "Illustrated Gaia’s Secret Agents pin showing kids building a mini wildlife habitat with four simple steps and a free five-day Nature Tracker printable.",
+  "link": "https://gaiassecretagents.com/nature-tracker.html",
+  "image_url": "",
   "image_base64": "",
-  "image_content_type": "image/webp"
+  "image_base64_parts_prefix": ".pinterest/media/nature-tracker-",
+  "image_content_type": "image/jpeg"
 }
