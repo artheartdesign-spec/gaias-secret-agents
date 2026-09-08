@@ -5,9 +5,6 @@ on:
   push:
     paths:
       - '.github/workflows/build-pinterest-rss.yml'
-      - '.pinterest/media/nature-tracker-*.b64'
-      - '.pinterest/post-request.json'
-      - 'nature-tracker.html'
       - 'screen-free-ocean-activities-for-kids.html'
       - 'assets/gsa-ocean-article-hero.webp'
 
@@ -24,16 +21,6 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-
-      - name: Restore approved Nature Tracker Pin image
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p assets
-          B64="$(cat .pinterest/media/nature-tracker-*.b64 | tr -d '\r\n')"
-          while (( ${#B64} % 4 != 0 )); do B64="${B64}="; done
-          printf '%s' "$B64" | base64 --decode > assets/gsa-nature-tracker-pin.jpg
-          file assets/gsa-nature-tracker-pin.jpg
 
       - name: Build Pinterest RSS 2.0 feed
         shell: bash
@@ -58,26 +45,17 @@ jobs:
                 <pubDate>Sun, 30 Aug 2026 09:00:00 +1000</pubDate>
                 <media:content url="https://gaiassecretagents.com/assets/gsa-ocean-article-hero.webp" medium="image" type="image/webp" />
               </item>
-
-              <item>
-                <guid isPermaLink="false">gsa-nature-tracker-20260905-01</guid>
-                <title>Free Nature Tracker Printable for Kids</title>
-                <link>https://gaiassecretagents.com/nature-tracker.html</link>
-                <description>Build a mini wildlife habitat, then use this free 5-day Nature Tracker to spot clues, record visitors and get kids excited about nature. A screen-free activity for parents, teachers and curious young Earth Protectors.</description>
-                <pubDate>Sat, 05 Sep 2026 09:00:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-nature-tracker-pin.jpg" medium="image" type="image/jpeg" />
-              </item>
             </channel>
           </rss>
           EOF
 
-      - name: Commit generated promotion assets
+      - name: Commit generated promotion feed
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add assets/gsa-nature-tracker-pin.jpg pinterest-rss.xml
+          git add pinterest-rss.xml
           if git diff --cached --quiet; then
             echo 'Promotion feed already current.'
             exit 0
