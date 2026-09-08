@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Gaia's Secret Agents — Free Nature Missions</title>
+    <link>https://gaiassecretagents.com/</link>
+    <description>Screen-free nature missions, environmental activities and printable field tools for children aged 6–11.</description>
+    <language>en-au</language>
+    <lastBuildDate>Tue, 08 Sep 2026 19:57:20 +0000</lastBuildDate>
+
+    <item>
+      <guid isPermaLink="false">gsa-ocean-activities-20260830-01</guid>
+      <title>12 Screen-Free Ocean Activities for Kids Ages 6–11</title>
+      <link>https://gaiassecretagents.com/screen-free-ocean-activities-for-kids.html</link>
+      <description>Try rock-pool investigations, sound maps, simple current experiments and ocean-protection missions at the beach or at home. Low prep, useful and screen-free.</description>
+      <pubDate>Sun, 30 Aug 2026 09:00:00 +1000</pubDate>
+      <media:content url="https://gaiassecretagents.com/assets/gsa-ocean-article-hero.webp" medium="image" type="image/webp" />
+    </item>
+  </channel>
+</rss>
