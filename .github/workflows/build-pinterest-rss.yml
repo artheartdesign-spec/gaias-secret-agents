@@ -1,0 +1,85 @@
+name: Build Pinterest RSS Promotion Feed
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/build-pinterest-rss.yml'
+      - '.pinterest/media/nature-tracker-*.b64'
+      - '.pinterest/post-request.json'
+      - 'nature-tracker.html'
+      - 'screen-free-ocean-activities-for-kids.html'
+      - 'assets/gsa-ocean-article-hero.webp'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-pinterest-rss
+  cancel-in-progress: false
+
+jobs:
+  build-feed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Restore approved Nature Tracker Pin image
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets
+          cat .pinterest/media/nature-tracker-*.b64 | tr -d '\r\n' | base64 --decode > assets/gsa-nature-tracker-pin.jpg
+          file assets/gsa-nature-tracker-pin.jpg
+
+      - name: Build Pinterest RSS 2.0 feed
+        shell: bash
+        run: |
+          set -euo pipefail
+          LAST_BUILD="$(date -R)"
+          cat > pinterest-rss.xml <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+            <channel>
+              <title>Gaia's Secret Agents — Free Nature Missions</title>
+              <link>https://gaiassecretagents.com/</link>
+              <description>Screen-free nature missions, environmental activities and printable field tools for children aged 6–11.</description>
+              <language>en-au</language>
+              <lastBuildDate>${LAST_BUILD}</lastBuildDate>
+
+              <item>
+                <guid isPermaLink="false">gsa-ocean-activities-20260830-01</guid>
+                <title>12 Screen-Free Ocean Activities for Kids Ages 6–11</title>
+                <link>https://gaiassecretagents.com/screen-free-ocean-activities-for-kids.html</link>
+                <description>Try rock-pool investigations, sound maps, simple current experiments and ocean-protection missions at the beach or at home. Low prep, useful and screen-free.</description>
+                <pubDate>Sun, 30 Aug 2026 09:00:00 +1000</pubDate>
+                <media:content url="https://gaiassecretagents.com/assets/gsa-ocean-article-hero.webp" medium="image" type="image/webp" />
+              </item>
+
+              <item>
+                <guid isPermaLink="false">gsa-nature-tracker-20260905-01</guid>
+                <title>Free Nature Tracker Printable for Kids</title>
+                <link>https://gaiassecretagents.com/nature-tracker.html</link>
+                <description>Build a mini wildlife habitat, then use this free 5-day Nature Tracker to spot clues, record visitors and get kids excited about nature. A screen-free activity for parents, teachers and curious young Earth Protectors.</description>
+                <pubDate>Sat, 05 Sep 2026 09:00:00 +1000</pubDate>
+                <media:content url="https://gaiassecretagents.com/assets/gsa-nature-tracker-pin.jpg" medium="image" type="image/jpeg" />
+              </item>
+            </channel>
+          </rss>
+          EOF
+
+      - name: Commit generated promotion assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/gsa-nature-tracker-pin.jpg pinterest-rss.xml
+          if git diff --cached --quiet; then
+            echo 'Promotion feed already current.'
+            exit 0
+          fi
+          git commit -m 'Build automated Pinterest RSS promotion feed'
+          git pull --rebase origin main
+          git push
