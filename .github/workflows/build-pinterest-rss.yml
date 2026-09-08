@@ -30,7 +30,9 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p assets
-          cat .pinterest/media/nature-tracker-*.b64 | tr -d '\r\n' | base64 --decode > assets/gsa-nature-tracker-pin.jpg
+          B64="$(cat .pinterest/media/nature-tracker-*.b64 | tr -d '\r\n')"
+          while (( ${#B64} % 4 != 0 )); do B64="${B64}="; done
+          printf '%s' "$B64" | base64 --decode > assets/gsa-nature-tracker-pin.jpg
           file assets/gsa-nature-tracker-pin.jpg
 
       - name: Build Pinterest RSS 2.0 feed
