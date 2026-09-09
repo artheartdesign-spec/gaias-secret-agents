@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#071827" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="GSA Studio" />
+<link rel="manifest" href="./manifest.webmanifest" />
+<link rel="icon" href="./icon.svg" type="image/svg+xml" />
+<title>Gaia's Secret Agents Video Studio V3</title>
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div class="badge">GSA</div>
+    <div>
+      <h1>Gaia’s Secret Agents Video Studio — V3</h1>
+      <div class="sub">Song → storyboard → GSA scene art → soundtrack → YouTube-ready video.</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="tabs">
+    <button class="tab active" data-tab="build">1. Build</button>
+    <button class="tab" data-tab="story">2. Storyboard</button>
+    <button class="tab" data-tab="images">3. Image Generator</button>
+    <button class="tab" data-tab="audio">4. Audio</button>
+    <button class="tab" data-tab="preview">5. Preview & Export</button>
+    <button class="tab" data-tab="publish">6. Publish</button>
+  </div>
+
+  <section id="build" class="section active">
+    <div class="card quickstart">
+      <h2>Fastest route: turn a GSA song into a video</h2>
+      <div class="quicksteps">
+        <div class="quickstep">
+          <div><span class="quicknum">1</span><strong>Choose GSA preset</strong></div>
+          <label style="margin-top:10px">Video / character preset</label>
+          <select id="gsaPreset">
+            <option value="ocean-kai">Mission 1 — Ocean Discoverer / Kai</option>
+            <option value="starter-bramblewicks">Starter Kit — Bramblewicks</option>
+            <option value="flip">Flip — Ocean adventure</option>
+            <option value="general">General Gaia’s Secret Agents</option>
+            <option value="custom">Custom / keep my fields</option>
+          </select>
+          <div id="presetNote" class="preset-note"></div>
+        </div>
+        <div class="quickstep">
+          <div><span class="quicknum">2</span><strong>Add the song</strong></div>
+          <label style="margin-top:10px">Song file</label>
+          <input id="quickMusicAudio" type="file" accept="audio/*">
+          <div id="songStatus" class="preset-note">No song loaded yet.</div>
+        </div>
+        <div class="quickstep">
+          <div><span class="quicknum">3</span><strong>Paste lyrics below</strong></div>
+          <div class="preset-note" style="margin-top:10px">Then tap the button below. The app creates scenes, writes GSA image prompts and fits scene timing to the song.</div>
+          <button class="btn primary" id="quickBuild" style="width:100%;margin-top:10px">Build video storyboard</button>
+        </div>
+      </div>
+      <div class="share-row">
+        <button class="btn teal" id="fitToSong">Fit current scenes to song</button>
+        <button class="btn" id="addEnding">+ Add GSA ending scene</button>
+        <button class="btn" id="jumpImages">Next: Generate scene art →</button>
+      </div>
+      <div class="notice iphone-only" style="margin-top:10px"><strong>iPhone:</strong> this version uses larger controls, 720p by default, a bottom navigation bar and Share Sheet support after rendering. When hosted, Safari → Share → <strong>Add to Home Screen</strong> makes it behave like an app.</div>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h2>Project setup</h2>
+        <div class="row">
+          <div><label>Video title</label><input id="projectTitle" type="text" value="GSA Mission Video"></div>
+          <div><label>Resolution</label><select id="resolution"><option value="1280x720">720p — safer on iPhone</option><option value="1920x1080">1080p — heavier</option></select></div>
+        </div>
+        <hr>
+        <h2>Upload visuals</h2>
+        <div class="drop"><input id="visualFiles" type="file" accept="image/*,video/mp4,video/quicktime,video/webm" multiple></div>
+        <div id="assetList"></div>
+        <hr>
+        <h2>Exact approved GSA logo</h2>
+        <div class="drop"><input id="logoFile" type="file" accept="image/*"></div>
+        <div class="muted">The app uses the exact logo file you upload. It does not redraw it.</div>
+      </div>
+
+      <div class="card">
+        <h2>Build scenes from song lyrics or narration</h2>
+        <label>Paste lyrics or narration</label>
+        <textarea id="narrationText" placeholder="Paste lyrics or narration here. Each paragraph becomes a scene."></textarea>
+        <div class="row" style="margin-top:10px">
+          <button class="btn primary" id="buildScenes">Create storyboard</button>
+          <button class="btn" id="addBlank">Add blank scene</button>
+        </div>
+        <hr>
+        <h2>Auto image-prompt defaults</h2>
+        <div class="row">
+          <div><label>Character preset</label>
+            <select id="characterPreset">
+              <option value="kai">Kai — Green Sea Turtle</option>
+              <option value="bramblewicks">Bramblewicks — Fox mentor</option>
+              <option value="flip">Flip — Bottlenose Dolphin</option>
+              <option value="sprig">Sprig — Tree sprite scout</option>
+              <option value="astra">Astra — Owl</option>
+              <option value="ink">Ink — Squid</option>
+              <option value="none">No recurring character</option>
+              <option value="custom">Custom</option>
+            </select>
+          </div>
+          <div><label>Main recurring character</label><input id="mainCharacter" type="text" value="Kai, female green sea turtle; ancient and wise; patient and kind; realistic green sea turtle anatomy"></div>
+        </div>
+        <div class="row" style="margin-top:10px">
+          <div><label>Recurring setting</label><input id="mainSetting" type="text" value="Australian ocean, shoreline, moonlit sea and nature adventure"></div>
+          <div><label>Mission look</label><input id="missionLook" type="text" value="Ocean Discoverer: curious, hopeful marine discovery"></div>
+        </div>
+        <label style="margin-top:10px">Locked GSA style block</label>
+        <textarea id="styleLock">Premium illustrated children’s adventure art for Gaia’s Secret Agents. Dark navy, antique gold, parchment and teal accents. Child-friendly, hopeful, magical nature exploration. Consistent character design. Clean composition. Suitable for YouTube video scenes. Preserve approved GSA branding. Do not redraw the logo. Avoid clutter and tiny text.</textarea>
+        <div class="muted">This style block is used when the app writes image prompts automatically.</div>
+        <div class="share-row">
+          <button class="btn primary" id="goStoryboard">Next: Storyboard →</button>
+          <button class="btn teal" id="goImageGen">Next: Image Generator →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="story" class="section">
+    <div class="card">
+      <div class="row">
+        <div><h2 style="margin-bottom:3px">Storyboard</h2><div class="muted">Choose scene timing, text, visuals and per-scene prompts.</div></div>
+        <button class="btn primary" id="addSceneTop">+ Scene</button>
+      </div>
+      <div id="sceneList"></div>
+    </div>
+  </section>
+
+  <section id="images" class="section">
+    <div class="grid-3">
+      <div class="card">
+        <h2>Free image generation</h2>
+        <div class="notice">This uses a free external image endpoint when available. Free services can be slow, unstable or rate-limited. If generation fails, use Import or your own uploaded art.</div>
+        <div class="row" style="margin-top:10px">
+          <div><label>Generator</label><select id="genProvider"><option value="pollinations">Pollinations (free try)</option></select></div>
+          <div><label>Model</label><select id="genModel"><option value="flux">flux</option><option value="turbo">turbo</option></select></div>
+        </div>
+        <div class="row" style="margin-top:10px">
+          <div><label>Image size</label><select id="genSize"><option value="1280x720">16:9 scene image</option><option value="1024x1024">Square</option></select></div>
+          <div><label>Seed</label><input id="genSeed" type="text" placeholder="blank = random"></div>
+        </div>
+        <div class="row" style="margin-top:10px">
+          <button class="btn primary" id="generateAllPrompts">Write prompts for all scenes</button>
+          <button class="btn teal" id="generateAllImages">Try generating all scene images</button>
+        </div>
+        <div class="muted" style="margin-top:8px">The app writes prompts from each scene’s text plus your character/setting/style lock. You can edit any prompt before generating.</div>
+      </div>
+
+      <div class="card">
+        <h2>Scene prompt helper</h2>
+        <label>Extra prompt guidance</label>
+        <textarea id="promptExtras" placeholder="Example: show moonlight on the waves, include a small trail of glowing clues, cinematic child-friendly composition."></textarea>
+        <label style="margin-top:10px">Ending slogan</label>
+        <input id="endingLine" type="text" value="Even small hands can change the world.">
+        <hr>
+        <h2>Manual import</h2>
+        <div class="drop"><input id="generatedImport" type="file" accept="image/*" multiple></div>
+        <div class="muted">Use this when a free generator gives poor results or you make images elsewhere.</div>
+      </div>
+
+      <div class="card">
+        <h2>Image library</h2>
+        <div id="generatedGallery" class="gallery"></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h2>Per-scene generation</h2>
+      <div id="genSceneList"></div>
+    </div>
+  </section>
+
+  <section id="audio" class="section">
+    <div class="grid">
+      <div class="card">
+        <h2>Narration audio</h2>
+        <div class="drop"><input id="narrationAudio" type="file" accept="audio/*"></div>
+        <label style="margin-top:12px">Narration volume</label>
+        <input id="narrationVolume" type="range" min="0" max="1" step=".05" value="1">
+      </div>
+      <div class="card">
+        <h2>Song / music audio</h2>
+        <div class="drop"><input id="musicAudio" type="file" accept="audio/*"></div>
+        <label style="margin-top:12px">Music volume</label>
+        <input id="musicVolume" type="range" min="0" max="1" step=".05" value=".55">
+        <label class="inline-check" style="margin-top:10px"><input id="duckMusic" type="checkbox" checked> Lower music when narration exists</label>
+      </div>
+    </div>
+  </section>
+
+  <section id="preview" class="section">
+    <div class="grid">
+      <div class="card">
+        <h2>Preview</h2>
+        <div class="canvas-wrap"><canvas id="previewCanvas" width="1280" height="720"></canvas></div>
+        <div class="row" style="margin-top:10px">
+          <button class="btn primary" id="playPreview">▶ Preview</button>
+          <button class="btn" id="stopPreview">■ Stop</button>
+          <span class="muted" id="timeReadout">0:00 / 0:00</span>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Render</h2>
+        <div class="notice">Rendering happens in the browser. 720p is the safer choice on iPhone. If the browser blocks export, use the storyboard and assets, then render on desktop later.</div>
+        <div class="kpi"><span>Scenes</span><strong id="sceneCount">0</strong></div>
+        <div class="kpi"><span>Estimated duration</span><strong id="durationKpi">0:00</strong></div>
+        <div class="kpi"><span>Recording format</span><strong id="formatKpi">Checking…</strong></div>
+        <div class="progress"><div class="bar" id="renderBar"></div></div>
+        <div class="muted" id="renderStatus" style="margin:8px 0 12px">Ready.</div>
+        <button class="btn primary" id="renderVideo">Render video</button>
+        <a id="downloadLink" class="btn teal" style="display:none;text-decoration:none;margin-left:8px" download>Save rendered video</a>
+        <button class="btn teal" id="shareVideo" style="display:none;margin-left:8px">Share / Save on iPhone</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="publish" class="section">
+    <div class="grid">
+      <div class="card">
+        <h2>YouTube copy</h2>
+        <label>Title</label><input id="ytTitle" type="text">
+        <label style="margin-top:10px">Description</label><textarea id="ytDescription"></textarea>
+        <button class="btn primary" id="generatePublish">Generate from project</button>
+      </div>
+      <div class="card">
+        <h2>Chapters & thumbnail</h2>
+        <label>Chapter timestamps</label><textarea id="ytChapters"></textarea>
+        <label style="margin-top:10px">Thumbnail text</label><input id="thumbText" type="text" value="YOUR NEXT MISSION">
+        <label style="margin-top:10px">End-screen CTA</label><input id="endCta" type="text" value="Join Gaia’s Secret Agents for the next mission.">
+      </div>
+      <div class="card">
+        <h2>Install on iPhone</h2>
+        <div class="notice">Once this is on GitHub Pages: open it in Safari, tap <strong>Share</strong>, then <strong>Add to Home Screen</strong>. The app shell caches for repeat use. Generated images still need internet access.</div>
+        <div class="kpi"><span>Hosting cost</span><strong>A$0</strong></div>
+        <div class="kpi"><span>Login required</span><strong>No</strong></div>
+        <div class="kpi"><span>Your uploaded media</span><strong>Stored locally</strong></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="mobile-dock">
+  <button data-jump="build"><strong>1</strong>Build</button>
+  <button data-jump="images"><strong>2</strong>Images</button>
+  <button data-jump="preview"><strong>3</strong>Preview</button>
+</div>
+<footer>GSA-specific hybrid studio: your approved art first, free generation as an optional scene-art tool.</footer>
+
+<script src="./app.js" defer></script>
+</body>
+</html>
