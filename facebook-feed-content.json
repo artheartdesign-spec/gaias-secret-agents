@@ -1,0 +1,31 @@
+{
+  "approved_artwork": {
+    "https://gaiassecretagents.com/assets/founding-pack-cover.jpg": "0fd214ecc351a210458771237501ae50cb4fc3f7370f540a10ec791f09ca9f6d",
+    "https://gaiassecretagents.com/assets/gsa-ocean-article-hero.webp": "6498d07f1cc04814cad46b6fabb1bd0ba94b21d275033f5eaf379d1069a48cc5"
+  },
+  "article_descriptions": {
+    "screen-free-nature-activities.html": "Try this free mission today: choose five colours and ask your child to spot a natural example of each on a short walk. Look closely, leave plants where they grow, and finish with: ‘Which colour surprised you?’\n\nThe full guide has seven simple activities for ages 6–11, plus a link to the GSA Starter Kit when you’re ready for a complete printable adventure.",
+    "screen-free-ocean-activities-for-kids.html": "You can start an ocean-protection mission at home. With your child, look at tomorrow’s lunchbox and choose one disposable wrapper you could avoid using something you already own. Keep the food choices and food safety that work for your family.\n\nExplore 12 screen-free ocean activities for ages 6–11, then follow the guide’s link to the GSA Starter Kit for the next adventure.",
+    "why-we-make-kids-the-agents.html": "Give a child a small role today: ‘You’re our nature detective. Find one thing outside that you didn’t notice yesterday.’ Let them sketch it and report back.\n\nGaia’s Secret Agents combines stories, observation and achievable real-world action. Read why we use this approach, with links to the research and our printable Starter Kit."
+  },
+  "featured_pages": [
+    {
+      "path": "free-secret-agent-mission.html",
+      "title": "Your child’s first secret nature mission is free",
+      "description": "A secret code name. A nature investigation. A real-world discovery to report back to Headquarters.\n\nTry the free nine-page Nature Signal printable for curious children aged 6–11. A parent, guardian or teacher enters an email address to get access. Print at home and begin together.",
+      "published_at": "2026-09-10T10:00:00+10:00"
+    },
+    {
+      "path": "index.html",
+      "title": "You have been chosen: begin the GSA Starter Kit",
+      "description": "Turn an ordinary afternoon into a secret-agent adventure. The Gaia’s Secret Agents Starter Kit introduces children aged 6–11 to a world of stories, agent identities, curiosity and care for nature.\n\nThis is a printable digital download to prepare at home. See what’s included and follow ‘Get the Starter Kit’ to buy on Gumroad.",
+      "published_at": "2026-09-10T10:01:00+10:00"
+    },
+    {
+      "path": "secret_meeting_cards.html",
+      "title": "Turn ten ordinary minutes into a family Secret Meeting",
+      "description": "Make tonight’s conversation a little more adventurous. The GSA Founding Pack includes 16 printable TALK, IMAGINE and DO cards, matching backs, a meeting guide, an action sheet and a printable storage box.\n\nTake turns. Anyone may pass. Finish with one small Earth-positive action together. See the pack and buy the digital download through Gumroad.",
+      "published_at": "2026-09-10T10:02:00+10:00"
+    }
+  ]
+}
