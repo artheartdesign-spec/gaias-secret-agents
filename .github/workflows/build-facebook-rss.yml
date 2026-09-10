@@ -1,0 +1,46 @@
+name: Build GSA Facebook RSS Feed
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '*.html'
+      - 'facebook-feed-content.json'
+      - 'scripts/build-facebook-rss.py'
+      - '.github/workflows/build-facebook-rss.yml'
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: gsa-facebook-rss
+  cancel-in-progress: false
+
+jobs:
+  build-feed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Build the public GSA feed
+        run: python3 scripts/build-facebook-rss.py
+      - name: Save the feed when content changed
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add facebook-rss.xml
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Refresh GSA Facebook RSS feed'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      # GITHUB_TOKEN commits do not automatically trigger a Pages build.
+      - name: Publish the feed through the existing GitHub Pages site
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
