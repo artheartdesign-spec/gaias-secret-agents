@@ -30,11 +30,13 @@ Your child’s first Gaia’s Secret Agents field assignment is ready.
 
 **The Nature Signal** is designed to get them away from the screen and noticing the living world around them—not simply filling in another worksheet.
 
-Start here:
+**Download the mission PDF:**
 
-https://gaiassecretagents.com/free-mission-download.html?utm_source=brevo&utm_medium=email&utm_campaign=free_mission_sequence&utm_content=email_1
+https://gaiassecretagents.com/downloads/GSA_Free_Secret_Agent_Mission.pdf?utm_source=brevo&utm_medium=email&utm_campaign=free_mission_sequence&utm_content=email_1
 
 When the mission is complete, there is one important final step: **report back to Headquarters**.
+
+https://gaiassecretagents.com/report-back-to-headquarters.html?utm_source=brevo&utm_medium=email&utm_campaign=free_mission_sequence&utm_content=email_1_report
 
 The debrief turns the activity into four simple stages:
 
