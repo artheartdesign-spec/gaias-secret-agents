@@ -1,28 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <title>Gaia's Secret Agents — Free Nature Missions</title>
+    <title>Gaia's Secret Agents — Nature Missions &amp; Printable Adventures</title>
     <link>https://gaiassecretagents.com/</link>
-    <description>Screen-free nature missions, environmental activities and printable field tools for children aged 6–11.</description>
+    <description>Screen-free nature missions, printable activities and family adventures for children aged 6–11.</description>
     <language>en-au</language>
-    <lastBuildDate>Tue, 22 Sep 2026 08:38:00 +1000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2026 12:38:00 +1000</lastBuildDate>
 
     <item>
-      <guid isPermaLink="false">gsa-screen-free-nature-activities-20260922-01</guid>
-      <title>7 Screen-Free Nature Activities for Kids Ages 6–11</title>
-      <link>https://gaiassecretagents.com/screen-free-nature-activities.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=nature_activities</link>
-      <description>Seven low-prep nature missions for a backyard, park or walk: biodiversity survey, colour hunt, pollinator watch, micro-habitat detective, sound map, litter investigation and a one-species field file.</description>
-      <pubDate>Tue, 22 Sep 2026 08:38:00 +1000</pubDate>
-      <media:content url="https://gaiassecretagents.com/assets/gsa-nature-tracker-pin.jpg" medium="image" type="image/jpeg" />
-    </item>
-
-    <item>
-      <guid isPermaLink="false">gsa-nature-tracker-20260918-01</guid>
-      <title>Free 5-Day Nature Tracker for Kids Ages 6–11</title>
-      <link>https://gaiassecretagents.com/nature-tracker.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=nature_tracker</link>
-      <description>Build a mini wildlife habitat, then use this free 2-page printable to investigate it for five days. A screen-free nature activity for home, homeschool or classroom.</description>
-      <pubDate>Fri, 18 Sep 2026 08:49:00 +1000</pubDate>
-      <media:content url="https://gaiassecretagents.com/assets/gsa-nature-tracker-pin.jpg" medium="image" type="image/jpeg" />
+      <guid isPermaLink="false">gsa-secret-meeting-cards-20260922-01</guid>
+      <title>Secret Meeting Cards for Kids — 16 Printable Family Adventure Cards</title>
+      <link>https://gaiassecretagents.com/secret_meeting_cards.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=secret_meeting_cards</link>
+      <description>Turn 10–20 minutes into a screen-free family Secret Meeting. Includes 16 printable TALK, IMAGINE and DO cards, a meeting guide, Earth action sheet and printable storage box. Ages 6–11.</description>
+      <pubDate>Tue, 22 Sep 2026 12:38:00 +1000</pubDate>
+      <media:content url="https://gaiassecretagents.com/assets/founding-pack-cover.jpg" medium="image" type="image/jpeg" />
     </item>
 
     <item>
@@ -37,7 +28,7 @@
     <item>
       <guid isPermaLink="false">gsa-ocean-activities-20260830-01</guid>
       <title>12 Screen-Free Ocean Activities for Kids Ages 6–11</title>
-      <link>https://gaiassecretagents.com/screen-free-ocean-activities-for-kids.html</link>
+      <link>https://gaiassecretagents.com/screen-free-ocean-activities-for-kids.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=ocean_activities</link>
       <description>Try rock-pool investigations, sound maps, simple current experiments and ocean-protection missions at the beach or at home. Low prep, useful and screen-free.</description>
       <pubDate>Sun, 30 Aug 2026 09:00:00 +1000</pubDate>
       <media:content url="https://gaiassecretagents.com/assets/gsa-ocean-article-hero.webp" medium="image" type="image/webp" />
