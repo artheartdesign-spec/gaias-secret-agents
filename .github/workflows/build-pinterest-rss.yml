@@ -5,7 +5,11 @@ on:
   push:
     paths:
       - '.github/workflows/build-pinterest-rss.yml'
+      - 'pinterest-rss.xml'
+      - 'free-secret-agent-mission.html'
+      - 'secret_meeting_cards.html'
       - 'screen-free-ocean-activities-for-kids.html'
+      - 'assets/founding-pack-cover.jpg'
       - 'assets/gsa-ocean-article-hero.webp'
 
 permissions:
@@ -22,7 +26,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Build Pinterest RSS 2.0 feed
+      - name: Build stable Pinterest RSS 2.0 feed
         shell: bash
         run: |
           set -euo pipefail
@@ -31,16 +35,34 @@ jobs:
           <?xml version="1.0" encoding="UTF-8"?>
           <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
             <channel>
-              <title>Gaia's Secret Agents — Free Nature Missions</title>
+              <title>Gaia's Secret Agents — Nature Missions &amp; Printable Adventures</title>
               <link>https://gaiassecretagents.com/</link>
-              <description>Screen-free nature missions, environmental activities and printable field tools for children aged 6–11.</description>
+              <description>Screen-free nature missions, printable activities and family adventures for children aged 6–11.</description>
               <language>en-au</language>
               <lastBuildDate>${LAST_BUILD}</lastBuildDate>
 
               <item>
+                <guid isPermaLink="false">gsa-secret-meeting-cards-20260922-01</guid>
+                <title>Secret Meeting Cards for Kids — 16 Printable Family Adventure Cards</title>
+                <link>https://gaiassecretagents.com/secret_meeting_cards.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=secret_meeting_cards</link>
+                <description>Turn 10–20 minutes into a screen-free family Secret Meeting. Includes 16 printable TALK, IMAGINE and DO cards, a meeting guide, Earth action sheet and printable storage box. Ages 6–11.</description>
+                <pubDate>Tue, 22 Sep 2026 12:38:00 +1000</pubDate>
+                <media:content url="https://gaiassecretagents.com/assets/founding-pack-cover.jpg" medium="image" type="image/jpeg" />
+              </item>
+
+              <item>
+                <guid isPermaLink="false">gsa-free-secret-agent-mission-20260915-01</guid>
+                <title>Free 9-Page Secret Agent Nature Mission for Kids Ages 6–11</title>
+                <link>https://gaiassecretagents.com/free-secret-agent-mission.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=free_mission</link>
+                <description>Download a free screen-free Secret Agent mission for children aged 6–11. Create an Agent code name, complete a 15-minute Nature Signal Hunt and make an Earth Protector promise. Parent or guardian email required for instant access.</description>
+                <pubDate>Tue, 15 Sep 2026 08:49:00 +1000</pubDate>
+                <media:content url="https://gaiassecretagents.com/assets/gsa-ocean-article-hero.webp" medium="image" type="image/webp" />
+              </item>
+
+              <item>
                 <guid isPermaLink="false">gsa-ocean-activities-20260830-01</guid>
                 <title>12 Screen-Free Ocean Activities for Kids Ages 6–11</title>
-                <link>https://gaiassecretagents.com/screen-free-ocean-activities-for-kids.html</link>
+                <link>https://gaiassecretagents.com/screen-free-ocean-activities-for-kids.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=ocean_activities</link>
                 <description>Try rock-pool investigations, sound maps, simple current experiments and ocean-protection missions at the beach or at home. Low prep, useful and screen-free.</description>
                 <pubDate>Sun, 30 Aug 2026 09:00:00 +1000</pubDate>
                 <media:content url="https://gaiassecretagents.com/assets/gsa-ocean-article-hero.webp" medium="image" type="image/webp" />
@@ -60,6 +82,6 @@ jobs:
             echo 'Promotion feed already current.'
             exit 0
           fi
-          git commit -m 'Build automated Pinterest RSS promotion feed'
+          git commit -m 'Refresh Pinterest RSS promotion feed'
           git pull --rebase origin main
           git push
