@@ -43,7 +43,7 @@ footer{padding:28px 0;background:var(--deep);color:rgba(251,243,223,.72);font-si
 <h1>Every Agent has an origin story.</h1>
 <p class="lead">The Gaia’s Secret Agents Starter Kit is a screen-free, story-led adventure that recruits curious children aged 6–11 into a world of clues, investigations, nature discovery and meaningful real-world action.</p>
 <div class="price">A$19</div>
-<a class="button" href="https://gaiassecretagents.gumroad.com/l/gsa-starter-kit?utm_source=gsa_site&utm_medium=starter_kit_page&utm_campaign=starter_kit_conversion">Recruit Your Agent — A$19</a>
+<a class="button" href="https://gaiassecretagents.gumroad.com/l/gsa-starter-kit?utm_source=gsa_site&utm_medium=starter_kit_page&utm_campaign=starter_kit_conversion" data-checkout="starter-kit">Recruit Your Agent — A$19</a>
 <p class="micro">Instant digital access · Print at home · Nothing is mailed · No child email address required</p>
 </div>
 <img src="/assets/gsa-young-agents-globe.webp" alt="Two young Gaia’s Secret Agents investigating a glowing globe">
@@ -128,9 +128,43 @@ footer{padding:28px 0;background:var(--deep);color:rgba(251,243,223,.72);font-si
 <p class="eyebrow">The Agency is recruiting</p>
 <h2>Your Agent’s origin story starts here.</h2>
 <p>There are clues waiting to be found, questions waiting to be asked, and a real world worth investigating.</p>
-<a class="button" href="https://gaiassecretagents.gumroad.com/l/gsa-starter-kit?utm_source=gsa_site&utm_medium=starter_kit_page&utm_campaign=starter_kit_conversion">Get the Starter Kit — A$19</a>
+<a class="button" href="https://gaiassecretagents.gumroad.com/l/gsa-starter-kit?utm_source=gsa_site&utm_medium=starter_kit_page&utm_campaign=starter_kit_conversion" data-checkout="starter-kit">Get the Starter Kit — A$19</a>
 </section>
 </main>
 <footer><div class="shell"><span>© 2026 Gaia’s Secret Agents · Brisbane, Queensland, Australia</span><span><a href="/contact.html">Contact</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/refund-policy.html">Refunds</a></span></div></footer>
+<script>
+(function(){
+  var keys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+  var incoming=new URLSearchParams(window.location.search);
+  var stored={};
+  try{stored=JSON.parse(sessionStorage.getItem('gsa_attribution')||'{}')||{};}catch(e){stored={};}
+  keys.forEach(function(k){
+    var v=incoming.get(k);
+    if(v) stored[k]=v;
+  });
+  try{sessionStorage.setItem('gsa_attribution',JSON.stringify(stored));}catch(e){}
+  document.querySelectorAll('a[data-checkout="starter-kit"]').forEach(function(link){
+    var url=new URL(link.href);
+    var hasAttribution=false;
+    keys.forEach(function(k){
+      if(stored[k]){url.searchParams.set(k,stored[k]);hasAttribution=true;}
+    });
+    if(hasAttribution){
+      url.searchParams.set('utm_destination','gumroad');
+      link.href=url.toString();
+    }
+    link.addEventListener('click',function(){
+      window.dataLayer=window.dataLayer||[];
+      window.dataLayer.push({
+        event:'gsa_starter_kit_checkout_click',
+        page:window.location.pathname,
+        utm_source:url.searchParams.get('utm_source')||'',
+        utm_medium:url.searchParams.get('utm_medium')||'',
+        utm_campaign:url.searchParams.get('utm_campaign')||''
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
