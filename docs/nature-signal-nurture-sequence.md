@@ -97,6 +97,14 @@ Ask them one question:
 
 Their answer might surprise you.
 
+### Parent completion check
+
+Did your child complete The Nature Signal?
+
+- **Yes:** https://gaiassecretagents.com/mission-completion.html?answer=yes&utm_source=brevo&utm_medium=email&utm_campaign=nature_signal_nurture&utm_content=email_2_yes
+- **Partly:** https://gaiassecretagents.com/mission-completion.html?answer=partly&utm_source=brevo&utm_medium=email&utm_campaign=nature_signal_nurture&utm_content=email_2_partly
+- **Not yet:** https://gaiassecretagents.com/mission-completion.html?answer=not_yet&utm_source=brevo&utm_medium=email&utm_campaign=nature_signal_nurture&utm_content=email_2_not_yet
+
 — Gaia’s Secret Agents
 
 ---
