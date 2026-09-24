@@ -132,6 +132,7 @@ footer{padding:28px 0;background:var(--deep);color:rgba(251,243,223,.72);font-si
 </section>
 </main>
 <footer><div class="shell"><span>© 2026 Gaia’s Secret Agents · Brisbane, Queensland, Australia</span><span><a href="/contact.html">Contact</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/refund-policy.html">Refunds</a></span></div></footer>
+<script src="/assets/gsa-events.js"></script>
 <script>
 (function(){
   var keys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
@@ -154,10 +155,7 @@ footer{padding:28px 0;background:var(--deep);color:rgba(251,243,223,.72);font-si
       link.href=url.toString();
     }
     link.addEventListener('click',function(){
-      window.dataLayer=window.dataLayer||[];
-      window.dataLayer.push({
-        event:'gsa_starter_kit_checkout_click',
-        page:window.location.pathname,
+      if(window.gsaTrack) window.gsaTrack('gsa_starter_kit_checkout_click',{
         utm_source:url.searchParams.get('utm_source')||'',
         utm_medium:url.searchParams.get('utm_medium')||'',
         utm_campaign:url.searchParams.get('utm_campaign')||''
