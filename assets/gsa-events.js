@@ -21,4 +21,13 @@
     safeQueue(event);
     return event;
   };
+  if(!window.__gsaPageViewTracked){
+    window.__gsaPageViewTracked=true;
+    setTimeout(function(){
+      window.gsaTrack('gsa_page_view',{
+        title:document.title||'',
+        referrer:document.referrer||''
+      });
+    },0);
+  }
 })();
