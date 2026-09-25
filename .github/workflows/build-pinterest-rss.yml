@@ -8,9 +8,11 @@ on:
       - 'pinterest-rss.xml'
       - 'free-secret-agent-mission.html'
       - 'secret_meeting_cards.html'
+      - 'environmental-activities-for-kids.html'
       - 'screen-free-ocean-activities-for-kids.html'
       - 'assets/founding-pack-cover.jpg'
       - 'assets/gsa-ocean-article-hero.webp'
+      - 'assets/gsa-young-agents-globe.webp'
 
 permissions:
   contents: write
@@ -40,6 +42,15 @@ jobs:
               <description>Screen-free nature missions, printable activities and family adventures for children aged 6–11.</description>
               <language>en-au</language>
               <lastBuildDate>${LAST_BUILD}</lastBuildDate>
+
+              <item>
+                <guid isPermaLink="false">gsa-environmental-activities-20260925-01</guid>
+                <title>10 Environmental Activities for Kids Ages 6–11 — Screen-Free &amp; Low Prep</title>
+                <link>https://gaiassecretagents.com/environmental-activities-for-kids.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=environmental_activities</link>
+                <description>Ten practical environmental activities for children aged 6–11, including biodiversity surveys, sound maps, pollinator watches, bird observations and shore investigations. Most need only paper, a pencil and 10–30 minutes.</description>
+                <pubDate>Fri, 25 Sep 2026 23:40:00 +1000</pubDate>
+                <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/webp" />
+              </item>
 
               <item>
                 <guid isPermaLink="false">gsa-secret-meeting-cards-20260922-01</guid>
