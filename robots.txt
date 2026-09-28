@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /teacher-starter-pack-download.html
+Disallow: /downloads/GSA_Free_Teacher_Starter_Pack.pdf
 
 Sitemap: https://gaiassecretagents.com/sitemap.xml
