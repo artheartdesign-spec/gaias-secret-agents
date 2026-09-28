@@ -6,6 +6,7 @@ from reportlab.lib.units import mm
 from reportlab.platypus import Paragraph
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.enums import TA_LEFT
+from reportlab.lib.utils import ImageReader
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -58,25 +59,56 @@ def bullets(items,x,y,w,size=12,gap=4,color=INK):
         y=para(item,x+10,y+2,w-10,size=size,color=color); y-=gap
     return y
 
-# 1 Cover
+# 1 Cover — illustrated, teacher-facing and still print-friendly inside
+COVER_LOGO=ROOT/"assets"/"gsa-official-logo.webp"
+COVER_ART=ROOT/"assets"/"gsa-young-agents-globe.webp"
+
 c.setFillColor(NAVY); c.rect(0,0,W,H,fill=1,stroke=0)
-c.setFillColor(TEAL); c.circle(W-20*mm,H-30*mm,38*mm,fill=1,stroke=0)
-c.setStrokeColor(colors.Color(1,1,1,alpha=0.04))
-for r in [28,40,52]: c.circle(W-20*mm,H-30*mm,r*mm,fill=0,stroke=1)
-c.setFillColor(GOLD2); c.setFont("Helvetica-Bold",10)
-c.drawString(margin,H-38*mm,"CLASSROOM FIELD FILE · FREE TEACHER RESOURCE")
-c.setFillColor(CREAM); c.setFont("Times-Bold",31)
-c.drawString(margin,H-61*mm,"Free Teacher"); c.drawString(margin,H-74*mm,"Starter Pack")
-c.setFillColor(colors.HexColor("#DCE8E3")); c.setFont("Helvetica",15)
-c.drawString(margin,H-90*mm,"Screen-free environmental learning for ages 6-11")
-c.setStrokeColor(GOLD); c.line(margin,H-100*mm,W-margin,H-100*mm)
-y=H-116*mm; y=para("<b>Inside this pack:</b>",margin,y,content_w,size=14,color=GOLD2); y-=5
-y=bullets(["A 20-minute ready-to-run outdoor mission","A student evidence sheet",
-"Teacher discussion and extension prompts","A sustainability decision challenge",
-"A reusable GSA lesson-planning template"],margin,y,content_w,size=13,color=CREAM); y-=10
-box(margin,y,content_w,35*mm,fill=NAVY2,stroke=GOLD)
-para("<b>Designed for teachers, homeschoolers and other adults leading learning.</b><br/>No student email address is needed. Follow your own supervision, weather, site-safety and school requirements.",
-margin+8*mm,y-8*mm,content_w-16*mm,size=11.5,color=CREAM)
+
+# Large approved GSA artwork anchors the lower half.
+if COVER_ART.exists():
+    art_size=164*mm
+    c.drawImage(ImageReader(str(COVER_ART)),(W-art_size)/2,13*mm,
+        width=art_size,height=art_size,preserveAspectRatio=True,mask='auto')
+    c.saveState()
+    try: c.setFillAlpha(0.18)
+    except Exception: pass
+    c.setFillColor(NAVY); c.rect(0,13*mm,W,164*mm,fill=1,stroke=0)
+    c.restoreState()
+
+# Official GSA badge.
+if COVER_LOGO.exists():
+    logo_size=62*mm
+    c.drawImage(ImageReader(str(COVER_LOGO)),(W-logo_size)/2,H-78*mm,
+        width=logo_size,height=logo_size,preserveAspectRatio=True,mask='auto')
+
+c.setFillColor(GOLD2); c.setFont("Helvetica-Bold",9.5)
+c.drawCentredString(W/2,H-19*mm,"CLASSROOM FIELD FILE · FREE TEACHER RESOURCE")
+
+# Parchment-style title panel.
+panel_x=20*mm; panel_w=W-40*mm; panel_top=H-86*mm; panel_h=60*mm
+c.setFillColor(PAPER); c.setStrokeColor(GOLD)
+c.roundRect(panel_x,panel_top-panel_h,panel_w,panel_h,9,fill=1,stroke=1)
+c.setFillColor(NAVY); c.setFont("Times-Bold",27)
+c.drawCentredString(W/2,panel_top-17*mm,"Free Teacher")
+c.setFont("Times-Bold",30)
+c.drawCentredString(W/2,panel_top-31*mm,"STARTER PACK")
+c.setFont("Helvetica-Bold",12); c.setFillColor(INK)
+c.drawCentredString(W/2,panel_top-44*mm,"Screen-free environmental learning for ages 6–11")
+
+# What is included.
+info_y=57*mm
+c.setFillColor(NAVY2); c.setStrokeColor(GOLD)
+c.roundRect(27*mm,info_y, W-54*mm,42*mm,8,fill=1,stroke=1)
+c.setFillColor(GOLD2); c.setFont("Helvetica-Bold",9.5)
+c.drawCentredString(W/2,info_y+31*mm,"INCLUDES")
+c.setFillColor(CREAM); c.setFont("Helvetica",10.4)
+c.drawCentredString(W/2,info_y+23*mm,"ready-to-run outdoor mission · student evidence sheet")
+c.drawCentredString(W/2,info_y+16*mm,"discussion prompts · sustainability challenge")
+c.drawCentredString(W/2,info_y+9*mm,"reusable lesson-planning template")
+
+c.setFillColor(CREAM); c.setFont("Helvetica",9.5)
+c.drawCentredString(W/2,20*mm,"For teachers, homeschoolers and other adults leading learning.")
 footer(1,True); c.showPage()
 
 # 2 Quick start
@@ -117,29 +149,45 @@ bullets(["<b>Choose Zone A.</b> Mark a small observation area roughly one metre 
 "<b>Report back.</b> Decide which zone appears to provide more habitat features and support the answer with evidence."],margin,y,content_w,size=11.4)
 footer(3); c.showPage()
 
-# 4 Student sheet - minimum 16pt child-facing text
+# 4 Student sheet — classroom photocopy master, minimum 16pt child-facing text
 header_band("Student Field Sheet",4); y=H-42*mm
 y=heading("Operation: Hidden Habitat - Evidence Sheet",margin,y,22); y-=2*mm
 c.setFillColor(INK); c.setFont("Helvetica",16)
-c.drawString(margin,y,"Agent / group: ____________________"); c.drawString(W/2+5*mm,y,"Date: __________"); y-=12*mm
-gap=6*mm; col_w=(content_w-gap)/2; zone_h=88*mm
+c.drawString(margin,y,"Agent / group: ____________________"); c.drawString(W/2+5*mm,y,"Date: __________"); y-=10*mm
+
+# Explicit permission for teachers to make student copies.
+perm_h=8*mm
+c.setFillColor(LIGHT); c.setStrokeColor(TEAL)
+c.roundRect(margin,y-perm_h,content_w,perm_h,3,fill=1,stroke=1)
+c.setFillColor(TEAL); c.setFont("Helvetica-Bold",8.7)
+c.drawCentredString(W/2,y-5.4*mm,
+    "COPY FOR STUDENTS: Teachers may photocopy this page for learners in their own class or homeschool group.")
+y-=13*mm
+
+gap=6*mm; col_w=(content_w-gap)/2; zone_h=87*mm
 for idx,label in enumerate(["ZONE A","ZONE B"]):
     x=margin+idx*(col_w+gap); box(x,y,col_w,zone_h,fill=colors.white,stroke=GOLD)
     c.setFillColor(NAVY); c.setFont("Helvetica-Bold",17); c.drawString(x+6*mm,y-10*mm,label)
     c.setFont("Helvetica",16); c.setFillColor(MUTED); c.drawString(x+6*mm,y-20*mm,"Describe this place:")
     c.setStrokeColor(colors.HexColor("#C7C7C7"))
     c.line(x+6*mm,y-30*mm,x+col_w-6*mm,y-30*mm); c.line(x+6*mm,y-39*mm,x+col_w-6*mm,y-39*mm)
-    cy=y-50*mm; c.setFont("Helvetica",16); c.setFillColor(INK)
+    cy=y-49*mm; c.setFont("Helvetica",16); c.setFillColor(INK)
     for item in ["Shade","Plants","Shelter","Leaf litter","Moisture","Signs of life"]:
-        c.rect(x+6*mm,cy-3.5*mm,4.5*mm,4.5*mm,fill=0,stroke=1); c.drawString(x+14*mm,cy-1*mm,item); cy-=7.3*mm
-y-=zone_h+11*mm; c.setFillColor(NAVY); c.setFont("Times-Bold",18); c.drawString(margin,y,"Three differences we noticed"); y-=9*mm
+        c.rect(x+6*mm,cy-3.5*mm,4.5*mm,4.5*mm,fill=0,stroke=1)
+        c.drawString(x+14*mm,cy-1*mm,item)
+        cy-=6.6*mm
+
+y-=zone_h+10*mm
+c.setFillColor(NAVY); c.setFont("Times-Bold",18); c.drawString(margin,y,"Three differences we noticed"); y-=9*mm
 for n in range(1,4):
     c.setFillColor(TEAL); c.setFont("Helvetica-Bold",16); c.drawString(margin,y,f"{n}.")
-    c.setStrokeColor(colors.HexColor("#A7A7A7")); c.line(margin+9*mm,y-1*mm,W-margin,y-1*mm); y-=11*mm
-box(margin,y,content_w,45*mm,fill=LIGHT,stroke=colors.HexColor("#B9C9C0"))
-c.setFillColor(NAVY); c.setFont("Helvetica-Bold",16); c.drawString(margin+7*mm,y-10*mm,"OUR REPORT TO HEADQUARTERS")
-c.setFont("Helvetica",16); c.drawString(margin+7*mm,y-20*mm,"Which zone seems to offer more useful habitat features?")
-c.setStrokeColor(colors.HexColor("#9E9E9E")); c.line(margin+7*mm,y-31*mm,W-margin-7*mm,y-31*mm); c.line(margin+7*mm,y-40*mm,W-margin-7*mm,y-40*mm)
+    c.setStrokeColor(colors.HexColor("#A7A7A7")); c.line(margin+9*mm,y-1*mm,W-margin,y-1*mm); y-=10*mm
+box(margin,y,content_w,42*mm,fill=LIGHT,stroke=colors.HexColor("#B9C9C0"))
+c.setFillColor(NAVY); c.setFont("Helvetica-Bold",16); c.drawString(margin+7*mm,y-9*mm,"OUR REPORT TO HEADQUARTERS")
+c.setFont("Helvetica",16); c.drawString(margin+7*mm,y-18*mm,"Which zone seems to offer more useful habitat features?")
+c.setStrokeColor(colors.HexColor("#9E9E9E"))
+c.line(margin+7*mm,y-29*mm,W-margin-7*mm,y-29*mm)
+c.line(margin+7*mm,y-37*mm,W-margin-7*mm,y-37*mm)
 footer(4); c.showPage()
 
 # 5 Discuss
@@ -198,8 +246,8 @@ footer(7); c.showPage()
 
 # 8 Next steps
 header_band("Next Steps",8); y=H-42*mm
-y=heading("Keep the useful parts free",margin,y,25)
-y=para("The public GSA teacher guides stay open so teachers, parents and search/AI systems can find useful material without signing up. This downloadable Starter Pack is the email-gated resource.",margin,y-3,content_w,size=12.3); y-=13
+y=heading("Teacher Use & Next Steps",margin,y,25)
+y=para("<b>Classroom copying permission:</b> you may print or photocopy the student Evidence Sheet (page 4) for learners in your own class or homeschool group. You may print the teacher pages for your own teaching use. Please do not upload or redistribute the complete pack publicly.",margin,y-3,content_w,size=11.3); y-=13
 resources=[("Schools & Teachers","gaiassecretagents.com/schools.html","Teacher sample, school-use information and licensing enquiries."),
 ("Outdoor Learning Guide","gaiassecretagents.com/outdoor-learning-activities-primary-school.html","Eight low-prep primary-school outdoor learning activities."),
 ("Sustainability Guide","gaiassecretagents.com/sustainability-activities-primary-school.html","Nine sustainability activities built around systems, evidence and action."),
