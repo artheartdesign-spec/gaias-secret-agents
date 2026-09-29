@@ -112,6 +112,31 @@ jobs:
                   raise SystemExit("Starter Kit section not found")
               s = s[:anchor.start()] + free_section + s[anchor.start():]
 
+          # Keep the Nature Art Collection discoverable from the homepage and internally linked for search.
+          art_url = "/art-prints.html"
+          if art_url not in s:
+              nav_open = re.search(r'<(?:nav|div)[^>]*class="[^"]*nav-links[^"]*"[^>]*>', s, flags=re.I)
+              if nav_open:
+                  link = '<a href="/art-prints.html">Art Prints</a>'
+                  s = s[:nav_open.end()] + link + s[nav_open.end():]
+
+          if 'id="art-print-collection-home"' not in s:
+              art_section = (
+                  '<section class="free-activities-home" id="art-print-collection-home">'
+                  '<div class="section-inner center"><div class="free-activities-card">'
+                  '<p class="eyebrow dark">Printable Nature Art</p>'
+                  '<img src="/assets/gsa-nature-detective-bird.webp" alt="Golden Wren printable nature artwork with bird, brass telescope and sealed field letter" width="240" height="360" loading="lazy" decoding="async" style="display:block;width:min(320px,100%);aspect-ratio:2/3;object-fit:cover;margin:0 auto 24px;border-radius:18px;box-shadow:0 16px 38px rgba(44,32,13,.16)">'
+                  '<h2>Bring the GSA world onto the wall.</h2>'
+                  '<p>Explore high-resolution downloadable nature art inspired by secret fieldwork, wild places and discovery. The first print, <strong>Golden Wren: Field Letter</strong>, is prepared in a versatile 2:3 format.</p>'
+                  '<div class="button-row" style="justify-content:center">'
+                  '<a class="btn primary" href="/art-prints.html">Explore Printable Art</a>'
+                  '</div></div></div></section>'
+              )
+              anchor = re.search(r'<section[^>]*id="recruit-kit"[^>]*>', s, flags=re.I)
+              if not anchor:
+                  raise SystemExit("Starter Kit section not found for art collection block")
+              s = s[:anchor.start()] + art_section + s[anchor.start():]
+
           # Add a concise evidence-informed credibility block immediately before the Starter Kit offer.
           research_url = "/why-we-make-kids-the-agents.html"
           if 'id="research-behind-the-missions"' not in s:
