@@ -69,6 +69,14 @@ jobs:
               link = '<a href="/free-activities-guides.html">Free Activities &amp; Guides</a>'
               s = s[:nav_open.end()] + link + s[nav_open.end():]
 
+          art_url = "/nature-habitat-collection.html"
+          if art_url not in s:
+              nav_open = re.search(r'<(?:nav|div)[^>]*class="[^"]*nav-links[^"]*"[^>]*>', s, flags=re.I)
+              if not nav_open:
+                  raise SystemExit("Navigation container with class nav-links not found for Art Prints")
+              art_link = '<a href="/nature-habitat-collection.html">Art Prints</a>'
+              s = s[:nav_open.end()] + art_link + s[nav_open.end():]
+
           # Premium conversion module directly after the hero. It clarifies the offer without changing approved hero artwork.
           if 'id="premium-home-conversion"' not in s:
               premium = (
