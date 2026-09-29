@@ -28,6 +28,21 @@ jobs:
           current_gumroad = "https://gaiassecretagents.gumroad.com/l/gsa-starter-kit"
           old_gumroad = "https://artheartdesign.gumroad.com/l/gsa-starter-kit"
           s = s.replace(old_gumroad, current_gumroad)
+          # If the homepage was rebuilt without a Starter Kit checkout URL, restore one
+          # inside the existing recruit-kit section instead of failing the whole maintenance pass.
+          if current_gumroad not in s:
+              recruit = re.search(r'(<section[^>]*id="recruit-kit"[^>]*>)(.*?)(</section>)', s, flags=re.I | re.S)
+              if recruit:
+                  body = recruit.group(2)
+                  if 'gumroad.com' in body:
+                      body = re.sub(r'href="https://[^"]*gumroad\.com/[^"]*"', 'href="' + current_gumroad + '"', body, count=1, flags=re.I)
+                  else:
+                      body += (
+                          '<div class="button-row" style="justify-content:center;margin-top:24px">'
+                          '<a class="btn primary" href="' + current_gumroad + '">Get the Starter Kit — A$19</a>'
+                          '</div>'
+                      )
+                  s = s[:recruit.start()] + recruit.group(1) + body + recruit.group(3) + s[recruit.end():]
 
           guide_url = "/free-activities-guides.html"
           old_activities_url = "/screen-free-nature-activities.html"
