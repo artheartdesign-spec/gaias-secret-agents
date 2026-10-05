@@ -24,9 +24,32 @@
     },
     {
       "path": "secret_meeting_cards.html",
-      "title": "Need 10 quiet minutes tonight? Call a Secret Meeting.",
-      "description": "No screens. No special equipment. No complicated setup. For A$5, the Founding Pack gives you 16 printable TALK, IMAGINE and DO cards, a meeting guide, an action sheet and a tuck box.\n\nDraw a card. Talk, imagine or act. Then choose one tiny Earth mission together. Instant PDF download for curious kids aged 6–11.",
-      "published_at": "2026-10-06T08:05:00+10:00"
+      "title": "What if the best 10 minutes of the day cost A$5?",
+      "description": "Not another worksheet. Not another screen.\n\nThe Secret Meeting Cards are a little ritual for connection: sit together, draw a card, talk, imagine or act. Kids can lead. Grown-ups join in. Anyone can pass. One round takes about 10–20 minutes.\n\nThe Founding Pack has 16 cards plus the meeting guide, action sheet and printable storage box. A$5 instant PDF for ages 6–11.\n\nIt is really about the bit you get for free: laughing, listening, surprising each other and doing something together.",
+      "published_at": "2026-10-06T08:30:00+10:00"
+    },
+    {
+      "path": "secret_meeting_cards.html",
+      "title": "A family activity that doesn’t really feel like an activity",
+      "description": "Try this tonight: put the phones away, sit together and let one person draw a Secret Meeting card.\n\nEveryone gets a turn. There are no wrong answers. Anyone can pass. Grown-ups play too.\n\nTALK • IMAGINE • DO.\n\nThen finish with one tiny Earth mission.\n\nThe full Founding Pack is A$5 and includes 16 printable cards, a meeting guide, action sheet and storage box.",
+      "published_at": "2026-10-06T08:31:00+10:00"
+    },
+    {
+      "path": "secret_meeting_cards.html",
+      "title": "For siblings. Parents. Grandparents. Kids.",
+      "description": "The Secret Meeting isn’t really about the cards. The cards are the excuse to sit down together.\n\nAsk a strange question. Tell a story. Act like an animal. Imagine another world. Decide what your family could do to help one small piece of the real one.\n\nAges 6–11, but the grown-ups join in too. One round takes about 10 minutes. A$5 instant printable Founding Pack.",
+      "published_at": "2026-10-06T08:32:00+10:00"
     }
-  ]
+  ],
+  "connection_campaign": {
+    "headline": "CONNECT • LAUGH • CARE",
+    "angle": "Sell the feeling and the ritual, not the PDF.",
+    "recurring_hooks": [
+      "Put the phones down. Call a Secret Meeting.",
+      "Ten minutes together can be enough.",
+      "The easiest family activity is sometimes just a good question.",
+      "Kids don’t need another lesson. Sometimes they need you to join in.",
+      "A $5 printable. A much bigger reason to sit together."
+    ]
+  }
 }
