@@ -1,1 +1,1 @@
-{"time":"2026-09-04T18:24:15Z","status":"FAIL","stage":"create_pin","request_id":"gsa-nature-tracker-20260905-01","board_id":"992621642811023635","pin_http":"403","message":"Apps with Trial access may not create Pins in production https://api.pinterest.com - use API Sandbox https://api-sandbox.pinterest.com instead."}
+{"time":"2026-10-05T19:06:02Z","status":"FAIL","stage":"token","reason":"missing_pinterest_oauth_secret","message":"Add PINTEREST_APP_SECRET and PINTEREST_REFRESH_TOKEN to the repository Actions secrets."}
