@@ -23,24 +23,31 @@ jobs:
       - name: Create real Pinterest Pin
         env:
           PINTEREST_APP_SECRET: ${{ secrets.PINTEREST_APP_SECRET }}
+          PINTEREST_REFRESH_TOKEN: ${{ secrets.PINTEREST_REFRESH_TOKEN }}
           PINTEREST_APP_ID: '1596852'
+        shell: bash
         run: |
           set +e
           REQUEST='.pinterest/post-request.json'
           RESULT='pinterest-production-post-result.json'
           NOW=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 
+          fail() {
+            jq -nc --arg time "$NOW" --arg stage "$1" --arg reason "$2" --arg message "${3:-}" \
+              '{time:$time,status:"FAIL",stage:$stage,reason:$reason} + (if $message != "" then {message:$message} else {} end)' > "$RESULT"
+          }
+
           if [ ! -f "$REQUEST" ]; then
-            jq -nc --arg time "$NOW" '{time:$time,status:"FAIL",stage:"request",reason:"missing_request_file"}' > "$RESULT"
+            fail request missing_request_file
           elif [ "$(jq -r '.enabled // false' "$REQUEST")" != "true" ]; then
             echo 'Pinterest post request is disabled. Nothing to publish.'
             exit 0
-          elif [ -z "${PINTEREST_APP_SECRET:-}" ]; then
-            jq -nc --arg time "$NOW" '{time:$time,status:"FAIL",stage:"token",reason:"missing_app_secret"}' > "$RESULT"
+          elif [ -z "${PINTEREST_APP_SECRET:-}" ] || [ -z "${PINTEREST_REFRESH_TOKEN:-}" ]; then
+            fail token missing_pinterest_oauth_secret 'Add PINTEREST_APP_SECRET and PINTEREST_REFRESH_TOKEN to the repository Actions secrets.'
           else
             REQUEST_ID=$(jq -r '.request_id // ""' "$REQUEST")
-            BOARD_NAME=$(jq -r '.board_name // ""' "$REQUEST")
             BOARD_ID=$(jq -r '.board_id // ""' "$REQUEST")
+            BOARD_NAME=$(jq -r '.board_name // ""' "$REQUEST")
             TITLE=$(jq -r '.title // ""' "$REQUEST")
             DESCRIPTION=$(jq -r '.description // ""' "$REQUEST")
             ALT_TEXT=$(jq -r '.alt_text // ""' "$REQUEST")
@@ -55,39 +62,36 @@ jobs:
             fi
 
             if [ -z "$TITLE" ] || { [ -z "$IMAGE_URL" ] && [ -z "$IMAGE_B64" ]; } || { [ -z "$BOARD_ID" ] && [ -z "$BOARD_NAME" ]; }; then
-              jq -nc --arg time "$NOW" --arg request_id "$REQUEST_ID" '{time:$time,status:"FAIL",stage:"request",request_id:$request_id,reason:"title_image_and_board_required"}' > "$RESULT"
+              fail request title_image_and_board_required
             else
               BASIC=$(printf '%s:%s' "$PINTEREST_APP_ID" "$PINTEREST_APP_SECRET" | base64 -w 0)
-              TOKEN_CODE=$(curl --silent --show-error \
-                --output /tmp/pinterest_prod_token.json \
-                --write-out '%{http_code}' \
+              TOKEN_CODE=$(curl --silent --show-error --output /tmp/pinterest_token.json --write-out '%{http_code}' \
                 --request POST \
                 -H "Authorization: Basic $BASIC" \
                 -H 'Content-Type: application/x-www-form-urlencoded' \
                 -H 'Accept: application/json' \
-                --data-urlencode 'grant_type=client_credentials' \
-                --data-urlencode 'scope=boards:read,boards:write,pins:read,pins:write' \
+                --data-urlencode 'grant_type=refresh_token' \
+                --data-urlencode "refresh_token=$PINTEREST_REFRESH_TOKEN" \
                 'https://api.pinterest.com/v5/oauth/token')
 
-              ACCESS_TOKEN=$(jq -r '.access_token // empty' /tmp/pinterest_prod_token.json 2>/dev/null)
-              TOKEN_SCOPES=$(jq -r '.scope // empty' /tmp/pinterest_prod_token.json 2>/dev/null)
+              ACCESS_TOKEN=$(jq -r '.access_token // empty' /tmp/pinterest_token.json 2>/dev/null)
+              TOKEN_SCOPES=$(jq -r '.scope // empty' /tmp/pinterest_token.json 2>/dev/null)
               if [ -n "$ACCESS_TOKEN" ]; then echo "::add-mask::$ACCESS_TOKEN"; fi
 
               if [ "$TOKEN_CODE" -lt 200 ] || [ "$TOKEN_CODE" -ge 300 ] || [ -z "$ACCESS_TOKEN" ]; then
-                MESSAGE=$(jq -r '.message // .error_description // .error // "Production token request failed"' /tmp/pinterest_prod_token.json 2>/dev/null | head -c 300)
-                jq -nc --arg time "$NOW" --arg request_id "$REQUEST_ID" --arg token_http "$TOKEN_CODE" --arg message "$MESSAGE" '{time:$time,status:"FAIL",stage:"token",request_id:$request_id,token_http:$token_http,message:$message}' > "$RESULT"
+                MESSAGE=$(jq -r '.message // .error_description // .error // "Refresh-token request failed"' /tmp/pinterest_token.json 2>/dev/null | head -c 300)
+                fail token refresh_token_exchange_failed "$MESSAGE"
               else
                 if [ -z "$BOARD_ID" ]; then
                   BOOKMARK=''
                   PAGE=0
                   while [ $PAGE -lt 20 ] && [ -z "$BOARD_ID" ]; do
                     PAGE=$((PAGE+1))
-                    CURL_ARGS=(--silent --show-error --output /tmp/pinterest_boards.json --write-out '%{http_code}' --get 'https://api.pinterest.com/v5/boards' \
-                      -H "Authorization: Bearer $ACCESS_TOKEN" \
-                      -H 'Accept: application/json' \
-                      --data-urlencode 'page_size=250')
-                    if [ -n "$BOOKMARK" ]; then CURL_ARGS+=(--data-urlencode "bookmark=$BOOKMARK"); fi
-                    BOARD_CODE=$(curl "${CURL_ARGS[@]}")
+                    BOARD_CODE=$(curl --silent --show-error --output /tmp/pinterest_boards.json --write-out '%{http_code}' --get \
+                      -H "Authorization: Bearer $ACCESS_TOKEN" -H 'Accept: application/json' \
+                      --data-urlencode 'page_size=250' \
+                      ${BOOKMARK:+--data-urlencode "bookmark=$BOOKMARK"} \
+                      'https://api.pinterest.com/v5/boards')
                     if [ "$BOARD_CODE" -lt 200 ] || [ "$BOARD_CODE" -ge 300 ]; then break; fi
                     BOARD_ID=$(jq -r --arg name "$BOARD_NAME" '.items[]? | select((.name | ascii_downcase) == ($name | ascii_downcase)) | .id' /tmp/pinterest_boards.json | head -n 1)
                     BOOKMARK=$(jq -r '.bookmark // empty' /tmp/pinterest_boards.json)
@@ -96,32 +100,17 @@ jobs:
                 fi
 
                 if [ -z "$BOARD_ID" ]; then
-                  jq -nc --arg time "$NOW" --arg request_id "$REQUEST_ID" --arg board_name "$BOARD_NAME" '{time:$time,status:"FAIL",stage:"board_lookup",request_id:$request_id,board_name:$board_name,reason:"board_not_found"}' > "$RESULT"
+                  fail board_lookup board_not_found
                 else
                   if [ -n "$IMAGE_B64" ]; then
-                    PIN_PAYLOAD=$(jq -nc \
-                      --arg board_id "$BOARD_ID" \
-                      --arg title "$TITLE" \
-                      --arg description "$DESCRIPTION" \
-                      --arg alt_text "$ALT_TEXT" \
-                      --arg link "$LINK" \
-                      --arg image "$IMAGE_B64" \
-                      --arg content_type "$IMAGE_CONTENT_TYPE" \
+                    PIN_PAYLOAD=$(jq -nc --arg board_id "$BOARD_ID" --arg title "$TITLE" --arg description "$DESCRIPTION" --arg alt_text "$ALT_TEXT" --arg link "$LINK" --arg image "$IMAGE_B64" --arg content_type "$IMAGE_CONTENT_TYPE" \
                       '{board_id:$board_id,title:$title,description:$description,media_source:{source_type:"image_base64",content_type:$content_type,data:$image,is_standard:true}} + (if $alt_text != "" then {alt_text:$alt_text} else {} end) + (if $link != "" then {link:$link} else {} end)')
                   else
-                    PIN_PAYLOAD=$(jq -nc \
-                      --arg board_id "$BOARD_ID" \
-                      --arg title "$TITLE" \
-                      --arg description "$DESCRIPTION" \
-                      --arg alt_text "$ALT_TEXT" \
-                      --arg link "$LINK" \
-                      --arg image_url "$IMAGE_URL" \
+                    PIN_PAYLOAD=$(jq -nc --arg board_id "$BOARD_ID" --arg title "$TITLE" --arg description "$DESCRIPTION" --arg alt_text "$ALT_TEXT" --arg link "$LINK" --arg image_url "$IMAGE_URL" \
                       '{board_id:$board_id,title:$title,description:$description,media_source:{source_type:"image_url",url:$image_url,is_standard:true}} + (if $alt_text != "" then {alt_text:$alt_text} else {} end) + (if $link != "" then {link:$link} else {} end)')
                   fi
 
-                  PIN_CODE=$(curl --silent --show-error \
-                    --output /tmp/pinterest_pin.json \
-                    --write-out '%{http_code}' \
+                  PIN_CODE=$(curl --silent --show-error --output /tmp/pinterest_pin.json --write-out '%{http_code}' \
                     --request POST \
                     -H "Authorization: Bearer $ACCESS_TOKEN" \
                     -H 'Content-Type: application/json' \
@@ -131,10 +120,11 @@ jobs:
                   PIN_ID=$(jq -r '.id // empty' /tmp/pinterest_pin.json 2>/dev/null)
 
                   if [ "$PIN_CODE" -ge 200 ] && [ "$PIN_CODE" -lt 300 ] && [ -n "$PIN_ID" ]; then
-                    jq -nc --arg time "$NOW" --arg request_id "$REQUEST_ID" --arg pin_id "$PIN_ID" --arg board_id "$BOARD_ID" --arg title "$TITLE" --arg link "$LINK" --arg scopes "$TOKEN_SCOPES" --arg pin_http "$PIN_CODE" '{time:$time,status:"PASS",environment:"Pinterest Production",request_id:$request_id,pin_id:$pin_id,board_id:$board_id,title:$title,link:$link,scopes:$scopes,pin_http:$pin_http}' > "$RESULT"
+                    jq -nc --arg time "$NOW" --arg request_id "$REQUEST_ID" --arg pin_id "$PIN_ID" --arg board_id "$BOARD_ID" --arg title "$TITLE" --arg link "$LINK" --arg scopes "$TOKEN_SCOPES" --arg pin_http "$PIN_CODE" \
+                      '{time:$time,status:"PASS",environment:"Pinterest Production",request_id:$request_id,pin_id:$pin_id,board_id:$board_id,title:$title,link:$link,scopes:$scopes,pin_http:$pin_http}' > "$RESULT"
                   else
                     MESSAGE=$(jq -r '.message // .error_description // .error // "Create Pin failed"' /tmp/pinterest_pin.json 2>/dev/null | head -c 300)
-                    jq -nc --arg time "$NOW" --arg request_id "$REQUEST_ID" --arg board_id "$BOARD_ID" --arg pin_http "$PIN_CODE" --arg message "$MESSAGE" '{time:$time,status:"FAIL",stage:"create_pin",request_id:$request_id,board_id:$board_id,pin_http:$pin_http,message:$message}' > "$RESULT"
+                    fail create_pin pinterest_api_rejected_pin "$MESSAGE"
                   fi
                 fi
               fi
