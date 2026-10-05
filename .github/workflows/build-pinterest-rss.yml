@@ -9,6 +9,7 @@ on:
       - 'free-secret-agent-mission.html'
       - 'secret_meeting_cards.html'
       - 'environmental-activities-for-kids.html'
+      - 'mini-nature-missions.html'
       - 'outdoor-learning-activities-primary-school.html'
       - 'sustainability-activities-primary-school.html'
       - 'screen-free-ocean-activities-for-kids.html'
@@ -98,6 +99,15 @@ jobs:
                 <pubDate>Sun, 30 Aug 2026 09:00:00 +1000</pubDate>
                 <media:content url="https://gaiassecretagents.com/assets/gsa-ocean-article-hero.webp" medium="image" type="image/webp" />
               </item>
+              <item>
+                <guid isPermaLink="false">gsa-mini-missions-20261006-05</guid>
+                <title>4 Free Mini Nature Missions for Kids — Quick Screen-Free Activities</title>
+                <link>https://gaiassecretagents.com/mini-nature-missions.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=mini_missions_october</link>
+                <description>Four quick Earth Protector missions for kids ages 6–11: a 5-minute nature detective hunt, a sound map, a tiny world hunt and an Earth Protector challenge. Try one now, then join the GSA mission list for more.</description>
+                <pubDate>Tue, 06 Oct 2026 22:30:00 +1000</pubDate>
+                <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/webp" />
+              </item>
+
               <item>
                 <guid isPermaLink="false">gsa-nature-tracker-20261006-01</guid>
                 <title>Free Nature Tracker Printable for Kids — 5-Day Wildlife Mission</title>
