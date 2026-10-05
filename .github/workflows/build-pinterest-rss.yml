@@ -16,6 +16,8 @@ on:
       - 'assets/founding-pack-cover.jpg'
       - 'assets/gsa-ocean-article-hero.webp'
       - 'assets/gsa-young-agents-globe.webp'
+      - 'mission-headquarters.html'
+      - 'mission-001-ocean-discoverer.html'
 
 permissions:
   contents: write
@@ -195,6 +197,24 @@ jobs:
                 <link>https://gaiassecretagents.com/mini-nature-missions.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=single_mission_hidden_habitat</link>
                 <description>Find a tiny natural habitat: under a leaf, beside a log, in bark, among grasses or near stones. Look carefully without disturbing it, then sketch what you discover. A free five-minute mission for ages 6–11.</description>
                 <pubDate>Tue, 06 Oct 2026 23:15:00 +1000</pubDate>
+                <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/webp" />
+              </item>
+
+              <item>
+                <guid isPermaLink="false">gsa-mission-001-ocean-discoverer-20261006-12</guid>
+                <title>Mission 001: Ocean Discoverer — Gaia’s Secret Agents</title>
+                <link>https://gaiassecretagents.com/mission-001-ocean-discoverer.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=mission_001_ocean_discoverer</link>
+                <description>Meet Mission 001: Ocean Discoverer, a planned full printable adventure for Earth Protectors ages 6–11. Ocean clues, wildlife observation, secret codes, environmental problem-solving and a marine sanctuary design challenge.</description>
+                <pubDate>Tue, 06 Oct 2026 23:30:00 +1000</pubDate>
+                <media:content url="https://gaiassecretagents.com/assets/gsa-ocean-article-hero.webp" medium="image" type="image/webp" />
+              </item>
+
+              <item>
+                <guid isPermaLink="false">gsa-mission-headquarters-20261006-13</guid>
+                <title>Gaia’s Secret Agents Mission Headquarters — Choose Your Next Mission</title>
+                <link>https://gaiassecretagents.com/mission-headquarters.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=mission_headquarters</link>
+                <description>Explore Gaia’s Secret Agents printable adventures for kids ages 6–11: free field training, the A$19 Starter Kit and the upcoming Ocean Discoverer mission.</description>
+                <pubDate>Tue, 06 Oct 2026 23:35:00 +1000</pubDate>
                 <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/webp" />
               </item>
 
