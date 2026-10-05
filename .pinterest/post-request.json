@@ -1,15 +1,15 @@
 {
   "enabled": true,
-  "request_id": "gsa-nature-tracker-20261006-0710-retry",
+  "request_id": "gsa-secret-meeting-founding-20261006-01",
   "board_name": "Fun activities to do in Nature for kids",
   "board_id": "992621642811023635",
-  "title": "Free Nature Tracker Printable for Kids",
-  "description": "Build a mini wildlife habitat, then use this free 5-day Nature Tracker to spot clues, record visitors and get kids excited about nature. A fun screen-free activity for parents, teachers and curious young Earth Protectors.",
-  "alt_text": "Illustrated Gaia’s Secret Agents pin showing kids building a mini wildlife habitat with four simple steps and a free five-day Nature Tracker printable.",
-  "link": "https://gaiassecretagents.com/nature-tracker.html",
-  "image_url": "",
+  "title": "A$5 Secret Meeting Cards for Kids — 16 Printable Family Adventure Cards",
+  "description": "What if 10 minutes could become a family adventure? The Gaia’s Secret Agents Founding Pack gives kids 16 printable TALK, IMAGINE and DO cards for screen-free connection, curiosity and one tiny Earth mission. A$5. Instant PDF download. Ages 6–11.",
+  "alt_text": "Gaia’s Secret Agents Secret Meeting Cards Founding Pack cover, a printable 16-card family activity designed for screen-free connection and small Earth-positive actions.",
+  "link": "https://gaiassecretagents.com/secret_meeting_cards.html?utm_source=pinterest&utm_medium=social&utm_campaign=secret_meeting_founding",
+  "image_url": "https://gaiassecretagents.com/assets/founding-pack-cover.jpg",
   "image_base64": "",
-  "image_base64_parts_prefix": ".pinterest/media/nature-tracker-",
+  "image_base64_parts_prefix": "",
   "image_content_type": "image/jpeg",
-  "trigger": "2026-10-06T07:10:00+10:00"
+  "trigger": "2026-10-06T08:00:00+10:00"
 }
