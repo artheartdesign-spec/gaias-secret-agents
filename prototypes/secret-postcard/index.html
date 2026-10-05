@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>GSA Secret Postcard</title>
+<style>
+:root{--navy:#101b2d;--gold:#c9a85d;--teal:#3f8f8a;--paper:#efe3c6;--ink:#172033}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 20% 0,#263854,#0d1524 55%);color:#f5ecd9;font-family:Georgia,serif;min-height:100vh}
+main{max-width:1050px;margin:auto;padding:24px 16px 50px}.brand{letter-spacing:.16em;text-transform:uppercase;font-size:12px;color:var(--gold)}h1{margin:7px 0 4px;font-size:clamp(30px,6vw,52px);font-weight:500}p{color:#d7d1c3}.grid{display:grid;grid-template-columns:1fr 1.1fr;gap:22px;margin-top:22px}.panel{background:rgba(255,255,255,.055);border:1px solid rgba(201,168,93,.3);border-radius:18px;padding:18px;backdrop-filter:blur(8px)}label{display:block;margin:14px 0 6px;color:var(--gold);font-size:13px;letter-spacing:.08em;text-transform:uppercase}input,textarea{width:100%;border:1px solid #697184;background:#111c2e;color:white;border-radius:10px;padding:12px;font:16px Georgia,serif}textarea{min-height:120px;resize:vertical}.choices{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.choice{border:1px solid #667086;border-radius:12px;padding:0;background:#17243a;color:white;overflow:hidden;cursor:pointer}.choice.selected{outline:2px solid var(--gold)}.art{aspect-ratio:1.55;background:linear-gradient(145deg,#274052,#0d1a2a);display:grid;place-items:center;font-size:42px}.choice span{display:block;padding:8px;font-size:12px}.cardwrap{display:grid;gap:12px}.card{background:var(--paper);color:var(--ink);border-radius:14px;overflow:hidden;box-shadow:0 15px 40px #0008;aspect-ratio:1.55}.front{height:100%;display:grid;place-items:center;position:relative;background:linear-gradient(145deg,#24445a,#102236)}.front:after{content:"GAIA'S SECRET AGENTS";position:absolute;bottom:18px;letter-spacing:.18em;color:#ead9ad;font-size:11px}.front .symbol{font-size:70px}.back{display:grid;grid-template-columns:1.1fr .9fr;height:100%;padding:24px;gap:18px}.message{white-space:pre-wrap;line-height:1.5;font-size:17px}.address{border-left:1px solid #b6a985;padding-left:18px}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:15px}button{border:1px solid var(--gold);background:var(--gold);color:#172033;padding:11px 15px;border-radius:10px;font-weight:700;cursor:pointer}button.secondary{background:transparent;color:#f5ecd9}small{color:#aaa;display:block;margin-top:12px}@media(max-width:760px){.grid{grid-template-columns:1fr}.back{padding:15px;gap:10px}.message{font-size:14px}.address{font-size:12px}}
+</style>
+</head>
+<body>
+<main>
+<div class="brand">Gaia's Secret Agents</div><h1>Secret Postcard</h1><p>Create a beautiful digital postcard — free to make, download and share.</p>
+<div class="grid">
+<section class="panel">
+<label>1. Choose a mission artwork</label>
+<div class="choices" id="choices"></div>
+<label for="to">To</label><input id="to" placeholder="Agent name">
+<label for="from">From</label><input id="from" placeholder="Your name">
+<label for="msg">Secret message</label><textarea id="msg" maxlength="500" placeholder="Write something worth sending..."></textarea>
+<div class="actions"><button id="download">Download Postcard</button><button class="secondary" id="share">Share</button><button class="secondary" id="reset">Start Again</button></div>
+<small>Digital postcard — free to create and share.</small>
+</section>
+<section class="panel">
+<label>Live preview</label>
+<div class="cardwrap">
+<div class="card" id="frontCard"><div class="front"><div class="symbol" id="symbol">✦</div></div></div>
+<div class="card" id="backCard" style="display:none"><div class="back"><div><div class="brand" style="color:#7a6130">SECRET POSTCARD</div><div class="message" id="previewMsg">Your message will appear here.</div></div><div class="address"><strong>TO</strong><div id="previewTo">Agent</div><br><strong>FROM</strong><div id="previewFrom">Agent</div></div></div></div>
+<div class="actions"><button class="secondary" id="flip">Show Back</button><button class="secondary" id="discover">Discover more Secret Missions</button></div>
+</div>
+</section>
+</div>
+</main>
+<script>
+const designs=[['✦','North Star'],['⌁','River Guardian'],['◇','Wildlands'],['☼','Sun Mission']];
+let selected=0;
+const choices=document.querySelector('#choices');
+designs.forEach((d,i)=>{const b=document.createElement('button');b.className='choice'+(i===0?' selected':'');b.innerHTML='<div class="art">'+d[0]+'</div><span>'+d[1]+'</span>';b.onclick=()=>{selected=i;document.querySelectorAll('.choice').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');document.querySelector('#symbol').textContent=d[0]};choices.appendChild(b)});
+const to=document.querySelector('#to'),from=document.querySelector('#from'),msg=document.querySelector('#msg');
+function sync(){document.querySelector('#previewTo').textContent=to.value||'Agent';document.querySelector('#previewFrom').textContent=from.value||'Agent';document.querySelector('#previewMsg').textContent=msg.value||'Your message will appear here.'}
+[to,from,msg].forEach(x=>x.addEventListener('input',sync));
+document.querySelector('#flip').onclick=()=>{let f=document.querySelector('#frontCard'),b=document.querySelector('#backCard'),btn=document.querySelector('#flip');f.style.display=f.style.display==='none'?'block':'none';b.style.display=b.style.display==='none'?'block':'none';btn.textContent=f.style.display==='none'?'Show Front':'Show Back'};
+document.querySelector('#reset').onclick=()=>{to.value='';from.value='';msg.value='';selected=0;document.querySelector('#symbol').textContent=designs[0][0];document.querySelectorAll('.choice').forEach((x,i)=>x.classList.toggle('selected',i===0));sync()};
+function canvasCard(){const c=document.createElement('canvas'),x=c.getContext('2d');c.width=1600;c.height=1000;x.fillStyle='#efe3c6';x.fillRect(0,0,c.width,c.height);x.fillStyle='#17314a';x.fillRect(0,0,c.width,1000);x.fillStyle='#ead9ad';x.textAlign='center';x.font='180px Georgia';x.fillText(designs[selected][0],800,520);x.font='34px Georgia';x.fillText("GAIA'S SECRET AGENTS",800,850);x.fillStyle='#efe3c6';x.fillRect(0,1000,1600,1000);x.fillStyle='#172033';x.textAlign='left';x.font='44px Georgia';x.fillText('SECRET POSTCARD',80,1080);x.font='34px Georgia';const lines=(msg.value||'Your message will appear here.').match(/.{1,65}(\s|$)/g)||[];lines.slice(0,8).forEach((l,i)=>x.fillText(l.trim(),80,1150+i*52));x.font='28px Georgia';x.fillText('TO: '+(to.value||'Agent'),1000,1100);x.fillText('FROM: '+(from.value||'Agent'),1000,1160);return c}
+document.querySelector('#download').onclick=()=>{canvasCard().toBlob(blob=>{const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='gsa-secret-postcard.png';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)},'image/png')};
+document.querySelector('#share').onclick=async()=>{const c=canvasCard();c.toBlob(async blob=>{const file=new File([blob],'gsa-secret-postcard.png',{type:'image/png'});if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({title:'GSA Secret Postcard',text:'A Secret Postcard from Gaia\'s Secret Agents',files:[file]})}else document.querySelector('#download').click()},'image/png')};
+document.querySelector('#discover').onclick=()=>alert('This prototype CTA is ready to be connected to the GSA missions page.');
+sync();
+</script>
+</body></html>
