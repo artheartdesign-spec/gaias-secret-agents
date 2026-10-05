@@ -1,6 +1,6 @@
 {
   "enabled": true,
-  "request_id": "gsa-nature-tracker-20260905-01-retry-20261006",
+  "request_id": "gsa-nature-tracker-20261006-0710-retry",
   "board_name": "Fun activities to do in Nature for kids",
   "board_id": "992621642811023635",
   "title": "Free Nature Tracker Printable for Kids",
@@ -11,5 +11,5 @@
   "image_base64": "",
   "image_base64_parts_prefix": ".pinterest/media/nature-tracker-",
   "image_content_type": "image/jpeg",
-  "trigger": "2026-10-06T05:19:00+10:00"
+  "trigger": "2026-10-06T07:10:00+10:00"
 }
