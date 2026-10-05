@@ -1,11 +1,13 @@
-/* Gaia's Secret Agents — PostHog event helpers.
+/* Gaia's Secret Agents — PostHog bridge.
  * Requires the PostHog web snippet to be installed on the site.
- * Safe to load before PostHog: calls are queued until posthog is available.
+ * Preserves the existing GSA event tracker when present.
  */
 (function () {
   'use strict';
 
-  window.gsaTrack = function (eventName, properties) {
+  var existingTrack = typeof window.gsaTrack === 'function' ? window.gsaTrack : null;
+
+  function sendToPostHog(eventName, properties) {
     var send = function () {
       if (window.posthog && typeof window.posthog.capture === 'function') {
         window.posthog.capture(eventName, properties || {});
@@ -15,12 +17,18 @@
     };
 
     if (send()) return;
-
     var attempts = 0;
     var timer = setInterval(function () {
       attempts += 1;
       if (send() || attempts >= 20) clearInterval(timer);
     }, 250);
+  }
+
+  window.gsaTrack = function (eventName, properties) {
+    if (existingTrack) {
+      try { existingTrack(eventName, properties); } catch (e) {}
+    }
+    sendToPostHog(eventName, properties);
   };
 
   document.addEventListener('click', function (event) {
