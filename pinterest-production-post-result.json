@@ -1,1 +1,1 @@
-{"time":"2026-10-05T22:47:39Z","status":"FAIL","stage":"token","reason":"missing_pinterest_oauth_secret","message":"Add PINTEREST_APP_SECRET and PINTEREST_REFRESH_TOKEN to the repository Actions secrets."}
+{"time":"2026-10-05T22:48:08Z","status":"FAIL","stage":"token","reason":"missing_pinterest_oauth_secret","message":"Add PINTEREST_APP_SECRET and PINTEREST_REFRESH_TOKEN to the repository Actions secrets."}
