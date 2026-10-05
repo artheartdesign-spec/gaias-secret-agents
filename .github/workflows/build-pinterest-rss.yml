@@ -98,6 +98,42 @@ jobs:
                 <pubDate>Sun, 30 Aug 2026 09:00:00 +1000</pubDate>
                 <media:content url="https://gaiassecretagents.com/assets/gsa-ocean-article-hero.webp" medium="image" type="image/webp" />
               </item>
+              <item>
+                <guid isPermaLink="false">gsa-nature-tracker-20261006-01</guid>
+                <title>Free Nature Tracker Printable for Kids — 5-Day Wildlife Mission</title>
+                <link>https://gaiassecretagents.com/nature-tracker.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=nature_tracker</link>
+                <description>Give kids a five-day screen-free wildlife mission. Build a mini habitat, spot clues, record visitors and turn everyday nature into an exciting Secret Agent investigation.</description>
+                <pubDate>Tue, 06 Oct 2026 22:00:00 +1000</pubDate>
+                <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/webp" />
+              </item>
+
+              <item>
+                <guid isPermaLink="false">gsa-free-mission-20261006-02</guid>
+                <title>Free Secret Agent Nature Mission — A Screen-Free Adventure for Kids</title>
+                <link>https://gaiassecretagents.com/free-secret-agent-mission.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=free_mission_october</link>
+                <description>Send young Earth Protectors on a free 15-minute Nature Signal Hunt. A printable mission for ages 6–11 with clues, observations, a code name and an Earth Protector promise.</description>
+                <pubDate>Tue, 06 Oct 2026 21:45:00 +1000</pubDate>
+                <media:content url="https://gaiassecretagents.com/assets/gsa-ocean-article-hero.webp" medium="image" type="image/webp" />
+              </item>
+
+              <item>
+                <guid isPermaLink="false">gsa-secret-meeting-20261006-03</guid>
+                <title>16 Secret Meeting Cards for Kids — Screen-Free Family Fun</title>
+                <link>https://gaiassecretagents.com/secret_meeting_cards.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=secret_meeting_cards_october</link>
+                <description>Turn 10–20 minutes into a family Secret Meeting with printable TALK, IMAGINE and DO cards. Designed for curious kids aged 6–11 who love missions, making and exploring.</description>
+                <pubDate>Tue, 06 Oct 2026 21:30:00 +1000</pubDate>
+                <media:content url="https://gaiassecretagents.com/assets/founding-pack-cover.jpg" medium="image" type="image/jpeg" />
+              </item>
+
+              <item>
+                <guid isPermaLink="false">gsa-environmental-kids-20261006-04</guid>
+                <title>10 Environmental Activities for Kids — Easy Screen-Free Nature Ideas</title>
+                <link>https://gaiassecretagents.com/environmental-activities-for-kids.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=environmental_activities_october</link>
+                <description>Try biodiversity surveys, sound maps, pollinator watches, bird observations and shore investigations. Most activities need only paper, a pencil and 10–30 minutes.</description>
+                <pubDate>Tue, 06 Oct 2026 21:15:00 +1000</pubDate>
+                <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/webp" />
+              </item>
+
             </channel>
           </rss>
           EOF
