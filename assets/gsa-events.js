@@ -24,30 +24,36 @@
   function startPostHog(){
     if(window.__gsaPostHogStarted) return;
     window.__gsaPostHogStarted=true;
-    var script=document.createElement('script');
-    script.async=true;
-    script.src='https://us.i.posthog.com/static/array.js';
-    script.onload=function(){
-      if(!window.posthog || typeof window.posthog.init!=='function') return;
-      window.posthog.init('phc_qy5YVBScRgc9t3H74zxTTDHSNGCSDuDEm3GnaNrp26x8',{
-        api_host:'https://us.i.posthog.com',
-        autocapture:false,
-        capture_pageview:false,
-        disable_session_recording:true,
-        person_profiles:'identified_only',
-        loaded:function(client){
-          posthogReady=true;
-          while(posthogQueue.length){
-            var queued=posthogQueue.shift();
-            var props=Object.assign({},queued);
-            delete props.event;
-            client.capture(queued.event,props);
-          }
+    /* PostHog's browser snippet must create its queue/stub before loading array.js. */
+    !function(t,e){
+      var o,n,p,r;
+      e.__SV||(window.posthog&&window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){
+        function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=e[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}
+        p||(p=t.createElement("script"),p.type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",p.onerror=function(){p=null},(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r));
+        var u=e;
+        void 0!==a?u=e[a]=[]:a="posthog";
+        u.people=u.people||[];
+        o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing opt_in_capturing has_opted_out_capturing reset get_distinct_id get_session_id".split(" ");
+        for(n=0;n<o.length;n++)g(u,o[n]);
+        e._i.push([i,s,a]);
+      },e.__SV=1)
+    }(document,window.posthog||[]);
+    window.posthog.init('phc_qy5YVBScRgc9t3H74zxTTDHSNGCSDuDEm3GnaNrp26x8',{
+      api_host:'https://us.i.posthog.com',
+      autocapture:false,
+      capture_pageview:false,
+      disable_session_recording:true,
+      person_profiles:'identified_only',
+      loaded:function(client){
+        posthogReady=true;
+        while(posthogQueue.length){
+          var queued=posthogQueue.shift();
+          var props=Object.assign({},queued);
+          delete props.event;
+          client.capture(queued.event,props);
         }
-      });
-    };
-    script.onerror=function(){window.__gsaPostHogLoadFailed=true;};
-    document.head.appendChild(script);
+      }
+    });
   }
   startPostHog();
   window.gsaTrack=function(name,details){
