@@ -69,12 +69,15 @@
     sendToPostHog(event);
     return event;
   };
+  function safeReferrerOrigin(){
+    try{return document.referrer?new URL(document.referrer).origin:'';}catch(e){return '';}
+  }
   if(!window.__gsaPageViewTracked){
     window.__gsaPageViewTracked=true;
     setTimeout(function(){
       window.gsaTrack('gsa_page_view',{
         title:document.title||'',
-        referrer:document.referrer||''
+        referrer_origin:safeReferrerOrigin()
       });
     },0);
   }
