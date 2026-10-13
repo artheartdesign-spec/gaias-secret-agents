@@ -25,5 +25,21 @@
 </main>
 </div>
 <script src="/assets/gsa-events.js"></script>
+<script>
+(function(){
+  var missionLink=document.querySelector('a[href="/downloads/GSA_Free_Secret_Agent_Mission.pdf"]');
+  if(missionLink){
+    missionLink.addEventListener('click',function(){
+      if(window.gsaTrack) window.gsaTrack('gsa_free_mission_download_click',{source:'free_mission_download_page'});
+    });
+  }
+  var starterLink=document.querySelector('a[href^="/starter-kit.html"]');
+  if(starterLink){
+    starterLink.addEventListener('click',function(){
+      if(window.gsaTrack) window.gsaTrack('gsa_starter_kit_page_click',{source:'free_mission_download_page'});
+    });
+  }
+})();
+</script>
 </body>
 </html>
