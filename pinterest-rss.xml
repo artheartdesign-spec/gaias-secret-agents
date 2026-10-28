@@ -5,7 +5,7 @@
     <link>https://gaiassecretagents.com/</link>
     <description>Screen-free family nature missions, printable activities and outdoor adventures that help families connect with nature and each other.</description>
     <language>en-au</language>
-    <lastBuildDate>Wed, 28 Oct 2026 23:11:55 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Oct 2026 23:13:48 +0000</lastBuildDate>
 
     <item>
       <guid isPermaLink="false">gsa-sustainability-primary-20260929-01</guid>
@@ -175,6 +175,24 @@
       <description>Explore Gaia’s Secret Agents printable adventures for kids ages 6–11: free field training, the A$19 Starter Kit and the upcoming Ocean Discoverer mission.</description>
       <pubDate>Tue, 06 Oct 2026 23:35:00 +1000</pubDate>
       <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/webp" />
+    </item>
+
+    <item>
+      <guid isPermaLink="false">gsa-family-ocean-adventure-20261029-01</guid>
+      <title>Screen-Free Ocean Adventures for Families | Gaia’s Secret Agents</title>
+      <link>https://gaiassecretagents.com/screen-free-ocean-activities-for-kids.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=family_ocean_adventure_oct29</link>
+      <description>Turn a beach day or nature break into a shared ocean discovery. Explore screen-free ocean activities, notice marine life, listen to coastal sounds and talk about how families can protect the sea together. A nature-led adventure for curious families who want more meaningful time outdoors.</description>
+      <pubDate>Thu, 29 Oct 2026 09:00:00 +1000</pubDate>
+      <media:content url="https://gaiassecretagents.com/assets/gsa-kai-ocean-mission.webp" medium="image" type="image/webp" />
+    </item>
+
+    <item>
+      <guid isPermaLink="false">gsa-family-bird-detective-20261029-02</guid>
+      <title>Nature Detective: A Bird-Watching Mission for the Whole Family</title>
+      <link>https://gaiassecretagents.com/mini-nature-missions.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=family_bird_detective_oct29</link>
+      <description>Slow down together and become nature detectives. Observe birds from a respectful distance, notice colour, movement and calls, then share what each person discovers. This low-prep, screen-free outdoor family activity builds curiosity and connection with the natural world.</description>
+      <pubDate>Thu, 29 Oct 2026 09:05:00 +1000</pubDate>
+      <media:content url="https://gaiassecretagents.com/assets/gsa-nature-detective-bird.webp" medium="image" type="image/webp" />
     </item>
 
   </channel>
