@@ -139,4 +139,8 @@ jobs:
             git commit -m 'Record Pinterest production post result' || true
             git pull --rebase origin main || true
             git push || true
+            if [ "$(jq -r '.status // \"FAIL\"' "$RESULT")" != "PASS" ]; then
+              echo "Pinterest production post not confirmed: $(jq -r '.reason // .stage // \"unknown\"' "$RESULT")"
+              exit 1
+            fi
           fi
