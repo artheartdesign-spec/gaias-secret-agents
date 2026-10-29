@@ -42,8 +42,10 @@ jobs:
           elif [ "$(jq -r '.enabled // false' "$REQUEST")" != "true" ]; then
             echo 'Pinterest post request is disabled. Nothing to publish.'
             exit 0
-          elif [ -z "${PINTEREST_APP_SECRET:-}" ] || [ -z "${PINTEREST_REFRESH_TOKEN:-}" ]; then
-            fail token missing_pinterest_oauth_secret 'Add PINTEREST_APP_SECRET and PINTEREST_REFRESH_TOKEN to the repository Actions secrets.'
+          elif [ -z "${PINTEREST_APP_SECRET:-}" ]; then
+            fail token missing_pinterest_app_secret 'Add PINTEREST_APP_SECRET to the repository Actions secrets.'
+          elif [ -z "${PINTEREST_REFRESH_TOKEN:-}" ]; then
+            fail token missing_pinterest_refresh_token 'Add PINTEREST_REFRESH_TOKEN to the repository Actions secrets.'
           else
             REQUEST_ID=$(jq -r '.request_id // ""' "$REQUEST")
             BOARD_ID=$(jq -r '.board_id // ""' "$REQUEST")
