@@ -103,8 +103,12 @@ def build(now=None):
             items[page.canonical] = (page, item)
     for item in content["featured_pages"]:
         page = read_page(item["path"])
-        if page.canonical in items:
-            raise ValueError(f"Duplicate featured URL: {page.canonical}")
+        # Several past campaign variants share one canonical product page.
+        # Keep only the newest dated variant for that URL, rather than
+        # aborting the whole feed or syndicating duplicate promotions.
+        previous = items.get(page.canonical)
+        if previous and published(previous[1]["published_at"]) >= published(item["published_at"]):
+            continue
         items[page.canonical] = (page, item)
     approved_artwork = content.get("approved_artwork", {})
 
