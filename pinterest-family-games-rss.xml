@@ -1,17 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <rss xmlns:media="http://search.yahoo.com/mrss/" version="2.0">
-<channel>
-<title>Gaia's Secret Agents — Printable Family Games and Cards</title>
-<link>https://gaiassecretagents.com/</link>
-<description>Printable family games, conversation cards and screen-free nature adventures.</description>
-<language>en-au</language>
-<item>
-      <guid isPermaLink="false">gsa-family-printable-starter-20261030</guid>
-      <title>Screen-Free Family Activities: Printable Secret Agent Starter Kit</title>
-      <link>https://gaiassecretagents.com/starter-kit.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=family_printable_starter_oct30</link>
-      <description>A$19 printable nature adventure for families: a story-led 33-page Secret Agent Starter Kit with 28 Secret Meeting Cards, agent identity activities and an outdoor assignment. Print at home and explore together.</description>
-      <pubDate>Fri, 30 Oct 2026 13:00:00 +1000</pubDate>
-      <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/webp" />
+  <channel>
+    <title>Gaia's Secret Agents — Printable Family Games and Cards</title>
+    <link>https://gaiassecretagents.com/</link>
+    <description>Printable family games, conversation cards and screen-free nature adventures.</description>
+    <language>en-au</language>
+    <lastBuildDate>Fri, 30 Oct 2026 16:32:00 +0000</lastBuildDate>
+    <item>
+      <guid isPermaLink="false">gsa-20261031-02-more-wonder-more-together</guid>
+      <title>Outdoor Family Activities: More Wonder, More Time Together</title>
+      <link>https://gaiassecretagents.com/free-secret-agent-mission.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=gsa_new_pins_20261031&amp;utm_content=02-more-wonder-more-together</link>
+      <description>Make family time an adventure. Slow down, look closely and share what you discover outdoors. Gaia’s Secret Agents offers screen-free nature missions for curious families. Start with the free printable secret-agent mission; a parent or guardian email is required. Save this for your next family adventure.</description>
+      <pubDate>Fri, 30 Oct 2026 16:32:00 +0000</pubDate>
+      <media:content url="https://gaiassecretagents.com/assets/pinterest/2026-10-31/02-more-wonder-more-together.jpg" medium="image" type="image/jpeg" width="1024" height="1536">
+        <media:description type="plain">A family sits beneath a tree under a starry sky with the words More Wonder. More Together.</media:description>
+      </media:content>
     </item>
-</channel>
+  </channel>
 </rss>

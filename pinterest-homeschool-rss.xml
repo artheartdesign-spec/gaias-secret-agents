@@ -1,17 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <rss xmlns:media="http://search.yahoo.com/mrss/" version="2.0">
-<channel>
-<title>Gaia's Secret Agents — Homeschool Nature Learning</title>
-<link>https://gaiassecretagents.com/</link>
-<description>Outdoor learning, homeschool science and printable environmental activities for children.</description>
-<language>en-au</language>
-<item>
-      <guid isPermaLink="false">gsa-teacher-biodiversity-20261030</guid>
-      <title>20-Minute Outdoor Learning Activity: Schoolyard Biodiversity Detectives</title>
-      <link>https://gaiassecretagents.com/schools.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=teacher_biodiversity_oct30</link>
-      <description>A free 20-minute outdoor learning activity for primary school: compare two safe school-ground habitats, record biodiversity clues and discuss evidence. Includes materials, timings and safety guidance.</description>
-      <pubDate>Fri, 30 Oct 2026 13:20:00 +1000</pubDate>
-      <media:content url="https://gaiassecretagents.com/assets/gsa-nature-detective-bird.webp" medium="image" type="image/webp" />
+  <channel>
+    <title>Gaia's Secret Agents — Homeschool Nature Learning</title>
+    <link>https://gaiassecretagents.com/</link>
+    <description>Outdoor learning, homeschool science and printable environmental activities for children.</description>
+    <language>en-au</language>
+    <lastBuildDate>Fri, 30 Oct 2026 16:32:00 +0000</lastBuildDate>
+    <item>
+      <guid isPermaLink="false">gsa-20261031-03-family-listening-mission</guid>
+      <title>Nature Walk Activity for Kids: A One-Minute Listening Mission</title>
+      <link>https://gaiassecretagents.com/mini-nature-missions.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=gsa_new_pins_20261031&amp;utm_content=03-family-listening-mission</link>
+      <description>Try this simple outdoor listening activity together: stand still, listen for three different sounds and share what you noticed. An easy nature-study idea for a family walk or homeschool break. Save the prompt, then explore more screen-free nature activities and sound-map ideas from Gaia’s Secret Agents.</description>
+      <pubDate>Fri, 30 Oct 2026 16:32:00 +0000</pubDate>
+      <media:content url="https://gaiassecretagents.com/assets/pinterest/2026-10-31/03-family-listening-mission.jpg" medium="image" type="image/jpeg" width="1024" height="1536">
+        <media:description type="plain">A kookaburra watches from a gum tree above a child and older adult, beside three steps for a family listening activity.</media:description>
+      </media:content>
     </item>
-</channel>
+    <item>
+      <guid isPermaLink="false">gsa-20261031-06-tiny-world-snail-safari</guid>
+      <title>Backyard Nature Activity for Kids: A Tiny-World Safari</title>
+      <link>https://gaiassecretagents.com/mini-nature-missions.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=gsa_new_pins_20261031&amp;utm_content=06-tiny-world-snail-safari</link>
+      <description>Go slow and spot more. Pause beside a plant, look for tiny movements and watch without disturbing wildlife. This simple backyard nature activity gives families and homeschoolers a reason to explore together. Save the three-step prompt, then visit Gaia’s Secret Agents for more mini nature missions.</description>
+      <pubDate>Fri, 30 Oct 2026 16:32:00 +0000</pubDate>
+      <media:content url="https://gaiassecretagents.com/assets/pinterest/2026-10-31/06-tiny-world-snail-safari.jpg" medium="image" type="image/jpeg" width="1024" height="1536">
+        <media:description type="plain">A smiling parent and child observe a snail on a leaf, with three steps for a tiny-world safari.</media:description>
+      </media:content>
+    </item>
+  </channel>
 </rss>
