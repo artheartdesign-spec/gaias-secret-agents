@@ -1,7 +1,8 @@
 {
   "approved_artwork": {
     "https://gaiassecretagents.com/assets/founding-pack-cover.jpg": "0fd214ecc351a210458771237501ae50cb4fc3f7370f540a10ec791f09ca9f6d",
-    "https://gaiassecretagents.com/assets/gsa-ocean-article-hero.webp": "6498d07f1cc04814cad46b6fabb1bd0ba94b21d275033f5eaf379d1069a48cc5"
+    "https://gaiassecretagents.com/assets/gsa-ocean-article-hero.webp": "6498d07f1cc04814cad46b6fabb1bd0ba94b21d275033f5eaf379d1069a48cc5",
+    "https://gaiassecretagents.com/assets/pinterest/2026-10-31/06-tiny-world-snail-safari.jpg": "0c2e61d1e51b00959389f109a7865fb539f326c40219894a8503a0cced0d8c54"
   },
   "article_descriptions": {
     "screen-free-nature-activities.html": "Try this free mission today: choose five colours and ask your child to spot a natural example of each on a short walk. Look closely, leave plants where they grow, and finish with: ‘Which colour surprised you?’\n\nThe full guide has seven simple activities for ages 6–11, plus a link to the GSA Starter Kit when you’re ready for a complete printable adventure.",
@@ -45,6 +46,12 @@
       "title": "Make connection the activity.",
       "description": "You do not need a big plan for family time. Choose a card. Ask the question. Listen to the answer. Laugh when the answer is weird. Let the kids surprise you.\n\nThe Secret Meeting Cards turn 10–20 minutes into a small family ritual: TALK, IMAGINE, DO — then choose one tiny Earth mission together.\n\n16 printable cards plus guide, action sheet and tuck box. A$5 instant PDF.",
       "published_at": "2026-10-06T09:00:00+10:00"
+    },
+    {
+      "path": "mini-nature-missions.html",
+      "title": "Go slow. Spot more. Your family’s tiny-world mission.",
+      "description": "An Earth Protector mission doesn’t need a big outing.\n\nTry the Tiny World Hunt together: look for five small wonders outside — a seed, a fallen leaf, a feather, an insect or a patch of moss. Choose one, sketch it, then describe it without naming it. Can the rest of the family guess?\n\nEveryone gets to be the expert for a moment, including the grown-ups. Observe wildlife gently and leave living things where you found them.\n\nFind four free, screen-free mini nature missions at Gaia’s Secret Agents. The activities can be read online without signing up; a separate email option is available for more missions.\n\n#FamilyNatureActivities #ScreenFreeActivities #OutdoorLearning #GaiasSecretAgents",
+      "published_at": "2026-10-31T07:00:00+10:00"
     }
   ],
   "connection_campaign": {
