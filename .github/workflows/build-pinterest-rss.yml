@@ -1,256 +1,34 @@
-name: Build Pinterest RSS Promotion Feed
+name: Validate Pinterest RSS Promotion Feed
 
 on:
   workflow_dispatch:
   push:
+    branches: [main]
     paths:
       - '.github/workflows/build-pinterest-rss.yml'
+      - 'scripts/validate_pinterest_rss.py'
       - 'pinterest-rss.xml'
-      - 'free-secret-agent-mission.html'
-      - 'secret_meeting_cards.html'
-      - 'environmental-activities-for-kids.html'
-      - 'mini-nature-missions.html'
-      - 'outdoor-learning-activities-primary-school.html'
-      - 'sustainability-activities-primary-school.html'
-      - 'screen-free-ocean-activities-for-kids.html'
-      - 'assets/founding-pack-cover.jpg'
-      - 'assets/gsa-ocean-article-hero.webp'
-      - 'assets/gsa-young-agents-globe.webp'
-      - 'mission-headquarters.html'
-      - 'mission-001-ocean-discoverer.html'
+  pull_request:
+    paths:
+      - '.github/workflows/build-pinterest-rss.yml'
+      - 'scripts/validate_pinterest_rss.py'
+      - 'pinterest-rss.xml'
 
+# pinterest-rss.xml is the source of truth. Never rebuild it from an older
+# embedded list: doing so erased newly committed promotions on 30 October.
+# GitHub Pages publishes the committed XML. Pinterest's RSS importer is a
+# separate service and must be verified through its import status/live Pins.
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: build-pinterest-rss
+  group: pinterest-rss-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
-  build-feed:
+  validate-feed:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Build stable Pinterest RSS 2.0 feed
-        shell: bash
-        run: |
-          set -euo pipefail
-          LAST_BUILD="$(date -R)"
-          cat > pinterest-rss.xml <<EOF
-          <?xml version="1.0" encoding="UTF-8"?>
-          <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
-            <channel>
-              <title>Gaia's Secret Agents — Nature Missions &amp; Printable Adventures</title>
-              <link>https://gaiassecretagents.com/</link>
-              <description>Screen-free family nature missions, printable activities and outdoor adventures that help families connect with nature and each other.</description>
-              <language>en-au</language>
-              <lastBuildDate>${LAST_BUILD}</lastBuildDate>
-
-              <item>
-                <guid isPermaLink="false">gsa-sustainability-primary-20260929-01</guid>
-                <title>9 Sustainability Activities for Primary School — Ages 6–11</title>
-                <link>https://gaiassecretagents.com/sustainability-activities-primary-school.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=sustainability_primary</link>
-                <description>Nine practical sustainability activities for primary students covering systems, biodiversity, water, resource choices, redesign and evidence-based action.</description>
-                <pubDate>Tue, 29 Sep 2026 05:30:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-ocean-article-hero.webp" medium="image" type="image/webp" />
-              </item>
-
-              <item>
-                <guid isPermaLink="false">gsa-outdoor-learning-primary-20260929-01</guid>
-                <title>8 Outdoor Learning Activities for Primary School — Ages 6–11</title>
-                <link>https://gaiassecretagents.com/outdoor-learning-activities-primary-school.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=outdoor_learning_primary</link>
-                <description>Eight low-prep outdoor learning ideas for primary students, with possible Science, HASS, Maths and English connections, timing, materials and clear learning objectives.</description>
-                <pubDate>Tue, 29 Sep 2026 05:13:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/webp" />
-              </item>
-
-              <item>
-                <guid isPermaLink="false">gsa-environmental-activities-20260925-01</guid>
-                <title>10 Environmental Activities for Kids Ages 6–11 — Screen-Free &amp; Low Prep</title>
-                <link>https://gaiassecretagents.com/environmental-activities-for-kids.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=environmental_activities</link>
-                <description>Ten practical environmental activities for children aged 6–11, including biodiversity surveys, sound maps, pollinator watches, bird observations and shore investigations. Most need only paper, a pencil and 10–30 minutes.</description>
-                <pubDate>Fri, 25 Sep 2026 23:40:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/webp" />
-              </item>
-
-              <item>
-                <guid isPermaLink="false">gsa-secret-meeting-cards-20260922-01</guid>
-                <title>Gaia’s Secret Agents Starter Kit: 33-Page Family Nature Adventure</title>
-                <link>https://gaiassecretagents.com/starter-kit.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=starter_kit_family_adventure</link>
-                <description>A story-led, screen-free printable nature adventure for children aged 6–11 and the grown-ups exploring alongside them. The complete 33-page Starter Kit includes the Agent identity file, first assignment, 28-card Secret Meeting deck and tuck box, Bramblewick Collector Card, official credentials and Mission 001 teaser. Print at home and begin the adventure together. Digital download, A\$19.</description>
-                <pubDate>Tue, 22 Sep 2026 12:38:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/jpeg" />
-              </item>
-
-              <item>
-                <guid isPermaLink="false">gsa-free-secret-agent-mission-20260915-01</guid>
-                <title>Free 9-Page Secret Agent Nature Mission for Kids Ages 6–11</title>
-                <link>https://gaiassecretagents.com/free-secret-agent-mission.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=free_mission</link>
-                <description>Download a free screen-free Secret Agent mission for children aged 6–11. Create an Agent code name, complete a 15-minute Nature Signal Hunt and make an Earth Protector promise. Parent or guardian email required for instant access.</description>
-                <pubDate>Tue, 15 Sep 2026 08:49:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-ocean-article-hero.webp" medium="image" type="image/webp" />
-              </item>
-
-              <item>
-                <guid isPermaLink="false">gsa-ocean-activities-20260830-01</guid>
-                <title>12 Screen-Free Ocean Activities for Kids Ages 6–11</title>
-                <link>https://gaiassecretagents.com/screen-free-ocean-activities-for-kids.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=ocean_activities</link>
-                <description>Try rock-pool investigations, sound maps, simple current experiments and ocean-protection missions at the beach or at home. Low prep, useful and screen-free.</description>
-                <pubDate>Sun, 30 Aug 2026 09:00:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-ocean-article-hero.webp" medium="image" type="image/webp" />
-              </item>
-              <item>
-                <guid isPermaLink="false">gsa-mini-missions-20261006-05</guid>
-                <title>4 Free Mini Nature Missions for Kids — Quick Screen-Free Activities</title>
-                <link>https://gaiassecretagents.com/mini-nature-missions.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=mini_missions_october</link>
-                <description>Four quick Earth Protector missions for kids ages 6–11: a 5-minute nature detective hunt, a sound map, a tiny world hunt and an Earth Protector challenge. Try one now, then join the GSA mission list for more.</description>
-                <pubDate>Tue, 06 Oct 2026 22:30:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/webp" />
-              </item>
-
-              <item>
-                <guid isPermaLink="false">gsa-nature-tracker-20261006-01</guid>
-                <title>Free Nature Tracker Printable for Kids — 5-Day Wildlife Mission</title>
-                <link>https://gaiassecretagents.com/nature-tracker.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=nature_tracker</link>
-                <description>Give kids a five-day screen-free wildlife mission. Build a mini habitat, spot clues, record visitors and turn everyday nature into an exciting Secret Agent investigation.</description>
-                <pubDate>Tue, 06 Oct 2026 22:00:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/webp" />
-              </item>
-
-              <item>
-                <guid isPermaLink="false">gsa-free-mission-20261006-02</guid>
-                <title>Free Secret Agent Nature Mission — A Screen-Free Adventure for Kids</title>
-                <link>https://gaiassecretagents.com/free-secret-agent-mission.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=free_mission_october</link>
-                <description>Send young Earth Protectors on a free 15-minute Nature Signal Hunt. A printable mission for ages 6–11 with clues, observations, a code name and an Earth Protector promise.</description>
-                <pubDate>Tue, 06 Oct 2026 21:45:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-ocean-article-hero.webp" medium="image" type="image/webp" />
-              </item>
-
-              <item>
-                <guid isPermaLink="false">gsa-secret-meeting-20261006-03</guid>
-                <title>16 Secret Meeting Cards: Printable Family Conversation Game</title>
-                <link>https://gaiassecretagents.com/secret_meeting_cards.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=founding_pack_family_conversation</link>
-                <description>A\$5 printable 16-card Founding Pack with TALK, IMAGINE and DO prompts for screen-free family connection. Shuffle the cards, take turns, share stories, listen and choose one small Earth-positive action together. Designed for children and grown-ups across generations. Instant digital download; print at home.</description>
-                <pubDate>Tue, 06 Oct 2026 21:30:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/founding-pack-cover.jpg" medium="image" type="image/jpeg" />
-              </item>
-
-              <item>
-                <guid isPermaLink="false">gsa-environmental-kids-20261006-04</guid>
-                <title>10 Environmental Activities for Kids — Easy Screen-Free Nature Ideas</title>
-                <link>https://gaiassecretagents.com/environmental-activities-for-kids.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=environmental_activities_october</link>
-                <description>Try biodiversity surveys, sound maps, pollinator watches, bird observations and shore investigations. Most activities need only paper, a pencil and 10–30 minutes.</description>
-                <pubDate>Tue, 06 Oct 2026 21:15:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/webp" />
-              </item>
-
-              <item>
-                <guid isPermaLink="false">gsa-single-mission-owl-listener-20261006-06</guid>
-                <title>Secret Agent Mission: The Owl Listener — 5-Minute Nature Activity</title>
-                <link>https://gaiassecretagents.com/mini-nature-missions.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=single_mission_owl_listener</link>
-                <description>Can you hear what the night is saying? Sit quietly for five minutes and listen for birds, insects, wind and distant sounds. A simple screen-free nature mission for kids ages 6–11. Join the GSA list for more missions.</description>
-                <pubDate>Tue, 06 Oct 2026 22:50:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/webp" />
-              </item>
-
-              <item>
-                <guid isPermaLink="false">gsa-single-mission-leaf-detective-20261006-07</guid>
-                <title>Secret Agent Mission: The Leaf Detective — Find 3 Clues</title>
-                <link>https://gaiassecretagents.com/mini-nature-missions.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=single_mission_leaf_detective</link>
-                <description>Become a Leaf Detective. Find three different leaves and look for clues about where they came from, what happened to them and what lives nearby. Quick, free and screen-free for kids ages 6–11. Want more? Join the GSA mission list.</description>
-                <pubDate>Tue, 06 Oct 2026 22:55:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/webp" />
-              </item>
-
-              <item>
-                <guid isPermaLink="false">gsa-single-mission-nature-colour-code-20261006-08</guid>
-                <title>Secret Agent Mission: Nature Colour Code — Spot 5 Colours</title>
-                <link>https://gaiassecretagents.com/mini-nature-missions.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=single_mission_colour_code</link>
-                <description>Choose five colours and hunt for them in nature. Record what you find, where you found it and whether it is living or non-living. A five-minute screen-free activity for young Earth Protectors ages 6–11.</description>
-                <pubDate>Tue, 06 Oct 2026 23:00:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/webp" />
-              </item>
-
-              <item>
-                <guid isPermaLink="false">gsa-single-mission-cloud-code-20261006-09</guid>
-                <title>Secret Agent Mission: Cloud Code — Watch the Sky</title>
-                <link>https://gaiassecretagents.com/mini-nature-missions.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=single_mission_cloud_code</link>
-                <description>Look up for two minutes and study the clouds. Sketch one, describe its shape and decide how the sky might change next. A calm, no-equipment nature mission for kids ages 6–11. Get more missions by email.</description>
-                <pubDate>Tue, 06 Oct 2026 23:05:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/webp" />
-              </item>
-
-              <item>
-                <guid isPermaLink="false">gsa-single-mission-guardian-check-20261006-10</guid>
-                <title>Secret Agent Mission: Guardian Check — Help One Small Thing</title>
-                <link>https://gaiassecretagents.com/mini-nature-missions.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=single_mission_guardian_check</link>
-                <description>Take the Earth Protector test: find one safe, useful action that helps your local environment today. Notice, act, record and report. A tiny mission that turns kids into active nature guardians.</description>
-                <pubDate>Tue, 06 Oct 2026 23:10:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/webp" />
-              </item>
-
-              <item>
-                <guid isPermaLink="false">gsa-single-mission-hidden-habitat-20261006-11</guid>
-                <title>Secret Agent Mission: Hidden Habitat — Find a Tiny Home</title>
-                <link>https://gaiassecretagents.com/mini-nature-missions.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=single_mission_hidden_habitat</link>
-                <description>Find a tiny natural habitat: under a leaf, beside a log, in bark, among grasses or near stones. Look carefully without disturbing it, then sketch what you discover. A free five-minute mission for ages 6–11.</description>
-                <pubDate>Tue, 06 Oct 2026 23:15:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/webp" />
-              </item>
-
-              <item>
-                <guid isPermaLink="false">gsa-mission-001-ocean-discoverer-20261006-12</guid>
-                <title>Mission 001: Ocean Discoverer — Gaia’s Secret Agents</title>
-                <link>https://gaiassecretagents.com/mission-001-ocean-discoverer.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=mission_001_ocean_discoverer</link>
-                <description>Meet Mission 001: Ocean Discoverer, a planned full printable adventure for Earth Protectors ages 6–11. Ocean clues, wildlife observation, secret codes, environmental problem-solving and a marine sanctuary design challenge.</description>
-                <pubDate>Tue, 06 Oct 2026 23:30:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-ocean-article-hero.webp" medium="image" type="image/webp" />
-              </item>
-
-              <item>
-                <guid isPermaLink="false">gsa-mission-headquarters-20261006-13</guid>
-                <title>Gaia’s Secret Agents Mission Headquarters — Choose Your Next Mission</title>
-                <link>https://gaiassecretagents.com/mission-headquarters.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=mission_headquarters</link>
-                <description>Explore Gaia’s Secret Agents printable adventures for kids ages 6–11: free field training, the A\$19 Starter Kit and the upcoming Ocean Discoverer mission.</description>
-                <pubDate>Tue, 06 Oct 2026 23:35:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-young-agents-globe.webp" medium="image" type="image/webp" />
-              </item>
-
-              <item>
-                <guid isPermaLink="false">gsa-family-ocean-adventure-20261029-01</guid>
-                <title>Screen-Free Ocean Adventures for Families | Gaia’s Secret Agents</title>
-                <link>https://gaiassecretagents.com/screen-free-ocean-activities-for-kids.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=family_ocean_adventure_oct29</link>
-                <description>Turn a beach day or nature break into a shared ocean discovery. Explore screen-free ocean activities, notice marine life, listen to coastal sounds and talk about how families can protect the sea together. A nature-led adventure for curious families who want more meaningful time outdoors.</description>
-                <pubDate>Thu, 29 Oct 2026 09:00:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-kai-ocean-mission.webp" medium="image" type="image/webp" />
-              </item>
-
-              <item>
-                <guid isPermaLink="false">gsa-family-bird-detective-20261029-02</guid>
-                <title>Nature Detective: A Bird-Watching Mission for the Whole Family</title>
-                <link>https://gaiassecretagents.com/mini-nature-missions.html?utm_source=pinterest&amp;utm_medium=rss&amp;utm_campaign=family_bird_detective_oct29</link>
-                <description>Slow down together and become nature detectives. Observe birds from a respectful distance, notice colour, movement and calls, then share what each person discovers. This low-prep, screen-free outdoor family activity builds curiosity and connection with the natural world.</description>
-                <pubDate>Thu, 29 Oct 2026 09:05:00 +1000</pubDate>
-                <media:content url="https://gaiassecretagents.com/assets/gsa-nature-detective-bird.webp" medium="image" type="image/webp" />
-              </item>
-
-            </channel>
-          </rss>
-          EOF
-
-      - name: Commit generated promotion feed
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add pinterest-rss.xml
-          if git diff --cached --quiet; then
-            echo 'Promotion feed already current.'
-            exit 0
-          fi
-          git commit -m 'Refresh Pinterest RSS promotion feed'
-          git pull --rebase origin main
-          git push
+      - uses: actions/checkout@v4
+      - name: Validate feed without modifying its content
+        run: python3 scripts/validate_pinterest_rss.py pinterest-rss.xml
