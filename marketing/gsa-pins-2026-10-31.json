@@ -9,7 +9,8 @@
     "feed": "pinterest-rss.xml",
     "board": "Screen Free activities for kids",
     "alt_text": "A red fox wearing a peacock-blue coat sits in a magical archive beneath the words Every Great Agent Starts With Curiosity.",
-    "sha256": "ac12e87cb6210798f520ca7ec0108f6341fbc29a414c96e82410cd5d53f9dd05"
+    "sha256": "ac12e87cb6210798f520ca7ec0108f6341fbc29a414c96e82410cd5d53f9dd05",
+    "status": "QUEUED_IN_RSS_NOT_VERIFIED_ON_PINTEREST"
   },
   {
     "file": "02-more-wonder-more-together.jpg",
@@ -21,7 +22,8 @@
     "feed": "pinterest-family-games-rss.xml",
     "board": "Screen free printable games for the family",
     "alt_text": "A family sits beneath a tree under a starry sky with the words More Wonder. More Together.",
-    "sha256": "82fce0def205f37c50e5359336de8392c3a6a14a48f8decb62a12bc353f2977d"
+    "sha256": "82fce0def205f37c50e5359336de8392c3a6a14a48f8decb62a12bc353f2977d",
+    "status": "QUEUED_IN_RSS_NOT_VERIFIED_ON_PINTEREST"
   },
   {
     "file": "03-family-listening-mission.jpg",
@@ -33,7 +35,8 @@
     "feed": "pinterest-homeschool-rss.xml",
     "board": "Homeschool Nature Activities",
     "alt_text": "A kookaburra watches from a gum tree above a child and older adult, beside three steps for a family listening activity.",
-    "sha256": "3208b596a6645b46d0d69aaa939979a2615eb5be786b28f703039cb21463e720"
+    "sha256": "3208b596a6645b46d0d69aaa939979a2615eb5be786b28f703039cb21463e720",
+    "status": "QUEUED_IN_RSS_NOT_VERIFIED_ON_PINTEREST"
   },
   {
     "file": "04-flip-ocean-curiosity.jpg",
@@ -45,7 +48,9 @@
     "feed": "pinterest-rss.xml",
     "board": "Screen Free activities for kids",
     "alt_text": "Flip the bottlenose dolphin swims through bright blue water beneath the words Let Curiosity Lead the Way.",
-    "sha256": "7429dd98155ddcb5aa85fe4e8aae1540ec63ff5e3471d3a593df0018be3ffa9a"
+    "sha256": "7429dd98155ddcb5aa85fe4e8aae1540ec63ff5e3471d3a593df0018be3ffa9a",
+    "status": "HELD_IMAGE_INCOMPLETE_ON_GITHUB",
+    "hold_reason": "The original complete artwork exists in GSA_7_Ready_to_Post_Pins_2026-10-31.zip; GitHub image contains a grey lower half. Do not publish until restored."
   },
   {
     "file": "05-family-secret-agent-adventure.jpg",
@@ -57,7 +62,9 @@
     "feed": "pinterest-rss.xml",
     "board": "Screen Free activities for kids",
     "alt_text": "A top-secret envelope and compass sit beside a lush forest trail beneath the words Your Family’s Next Adventure Starts Here.",
-    "sha256": "926fcf53a9fc55024a0e83c22738a96ae3f602006d45909f14e3dc8f4ab02c5e"
+    "sha256": "926fcf53a9fc55024a0e83c22738a96ae3f602006d45909f14e3dc8f4ab02c5e",
+    "status": "HELD_IMAGE_INCOMPLETE_ON_GITHUB",
+    "hold_reason": "The original complete artwork exists in GSA_7_Ready_to_Post_Pins_2026-10-31.zip; GitHub image contains a grey lower half. Do not publish until restored."
   },
   {
     "file": "06-tiny-world-snail-safari.jpg",
@@ -69,7 +76,8 @@
     "feed": "pinterest-homeschool-rss.xml",
     "board": "Homeschool Nature Activities",
     "alt_text": "A smiling parent and child observe a snail on a leaf, with three steps for a tiny-world safari.",
-    "sha256": "0c2e61d1e51b00959389f109a7865fb539f326c40219894a8503a0cced0d8c54"
+    "sha256": "0c2e61d1e51b00959389f109a7865fb539f326c40219894a8503a0cced0d8c54",
+    "status": "QUEUED_IN_RSS_NOT_VERIFIED_ON_PINTEREST"
   },
   {
     "file": "07-low-waste-family-picnic.jpg",
@@ -81,6 +89,7 @@
     "feed": "pinterest-rss.xml",
     "board": "Screen Free activities for kids",
     "alt_text": "A parent and child share a picnic beside a reusable lunchbox and water bottle, with three tips for reducing picnic waste.",
-    "sha256": "59c2d10ccc07d346007096b80706f89ea55301bf3f8b5588131fc395c0030445"
+    "sha256": "59c2d10ccc07d346007096b80706f89ea55301bf3f8b5588131fc395c0030445",
+    "status": "QUEUED_IN_RSS_NOT_VERIFIED_ON_PINTEREST"
   }
 ]
