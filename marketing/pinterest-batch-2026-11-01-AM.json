@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-01",
+  "timezone": "Australia/Brisbane",
+  "slot": "AM",
+  "status": "BLOCKED_PRE_PRODUCTION",
+  "checked_at_local": "2026-11-01T05:41:00+10:00",
+  "sources_checked": [
+    "pinterest-rss.xml",
+    "pinterest-homeschool-rss.xml",
+    "pinterest-family-games-rss.xml",
+    "marketing/gsa-pins-2026-10-31.json",
+    "marketing/pinterest-campaign-2026-10.md",
+    "starter-kit.html",
+    "free-secret-agent-mission.html"
+  ],
+  "existing_feed_counts": {
+    "pinterest-rss.xml": 2,
+    "pinterest-homeschool-rss.xml": 2,
+    "pinterest-family-games-rss.xml": 1
+  },
+  "keyword_evidence": "Pinterest Parenting Trend Report 2026 cited in marketing/pinterest-campaign-2026-10.md; search volumes unverified",
+  "blockers": [
+    "Live website could not be accessed to verify active offers, signup and destination responses",
+    "No tool available to generate, inspect at full and phone size, and upload five premium raster creative assets with the exact official logo",
+    "Pinterest importer connection and required AI disclosure handling could not be verified"
+  ],
+  "created": 0,
+  "qa_passed": 0,
+  "queued_in_rss": 0,
+  "deployed": 0,
+  "pinterest_published": 0,
+  "feed_mutations": 0,
+  "note": "Never retry this AM batch by creating duplicate items. Resume only after blockers are resolved; recheck current feed and log before action."
+}
