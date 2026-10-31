@@ -145,7 +145,16 @@ def build(now=None):
         if not item["title"].strip() or not item["description"].strip():
             raise ValueError(f"Missing post copy: {url}")
         node = ET.SubElement(channel, "item")
-        ET.SubElement(node, "guid", {"isPermaLink": "true"}).text = url
+        # A new campaign post can link to an existing article without reusing its
+        # earlier RSS identity. Preserve old GUIDs unless an explicit unique ID
+        # is supplied, so existing entries do not get imported a second time.
+        guid = item.get("guid")
+        if guid:
+            if not guid.startswith("gsa-facebook-"):
+                raise ValueError(f"Invalid Facebook campaign GUID: {guid}")
+            ET.SubElement(node, "guid", {"isPermaLink": "false"}).text = guid
+        else:
+            ET.SubElement(node, "guid", {"isPermaLink": "true"}).text = url
         for key, value in {
             "title": item["title"], "link": url,
             "description": item["description"], "pubDate": format_datetime(date),
