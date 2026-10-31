@@ -2,8 +2,8 @@
   "date": "2026-11-01",
   "timezone": "Australia/Brisbane",
   "slot": "AM",
-  "status": "BLOCKED_PRE_PRODUCTION",
-  "checked_at_local": "2026-11-01T05:41:00+10:00",
+  "status": "QUEUED_IN_RSS",
+  "checked_at_local": "2026-11-01T08:05:03+10:00",
   "sources_checked": [
     "pinterest-rss.xml",
     "pinterest-homeschool-rss.xml",
@@ -18,17 +18,103 @@
     "pinterest-homeschool-rss.xml": 2,
     "pinterest-family-games-rss.xml": 1
   },
-  "keyword_evidence": "Pinterest Parenting Trend Report 2026 cited in marketing/pinterest-campaign-2026-10.md; search volumes unverified",
-  "blockers": [
-    "Live website could not be accessed to verify active offers, signup and destination responses",
-    "No tool available to generate, inspect at full and phone size, and upload five premium raster creative assets with the exact official logo",
-    "Pinterest importer connection and required AI disclosure handling could not be verified"
-  ],
-  "created": 0,
-  "qa_passed": 0,
-  "queued_in_rss": 0,
+  "keyword_evidence": {
+    "source": "https://newsroom.pinterest.com/en-au/news/parenting-trend-report-2026/",
+    "source_date": "2026-02-24",
+    "checked": "2026-11-01",
+    "measured": "screen free activities: +200% year over year in the report period; not current volume",
+    "pin_keywords": "Suggested long-tail terms based on page content. No measured volumes for these phrases."
+  },
+  "blockers": [],
+  "created": 5,
+  "qa_passed": 5,
+  "queued_in_rss": 5,
   "deployed": 0,
   "pinterest_published": 0,
-  "feed_mutations": 0,
-  "note": "Never retry this AM batch by creating duplicate items. Resume only after blockers are resolved; recheck current feed and log before action."
+  "feed_mutations": 3,
+  "note": "Resume this slot from its five GUIDs. Never re-enqueue them.",
+  "previous_check": {
+    "status": "BLOCKED_PRE_PRODUCTION",
+    "blockers": [
+      "Live website could not be accessed to verify active offers, signup and destination responses",
+      "No tool available to generate, inspect at full and phone size, and upload five premium raster creative assets with the exact official logo",
+      "Pinterest importer connection and required AI disclosure handling could not be verified"
+    ],
+    "checked_at_local": "2026-11-01T05:41:00+10:00"
+  },
+  "pins": [
+    {
+      "guid": "gsa-20261101-am-five-day-habitat",
+      "title": "Backyard Nature Study for Kids: A Free 5-Day Wildlife Tracker",
+      "description": "How can children spot changes in a backyard habitat? Check the same little shelter each day and record the weather, visitors and clues. Watch wildlife without touching or feeding it. Get the free two-page tracker with a parent, guardian or teacher email.",
+      "alt": "Sunlight falls on a bark shelter resting on a mossy stone. The headline asks who visits one tiny patch of garden.",
+      "keyword": "backyard nature study",
+      "feed": "pinterest-homeschool-rss.xml",
+      "path": "assets/pinterest/2026-11-01-am/five-day-habitat.jpg",
+      "sha256": "ee235536717acacfcc42864c63fc514536cabe299b1d3e2b20b2a0d6b838eecc",
+      "destination": "https://gaiassecretagents.com/nature-tracker.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261101_am&utm_content=five-day-habitat",
+      "qa1": "PASS: live offer/page, spelling, copy limits, distinct headline and intent, no paid pages shown.",
+      "qa2": "PASS: final 1000×1500 JPEG opened at original and 280px width, complete clear image, readable type, full logo and link rechecked."
+    },
+    {
+      "guid": "gsa-20261101-am-code-name-fieldwork",
+      "title": "Free Printable Secret Agent Name Wheels and a Family Nature Hunt",
+      "description": "How do you turn a walk into a secret mission? Make an agent name with two printable wheels, then head outside for a 15-minute Nature Signal Hunt. Get the free nine-page mission with a parent or guardian email.",
+      "alt": "A brass compass rests on a turquoise illustrated map near shells. Text invites families to choose an agent name.",
+      "keyword": "printable secret agent name wheels",
+      "feed": "pinterest-rss.xml",
+      "path": "assets/pinterest/2026-11-01-am/code-name-fieldwork.jpg",
+      "sha256": "f2b0e6c29bd2d25d64b6c082650fdcc81fe65ae26c34d9e072e45df36f4f45c9",
+      "destination": "https://gaiassecretagents.com/free-secret-agent-mission.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261101_am&utm_content=code-name-fieldwork",
+      "qa1": "PASS: live offer/page, spelling, copy limits, distinct headline and intent, no paid pages shown.",
+      "qa2": "PASS: final 1000×1500 JPEG opened at original and 280px width, complete clear image, readable type, full logo and link rechecked."
+    },
+    {
+      "guid": "gsa-20261101-am-classified-family-file",
+      "title": "Printable Family Adventure: Open a Secret Agent Recruitment File",
+      "description": "What could you leave on the kitchen table for a curious child to discover? The 33-page printable Starter Kit opens with a recruitment story and leads into a real-world assignment. It’s a digital download you print at home. Explore the Starter Kit.",
+      "alt": "A gold-edged envelope peeks from a navy field satchel under a starry sky. Text introduces a printable family recruitment file.",
+      "keyword": "printable family adventure",
+      "feed": "pinterest-rss.xml",
+      "path": "assets/pinterest/2026-11-01-am/classified-family-file.jpg",
+      "sha256": "ee1fa787adbe4e15cfd6b7a35f5c042e86b0ecfb4eb3125cef134d51e982b396",
+      "destination": "https://gaiassecretagents.com/starter-kit.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261101_am&utm_content=classified-family-file",
+      "qa1": "PASS: live offer/page, spelling, copy limits, distinct headline and intent, no paid pages shown.",
+      "qa2": "PASS: final 1000×1500 JPEG opened at original and 280px width, complete clear image, readable type, full logo and link rechecked."
+    },
+    {
+      "guid": "gsa-20261101-am-cards-for-quiet-voices",
+      "title": "Printable Family Conversation Cards for Kids Who Like to Pass",
+      "description": "How do you include someone who would rather listen? In the 16-card Founding Pack, everyone can talk, imagine, act or pass. Set aside 10–20 minutes for a Secret Meeting with children and grown-ups. See the printable Founding Pack.",
+      "alt": "Three enamel mugs sit beside illustrated cards on a sunlit table. Text highlights the option to pass.",
+      "keyword": "printable family conversation cards",
+      "feed": "pinterest-family-games-rss.xml",
+      "path": "assets/pinterest/2026-11-01-am/cards-for-quiet-voices.jpg",
+      "sha256": "d3065306050610454d41071586ff821af6725e78147cf46a9078b22e13bbf95b",
+      "destination": "https://gaiassecretagents.com/secret_meeting_cards.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261101_am&utm_content=cards-for-quiet-voices",
+      "qa1": "PASS: live offer/page, spelling, copy limits, distinct headline and intent, no paid pages shown.",
+      "qa2": "PASS: final 1000×1500 JPEG opened at original and 280px width, complete clear image, readable type, full logo and link rechecked."
+    },
+    {
+      "guid": "gsa-20261101-am-three-signs-walk",
+      "title": "Five-Minute Nature Walk for Kids: Find Three Signs of Wildlife",
+      "description": "How can you spot wildlife if the animal has already gone? Look for three signs such as a feather, a track or a nibbled leaf. Notice where each clue lies and leave it undisturbed. Try the free five-minute Nature Detective mission.",
+      "alt": "A pale feather lies beside seeds and a nibbled gum leaf in sunlit leaf litter. Text invites families to find three signs.",
+      "keyword": "five-minute nature walk",
+      "feed": "pinterest-homeschool-rss.xml",
+      "path": "assets/pinterest/2026-11-01-am/three-signs-walk.jpg",
+      "sha256": "6bf078ca381c471546c37952cdc3859bf29dacdff6d5500825c70f43e36fa35b",
+      "destination": "https://gaiassecretagents.com/mini-nature-missions.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261101_am&utm_content=three-signs-walk",
+      "qa1": "PASS: live offer/page, spelling, copy limits, distinct headline and intent, no paid pages shown.",
+      "qa2": "PASS: final 1000×1500 JPEG opened at original and 280px width, complete clear image, readable type, full logo and link rechecked."
+    }
+  ],
+  "verification": {
+    "website": "Homepage, five linked campaign pages and both linked Gumroad product pages loaded with HTTP 200. No transaction or test signup performed.",
+    "price": "Site lists A$19 for the Starter Kit and A$5 for Founding Pack; Gumroad displayed USD equivalents, so pin copy omits prices.",
+    "disclosure": "Each JPEG carries verified IPTC DigitalSourceType compositeWithTrainedAlgorithmicMedia in embedded XMP. Pinterest documents reading IPTC metadata. Live Pin and platform label require subsequent evidence.",
+    "disclosure_source": "https://help.pinterest.com/en/article/gen-ai-labels",
+    "logo_sha256": "aa338125db1bf7e79eb234e49797755ad0047b6918197301b08770b8ee227efd",
+    "parent": "622d1c1410f78679e6faa0ce1c36749739ba604f"
+  }
 }
