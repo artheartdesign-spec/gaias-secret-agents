@@ -8,7 +8,7 @@
 ## Verification
 - Read current repository source pages `screen-free-ocean-activities-for-kids.html`, `mini-nature-missions.html`, `starter-kit.html` and `secret_meeting_cards.html` plus `facebook-feed-content.json`, `facebook-rss.xml`, and the 31 October social package.
 - The free ocean guide contains **12 screen-free activities**, including **Sea Turtle Navigation Challenge**. It is readable online; the article does not require an email address or a printable download.
-- The brand domain and Facebook Page could not be independently fetched during this run, so **live destination availability and actual Page delivery are unverified**. No prices, discounts, sales, or checkout availability are claimed.
+- The live homepage and linked ocean activity page were independently fetched on 1 November 2026; the live page confirms 12 activities and the Sea Turtle Navigation Challenge. The Facebook Page and downstream delivery could not be independently fetched, so **actual Facebook publication is unverified**. No prices, discounts, sales, or checkout availability are claimed.
 - Existing latest Facebook RSS item dated 31 October promoted the Tiny World Hunt. This 1 November post uses a different ocean-navigation/family-play angle.
 - Facebook RSS workflow build succeeded for commit `e1e0ce3336bc82973531199550f5a96ed3191ea8`; resulting `facebook-rss.xml` contains the new item as its first entry.
 - New GUID `gsa-facebook-2026-11-01-kai-sea-turtle-migration` is distinct from earlier canonical-page GUIDs. The builder now accepts explicitly supplied unique GUIDs without changing legacy GUIDs.
