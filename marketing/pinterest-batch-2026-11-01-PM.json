@@ -1,0 +1,90 @@
+{
+  "date": "2026-11-01",
+  "slot": "PM",
+  "timezone": "Australia/Brisbane",
+  "status": "QUEUED_IN_RSS",
+  "created": 5,
+  "qa_passed": 5,
+  "queued_in_rss": 5,
+  "deployed": 0,
+  "pinterest_published": 0,
+  "pins": [
+    {
+      "guid": "gsa-20261101-pm-rain-web",
+      "title": "Homeschool Nature Journal: Spot a Spiderweb After Rain",
+      "description": "What can a child record on a damp day? Note the weather, sketch a web you can see from the path and leave it in place. The free two-page Nature Tracker has room for five days of observations. Get the tracker with a parent, guardian or teacher email.",
+      "alt": "Water beads along a web between gum leaves. The headline invites children to observe after rain.",
+      "destination": "https://gaiassecretagents.com/nature-tracker.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261101_pm&utm_content=rain-web",
+      "feed": "pinterest-homeschool-rss.xml",
+      "path": "assets/pinterest/2026-11-01-pm/rain-web.jpg",
+      "sha256": "355890260ab3328cc29cfbdd26806fce8db33522ecb17ab2214f980c0fa7451c",
+      "keyword": "homeschool nature journal",
+      "qa1": "PASS: copy, live offer, Australian spelling, original illustration, authentic logo, paid content protected.",
+      "qa2": "PASS: exported 1000 × 1500 image and phone rendering reviewed; copy, crop, clarity, URL, logo and embedded AI disclosure checked."
+    },
+    {
+      "guid": "gsa-20261101-pm-earth-promise",
+      "title": "Earth Protector Promise for Kids: Start With a Free Nature Mission",
+      "description": "How can a family turn caring about nature into a promise a child understands? Start by noticing the living world together, then choose a simple commitment to respect and protect it. Get the free nine-page Nature Signal mission with a parent or guardian email.",
+      "alt": "Sunlight reaches a seagrass meadow beneath a calm coastline. Text introduces the Earth Protector Promise.",
+      "destination": "https://gaiassecretagents.com/free-secret-agent-mission.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261101_pm&utm_content=earth-promise",
+      "feed": "pinterest-rss.xml",
+      "path": "assets/pinterest/2026-11-01-pm/earth-promise.jpg",
+      "sha256": "582aae4498eeb7beb0b421839bbffaff052e1ab2560b3d742a404f33c25fe951",
+      "keyword": "Earth Protector Promise for kids",
+      "qa1": "PASS: copy, live offer, Australian spelling, original illustration, authentic logo, paid content protected.",
+      "qa2": "PASS: exported 1000 × 1500 image and phone rendering reviewed; copy, crop, clarity, URL, logo and embedded AI disclosure checked."
+    },
+    {
+      "guid": "gsa-20261101-pm-print-at-home",
+      "title": "Print-at-Home Adventure Kit for Kids: What Do You Receive?",
+      "description": "Looking for a family adventure you can prepare at home? The Secret Agent Starter Kit is a digital PDF. Print the 33-page file, prepare the pieces and invite your child into a story that leads outdoors. See what’s in the kit.",
+      "alt": "A plum-coloured desk holds blank cream paper, scissors and navy ribbon. Text explains the print-at-home kit.",
+      "destination": "https://gaiassecretagents.com/starter-kit.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261101_pm&utm_content=print-at-home",
+      "feed": "pinterest-rss.xml",
+      "path": "assets/pinterest/2026-11-01-pm/print-at-home.jpg",
+      "sha256": "599bf4fc450b720f3fa130efa1742c4713a66eeeaaf937439613ce34c5304368",
+      "keyword": "print-at-home adventure kit",
+      "qa1": "PASS: copy, live offer, Australian spelling, original illustration, authentic logo, paid content protected.",
+      "qa2": "PASS: exported 1000 × 1500 image and phone rendering reviewed; copy, crop, clarity, URL, logo and embedded AI disclosure checked."
+    },
+    {
+      "guid": "gsa-20261101-pm-grandparent-meeting",
+      "title": "Family Traditions Ideas: A Secret Meeting With Grandparents",
+      "description": "What can grandparents and children do together in ten minutes? Draw one printable Secret Meeting Card and take turns talking, imagining or acting. Anyone may pass. Explore the 16-card Founding Pack for a family ritual you can repeat.",
+      "alt": "A silver-haired grandmother and child smile at each other in a sunny garden. Text introduces a family meeting.",
+      "destination": "https://gaiassecretagents.com/secret_meeting_cards.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261101_pm&utm_content=grandparent-meeting",
+      "feed": "pinterest-family-games-rss.xml",
+      "path": "assets/pinterest/2026-11-01-pm/grandparent-meeting.jpg",
+      "sha256": "38bb1fff88f3a3ab1016dad93418f827061940d7d1fbecfaf37461bf5f0d04ae",
+      "keyword": "family traditions ideas",
+      "qa1": "PASS: copy, live offer, Australian spelling, original illustration, authentic logo, paid content protected.",
+      "qa2": "PASS: exported 1000 × 1500 image and phone rendering reviewed; copy, crop, clarity, URL, logo and embedded AI disclosure checked."
+    },
+    {
+      "guid": "gsa-20261101-pm-guess-my-sketch",
+      "title": "Nature Drawing Game for Kids: Sketch a Clue and Guess",
+      "description": "How can two people turn a nature sketch into a guessing game? Choose a tiny outdoor discovery, sketch it, then describe it without using its name. Let your partner guess. Leave living things where you find them. Try the free Tiny World Hunt.",
+      "alt": "An unfurling fern sits beside a pencil study on warm paper. Text invites a partner to guess the sketch.",
+      "destination": "https://gaiassecretagents.com/mini-nature-missions.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261101_pm&utm_content=guess-my-sketch",
+      "feed": "pinterest-family-games-rss.xml",
+      "path": "assets/pinterest/2026-11-01-pm/guess-my-sketch.jpg",
+      "sha256": "0aced66a4860e66c79dc7bb6d61f508c0e7dc22afe07fe6cdbd1b1614852971c",
+      "keyword": "nature drawing game for kids",
+      "qa1": "PASS: copy, live offer, Australian spelling, original illustration, authentic logo, paid content protected.",
+      "qa2": "PASS: exported 1000 × 1500 image and phone rendering reviewed; copy, crop, clarity, URL, logo and embedded AI disclosure checked."
+    }
+  ],
+  "keyword_evidence": {
+    "source": "https://newsroom.pinterest.com/en-au/news/parenting-trend-report-2026/",
+    "published": "2026-02-24",
+    "checked": "2026-11-01",
+    "measured": "family traditions ideas and screen free activities each +200% year-over-year for the report period. Other long-tail phrases are suggestions, without verified volumes."
+  },
+  "verification": {
+    "offers": "Homepage, both signup pages, family activity, Starter Kit and Founding Pack pages HTTP 200. Both linked Gumroad offers InStock; GSA lists A$19/A$5, retrieved Gumroad schema displays USD 13.35/3.51. Prices omitted from Pin copy. Signup requirements checked on forms, no signup submitted.",
+    "logo": "Verified exact original SHA-256 aa338125db1bf7e79eb234e49797755ad0047b6918197301b08770b8ee227efd",
+    "AI": "IPTC DigitalSourceType compositeWithTrainedAlgorithmicMedia embedded in every JPEG. Pinterest confirms using IPTC metadata in https://help.pinterest.com/en/article/gen-ai-labels. Platform label awaits live evidence."
+  },
+  "base_commit": "9641c194a38a58146478e2a6b094d874ca99984d"
+}
