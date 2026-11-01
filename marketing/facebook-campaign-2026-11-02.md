@@ -2,7 +2,7 @@
 
 **Campaign date:** Monday 2 November 2026 (Australia/Brisbane)
 **Facebook Page:** Gaia’s Secret Agents, Page ID 61594001054231
-**Status:** QUEUED_IN_GITHUB_FACEBOOK_RSS; FEED_BUILD_SUCCESS; GITHUB_PAGES_DEPLOYMENT_PENDING_VERIFICATION; FACEBOOK_PAGE_PUBLICATION_NOT_VERIFIED
+**Status:** QUEUED_IN_GITHUB_FACEBOOK_RSS; FEED_BUILD_SUCCESS; GITHUB_PAGES_DEPLOYMENT_SUCCESS; FACEBOOK_PAGE_PUBLICATION_NOT_VERIFIED
 **Daily limit:** One new Facebook item for 2026-11-02. No Pinterest content, feed or automation was changed.
 
 ## Checks and verification
@@ -13,6 +13,7 @@
 - Public Facebook Page could not be fetched; one-per-day limit is confirmed against the controlled repository campaign feed and logs, not against all possible posts made directly on Facebook.
 - Approved, unchanged image: `https://gaiassecretagents.com/assets/founding-pack-cover.jpg`. Inspected full image: navy/teal/gold cover, legible headline, original GSA round logo, no spelling errors or anomalous animal anatomy detected. The feed builder's SHA-256 approval gate verifies this asset before inclusion.
 - The GitHub Facebook RSS build initially failed because the existing homepage HTML contains invalid UTF-8 bytes. Repaired **only** the feed builder's text decoding (`errors="replace"`), leaving the homepage, official logo and all approved artwork untouched. Subsequent RSS build workflow run **41351977865 succeeded**, including the step that requests GitHub Pages publication. The generated `facebook-rss.xml` has today's GUID as its first item.
+- GitHub Pages build and deployment succeeded in run **41352048297** (https://github.com/artheartdesign-spec/gaias-secret-agents/actions/runs/41352048297); the latest RSS file contains today's new item as the first entry. Public Facebook Page delivery remains unverified.
 - RSS feed delivery is **not proof** of a Facebook Page post. No direct Facebook publishing connector or verified Page permalink was available. Do not manually repost until Page delivery is checked to prevent duplication.
 
 ## Facebook post — ready to publish
