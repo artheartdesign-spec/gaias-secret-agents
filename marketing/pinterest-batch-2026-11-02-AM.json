@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-02",
+  "slot": "AM",
+  "timezone": "Australia/Brisbane",
+  "pins": [
+    {
+      "title": "Wildlife Observation for Kids: What to Record on a Quiet Day",
+      "description": "What if no animal appears during a backyard watch? Note the date, weather and what you actually saw, even if the visitor count is zero. Return to the same patch tomorrow. Get the free five-day Nature Tracker with a parent, guardian or teacher email.",
+      "alt": "A fallen leaf rests beside a purple stone on an empty mossy trail in morning light.",
+      "destination": "https://gaiassecretagents.com/nature-tracker.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261102_am&utm_content=quiet-watch",
+      "guid": "gsa-20261102-am-quiet-watch",
+      "path": "assets/pinterest/2026-11-02-am/quiet-watch.jpg",
+      "keyword": "wildlife observation for kids",
+      "feed": "pinterest-homeschool-rss.xml",
+      "sha256": "185d1f8e7a18f6c42ab9f4bc0d11d69b8e05c7c82460f0db7ef0289f6246a5a9",
+      "qa1": "PASS: copy, offer, originality, branding and paid-content protection reviewed.",
+      "qa2": "PASS: final full-size and phone export, logo, margins, spelling, composition and tracked destination checked."
+    },
+    {
+      "title": "Outdoor Learning for Primary School: Compare Two Schoolyard Habitats",
+      "description": "How can a class investigate biodiversity in 20 minutes? Compare a paved area with a garden edge, count visible signs of life from an agreed boundary and discuss which spot offered more shelter. Get the free eight-page Teacher Starter Pack with an adult email.",
+      "alt": "A paved schoolyard path divides flowering garden beds, with contrasting shade and sunlight.",
+      "destination": "https://gaiassecretagents.com/schools.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261102_am&utm_content=paving-to-petals",
+      "guid": "gsa-20261102-am-paving-to-petals",
+      "path": "assets/pinterest/2026-11-02-am/paving-to-petals.jpg",
+      "keyword": "outdoor learning",
+      "feed": "pinterest-homeschool-rss.xml",
+      "sha256": "67dc0625db002b3985076338603b2e17cd719d0f21d88250760dd1171841f590",
+      "qa1": "PASS: copy, offer, originality, branding and paid-content protection reviewed.",
+      "qa2": "PASS: final full-size and phone export, logo, margins, spelling, composition and tracked destination checked."
+    },
+    {
+      "title": "Printable Wildlife Wall Art: Six Habitats for a Family Reading Nook",
+      "description": "Which animal prints work together in a reading nook? This collection pairs six habitats in one coordinated set, from a golden wren in forest foliage to a polar bear under the aurora. Downloadable JPGs let you choose what to print. Explore all six artworks.",
+      "alt": "Six original Nature Habitat Collection prints arranged in two rows: golden wren, elephant, polar bear, koala, dolphins and sea turtle.",
+      "destination": "https://gaiassecretagents.com/art-prints.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261102_am&utm_content=six-habitats",
+      "guid": "gsa-20261102-am-six-habitats",
+      "path": "assets/pinterest/2026-11-02-am/six-habitats.jpg",
+      "keyword": "printable wildlife wall art",
+      "feed": "pinterest-rss.xml",
+      "sha256": "a3d00d8565f57cbe2781bb4ff183edf1540212f665b630ec4ce07ad8231b3336",
+      "qa1": "PASS: copy, offer, originality, branding and paid-content protection reviewed.",
+      "qa2": "PASS: final full-size and phone export, logo, margins, spelling, composition and tracked destination checked."
+    },
+    {
+      "title": "Family Meeting Activity for Kids: Choose One Small Earth Action",
+      "description": "How do you finish a family meeting with something children can do? Choose one small job together, such as checking whether a pot plant needs water. The 16-card Founding Pack includes TALK, IMAGINE and DO prompts and an action sheet. Explore the printable pack.",
+      "alt": "A teal watering can sits beside a golden flowering plant in a cobalt pot on a verandah.",
+      "destination": "https://gaiassecretagents.com/secret_meeting_cards.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261102_am&utm_content=one-small-job",
+      "guid": "gsa-20261102-am-one-small-job",
+      "path": "assets/pinterest/2026-11-02-am/one-small-job.jpg",
+      "keyword": "family meeting activity for kids",
+      "feed": "pinterest-family-games-rss.xml",
+      "sha256": "ef4a357b82761c58c7fa1016d874c52b226e0360cfb1d350cc8c73ca99f0cd90",
+      "qa1": "PASS: copy, offer, originality, branding and paid-content protection reviewed.",
+      "qa2": "PASS: final full-size and phone export, logo, margins, spelling, composition and tracked destination checked."
+    },
+    {
+      "title": "Beach Maths for Kids: A One-Minute Wave Counting Game",
+      "description": "How can you turn a beach visit into a counting game? From a safe, dry spot with a grown-up, tally the waves that reach shore in one minute. Repeat three times and compare the totals. Try the Wave Pattern Mission in the free ocean activities guide.",
+      "alt": "Three foamy wave fronts approach a golden shore viewed from above.",
+      "destination": "https://gaiassecretagents.com/screen-free-ocean-activities-for-kids.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261102_am&utm_content=one-minute-waves",
+      "guid": "gsa-20261102-am-one-minute-waves",
+      "path": "assets/pinterest/2026-11-02-am/one-minute-waves.jpg",
+      "keyword": "beach maths for kids",
+      "feed": "pinterest-rss.xml",
+      "sha256": "8d7a3cfd0ca1e470236e4074c76225aae6e525a83fd58c763ae4cb8456c4a80d",
+      "qa1": "PASS: copy, offer, originality, branding and paid-content protection reviewed.",
+      "qa2": "PASS: final full-size and phone export, logo, margins, spelling, composition and tracked destination checked."
+    }
+  ],
+  "status": "QUEUED-IN-RSS",
+  "created": 5,
+  "qa_passed": 5,
+  "queued_in_rss": 5,
+  "deployed": 0,
+  "pinterest_published": 0,
+  "keyword_evidence": {
+    "source": "https://newsroom.pinterest.com/en-au/news/parenting-trend-report-2026/",
+    "published": "2026-02-24",
+    "checked": "2026-11-02",
+    "measured": "Screen free activities +200% YoY in the report period. Specific pin keywords are editorial search-intent hypotheses, not measured volumes."
+  },
+  "offer_checks": "Live claimed-domain pages checked. Tracker accepts parent, guardian or teacher email; Teacher Starter Pack requests adult email. GSA Founding Pack A$5, Gumroad USD 3.51; art bundle checkout USD 9.83; both listings InStock. No checkout or signup submission. Pins omit prices.",
+  "disclosure": "IPTC DigitalSourceType compositeWithTrainedAlgorithmicMedia embedded in every export. Platform label pending live Pin verification."
+}
