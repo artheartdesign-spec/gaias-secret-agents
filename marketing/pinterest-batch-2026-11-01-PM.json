@@ -2,11 +2,11 @@
   "date": "2026-11-01",
   "slot": "PM",
   "timezone": "Australia/Brisbane",
-  "status": "QUEUED_IN_RSS",
+  "status": "DEPLOYED",
   "created": 5,
   "qa_passed": 5,
   "queued_in_rss": 5,
-  "deployed": 0,
+  "deployed": 5,
   "pinterest_published": 0,
   "pins": [
     {
@@ -86,5 +86,26 @@
     "logo": "Verified exact original SHA-256 aa338125db1bf7e79eb234e49797755ad0047b6918197301b08770b8ee227efd",
     "AI": "IPTC DigitalSourceType compositeWithTrainedAlgorithmicMedia embedded in every JPEG. Pinterest confirms using IPTC metadata in https://help.pinterest.com/en/article/gen-ai-labels. Platform label awaits live evidence."
   },
-  "base_commit": "9641c194a38a58146478e2a6b094d874ca99984d"
+  "base_commit": "9641c194a38a58146478e2a6b094d874ca99984d",
+  "deployment_evidence": {
+    "verified_date": "2026-11-01",
+    "asset_commit": "25534ec9321a85300b33bb735ca7adc2daadca11",
+    "public_snapshot": "25534ec9321a85300b33bb735ca7adc2daadca11",
+    "checks": "Retrieved all three claimed-domain feeds and confirmed each of this batch's five GUIDs occurs once in its assigned feed. Downloaded every public JPEG, decoded at 1000x1500, verified SHA-256 and embedded IPTC AI disclosure. Pinterest publication and visible labels unconfirmed.",
+    "github_validation": [
+      [
+        "Validate Pinterest RSS Promotion Feed",
+        "https://github.com/artheartdesign-spec/gaias-secret-agents/actions/runs/41291819310"
+      ],
+      [
+        "pages build and deployment",
+        "https://github.com/artheartdesign-spec/gaias-secret-agents/actions/runs/41291819453"
+      ]
+    ],
+    "feed_counts": {
+      "main": 6,
+      "homeschool": 5,
+      "family": 4
+    }
+  }
 }
