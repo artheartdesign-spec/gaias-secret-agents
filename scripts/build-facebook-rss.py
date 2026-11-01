@@ -67,7 +67,7 @@ def read_page(relative):
     path = ROOT / relative
     if path.parent != ROOT or path.suffix != ".html" or not path.is_file():
         raise ValueError(f"Not a public root HTML page: {relative}")
-    page = Page(path.read_text(encoding="utf-8"))
+    page = Page(path.read_text(encoding="utf-8", errors="replace"))
     expected = ORIGIN + ("/" if relative == "index.html" else "/" + relative)
     if page.canonical != expected:
         raise ValueError(f"Unexpected canonical URL for {relative}")
@@ -78,7 +78,7 @@ def read_page(relative):
 
 def build(now=None):
     now = now or datetime.now(timezone.utc)
-    content = json.loads((ROOT / "facebook-feed-content.json").read_text(encoding="utf-8"))
+    content = json.loads((ROOT / "facebook-feed-content.json").read_text(encoding="utf-8", errors="replace"))
     overrides = content["article_descriptions"]
     archive = read_page("free-activities-guides.html")
     items = {}
@@ -90,7 +90,7 @@ def build(now=None):
         if "/" in relative or not relative.endswith(".html"):
             continue
         candidate = ROOT / relative
-        if not candidate.is_file() or not Page(candidate.read_text(encoding="utf-8")).articles:
+        if not candidate.is_file() or not Page(candidate.read_text(encoding="utf-8", errors="replace")).articles:
             continue
         page = read_page(relative)
         for article in page.articles:
