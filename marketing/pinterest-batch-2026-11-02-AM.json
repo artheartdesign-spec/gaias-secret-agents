@@ -69,11 +69,11 @@
       "qa2": "PASS: final full-size and phone export, logo, margins, spelling, composition and tracked destination checked."
     }
   ],
-  "status": "QUEUED-IN-RSS",
+  "status": "DEPLOYED",
   "created": 5,
   "qa_passed": 5,
   "queued_in_rss": 5,
-  "deployed": 0,
+  "deployed": 5,
   "pinterest_published": 0,
   "keyword_evidence": {
     "source": "https://newsroom.pinterest.com/en-au/news/parenting-trend-report-2026/",
@@ -82,5 +82,8 @@
     "measured": "Screen free activities +200% YoY in the report period. Specific pin keywords are editorial search-intent hypotheses, not measured volumes."
   },
   "offer_checks": "Live claimed-domain pages checked. Tracker accepts parent, guardian or teacher email; Teacher Starter Pack requests adult email. GSA Founding Pack A$5, Gumroad USD 3.51; art bundle checkout USD 9.83; both listings InStock. No checkout or signup submission. Pins omit prices.",
-  "disclosure": "IPTC DigitalSourceType compositeWithTrainedAlgorithmicMedia embedded in every export. Platform label pending live Pin verification."
+  "disclosure": "IPTC DigitalSourceType compositeWithTrainedAlgorithmicMedia embedded in every export. Platform label pending live Pin verification.",
+  "commit": "3d8c0e6b320d042d215674824f478127939758c9",
+  "deployment_evidence": "Fetched all three public RSS feeds and all five JPEGs. Each GUID occurs once in the assigned feed. JPEG bytes match recorded SHA-256, decode at 1000 x 1500 and contain the embedded disclosure.",
+  "pinterest_evidence": "No verified live Pin URL or importer confirmation."
 }
