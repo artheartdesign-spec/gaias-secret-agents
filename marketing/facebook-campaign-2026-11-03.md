@@ -2,7 +2,7 @@
 
 **Campaign date:** Tuesday 3 November 2026 (Australia/Brisbane)  
 **Destination:** Facebook Gaia’s Secret Agents — Page ID 61594001054231  
-**Status:** QUEUED_IN_GITHUB_FACEBOOK_CONTENT; RSS_BUILD_PENDING_VERIFICATION; FACEBOOK_PAGE_PUBLICATION_NOT_VERIFIED  
+**Status:** QUEUED_IN_GITHUB_FACEBOOK_RSS; RSS_BUILT_ON_MAIN; LIVE_RSS_DEPLOYMENT_NOT_INDEPENDENTLY_VERIFIED; FACEBOOK_PAGE_PUBLICATION_NOT_VERIFIED  
 **Daily limit:** Exactly one new Facebook campaign item for 2026-11-03. No Pinterest Pins, Pinterest feeds or Pinterest automations changed.
 
 ## Verification and safeguards
@@ -45,3 +45,9 @@ Begin your family's free secret-agent mission: https://gaiassecretagents.com/fre
 - **Content commit:** `57ac9c328834ac52dde1835647434f52fc62d71a`
 - **Facebook RSS builder update:** `8b88abf9e56f329c6bd7dfe77faa7c5f17ffe1d8`
 - **Facebook Page permalink:** None; publication not verified. RSS feed publication is not proof of delivery to Facebook.
+
+## Post-build verification
+
+- **GitHub Facebook RSS build completed:** `facebook-rss.xml` on `main` now has the 3 November unique GUID as its first item, with the intended free-mission CTA, full copy, correct `Tue, 03 Nov 2026 07:00:00 +1000` timestamp and the verified unchanged artwork URL. File blob SHA: `fb0b6b980f05c7a57b013fa2e36ddec4c9b5ad7c`.
+- Exactly **one** `gsa-facebook-2026-11-03` entry exists in the GitHub Facebook RSS file. The 2 November entry remains intact. No Pinterest feed was modified by this campaign.
+- **Publication limitation:** The public XML feed could not be fetched independently from the custom domain, and there is no verified Facebook Page post/permalink. Status is **queued in the GitHub RSS feed**, not confirmed published to Facebook. Do not manually repost until Page delivery is checked.
