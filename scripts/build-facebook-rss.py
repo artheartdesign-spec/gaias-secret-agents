@@ -112,8 +112,13 @@ def build(now=None):
         items[page.canonical] = (page, item)
     approved_artwork = content.get("approved_artwork", {})
 
-    def artwork_ready(page):
-        image = page.meta.get("og:image", "")
+    def item_image(page, item):
+        # Campaign-specific art can differ from the landing page's OG image.
+        # Every chosen image must still pass the unchanged approved-file hash gate.
+        return item.get("image_url") or page.meta.get("og:image", "")
+
+    def artwork_ready(page, item):
+        image = item_image(page, item)
         if not image:
             return True
         if not image.startswith(ORIGIN + "/assets/") or image not in approved_artwork:
@@ -123,7 +128,7 @@ def build(now=None):
 
     eligible = [(published(item["published_at"]), url, page, item)
                 for url, (page, item) in items.items()
-                if published(item["published_at"]) <= now and artwork_ready(page)]
+                if published(item["published_at"]) <= now and artwork_ready(page, item)]
     eligible.sort(key=lambda entry: (entry[0], entry[1]), reverse=True)
     if not eligible:
         raise ValueError("Refusing to publish an empty feed")
@@ -160,7 +165,7 @@ def build(now=None):
             "description": item["description"], "pubDate": format_datetime(date),
         }.items():
             ET.SubElement(node, key).text = value
-        image = page.meta.get("og:image", "")
+        image = item_image(page, item)
         if image.startswith(ORIGIN + "/assets/"):
             if not (ROOT / urlsplit(image).path.lstrip("/")).is_file():
                 raise ValueError(f"Missing feed image: {image}")
