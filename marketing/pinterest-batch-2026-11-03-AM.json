@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-03",
+  "slot": "AM",
+  "timezone": "Australia/Brisbane",
+  "status": "QUEUED-IN-RSS",
+  "keyword_evidence": {
+    "url": "https://newsroom.pinterest.com/en-au/news/parenting-trend-report-2026/",
+    "published": "2026-02-24",
+    "checked": "2026-11-03",
+    "measured": "Pinterest reported outdoor learning +65% and screen free activities +200% year over year. Each individual keyword is a suggested search phrase with unverified volume."
+  },
+  "offer_checks": "Tracker and teacher pack free with adult email. Starter Kit advertised A$19, checkout USD 13.29. Founding Pack advertised A$5, checkout USD 3.50. Both checkouts InStock. Ocean activity freely available without signup.",
+  "disclosure": "IPTC compositeWithTrainedAlgorithmicMedia embedded in all five final exports.",
+  "pins": [
+    {
+      "title": "Leaf detective activity for kids: what does a nibbled edge tell us?",
+      "keyword": "Leaf detective activity for kids",
+      "description": "What can a chewed leaf tell your child? Its missing edge is a clue that something may have fed there. Record the shape and weather, then check the same patch tomorrow. Get the free five-day Nature Tracker with a parent, guardian or teacher email.",
+      "alt": "A backlit green leaf has a curved notch in its edge.",
+      "destination": "https://gaiassecretagents.com/nature-tracker.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261103_am&utm_content=leaf-clue",
+      "guid": "gsa-20261103-am-leaf-clue",
+      "path": "assets/pinterest/2026-11-03-am/leaf-clue.jpg",
+      "sha256": "5aa239670ab6edcaf9bfeb3e4c80618de0adf58cce9a14fef02a5375857c5039",
+      "feed": "pinterest-homeschool-rss.xml",
+      "qa1": "PASS: offer and answer checked against live page, original composition and copy, single CTA, brand and paid-content protection.",
+      "qa2": "PASS: full and phone exports reviewed for text, margins, subject, sharpness, logo and duplicates. Tracked URL returned 200."
+    },
+    {
+      "title": "Primary science observation sheet: help children back up a claim",
+      "keyword": "Primary science observation sheet",
+      "description": "How can I help a child explain a nature observation? Ask what they saw that supports their idea. The free Teacher Starter Pack includes a large-print evidence sheet and discussion prompts for ages 6–11. Get the pack with an adult email.",
+      "alt": "A brass magnifier frames a seedling in a flowering school garden.",
+      "destination": "https://gaiassecretagents.com/schools.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261103_am&utm_content=evidence-sheet",
+      "guid": "gsa-20261103-am-evidence-sheet",
+      "path": "assets/pinterest/2026-11-03-am/evidence-sheet.jpg",
+      "sha256": "e084f77a1fdae23ef660a940253e4af11945ed43a614536be62896f478b33100",
+      "feed": "pinterest-homeschool-rss.xml",
+      "qa1": "PASS: offer and answer checked against live page, original composition and copy, single CTA, brand and paid-content protection.",
+      "qa2": "PASS: full and phone exports reviewed for text, margins, subject, sharpness, logo and duplicates. Tracked URL returned 200."
+    },
+    {
+      "title": "Printable nature adventure kit: which craft supplies do families need?",
+      "keyword": "Printable nature adventure kit",
+      "description": "What should I have ready for the Starter Kit? Along with an A4 colour printer, gather paper, heavier card, scissors, glue or strong double-sided tape, a split pin and a pencil. A grown-up prepares the file. See the Starter Kit supply list.",
+      "alt": "A teal craft cupboard holds blank paper, scissors, a pencil, tape and brass fasteners.",
+      "destination": "https://gaiassecretagents.com/starter-kit.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261103_am&utm_content=craft-drawer",
+      "guid": "gsa-20261103-am-craft-drawer",
+      "path": "assets/pinterest/2026-11-03-am/craft-drawer.jpg",
+      "sha256": "d1d2e502843446bb23a0ce935cd25b6ec7fe930b8afafa13abbc7d39d8338e49",
+      "feed": "pinterest-rss.xml",
+      "qa1": "PASS: offer and answer checked against live page, original composition and copy, single CTA, brand and paid-content protection.",
+      "qa2": "PASS: full and phone exports reviewed for text, margins, subject, sharpness, logo and duplicates. Tracked URL returned 200."
+    },
+    {
+      "title": "After-dinner family game: a 10–20 minute Secret Meeting",
+      "keyword": "After-dinner family game",
+      "description": "What can we play when dinner is over and time is short? The Founding Pack has a guide for a 10–20 minute family meeting. Its 16 printable cards give children and grown-ups a choice of talking, imagining or doing. Explore the Secret Meeting Cards.",
+      "alt": "Three colourful plates and a vase of golden wattle sit on a blue tablecloth.",
+      "destination": "https://gaiassecretagents.com/secret_meeting_cards.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261103_am&utm_content=after-dinner",
+      "guid": "gsa-20261103-am-after-dinner",
+      "path": "assets/pinterest/2026-11-03-am/after-dinner.jpg",
+      "sha256": "ecbc7e194bcf05e60cc0a8a5906d41ef0e16acc2478a0960ac05b676a2fd2882",
+      "feed": "pinterest-family-games-rss.xml",
+      "qa1": "PASS: offer and answer checked against live page, original composition and copy, single CTA, brand and paid-content protection.",
+      "qa2": "PASS: full and phone exports reviewed for text, margins, subject, sharpness, logo and duplicates. Tracked URL returned 200."
+    },
+    {
+      "title": "Ocean current experiment for kids: follow a drop of colour at home",
+      "keyword": "Ocean current experiment for kids",
+      "description": "How can we see water moving without visiting the coast? Put a drop of food colouring at one end of a shallow dish of water. Gently move a spoon at the other end and follow the colour. Try the model current activity in the free ocean guide.",
+      "alt": "Blue food colouring curls through a clear dish of water beside a silver spoon.",
+      "destination": "https://gaiassecretagents.com/screen-free-ocean-activities-for-kids.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261103_am&utm_content=model-current",
+      "guid": "gsa-20261103-am-model-current",
+      "path": "assets/pinterest/2026-11-03-am/model-current.jpg",
+      "sha256": "8797b36593ec50e999200aeb46cc6be4da2598ecac0fc19237a2f93e2ceeab20",
+      "feed": "pinterest-rss.xml",
+      "qa1": "PASS: offer and answer checked against live page, original composition and copy, single CTA, brand and paid-content protection.",
+      "qa2": "PASS: full and phone exports reviewed for text, margins, subject, sharpness, logo and duplicates. Tracked URL returned 200."
+    }
+  ],
+  "created": 5,
+  "qa_passed": 5,
+  "queued_in_rss": 5,
+  "deployed": 0,
+  "pinterest_published": 0
+}
