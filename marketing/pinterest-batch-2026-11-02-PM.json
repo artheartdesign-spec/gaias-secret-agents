@@ -2,7 +2,7 @@
   "date": "2026-11-02",
   "slot": "PM",
   "timezone": "Australia/Brisbane",
-  "status": "QUEUED-IN-RSS",
+  "status": "DEPLOYED",
   "pins": [
     {
       "title": "Ocean Adventure for Kids Aged 6–11: Join the Ocean Discoverer Waitlist",
@@ -81,6 +81,9 @@
   "created": 5,
   "qa_passed": 5,
   "queued_in_rss": 5,
-  "deployed": 0,
-  "pinterest_published": 0
+  "deployed": 5,
+  "pinterest_published": 0,
+  "commit": "d3631f77a1cef7b34154ea94fab855fb88c694f7",
+  "deployment_evidence": "Verified all assigned public RSS GUIDs exactly once across feeds; all 5 public JPEGs match SHA-256, decode at 1000 × 1500 and retain IPTC disclosure.",
+  "pinterest_evidence": "No confirmed import or live Pin URLs."
 }
