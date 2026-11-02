@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-02",
+  "slot": "PM",
+  "timezone": "Australia/Brisbane",
+  "status": "QUEUED-IN-RSS",
+  "pins": [
+    {
+      "title": "Ocean Adventure for Kids Aged 6–11: Join the Ocean Discoverer Waitlist",
+      "description": "When can our family start Ocean Discoverer? A parent or guardian can join the free waitlist for the release alert, a founding-agent printable and occasional mission updates. Join the Ocean Discoverer waitlist.",
+      "alt": "A lantern glows on a jetty at dusk beside a small portrait of Kai, a green sea turtle.",
+      "destination": "https://gaiassecretagents.com/mission-001-waitlist.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261102_pm&utm_content=ocean-signal",
+      "guid": "gsa-20261102-pm-ocean-signal",
+      "path": "assets/pinterest/2026-11-02-pm/ocean-signal.jpg",
+      "sha256": "70b7dac3cd03572f543924611c5ff4af3d6debefc6e78f99fc57e5c6b19f5e40",
+      "keyword": "ocean adventure for kids",
+      "feed": "pinterest-rss.xml",
+      "qa1": "PASS: live offer and copy, originality, brand, protected content",
+      "qa2": "PASS: reviewed final 1000 × 1500 export and phone preview, text, logo, subject, margins, link and disclosure"
+    },
+    {
+      "title": "Free Digital Postcard Maker for Kids and Families: Send a Secret Message",
+      "description": "How can we make a postcard for someone far away? Choose a mission artwork and add a message in the free postcard maker. Your family can download the finished card, and the site says nothing is uploaded to a server. Make a secret postcard.",
+      "alt": "An illustrated postcard with space for a message lies on a coral writing desk beside a pen.",
+      "destination": "https://gaiassecretagents.com/secret-postcard.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261102_pm&utm_content=secret-postcard",
+      "guid": "gsa-20261102-pm-secret-postcard",
+      "path": "assets/pinterest/2026-11-02-pm/secret-postcard.jpg",
+      "sha256": "b9765898ac17c25f318d1cbd1fded8f0e7cc72d8c0d7fe7c350fe0de4c98e61a",
+      "keyword": "free digital postcard maker",
+      "feed": "pinterest-family-games-rss.xml",
+      "qa1": "PASS: live offer and copy, originality, brand, protected content",
+      "qa2": "PASS: reviewed final 1000 × 1500 export and phone preview, text, logo, subject, margins, link and disclosure"
+    },
+    {
+      "title": "Child-Led Nature Exploration: What Is the Grown-up’s Role in the Starter Kit?",
+      "description": "Do I need to know the name of every plant? No. In the printable Starter Kit for ages 6–11, the child leads as the Agent. Grown-ups can ask what caught their eye and look up a discovery together afterwards. Explore the Starter Kit.",
+      "alt": "A child points out a curled fern frond while an adult kneels beside them in the bush.",
+      "destination": "https://gaiassecretagents.com/starter-kit.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261102_pm&utm_content=child-led",
+      "guid": "gsa-20261102-pm-child-led",
+      "path": "assets/pinterest/2026-11-02-pm/child-led.jpg",
+      "sha256": "334a87121fcc04cb50253caf8b85da4762f8bb7d6c3e639070674aa5d0d2f778",
+      "keyword": "child-led nature exploration",
+      "feed": "pinterest-homeschool-rss.xml",
+      "qa1": "PASS: live offer and copy, originality, brand, protected content",
+      "qa2": "PASS: reviewed final 1000 × 1500 export and phone preview, text, logo, subject, margins, link and disclosure"
+    },
+    {
+      "title": "Polar Bear Wall Art: Which Frame Fits the Printable Arctic Portrait?",
+      "description": "What size frame fits the polar bear print? The Arctic portrait has a 2:3 ratio, so a 20 × 30 cm frame matches its proportions. It comes as one of six downloadable wildlife JPGs. See the Nature Habitat Collection.",
+      "alt": "The original polar bear print appears in a gold frame over an illustrated Arctic aurora.",
+      "destination": "https://gaiassecretagents.com/art-prints.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261102_pm&utm_content=arctic-frame",
+      "guid": "gsa-20261102-pm-arctic-frame",
+      "path": "assets/pinterest/2026-11-02-pm/arctic-frame.jpg",
+      "sha256": "3b58358af1d6de96400c4830f4694ef4fa03384c34f8d024f44638e1f1316b39",
+      "keyword": "polar bear wall art",
+      "feed": "pinterest-rss.xml",
+      "qa1": "PASS: live offer and copy, originality, brand, protected content",
+      "qa2": "PASS: reviewed final 1000 × 1500 export and phone preview, text, logo, subject, margins, link and disclosure"
+    },
+    {
+      "title": "Nature Colour Hunt for Kids: Find Five Colours Without Picking a Thing",
+      "description": "How can we do a colour hunt without collecting leaves? Pick five colours, then point to examples in bark, stones, leaves or flowers. Allow 10–15 minutes and finish by comparing your most surprising finds. Try the nature colour hunt.",
+      "alt": "Cream, rusty orange and rose layers in a gum tree trunk catch the light.",
+      "destination": "https://gaiassecretagents.com/screen-free-nature-activities.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261102_pm&utm_content=bark-palette",
+      "guid": "gsa-20261102-pm-bark-palette",
+      "path": "assets/pinterest/2026-11-02-pm/bark-palette.jpg",
+      "sha256": "148ee8705a763f266067080efa3b15f896d0bfd3b76a57e6dfd2025d0693e096",
+      "keyword": "nature colour hunt for kids",
+      "feed": "pinterest-homeschool-rss.xml",
+      "qa1": "PASS: live offer and copy, originality, brand, protected content",
+      "qa2": "PASS: reviewed final 1000 × 1500 export and phone preview, text, logo, subject, margins, link and disclosure"
+    }
+  ],
+  "keyword_evidence": {
+    "source": "https://newsroom.pinterest.com/en-au/news/parenting-trend-report-2026/",
+    "published": "2026-02-24",
+    "checked": "2026-11-02",
+    "measured": "Outdoor learning +65% and screen free activities +200% year on year in Pinterest’s report. Per-Pin keywords are editorial suggestions without verified volume."
+  },
+  "offer_checks": "Free waitlist for adult email; free postcard maker without signup; A$19 Starter Kit on site, USD 13.35 at Gumroad; six-print collection USD 9.83; both checkouts InStock; colour hunt free on site.",
+  "disclosure": "IPTC DigitalSourceType compositeWithTrainedAlgorithmicMedia on every image.",
+  "created": 5,
+  "qa_passed": 5,
+  "queued_in_rss": 5,
+  "deployed": 0,
+  "pinterest_published": 0
+}
