@@ -1,10 +1,10 @@
 /* GSA visitor analytics: no personal form data captured. */
 (function(){'use strict';
 fetch('/assets/analytics-config.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('analytics config');return r.json()}).then(cfg=>{
-if(!cfg.api_key||!cfg.api_host)return;
+window.posthog=window.posthog||[];const ph=window.posthog;ph._i=ph._i||[];for(const name of ['capture','identify','reset','register','opt_in_capturing','opt_out_capturing'])ph[name]=function(){ph.push([name,...arguments])};ph.init=function(key,opts){ph._i.push([key,opts]);const s=document.createElement('script');s.async=true;s.src=opts.api_host+'/static/array.js';document.head.appendChild(s)};
 window.posthog=window.posthog||[];const ph=window.posthog;ph.init=function(key,opts){const s=document.createElement('script');s.async=true;s.src=opts.api_host+'/static/array.js';document.head.appendChild(s);ph.push(['init',key,opts])};
 ph.init(cfg.api_key,{api_host:cfg.api_host,person_profiles:'identified_only',capture_pageview:true,capture_pageleave:true,autocapture:false,disable_session_recording:true,mask_all_text:true});
-const track=(event,props)=>ph.push(['capture',event,props]);
+const track=(event,props)=>ph.capture(event,props);
 document.addEventListener('click',e=>{let a=e.target.closest('a,button');if(!a)return;let label=(a.textContent||a.getAttribute('aria-label')||'').trim().slice(0,70);let href=a.href||'';let path=location.pathname;let text=(label+' '+href).toLowerCase();if(/buy|purchase|checkout|gumroad|fourthwall|subscribe|starter kit|shop/.test(text))track('gsa_purchase_intent',{page:path,button:label,destination:href.split('?')[0]});else if(/free|download|mission|email|sign up|join/.test(text))track('gsa_lead_intent',{page:path,button:label,destination:href.split('?')[0]});else if(a.tagName==='A'&&href&&new URL(href,location.href).origin!==location.origin)track('gsa_outbound_click',{page:path,destination:new URL(href,location.href).hostname});},true);
 let marks=[25,50,75,90];let tick=()=>{let d=document.documentElement;let range=d.scrollHeight-innerHeight;if(range<=0)return;let percent=Math.round(scrollY/range*100);marks.filter(x=>percent>=x).forEach(x=>{marks.splice(marks.indexOf(x),1);track('gsa_scroll_depth',{page:location.pathname,percent:x})})};addEventListener('scroll',tick,{passive:true});
 }).catch(()=>{});
