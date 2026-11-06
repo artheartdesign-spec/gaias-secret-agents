@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-07",
+  "slot": "AM",
+  "timezone": "Australia/Brisbane",
+  "status": "QUEUED-IN-RSS",
+  "keyword_evidence": {
+    "url": "https://newsroom.pinterest.com/en-au/news/parenting-trend-report-2026/",
+    "published": "2026-02-24",
+    "checked": "2026-11-07",
+    "measured": "Pinterest reported outdoor learning +65% and screen free activities +200% year over year. Individual Pin phrases are suggestions with no verified volumes."
+  },
+  "offer_checks": "Tracker requires adult email; free mission requires parent or guardian email. Starter Kit A$19 on site and USD13.04 at checkout. Founding Pack A$5 on site and USD3.43 at checkout. Both InStock. Shorebird guide freely accessible.",
+  "disclosure": "IPTC compositeWithTrainedAlgorithmicMedia embedded in all exports; Pinterest visible label unconfirmed.",
+  "pins": [
+    {
+      "title": "Nature journal for kids: record the weather beside your wildlife clues",
+      "keyword": "Nature journal for kids",
+      "description": "What else belongs in a wildlife record? Note the weather as well as visitors and clues, then compare what you notice over five days. The free Nature Tracker gives your family a place to record those observations. Get it with an adult email.",
+      "alt": "Rain droplets hang from a fern above a wet stone and fallen leaf.",
+      "destination": "https://gaiassecretagents.com/nature-tracker.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261107_am&utm_content=weather-notes",
+      "guid": "gsa-20261107-am-weather-notes",
+      "path": "assets/pinterest/2026-11-07-am/weather-notes.jpg",
+      "sha256": "dfc86c5b222c593f7b7a227691ec67b8120c7b175cf8ecef6455e60f7b1b7acf",
+      "feed": "pinterest-homeschool-rss.xml",
+      "qa1": "PASS: facts, copy, offer and adult signup checked against live destination; original composition; logo and paid-content protection.",
+      "qa2": "PASS: final full-size and 300px phone exports checked for text, crop, logo, clarity and anatomy; tracked URL 200."
+    },
+    {
+      "title": "Free nature mission for kids: start with a 15-minute outdoor hunt",
+      "keyword": "Free nature mission for kids",
+      "description": "How much outdoor time does the Nature Signal Hunt need? The free mission includes a 15-minute hunt, code-name wheels and an Earth Protector Promise. Allow extra time for printing and the other pages. Get the nine-page mission with a parent or guardian email.",
+      "alt": "An open turquoise gate leads into a brightly flowering garden.",
+      "destination": "https://gaiassecretagents.com/free-secret-agent-mission.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261107_am&utm_content=fifteen-minutes",
+      "guid": "gsa-20261107-am-fifteen-minutes",
+      "path": "assets/pinterest/2026-11-07-am/fifteen-minutes.jpg",
+      "sha256": "efc2d06882e01fee96333400d9521e42f39a6a5aa464d430e1541ccae907b272",
+      "feed": "pinterest-rss.xml",
+      "qa1": "PASS: facts, copy, offer and adult signup checked against live destination; original composition; logo and paid-content protection.",
+      "qa2": "PASS: final full-size and 300px phone exports checked for text, crop, logo, clarity and anatomy; tracked URL 200."
+    },
+    {
+      "title": "Printable experience gift for kids: a nature adventure to prepare at home",
+      "keyword": "Printable experience gift for kids",
+      "description": "What can I give a curious child who loves a mystery? The Starter Kit is a 33-page printable nature adventure for ages 6–11. A grown-up prepares the secret file at home before the child opens it. Explore the digital Starter Kit.",
+      "alt": "A navy gift box with gold ribbon sits beside eucalyptus on purple fabric; gift inspiration.",
+      "destination": "https://gaiassecretagents.com/starter-kit.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261107_am&utm_content=gift-curiosity",
+      "guid": "gsa-20261107-am-gift-curiosity",
+      "path": "assets/pinterest/2026-11-07-am/gift-curiosity.jpg",
+      "sha256": "da61af0e3b674d67532c7d5d1b629e8ad61d15f4b9d016f1dcfa1f31c13ae036",
+      "feed": "pinterest-rss.xml",
+      "qa1": "PASS: facts, copy, offer and adult signup checked against live destination; original composition; logo and paid-content protection.",
+      "qa2": "PASS: final full-size and 300px phone exports checked for text, crop, logo, clarity and anatomy; tracked URL 200."
+    },
+    {
+      "title": "Family conversation game: take turns drawing a Secret Meeting Card",
+      "keyword": "Family conversation game",
+      "description": "How can everyone have a turn in a family game? Shuffle the Founding Pack, take turns drawing a card and invite everyone to answer, imagine or join in. Anyone may pass. Explore the 16 printable Secret Meeting Cards for children and grown-ups.",
+      "alt": "Three teal and blue chairs circle a small table on a garden verandah.",
+      "destination": "https://gaiassecretagents.com/secret_meeting_cards.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261107_am&utm_content=take-turns",
+      "guid": "gsa-20261107-am-take-turns",
+      "path": "assets/pinterest/2026-11-07-am/take-turns.jpg",
+      "sha256": "df1337920b45d98fd6604178e978f65c3d15c483ba9ce197e691feca67428bd1",
+      "feed": "pinterest-family-games-rss.xml",
+      "qa1": "PASS: facts, copy, offer and adult signup checked against live destination; original composition; logo and paid-content protection.",
+      "qa2": "PASS: final full-size and 300px phone exports checked for text, crop, logo, clarity and anatomy; tracked URL 200."
+    },
+    {
+      "title": "Shorebird watching for kids: notice behaviour before learning names",
+      "keyword": "Shorebird watching for kids",
+      "description": "Do we need to know a bird’s name to watch it? No. Keep your distance and spend five minutes tallying what one shorebird does, such as pecking, running or resting. Supervise children and avoid nesting birds. Try the free Shorebird Behaviour Watch.",
+      "alt": "A single small shorebird stands on wet sand beside turquoise surf.",
+      "destination": "https://gaiassecretagents.com/screen-free-ocean-activities-for-kids.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261107_am&utm_content=shorebird-watch",
+      "guid": "gsa-20261107-am-shorebird-watch",
+      "path": "assets/pinterest/2026-11-07-am/shorebird-watch.jpg",
+      "sha256": "7ac272f021911f32bf9c245d1b6c3bffc239eddba9ddfb2ac1b5e83041a8c01b",
+      "feed": "pinterest-homeschool-rss.xml",
+      "qa1": "PASS: facts, copy, offer and adult signup checked against live destination; original composition; logo and paid-content protection.",
+      "qa2": "PASS: final full-size and 300px phone exports checked for text, crop, logo, clarity and anatomy; tracked URL 200."
+    }
+  ],
+  "created": 5,
+  "qa_passed": 5,
+  "queued_in_rss": 5,
+  "deployed": 0,
+  "pinterest_published": 0
+}
