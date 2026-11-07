@@ -65,7 +65,30 @@ body{font-size:21.333px!important}
 :where(.nav-links,.top-links){max-width:100%}
 @media(max-width:820px){:where(.nav-links,.top-links){overflow-x:auto;flex-wrap:nowrap!important;justify-content:flex-start!important;-webkit-overflow-scrolling:touch}:where(.nav-links a,.top-links a){flex-shrink:0}:where(.btn,.button,button){white-space:normal;text-align:center}:where(.container,main,section,article){min-width:0}}
 </style>
-</head>
+<style id="gsa-teacher-mobile-layout-fix">
+/* Prevent large global type rules from distorting decorative labels and controls. */
+.stamp{display:block;position:static;transform:none!important;width:fit-content;max-width:100%;white-space:normal;overflow-wrap:anywhere;border:1px solid #8c292b;border-radius:9px;padding:8px 12px;font-size:16px!important;line-height:1.35!important;letter-spacing:.025em;text-align:left;margin-bottom:16px}
+.formbox h3{margin-top:12px}
+.navlinks{min-width:0}
+.navlinks a{font-size:16px!important;line-height:1.4!important}
+.brand{font-size:16px!important;letter-spacing:.03em}
+.eyebrow{font-size:16px!important;line-height:1.4!important;letter-spacing:.06em;overflow-wrap:anywhere}
+.button{font-size:16px!important;line-height:1.4!important;text-align:center;white-space:normal;overflow-wrap:anywhere;padding:13px 20px}
+.formbox label,.small{font-size:16px!important;line-height:1.5!important}
+.formbox input{max-width:100%;min-width:0}
+h1,h2,h3,p,li{overflow-wrap:break-word}
+@media(max-width:800px){
+nav.shell{align-items:stretch;gap:12px}
+.navlinks{display:flex;flex-wrap:wrap;gap:10px 16px}
+.navlinks a{display:inline-flex;min-height:44px;align-items:center}
+.hero{padding:38px 0 48px;gap:22px}
+.hero h1{font-size:clamp(2.3rem,9vw,4rem);line-height:1.1}
+.hero-actions{display:grid;grid-template-columns:minmax(0,1fr)}
+.sample-copy,.formbox{min-width:0}
+.section h2{font-size:clamp(2rem,8vw,3rem)}
+.card,.guide,.step,.formbox{overflow-wrap:anywhere}
+}
+</style></head>
 <body>
 <header class="top">
 <nav class="shell"><a class="brand" href="/"><img src="/assets/gsa-official-logo.webp" alt="Gaia’s Secret Agents official logo">Gaia’s Secret Agents</a><div class="navlinks"><a href="/free-activities-guides.html">Teacher Guides</a><a href="/free-secret-agent-mission.html">Free Mission</a><a href="/contact.html">Contact</a></div></nav>
