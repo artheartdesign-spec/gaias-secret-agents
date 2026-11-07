@@ -2,7 +2,7 @@
   "date": "2026-11-08",
   "slot": "AM",
   "timezone": "Australia/Brisbane",
-  "status": "QUEUED-IN-RSS",
+  "status": "DEPLOYED",
   "keyword_evidence": {
     "url": "https://newsroom.pinterest.com/en-au/news/parenting-trend-report-2026/",
     "published": "2026-02-24",
@@ -81,6 +81,9 @@
   "created": 5,
   "qa_passed": 5,
   "queued_in_rss": 5,
-  "deployed": 0,
-  "pinterest_published": 0
+  "deployed": 5,
+  "pinterest_published": 0,
+  "commit": "e9205089140cb0643a983ab54038c7a9551e9170",
+  "deployment_evidence": "Each GUID verified once across live feeds with assigned URL and image. All five public JPEGs match reviewed SHA-256, decode at 1000 × 1500 and retain IPTC disclosure.",
+  "pinterest_evidence": "No verified live Pin URL or importer confirmation."
 }
