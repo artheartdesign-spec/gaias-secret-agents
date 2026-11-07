@@ -594,7 +594,24 @@
       .site-footer { flex-direction: column; padding-top: 2px; }
     }
   </style>
-</head>
+<style id="gsa-visual-consistency-2026-11">
+/* Visual QA baseline: preserve approved imagery and brand, prevent narrow-screen clipping. */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+*,*::before,*::after{box-sizing:border-box}
+body{overflow-wrap:break-word}
+img,video,iframe{max-width:100%}
+img{height:auto}
+main,article,section,header,footer,nav{min-width:0}
+h1,h2,h3,h4{overflow-wrap:break-word;line-height:1.2}
+a,button,input,textarea,select{max-width:100%}
+button,.btn,.button,[class*="cta"] a{white-space:normal;overflow-wrap:anywhere;text-align:center}
+@media(max-width:600px){
+body{font-size:max(21.333px,1em);line-height:1.55}
+nav,.nav,.nav-links,.top-links,.hero-actions{flex-wrap:wrap}
+h1{font-size:clamp(2.3rem,10vw,4rem);line-height:1.12}
+[class*="stamp"]{transform:none!important;position:static!important;max-width:100%;white-space:normal;overflow-wrap:anywhere}
+}
+</style></head>
 <body>
   <header class="site-header">
     <a class="brand" href="/" aria-label="Gaia’s Secret Agents home">
