@@ -33,7 +33,20 @@ body{font-size:21.333px!important}
 :where(.nav-links,.top-links){max-width:100%}
 @media(max-width:820px){:where(.nav-links,.top-links){overflow-x:auto;flex-wrap:nowrap!important;justify-content:flex-start!important;-webkit-overflow-scrolling:touch}:where(.nav-links a,.top-links a){flex-shrink:0}:where(.btn,.button,button){white-space:normal;text-align:center}:where(.container,main,section,article){min-width:0}}
 </style>
-</head>
+<style id="gsa-guide-layout-repair">
+.guide{justify-content:flex-start;min-height:0;padding:28px;gap:26px}
+.guide-top{position:static;display:flex;align-items:flex-start;flex-wrap:wrap;justify-content:space-between;gap:12px;min-width:0}
+.guide-body{margin-top:auto}
+.stamp{display:inline-block;transform:none!important;max-width:100%;border-radius:8px;border-width:1px;padding:7px 10px;font-size:16px!important;line-height:1.4!important;letter-spacing:.02em;overflow-wrap:anywhere}
+.file-no{font-size:16px!important;line-height:1.4!important;letter-spacing:0;overflow-wrap:anywhere}
+.guide .tag,.eyebrow,.credential{font-size:16px!important;line-height:1.45!important;letter-spacing:.04em;overflow-wrap:anywhere}
+.hero-action,.read{font-size:16px!important;line-height:1.4!important;text-align:center;white-space:normal;overflow-wrap:anywhere}
+.guide h3{line-height:1.16}
+.guide p{margin:14px 0 18px}
+.nav-links{min-width:0;flex-wrap:wrap}
+.nav-links a{font-size:16px!important;line-height:1.4!important}
+@media(max-width:800px){.nav{flex-wrap:wrap;gap:10px;padding:14px 0}.nav-links{width:100%;gap:12px 18px}.section-head,.guide-grid{grid-template-columns:minmax(0,1fr)}.guide{padding:24px;gap:22px}.guide-top{flex-direction:column}.hero-inner{padding:50px 0}.hero h1{font-size:clamp(2.4rem,10vw,4.2rem);line-height:1.1}.hero-actions{display:grid;grid-template-columns:minmax(0,1fr)}.hero-action{padding:14px 18px}.section-head h2{line-height:1.15}}
+</style></head>
 <body>
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
