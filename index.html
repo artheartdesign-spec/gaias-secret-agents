@@ -82,7 +82,30 @@ body{font-size:21.333px!important}
 :where(.nav-links,.top-links){max-width:100%}
 @media(max-width:820px){:where(.nav-links,.top-links){overflow-x:auto;flex-wrap:nowrap!important;justify-content:flex-start!important;-webkit-overflow-scrolling:touch}:where(.nav-links a,.top-links a){flex-shrink:0}:where(.btn,.button,button){white-space:normal;text-align:center}:where(.container,main,section,article){min-width:0}}
 </style>
-</head>
+<style id="gsa-mobile-menu-v2">
+.gsa-mobile-actions{display:none}
+@media(max-width:1050px){
+.site-header .nav{display:flex;flex-wrap:nowrap;min-height:72px;gap:8px;padding:8px 0;position:relative}
+.site-header .nav>.nav-links{display:none!important}
+.site-header .brand{min-width:0;flex:1;gap:9px}
+.site-header .brand-name{font-size:clamp(.72rem,2.9vw,1rem);letter-spacing:.025em}
+.site-header .brand-sub{font-size:.62rem;letter-spacing:.09em}
+.site-header .brand img{width:42px;height:42px;flex-shrink:0}
+.gsa-mobile-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.gsa-mobile-free{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 11px;border-radius:999px;background:#e2c474;color:#061d2d;font-size:clamp(.68rem,2.5vw,.88rem);font-weight:800;text-align:center}
+.gsa-mobile-menu summary{display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;list-style:none;min-height:44px;min-width:48px;border:1px solid #e2c474;border-radius:12px;color:#f6ecd7;padding:6px 10px;font-size:1.5rem}
+.gsa-mobile-menu summary::-webkit-details-marker{display:none}
+.gsa-menu-label{font-size:.85rem;font-weight:700}
+.gsa-menu-close{display:none}
+.gsa-mobile-menu[open] .gsa-menu-open{display:none}
+.gsa-mobile-menu[open] .gsa-menu-close{display:inline}
+.gsa-mobile-menu nav{position:absolute;top:100%;left:0;right:0;max-height:calc(100dvh - 85px);overflow-y:auto;overscroll-behavior:contain;background:#061d2d;border:1px solid #c79a45;border-radius:0 0 18px 18px;box-shadow:0 18px 35px #0008;padding:12px 18px 22px;display:flex;flex-direction:column;z-index:100}
+.gsa-mobile-menu nav a{display:block;white-space:normal;font-size:1rem;line-height:1.4;letter-spacing:0;text-transform:none;color:#f6ecd7;padding:13px 12px;min-height:48px;border-bottom:1px solid #ffffff24}
+.gsa-mobile-menu nav a:focus-visible,.gsa-mobile-menu summary:focus-visible,.gsa-mobile-free:focus-visible{outline:3px solid #e2c474;outline-offset:3px}
+.gsa-mobile-menu nav .nav-cta{margin-top:10px;text-align:center;border:1px solid #c79a45;border-radius:12px;color:#e2c474!important}
+}
+@media(max-width:390px){.gsa-menu-label{display:none}.gsa-mobile-free{padding:7px 9px}.site-header .brand img{width:36px;height:36px}}
+</style></head>
 <body>
 <header class="site-header">
 <div class="container nav">
@@ -99,7 +122,16 @@ body{font-size:21.333px!important}
 <a href="/starter-kit.html">Shop</a>
 <a href="https://www.youtube.com/@Gaiassecretagents" target="_blank" rel="noopener" aria-label="Gaia’s Secret Agents on YouTube">YouTube</a>
 <a class="nav-cta" href="/starter-kit.html">Starter Kit</a>
-</nav>
+</nav><div class="gsa-mobile-actions"><a class="gsa-mobile-free" href="/free-mission.html">Free Mission</a><details class="gsa-mobile-menu"><summary aria-label="Open navigation menu"><span class="gsa-menu-open">☰</span><span class="gsa-menu-close">×</span><span class="gsa-menu-label">Menu</span></summary><nav aria-label="Mobile navigation"><a href="/merch.html">Nature Gifts</a><a href="/art-prints.html">Art Prints</a><a href="/blog/">Nature Journal</a> <a href="/free-activities-guides.html">Free Activities &amp; Guides</a>
+<a href="#mission">Our Mission</a>
+<a href="#vision">Purpose</a>
+<a href="/starter-kit.html">How It Works</a>
+
+<a href="/mission-headquarters.html">Field Agents</a>
+<a href="/starter-kit.html">Shop</a>
+<a href="https://www.youtube.com/@Gaiassecretagents" target="_blank" rel="noopener" aria-label="Gaia’s Secret Agents on YouTube">YouTube</a>
+<a class="nav-cta" href="/starter-kit.html">Starter Kit</a>
+</nav></details></div>
 </div>
 </header>
 <main id="top">
