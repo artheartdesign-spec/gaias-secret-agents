@@ -283,6 +283,11 @@
     }
   
     .hero-art{width:220px;height:auto;margin:28px auto 0;border-radius:18px;border:1px solid rgba(197,165,90,.5);box-shadow:0 18px 45px rgba(0,0,0,.26)}
+
+  /* Activity chooser: make table navigation obvious and keep headings visible after jumping. */
+  .quick-chooser td a{color:var(--gold-light,#e6c47a);text-decoration:underline;text-underline-offset:3px;font-weight:700;display:inline-block;padding:8px 0;min-height:44px}
+  .quick-chooser td a:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+  article.mission[id]{scroll-margin-top:24px}
 </style>
 
 <style id="gsa-minimum-readable-type">
@@ -325,27 +330,27 @@ body{font-size:21.333px!important}
 
     <section class="quick-chooser" aria-labelledby="quick-chooser-heading">
       <h2 id="quick-chooser-heading">Choose a nature activity at a glance</h2>
-      <p>Start with the time and outdoor space you have. These seven activities use simple observation, not special equipment or printed worksheets.</p>
+      <p>Tap an activity name to jump to its instructions. Start with the time and outdoor space you have. These seven activities use simple observation, not special equipment or printed worksheets.</p>
       <div class="table-wrap" role="region" aria-label="Nature activity chooser table" tabindex="0">
         <table>
           <thead>
             <tr><th scope="col">Activity</th><th scope="col">Best place</th><th scope="col">Time</th><th scope="col">What to notice</th></tr>
           </thead>
           <tbody>
-            <tr><td>Mini biodiversity survey</td><td>Garden or park</td><td>15 minutes</td><td>How many different kinds of life appear in one small area.</td></tr>
-            <tr><td>Nature colour hunt</td><td>Any safe outdoor space</td><td>10–15 minutes</td><td>Five colours in leaves, bark, stones or flowers without picking them.</td></tr>
-            <tr><td>Pollinator watch</td><td>Near flowering plants</td><td>10 minutes</td><td>Which insects or birds visit, and what they do.</td></tr>
-            <tr><td>Micro-habitat detective</td><td>Leaf litter or ground-level habitat</td><td>15–20 minutes</td><td>Signs such as webs, tracks, holes, fungi or tiny creatures.</td></tr>
-            <tr><td>Sound map</td><td>Any outdoor spot</td><td>5–10 minutes</td><td>Natural and human-made sounds, and whether they are near or far.</td></tr>
-            <tr><td>Litter intelligence mission</td><td>A safe walking route</td><td>10–20 minutes</td><td>Types and locations of litter; an adult handles any collection safely.</td></tr>
-            <tr><td>One-species field file</td><td>Anywhere a plant or animal can be observed safely</td><td>15–30 minutes</td><td>Visible features, behaviour and the surrounding habitat.</td></tr>
+            <tr><td><a href="#mini-biodiversity-survey">Mini biodiversity survey</a></td><td>Garden or park</td><td>15 minutes</td><td>How many different kinds of life appear in one small area.</td></tr>
+            <tr><td><a href="#nature-colour-hunt">Nature colour hunt</a></td><td>Any safe outdoor space</td><td>10–15 minutes</td><td>Five colours in leaves, bark, stones or flowers without picking them.</td></tr>
+            <tr><td><a href="#pollinator-watch">Pollinator watch</a></td><td>Near flowering plants</td><td>10 minutes</td><td>Which insects or birds visit, and what they do.</td></tr>
+            <tr><td><a href="#micro-habitat-detective">Micro-habitat detective</a></td><td>Leaf litter or ground-level habitat</td><td>15–20 minutes</td><td>Signs such as webs, tracks, holes, fungi or tiny creatures.</td></tr>
+            <tr><td><a href="#sound-map">Sound map</a></td><td>Any outdoor spot</td><td>5–10 minutes</td><td>Natural and human-made sounds, and whether they are near or far.</td></tr>
+            <tr><td><a href="#litter-intelligence-mission">Litter intelligence mission</a></td><td>A safe walking route</td><td>10–20 minutes</td><td>Types and locations of litter; an adult handles any collection safely.</td></tr>
+            <tr><td><a href="#one-species-field-file">One-species field file</a></td><td>Anywhere a plant or animal can be observed safely</td><td>15–30 minutes</td><td>Visible features, behaviour and the surrounding habitat.</td></tr>
           </tbody>
         </table>
       </div>
       <p class="table-note">Choose a safe location and supervise children appropriately. Do not touch wildlife, disturb nests or handle unknown plants, fungi or hazardous litter.</p>
     </section>
 
-    <article class="mission">
+    <article class="mission" id="mini-biodiversity-survey">
       <div class="mission-number">1</div>
       <h2>Mini Biodiversity Survey</h2>
       <p>Choose one small area — a garden bed, patch of grass or section of park — and investigate how many different living things can be found there.</p>
@@ -356,7 +361,7 @@ body{font-size:21.333px!important}
       </ul>
     </article>
 
-    <article class="mission">
+    <article class="mission" id="nature-colour-hunt">
       <div class="mission-number">2</div>
       <h2>Nature Colour Hunt</h2>
       <p>Pick five colours and see how many natural examples your agent can find without picking or damaging anything.</p>
@@ -367,7 +372,7 @@ body{font-size:21.333px!important}
       </ul>
     </article>
 
-    <article class="mission">
+    <article class="mission" id="pollinator-watch">
       <div class="mission-number">3</div>
       <h2>Pollinator Watch</h2>
       <p>Find a flowering plant and quietly observe it for ten minutes. The mission is to notice who visits.</p>
@@ -378,7 +383,7 @@ body{font-size:21.333px!important}
       </ul>
     </article>
 
-    <article class="mission">
+    <article class="mission" id="micro-habitat-detective">
       <div class="mission-number">4</div>
       <h2>Micro-Habitat Detective</h2>
       <p>Investigate the tiny places where life hides: leaf litter, the edge of a fallen branch, beneath loose bark already on the ground, or around stones.</p>
@@ -389,7 +394,7 @@ body{font-size:21.333px!important}
       </ul>
     </article>
 
-    <article class="mission">
+    <article class="mission" id="sound-map">
       <div class="mission-number">5</div>
       <h2>Make a Sound Map</h2>
       <p>Sit still outdoors for five quiet minutes. Put a dot in the middle of a page to represent the listener, then mark each sound around it.</p>
@@ -400,7 +405,7 @@ body{font-size:21.333px!important}
       </ul>
     </article>
 
-    <article class="mission">
+    <article class="mission" id="litter-intelligence-mission">
       <div class="mission-number">6</div>
       <h2>Litter Intelligence Mission</h2>
       <p>Turn a short walk into an investigation of what gets left behind and where it seems to collect.</p>
@@ -411,7 +416,7 @@ body{font-size:21.333px!important}
       </ul>
     </article>
 
-    <article class="mission">
+    <article class="mission" id="one-species-field-file">
       <div class="mission-number">7</div>
       <h2>Create a One-Species Field File</h2>
       <p>Choose one plant, insect, bird or other animal that can be observed safely. The goal is to become the household expert on that one species.</p>
