@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-07",
+  "slot": "PM",
+  "timezone": "Australia/Brisbane",
+  "status": "QUEUED-IN-RSS",
+  "keyword_evidence": {
+    "url": "https://newsroom.pinterest.com/en-au/news/parenting-trend-report-2026/",
+    "published": "2026-02-24",
+    "checked": "2026-11-07",
+    "measured": "Outdoor learning +65% and screen free activities +200% year over year in Pinterest’s report. The specific Pin keywords are suggested search phrases with unverified volume."
+  },
+  "offer_checks": "Teacher pack requires adult email. Ocean waitlist requires parent or guardian email. Six-print bundle USD 9.61, Founding Pack A$5 on site and USD 3.44 at checkout, both in stock. Field file instructions freely available.",
+  "disclosure": "IPTC compositeWithTrainedAlgorithmicMedia embedded in each JPEG. Visible Pinterest label unconfirmed.",
+  "pins": [
+    {
+      "title": "Outdoor lesson planning for homeschool families with a reusable planning sheet",
+      "keyword": "outdoor lesson planning",
+      "description": "How can I plan a second outdoor lesson after the first one? Start with Operation: Hidden Habitat, then use the reusable planning sheet for your next investigation. Get the free eight-page Teacher Starter Pack with a parent, guardian or teacher email.",
+      "alt": "A blank clipboard and pencil sit on a bench beneath flowering gum branches.",
+      "destination": "https://gaiassecretagents.com/schools.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261107_pm&utm_content=plan-outdoors",
+      "guid": "gsa-20261107-pm-plan-outdoors",
+      "path": "assets/pinterest/2026-11-07-pm/plan-outdoors.jpg",
+      "sha256": "5ea467b922befa3ef31c241b0bfc44c294b3a194f66dc7b457b87b2314d19d49",
+      "feed": "pinterest-homeschool-rss.xml",
+      "qa1": "PASS: checked facts, offer, keyword, copy, originality, official logo and paid-content protection.",
+      "qa2": "PASS: full export and phone view inspected, final text, subject, logo, crop and clarity checked, tracked destination returned 200."
+    },
+    {
+      "title": "Ocean adventure for children: whose email goes on the mission waitlist?",
+      "keyword": "ocean adventure for children",
+      "description": "Does my child need an email address for Ocean Discoverer? A parent or guardian joins the free waitlist using their own email. Grown-ups receive the release alert, a founding-agent printable and occasional updates for this adventure for ages 6–11. Join the Ocean Discoverer waitlist.",
+      "alt": "Sunbeams reach a seagrass meadow beside an inset portrait of Kai the green sea turtle.",
+      "destination": "https://gaiassecretagents.com/mission-001-waitlist.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261107_pm&utm_content=grown-up-inbox",
+      "guid": "gsa-20261107-pm-grown-up-inbox",
+      "path": "assets/pinterest/2026-11-07-pm/grown-up-inbox.jpg",
+      "sha256": "54b417a1557b8ddf5eccc450ee33f16ad33400c5f6bfa7101b7bc79882e7728d",
+      "feed": "pinterest-rss.xml",
+      "qa1": "PASS: checked facts, offer, keyword, copy, originality, official logo and paid-content protection.",
+      "qa2": "PASS: full export and phone view inspected, final text, subject, logo, crop and clarity checked, tracked destination returned 200."
+    },
+    {
+      "title": "Printable koala wall art for a child who loves Australian wildlife",
+      "keyword": "printable koala wall art",
+      "description": "What can a family look for in the koala print? Among the moonlit eucalyptus and flowering gum there is a hidden sealed message. The koala portrait comes in a digital bundle of six wildlife artworks. Explore the Nature Habitat Collection.",
+      "alt": "The original koala portrait is framed beside ruby gum blossoms under a moonlit sky.",
+      "destination": "https://gaiassecretagents.com/art-prints.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261107_pm&utm_content=moonlit-koala",
+      "guid": "gsa-20261107-pm-moonlit-koala",
+      "path": "assets/pinterest/2026-11-07-pm/moonlit-koala.jpg",
+      "sha256": "37f27f3ce7afda3559073ac502cd0665b71b68acccb918b4cb3c351ab981844a",
+      "feed": "pinterest-rss.xml",
+      "qa1": "PASS: checked facts, offer, keyword, copy, originality, official logo and paid-content protection.",
+      "qa2": "PASS: full export and phone view inspected, final text, subject, logo, crop and clarity checked, tracked destination returned 200."
+    },
+    {
+      "title": "Printable family card game with a storage box for all 16 cards",
+      "keyword": "printable family card game",
+      "description": "Where do the Secret Meeting Cards go between games? The Founding Pack includes a printable tuck box to keep its 16 TALK, IMAGINE and DO cards together. The 12-page A4 PDF also includes a meeting guide and an action sheet. Explore the Founding Pack.",
+      "alt": "A plum paper box sits on a teal games shelf beside a wooden die and pencil.",
+      "destination": "https://gaiassecretagents.com/secret_meeting_cards.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261107_pm&utm_content=card-box",
+      "guid": "gsa-20261107-pm-card-box",
+      "path": "assets/pinterest/2026-11-07-pm/card-box.jpg",
+      "sha256": "1ff3694bab6dde4621fd4bd85bb90401baabb79dde8d6a3e71a5dff4110d6033",
+      "feed": "pinterest-family-games-rss.xml",
+      "qa1": "PASS: checked facts, offer, keyword, copy, originality, official logo and paid-content protection.",
+      "qa2": "PASS: full export and phone view inspected, final text, subject, logo, crop and clarity checked, tracked destination returned 200."
+    },
+    {
+      "title": "Nature study for kids: make a field file about one garden insect",
+      "keyword": "nature study for kids",
+      "description": "What can we write about an insect before we know its name? Sketch its shape, note its colour and record where you saw it and what it was doing. Leave it undisturbed and look up its name afterwards. Try the free One-Species Field File activity.",
+      "alt": "A red and black ladybird walks along a green leaf against a blue garden background.",
+      "destination": "https://gaiassecretagents.com/screen-free-nature-activities.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261107_pm&utm_content=one-species",
+      "guid": "gsa-20261107-pm-one-species",
+      "path": "assets/pinterest/2026-11-07-pm/one-species.jpg",
+      "sha256": "141c72fc76725b0cc09f9300df8e6bc92af1e1523471478546d0dc1ded290643",
+      "feed": "pinterest-homeschool-rss.xml",
+      "qa1": "PASS: checked facts, offer, keyword, copy, originality, official logo and paid-content protection.",
+      "qa2": "PASS: full export and phone view inspected, final text, subject, logo, crop and clarity checked, tracked destination returned 200."
+    }
+  ],
+  "created": 5,
+  "qa_passed": 5,
+  "queued_in_rss": 5,
+  "deployed": 0,
+  "pinterest_published": 0
+}
