@@ -26,7 +26,24 @@ main{padding:70px 0 86px}.section{margin-top:66px}.section:first-child{margin-to
 footer{padding:28px 0;background:var(--deep);color:rgba(251,243,223,.72);font-size:.82rem}footer .shell{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}footer a{color:var(--gold2)}
 @media(max-width:800px){body{font-size:19px}nav{padding:14px 0;align-items:flex-start;flex-direction:column}.hero{grid-template-columns:1fr;padding:38px 0 58px;text-align:center}.hero-art{width:min(78vw,430px)}.actions{justify-content:center}.grid,.specgrid{grid-template-columns:1fr}.button{width:100%}.specs{padding:30px 22px}}
 </style>
-<style id="gsa-minimum-readable-type">html{-webkit-text-size-adjust:100%;text-size-adjust:100%}body{font-size:21.333px!important}:where(p,li,a,button,input,select,textarea,label,small,summary,figcaption,dt,dd,td,th,blockquote,.eyebrow,.brand-sub,.mission-number,.quick-note,.buy-note,.stamp,.support-line,.nav-links a,.home-link){font-size:21.333px!important;line-height:1.5!important}:where(h1,h2,h3,h4,h5,h6){line-height:1.2}@media(max-width:820px){:where(.nav-links,.top-links){overflow-x:auto;flex-wrap:nowrap!important;justify-content:flex-start!important;-webkit-overflow-scrolling:touch}:where(.nav-links a,.top-links a){flex-shrink:0}:where(.btn,.button,button){white-space:normal;text-align:center}}</style></head>
+<style id="gsa-minimum-readable-type">html{-webkit-text-size-adjust:100%;text-size-adjust:100%}body{font-size:21.333px!important}:where(p,li,a,button,input,select,textarea,label,small,summary,figcaption,dt,dd,td,th,blockquote,.eyebrow,.brand-sub,.mission-number,.quick-note,.buy-note,.stamp,.support-line,.nav-links a,.home-link){font-size:21.333px!important;line-height:1.5!important}:where(h1,h2,h3,h4,h5,h6){line-height:1.2}@media(max-width:820px){:where(.nav-links,.top-links){overflow-x:auto;flex-wrap:nowrap!important;justify-content:flex-start!important;-webkit-overflow-scrolling:touch}:where(.nav-links a,.top-links a){flex-shrink:0}:where(.btn,.button,button){white-space:normal;text-align:center}}</style><style id="gsa-visual-consistency-2026-11">
+/* Visual QA baseline: preserve approved imagery and brand, prevent narrow-screen clipping. */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+*,*::before,*::after{box-sizing:border-box}
+body{overflow-wrap:break-word}
+img,video,iframe{max-width:100%}
+img{height:auto}
+main,article,section,header,footer,nav{min-width:0}
+h1,h2,h3,h4{overflow-wrap:break-word;line-height:1.2}
+a,button,input,textarea,select{max-width:100%}
+button,.btn,.button,[class*="cta"] a{white-space:normal;overflow-wrap:anywhere;text-align:center}
+@media(max-width:600px){
+body{font-size:max(21.333px,1em);line-height:1.55}
+nav,.nav,.nav-links,.top-links,.hero-actions{flex-wrap:wrap}
+h1{font-size:clamp(2.3rem,10vw,4rem);line-height:1.12}
+[class*="stamp"]{transform:none!important;position:static!important;max-width:100%;white-space:normal;overflow-wrap:anywhere}
+}
+</style></head>
 <body>
 <header class="top">
 <nav class="shell"><a class="brand" href="/"><img src="/assets/gsa-official-logo.webp" alt="Gaia’s Secret Agents logo">Gaia’s Secret Agents</a><div class="navlinks"><a href="/starter-kit.html">Starter Kit</a><a href="/free-activities-guides.html">Free Guides</a><a href="/">Headquarters</a></div></nav>
