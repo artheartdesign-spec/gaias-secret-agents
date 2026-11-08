@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-08",
+  "slot": "PM",
+  "timezone": "Australia/Brisbane",
+  "status": "QUEUED-IN-RSS",
+  "keyword_evidence": {
+    "url": "https://newsroom.pinterest.com/en-au/news/parenting-trend-report-2026/",
+    "published": "2026-02-24",
+    "checked": "2026-11-08",
+    "measured": "Pinterest reported outdoor learning +65% and screen free activities +200% year over year. Individual target keywords are suggested phrases with unmeasured volume."
+  },
+  "offer_checks": "Teacher pack requires adult email. Four mini missions are freely accessible, with optional adult email signup for more. No inbox delivery tested. Starter Kit A$19 on site, USD13.05 at checkout. Founding Pack A$5 on site, USD3.44 at checkout. Both checkouts InStock. Shade activity freely accessible.",
+  "disclosure": "IPTC compositeWithTrainedAlgorithmicMedia embedded in all JPEGs. Pinterest label unconfirmed.",
+  "pins": [
+    {
+      "title": "Screen-free primary science lesson without student logins",
+      "keyword": "screen-free primary science lesson",
+      "description": "Does every child need an account to try an outdoor science lesson? No. A grown-up uses their email to access the free Teacher Starter Pack. Operation: Hidden Habitat takes about 20 minutes and includes a printable evidence sheet. Get the free teacher pack.",
+      "alt": "Four children walk with a grown-up towards a flowering tree.",
+      "destination": "https://gaiassecretagents.com/schools.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261108_pm&utm_content=no-student-login",
+      "guid": "gsa-20261108-pm-no-student-login",
+      "path": "assets/pinterest/2026-11-08-pm/no-student-login.jpg",
+      "sha256": "4028c583fe4ce822bba58fb5768532e2da05517f28fd70182b15826d51071225",
+      "feed": "pinterest-homeschool-rss.xml",
+      "qa1": "PASS: current destination and offer verified; copy, keyword, brand, originality and protection of paid content reviewed.",
+      "qa2": "PASS: inspected final full and phone-size exports for text, crop, subject, sharpness, logo and duplicates. Tracked URL returned 200."
+    },
+    {
+      "title": "Free mini nature missions for families who want another outdoor challenge",
+      "keyword": "free mini nature missions",
+      "description": "Where can we find another mission after today’s walk? Start with four free mini missions on the page. A parent, guardian or teacher can also request more printable activities and clues using the adult email form. Join the mission list.",
+      "alt": "A cream envelope peeks out of a brass letter slot on a teal garden letterbox.",
+      "destination": "https://gaiassecretagents.com/mini-nature-missions.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261108_pm&utm_content=next-mission",
+      "guid": "gsa-20261108-pm-next-mission",
+      "path": "assets/pinterest/2026-11-08-pm/next-mission.jpg",
+      "sha256": "bb108e6425e919894690978edac1bedf3f1c46bfe3967a0d81be63c5adbc5ab7",
+      "feed": "pinterest-rss.xml",
+      "qa1": "PASS: current destination and offer verified; copy, keyword, brand, originality and protection of paid content reviewed.",
+      "qa2": "PASS: inspected final full and phone-size exports for text, crop, subject, sharpness, logo and duplicates. Tracked URL returned 200."
+    },
+    {
+      "title": "Printable secret agent credentials for kids who finish their first adventure",
+      "keyword": "printable secret agent credentials",
+      "description": "When does a new Agent get their credentials? In the 33-page Starter Kit, the grown-up holds the printable credentials until the child finishes the recruitment sequence. It gives the family a moment to celebrate their new Agent. Explore the Starter Kit.",
+      "alt": "A navy wallet sits in an open archive drawer beside a portrait of Bramblewicks in his blue coat.",
+      "destination": "https://gaiassecretagents.com/starter-kit.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261108_pm&utm_content=agent-credentials",
+      "guid": "gsa-20261108-pm-agent-credentials",
+      "path": "assets/pinterest/2026-11-08-pm/agent-credentials.jpg",
+      "sha256": "289d2b2811f50be3607165c1767d009882b76de6c24dcf7bfb6af3c65176112c",
+      "feed": "pinterest-rss.xml",
+      "qa1": "PASS: current destination and offer verified; copy, keyword, brand, originality and protection of paid content reviewed.",
+      "qa2": "PASS: inspected final full and phone-size exports for text, crop, subject, sharpness, logo and duplicates. Tracked URL returned 200."
+    },
+    {
+      "title": "Print-at-home family game: what print setting fits the Founding Pack?",
+      "keyword": "print-at-home family game",
+      "description": "What setting should I choose for the Secret Meeting Cards? Print the 12-page PDF on A4 paper at 100% or Actual Size. The Founding Pack contains 16 TALK, IMAGINE and DO cards to use together. See the printable Founding Pack.",
+      "alt": "An ivory ruler lies beside blank paper and a blue printer.",
+      "destination": "https://gaiassecretagents.com/secret_meeting_cards.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261108_pm&utm_content=actual-size",
+      "guid": "gsa-20261108-pm-actual-size",
+      "path": "assets/pinterest/2026-11-08-pm/actual-size.jpg",
+      "sha256": "c5637e19f9064cbe4f8b14d9eae06100d6fac41fd600f6afe09c8fb92d787a3e",
+      "feed": "pinterest-family-games-rss.xml",
+      "qa1": "PASS: current destination and offer verified; copy, keyword, brand, originality and protection of paid content reviewed.",
+      "qa2": "PASS: inspected final full and phone-size exports for text, crop, subject, sharpness, logo and duplicates. Tracked URL returned 200."
+    },
+    {
+      "title": "Shade and heat experiment for kids: compare two spots on the same path",
+      "keyword": "shade and heat experiment for kids",
+      "description": "Can we investigate shade without a thermometer? Stand in a safe shaded spot, then a nearby sunny spot. Compare how comfortable each feels and discuss where more shade would help. Allow about 20 minutes. Try the shade and heat comparison.",
+      "alt": "A jacaranda casts a purple shadow across a sunlit path and grass.",
+      "destination": "https://gaiassecretagents.com/sustainability-activities-primary-school.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261108_pm&utm_content=shade-test",
+      "guid": "gsa-20261108-pm-shade-test",
+      "path": "assets/pinterest/2026-11-08-pm/shade-test.jpg",
+      "sha256": "79b1f906249a33c21eee1ba1f54f740c21aaf35f4beea64b90e31e3a59bd0742",
+      "feed": "pinterest-homeschool-rss.xml",
+      "qa1": "PASS: current destination and offer verified; copy, keyword, brand, originality and protection of paid content reviewed.",
+      "qa2": "PASS: inspected final full and phone-size exports for text, crop, subject, sharpness, logo and duplicates. Tracked URL returned 200."
+    }
+  ],
+  "created": 5,
+  "qa_passed": 5,
+  "queued_in_rss": 5,
+  "deployed": 0,
+  "pinterest_published": 0
+}
