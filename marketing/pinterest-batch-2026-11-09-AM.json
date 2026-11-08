@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-09",
+  "slot": "AM",
+  "timezone": "Australia/Brisbane",
+  "status": "QUEUED-IN-RSS",
+  "keyword_evidence": {
+    "url": "https://newsroom.pinterest.com/en-au/news/parenting-trend-report-2026/",
+    "published": "2026-02-24",
+    "checked": "2026-11-09",
+    "measured": "Pinterest reported outdoor learning +65% and screen free activities +200% year over year. Specific Pin phrases are editorial suggestions without measured volumes."
+  },
+  "offer_checks": "Nature Tracker and Teacher Starter Pack require adult email; signup forms checked, email delivery not tested. Starter Kit A$19 on GSA, USD13.06 at Gumroad. Art collection USD9.61 at Gumroad. Both checkouts InStock. Saltwater Float Test publicly accessible.",
+  "disclosure": "IPTC compositeWithTrainedAlgorithmicMedia embedded; visible label subject to Pinterest import.",
+  "pins": [
+    {
+      "title": "Backyard wildlife shelter for kids using fallen garden materials",
+      "keyword": "Backyard wildlife shelter for kids using fallen garden materials",
+      "description": "What can we use to make a tiny wildlife shelter? Start with loose fallen leaves, sticks, bark, stones or pine cones in your own yard. Leave occupied patches undisturbed and observe from a short distance. Get the free five-day Nature Tracker with an adult email.",
+      "alt": "A pine cone, two twigs, a fallen leaf and a smooth stone rest beside moss.",
+      "destination": "https://gaiassecretagents.com/nature-tracker.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261109_am&utm_content=fallen-finds",
+      "guid": "gsa-20261109-am-fallen-finds",
+      "path": "assets/pinterest/2026-11-09-am/fallen-finds.jpg",
+      "sha256": "f7233ea3197db69fa24a55b105840bbfee964d7c87f7a81116a85f570d9087ed",
+      "feed": "pinterest-homeschool-rss.xml",
+      "qa1": "PASS: checked offer, copy, keyword, brand and originality against live pages, feed history and reviewed artwork. No paid pages shown.",
+      "qa2": "PASS: final full and phone exports inspected for text, crop, subject, logo, clarity and duplicates. Final tracked URL returned 200."
+    },
+    {
+      "title": "School garden biodiversity lesson: help children choose one action",
+      "keyword": "School garden biodiversity lesson",
+      "description": "How can children turn a habitat observation into action? At the end of Operation: Hidden Habitat, ask which patch showed more signs of life. Use what the group noticed to choose a realistic way to care for that spot, such as keeping feet on the path. Get the free Teacher Starter Pack with an adult email.",
+      "alt": "A timber rail and stone path border red kangaroo paws in a school garden.",
+      "destination": "https://gaiassecretagents.com/schools.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261109_am&utm_content=garden-boundary",
+      "guid": "gsa-20261109-am-garden-boundary",
+      "path": "assets/pinterest/2026-11-09-am/garden-boundary.jpg",
+      "sha256": "f67c1af85c996a673c825ee94327b6be66fc335e2fb9b42471d807db774ad016",
+      "feed": "pinterest-homeschool-rss.xml",
+      "qa1": "PASS: checked offer, copy, keyword, brand and originality against live pages, feed history and reviewed artwork. No paid pages shown.",
+      "qa2": "PASS: final full and phone exports inspected for text, crop, subject, logo, clarity and duplicates. Final tracked URL returned 200."
+    },
+    {
+      "title": "Read-aloud nature adventure for families with a story-loving child",
+      "keyword": "Read-aloud nature adventure for families with a story-loving child",
+      "description": "Can we start the Starter Kit by reading together? Yes. The recruitment page leads into a four-page story before the child begins their Agent file and first assignment. A grown-up can read aloud and join the investigation. Explore the printable Starter Kit for ages 6–11.",
+      "alt": "A grandmother and child share a book beside a window with a view of the trees.",
+      "destination": "https://gaiassecretagents.com/starter-kit.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261109_am&utm_content=read-together",
+      "guid": "gsa-20261109-am-read-together",
+      "path": "assets/pinterest/2026-11-09-am/read-together.jpg",
+      "sha256": "4ffb76ca32aa6d633edca5295ba57b629093395b601c6e8e1f545026a1e13768",
+      "feed": "pinterest-rss.xml",
+      "qa1": "PASS: checked offer, copy, keyword, brand and originality against live pages, feed history and reviewed artwork. No paid pages shown.",
+      "qa2": "PASS: final full and phone exports inspected for text, crop, subject, logo, clarity and duplicates. Final tracked URL returned 200."
+    },
+    {
+      "title": "Bird wall art for kids: spot the telescope in the Golden Wren print",
+      "keyword": "Bird wall art for kids",
+      "description": "What can we look for together in the Golden Wren artwork? Start with the bird, then look for the telescope and sealed field letter in its forest habitat. The portrait comes in a digital collection of six wildlife prints. Explore the Nature Habitat Collection.",
+      "alt": "The original Golden Wren artwork appears against a mountain forest with a brass telescope.",
+      "destination": "https://gaiassecretagents.com/art-prints.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261109_am&utm_content=golden-wren",
+      "guid": "gsa-20261109-am-golden-wren",
+      "path": "assets/pinterest/2026-11-09-am/golden-wren.jpg",
+      "sha256": "efdf54a3655008d6e51bfc5b2edc0c4d24294f25e25522baa08f71ac5fcce76d",
+      "feed": "pinterest-rss.xml",
+      "qa1": "PASS: checked offer, copy, keyword, brand and originality against live pages, feed history and reviewed artwork. No paid pages shown.",
+      "qa2": "PASS: final full and phone exports inspected for text, crop, subject, logo, clarity and duplicates. Final tracked URL returned 200."
+    },
+    {
+      "title": "Saltwater float experiment for kids: will the same grape float?",
+      "keyword": "Saltwater float experiment for kids",
+      "description": "How can we see what salt changes? With a grown-up, test the same grape in fresh water and in salt water. Add salt gradually, stir until it dissolves and record what happens. Changing the water while keeping the grape the same makes the comparison useful. Try the free Saltwater Float Test.",
+      "alt": "Two clear glasses of water sit beside a green grape and a small bowl of salt.",
+      "destination": "https://gaiassecretagents.com/screen-free-ocean-activities-for-kids.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261109_am&utm_content=salt-float",
+      "guid": "gsa-20261109-am-salt-float",
+      "path": "assets/pinterest/2026-11-09-am/salt-float.jpg",
+      "sha256": "095f158a61aaba649dc228ac71ee17c7ee5203f3ba017fe790104eb21723241b",
+      "feed": "pinterest-homeschool-rss.xml",
+      "qa1": "PASS: checked offer, copy, keyword, brand and originality against live pages, feed history and reviewed artwork. No paid pages shown.",
+      "qa2": "PASS: final full and phone exports inspected for text, crop, subject, logo, clarity and duplicates. Final tracked URL returned 200."
+    }
+  ],
+  "created": 5,
+  "qa_passed": 5,
+  "queued_in_rss": 5,
+  "deployed": 0,
+  "pinterest_published": 0
+}
