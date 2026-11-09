@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-09",
+  "slot": "PM",
+  "timezone": "Australia/Brisbane",
+  "status": "QUEUED-IN-RSS",
+  "keyword_evidence": {
+    "url": "https://newsroom.pinterest.com/en-au/news/parenting-trend-report-2026/",
+    "published": "2026-02-24",
+    "checked": "2026-11-09",
+    "measured": "Pinterest reported outdoor learning +65% and screen free activities +200% year over year. Specific target phrases are editorial suggestions without verified volumes."
+  },
+  "offer_checks": "Mission Headquarters links to free field training. Mini missions are free with optional adult email signup. Starter Kit A$19 on site, USD13.10 at checkout. Founding Pack A$5 on site, USD3.45 at checkout. Both checkouts InStock. Tide-Line Detective free on the ocean guide. No signup submission or purchase made.",
+  "disclosure": "IPTC compositeWithTrainedAlgorithmicMedia embedded; Pinterest label unconfirmed.",
+  "pins": [
+    {
+      "title": "Free family nature activities: where should a new Agent begin?",
+      "keyword": "Free family nature activities",
+      "description": "Which mission should we try first? Mission Headquarters points families to free field training for ages 6–11, including short outdoor observation challenges. It also explains what comes next if your child enjoys the story. Explore the free missions.",
+      "alt": "A wooden signpost stands where a sunlit fern-lined trail divides.",
+      "destination": "https://gaiassecretagents.com/mission-headquarters.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261109_pm&utm_content=first-fork",
+      "guid": "gsa-20261109-pm-first-fork",
+      "path": "assets/pinterest/2026-11-09-pm/first-fork.jpg",
+      "sha256": "46eeca4a0b5f0617e990e526e88f5a8a23c962f6fe0e1e6806f5b8eb1f057305",
+      "feed": "pinterest-rss.xml",
+      "qa1": "PASS: live offer, facts, natural keyword, copy, original scene, brand and protected content reviewed.",
+      "qa2": "PASS: inspected final full-size and phone exports for text, crop, anatomy, sharpness, official logo and duplicates. Tracked destination returned 200."
+    },
+    {
+      "title": "Water-saving activity for kids: start with the garden tap",
+      "keyword": "Water-saving activity for kids",
+      "description": "What water-saving job can a child try today? After watering, ask them to remind a grown-up to check the tap is turned off. It is one way to try the Earth Protector Test. A parent, guardian or teacher can sign up for more activities. Open the free mini missions.",
+      "alt": "A drop hangs from a brass garden tap beside orange nasturtiums.",
+      "destination": "https://gaiassecretagents.com/mini-nature-missions.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261109_pm&utm_content=tap-check",
+      "guid": "gsa-20261109-pm-tap-check",
+      "path": "assets/pinterest/2026-11-09-pm/tap-check.jpg",
+      "sha256": "4b50982e92aa9aab86d6d2093550f53951d9b3410e6b37511169e613129dfcee",
+      "feed": "pinterest-homeschool-rss.xml",
+      "qa1": "PASS: live offer, facts, natural keyword, copy, original scene, brand and protected content reviewed.",
+      "qa2": "PASS: inspected final full-size and phone exports for text, crop, anatomy, sharpness, official logo and duplicates. Tracked destination returned 200."
+    },
+    {
+      "title": "Printable secret agent envelope for a surprise family mission",
+      "keyword": "Printable secret agent envelope for a surprise family mission",
+      "description": "How can I make the first assignment feel like a special delivery? The digital Starter Kit includes two A4 pages for a printable envelope. A grown-up can prepare the file and leave it at the door for their new Agent to discover. Explore the Starter Kit.",
+      "alt": "An unmarked ivory envelope rests beneath a teal front door on a golden mat.",
+      "destination": "https://gaiassecretagents.com/starter-kit.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261109_pm&utm_content=doorstep-file",
+      "guid": "gsa-20261109-pm-doorstep-file",
+      "path": "assets/pinterest/2026-11-09-pm/doorstep-file.jpg",
+      "sha256": "3bfc5207940916c33efdc9a9ce6ba0ba141e18f0b5bd6c5e66105fbce7f9c631",
+      "feed": "pinterest-rss.xml",
+      "qa1": "PASS: live offer, facts, natural keyword, copy, original scene, brand and protected content reviewed.",
+      "qa2": "PASS: inspected final full-size and phone exports for text, crop, anatomy, sharpness, official logo and duplicates. Tracked destination returned 200."
+    },
+    {
+      "title": "Imagination game for families: tell a tiny adventure together",
+      "keyword": "Imagination game for families",
+      "description": "How can we get a family story started? Try an opening of your own, such as “If a leaf were our boat, where would we sail?” Let each person add an idea or pass. The Founding Pack includes IMAGINE prompts among its 16 printable cards. Explore the Founding Pack.",
+      "alt": "A golden leaf boat sails between tall reeds on a jewel-blue pond.",
+      "destination": "https://gaiassecretagents.com/secret_meeting_cards.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261109_pm&utm_content=leaf-boat",
+      "guid": "gsa-20261109-pm-leaf-boat",
+      "path": "assets/pinterest/2026-11-09-pm/leaf-boat.jpg",
+      "sha256": "679af57bd71fcb01a8f6be319fe6a2dbe4c1698af46925cf56c71b13a60ca760",
+      "feed": "pinterest-family-games-rss.xml",
+      "qa1": "PASS: live offer, facts, natural keyword, copy, original scene, brand and protected content reviewed.",
+      "qa2": "PASS: inspected final full-size and phone exports for text, crop, anatomy, sharpness, official logo and duplicates. Tracked destination returned 200."
+    },
+    {
+      "title": "Beach nature walk for kids: follow the last high tide line",
+      "keyword": "Beach nature walk for kids",
+      "description": "What made the line of shells and seaweed on the beach? The last high tide left them behind. On a safe beach walk with a grown-up, follow the line parallel to the water and describe three natural finds. Leave them in place. Try the free Tide-Line Detective activity.",
+      "alt": "Shells, seaweed and driftwood form a curving line across sand beside turquoise water.",
+      "destination": "https://gaiassecretagents.com/screen-free-ocean-activities-for-kids.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261109_pm&utm_content=tide-line",
+      "guid": "gsa-20261109-pm-tide-line",
+      "path": "assets/pinterest/2026-11-09-pm/tide-line.jpg",
+      "sha256": "31717c34a78a329350d4069b81c83889ae5988931846ef94b320439bbe948274",
+      "feed": "pinterest-homeschool-rss.xml",
+      "qa1": "PASS: live offer, facts, natural keyword, copy, original scene, brand and protected content reviewed.",
+      "qa2": "PASS: inspected final full-size and phone exports for text, crop, anatomy, sharpness, official logo and duplicates. Tracked destination returned 200."
+    }
+  ],
+  "created": 5,
+  "qa_passed": 5,
+  "queued_in_rss": 5,
+  "deployed": 0,
+  "pinterest_published": 0
+}
