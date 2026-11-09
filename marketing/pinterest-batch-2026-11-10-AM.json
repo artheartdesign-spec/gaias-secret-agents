@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-10",
+  "slot": "AM",
+  "timezone": "Australia/Brisbane",
+  "status": "QUEUED-IN-RSS",
+  "keyword_evidence": {
+    "url": "https://newsroom.pinterest.com/en-au/news/parenting-trend-report-2026/",
+    "published": "2026-02-24",
+    "checked": "2026-11-10",
+    "measured": "Pinterest reported outdoor learning +65% and screen free activities +200% year over year. Specific target phrases are editorial suggestions without verified volumes."
+  },
+  "offer_checks": "Tracker free with parent, guardian or teacher email; signup requirements verified on landing page, inbox delivery not tested. Postcard maker free with no signup. Starter Kit A$19 on site, USD13.16 at checkout. Nature Habitat Collection USD9.69 at checkout. Both listings InStock. Beach sign activity freely available.",
+  "disclosure": "IPTC compositeWithTrainedAlgorithmicMedia embedded; visible Pinterest label unverified.",
+  "pins": [
+    {
+      "title": "Backyard birdwatching for kids: observe visitors without feeding them",
+      "keyword": "Backyard birdwatching for kids",
+      "description": "Should we put out food to see who visits our little habitat? The Nature Tracker asks families to observe without touching, trapping or feeding wildlife. Watch from a short distance and write down what the bird does on its own. Get the free tracker with an adult email.",
+      "alt": "A blue fairywren perches on a flowering shrub, seen through a round opening.",
+      "destination": "https://gaiassecretagents.com/nature-tracker.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261110_am&utm_content=wild-watch",
+      "guid": "gsa-20261110-am-wild-watch",
+      "path": "assets/pinterest/2026-11-10-am/wild-watch.jpg",
+      "sha256": "c56ede3f25fcbd20a2414b52b9fab9df7aaf406358e7d54da8da29d434c33998",
+      "feed": "pinterest-homeschool-rss.xml",
+      "qa1": "PASS. Offer, copy, keyword intent, destination, brand, paid-content protection and originality reviewed.",
+      "qa2": "PASS. Final JPEG inspected at full and phone sizes for legibility, composition, anatomy, logo and cropping. Copy and tracked destination rechecked."
+    },
+    {
+      "title": "Nature walk thank-you card: make a free digital postcard with your child",
+      "keyword": "Nature walk thank-you card",
+      "description": "What could my child write to someone who took them exploring? Pick one moment they remember, such as spotting a kookaburra, and thank the person who showed it to them. The postcard maker lets you choose mission artwork, add a message and download the card. Make a free thank-you postcard.",
+      "alt": "A child and an older relative walk along a boardwalk under a pink sky, with a kookaburra overhead.",
+      "destination": "https://gaiassecretagents.com/secret-postcard.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261110_am&utm_content=walk-thanks",
+      "guid": "gsa-20261110-am-walk-thanks",
+      "path": "assets/pinterest/2026-11-10-am/walk-thanks.jpg",
+      "sha256": "f3622d2064363179e5c07f30cfa1b783d6c22aa7cb9788298f10078ae0ea9412",
+      "feed": "pinterest-family-games-rss.xml",
+      "qa1": "PASS. Offer, copy, keyword intent, destination, brand, paid-content protection and originality reviewed.",
+      "qa2": "PASS. Final JPEG inspected at full and phone sizes for legibility, composition, anatomy, logo and cropping. Copy and tracked destination rechecked."
+    },
+    {
+      "title": "Printable fox collector card: meet the Keeper of the Files in the Starter Kit",
+      "keyword": "Printable fox collector card",
+      "description": "Does the Starter Kit include something our new Agent can keep? A separate front-and-back collector card features Bramblewicks, the red fox who wears a peacock-blue coat. The card is revealed as part of completing induction. Explore the printable Starter Kit.",
+      "alt": "An archival display cabinet frames approved artwork of Bramblewicks, a red fox wearing blue.",
+      "destination": "https://gaiassecretagents.com/starter-kit.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261110_am&utm_content=keeper-card",
+      "guid": "gsa-20261110-am-keeper-card",
+      "path": "assets/pinterest/2026-11-10-am/keeper-card.jpg",
+      "sha256": "1c26a99a831bcc5150a41abe609670dac438b1066ba21dc52b5954d571e81b2f",
+      "feed": "pinterest-rss.xml",
+      "qa1": "PASS. Offer, copy, keyword intent, destination, brand, paid-content protection and originality reviewed.",
+      "qa2": "PASS. Final JPEG inspected at full and phone sizes for legibility, composition, anatomy, logo and cropping. Copy and tracked destination rechecked."
+    },
+    {
+      "title": "Printable sea turtle art: will the reef colours match my screen?",
+      "keyword": "Printable sea turtle art",
+      "description": "Why might a printed reef look a little different from the image on screen? Paper, printer and screen can all affect colour. Try a small test print on your chosen paper before printing the Sea Turtle portrait at full size. Explore the six-print Nature Habitat Collection.",
+      "alt": "The original Sea Turtle portrait sits beside pale paper samples and branching coral.",
+      "destination": "https://gaiassecretagents.com/art-prints.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261110_am&utm_content=print-colours",
+      "guid": "gsa-20261110-am-print-colours",
+      "path": "assets/pinterest/2026-11-10-am/print-colours.jpg",
+      "sha256": "45a0e2701fe4fe6ab5dada1b27a5697ef5a9146f8e97241407f7a658b878ae4e",
+      "feed": "pinterest-rss.xml",
+      "qa1": "PASS. Offer, copy, keyword intent, destination, brand, paid-content protection and originality reviewed.",
+      "qa2": "PASS. Final JPEG inspected at full and phone sizes for legibility, composition, anatomy, logo and cropping. Copy and tracked destination rechecked."
+    },
+    {
+      "title": "Beach sign activity for kids: explain one wildlife-safe action in eight words",
+      "keyword": "Beach sign activity for kids",
+      "description": "Can a child design a sign people understand in five seconds? Pick one action, such as giving shorebirds space. Draw one clear picture and use no more than eight words. Show someone for five seconds and ask what they think the sign means. Try the free beach sign activity.",
+      "alt": "Coloured pencils and a blank sheet on a clipboard lie on a striped beach towel beside the sea.",
+      "destination": "https://gaiassecretagents.com/screen-free-ocean-activities-for-kids.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261110_am&utm_content=eight-words",
+      "guid": "gsa-20261110-am-eight-words",
+      "path": "assets/pinterest/2026-11-10-am/eight-words.jpg",
+      "sha256": "dcd12cafbce228ec7e15c58cea19175fb462a5c1b53e8142f3988c25e7da1a8d",
+      "feed": "pinterest-homeschool-rss.xml",
+      "qa1": "PASS. Offer, copy, keyword intent, destination, brand, paid-content protection and originality reviewed.",
+      "qa2": "PASS. Final JPEG inspected at full and phone sizes for legibility, composition, anatomy, logo and cropping. Copy and tracked destination rechecked."
+    }
+  ],
+  "created": 5,
+  "qa_passed": 5,
+  "queued_in_rss": 5,
+  "deployed": 0,
+  "pinterest_published": 0
+}
