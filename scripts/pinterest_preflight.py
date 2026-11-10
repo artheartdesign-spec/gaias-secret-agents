@@ -16,7 +16,7 @@ from validate_pinterest_rss import DOMAIN, MEDIA, validate
 FEEDS = ("pinterest-rss.xml", "pinterest-family-games-rss.xml", "pinterest-homeschool-rss.xml",
          "pinterest-outdoor-rss.xml", "pinterest-earth-protectors-rss.xml")
 OPTIONAL = set(FEEDS[-2:])
-BAD = re.compile(r"â[\x80-\x9f€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ]|[ÃÂ][\x80-\xbf\u2000-\u2122]|\ufffd|[\x80-\x9f]|&(?:amp|apos|quot|nbsp|rsquo|lsquo|#\d+|#x[0-9a-f]+);")
+BAD = re.compile(r"â[\x80-\x9f€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ]|[ÃÂ]|\ufffd|[\x80-\x9f]|&(?:amp|apos|quot|nbsp|rsquo|lsquo|#\d+|#x[0-9a-f]+);")
 
 TYPOS = re.compile(r"\b(?:teh|recieve|seperate|enviroment|activites|Gaia[’']s Secret Agnets)\b", re.I)
 
