@@ -13,7 +13,7 @@
       "utm_content": "remote-swap",
       "guid": "gsa-20261115-am-remote-swap",
       "feed": "pinterest-family-games-rss.xml",
-      "board": "Gaia's Secret Agents — Printable Family Games and Cards",
+      "board": "Screen free printable games for the family",
       "path": "assets/pinterest/2026-11-15-am/remote-swap.jpg",
       "sha256": "a5e4cec36e52ca34ba0a31d6044d3e4b2e583f7482e501c388e9dc7510ddd95c",
       "illustration": "https://www.gutenberg.org/files/30221/30221-h/images/img044.jpg",
@@ -25,8 +25,16 @@
       "text_disclosure": "not required for non-generative visual",
       "qa1": "PASS. Offer or activity, signup terms, source, copy, original angle, metadata, UTF-8 and one-board route checked.",
       "qa2": "PASS. Final 1000x1500 JPEG and 300px preview individually inspected. Copy and destination rechecked, no encoding damage or exposed paid content.",
-      "status": "QA-PASSED",
-      "live_pin": null
+      "status": "DEPLOYED",
+      "live_pin": null,
+      "feed_title": "Gaia's Secret Agents — Printable Family Games and Cards",
+      "history": [
+        "CREATED",
+        "QA-PASSED",
+        "QUEUED-IN-RSS",
+        "DEPLOYED"
+      ],
+      "live_board": "unverified"
     },
     {
       "title": "Parent and child conversation game for a little one-to-one time",
@@ -38,7 +46,7 @@
       "utm_content": "two-of-us",
       "guid": "gsa-20261115-am-two-of-us",
       "feed": "pinterest-rss.xml",
-      "board": "Gaia's Secret Agents — Nature Missions & Printable Adventures",
+      "board": "Screen Free activities for kids",
       "path": "assets/pinterest/2026-11-15-am/two-of-us.jpg",
       "sha256": "4f3e655769f2666715487d67a96a38ed5f4f299beaf268740ac3f15e7d9f6cbb",
       "illustration": "https://www.gutenberg.org/files/30221/30221-h/images/img038.jpg",
@@ -50,8 +58,16 @@
       "text_disclosure": "not required for non-generative visual",
       "qa1": "PASS. Offer or activity, signup terms, source, copy, original angle, metadata, UTF-8 and one-board route checked.",
       "qa2": "PASS. Final 1000x1500 JPEG and 300px preview individually inspected. Copy and destination rechecked, no encoding damage or exposed paid content.",
-      "status": "QA-PASSED",
-      "live_pin": null
+      "status": "DEPLOYED",
+      "live_pin": null,
+      "feed_title": "Gaia's Secret Agents — Nature Missions & Printable Adventures",
+      "history": [
+        "CREATED",
+        "QA-PASSED",
+        "QUEUED-IN-RSS",
+        "DEPLOYED"
+      ],
+      "live_board": "unverified"
     },
     {
       "title": "Free nature printable for ages 6–11: a first secret agent mission",
@@ -75,8 +91,16 @@
       "text_disclosure": "not required for non-generative visual",
       "qa1": "PASS. Offer or activity, signup terms, source, copy, original angle, metadata, UTF-8 and one-board route checked.",
       "qa2": "PASS. Final 1000x1500 JPEG and 300px preview individually inspected. Copy and destination rechecked, no encoding damage or exposed paid content.",
-      "status": "QA-PASSED",
-      "live_pin": null
+      "status": "DEPLOYED",
+      "live_pin": null,
+      "feed_title": "Gaias Secret Agents protecting the Earth",
+      "history": [
+        "CREATED",
+        "QA-PASSED",
+        "QUEUED-IN-RSS",
+        "DEPLOYED"
+      ],
+      "live_board": "unverified"
     },
     {
       "title": "Backyard nature journal for kids: what can a fallen feather tell us?",
@@ -88,7 +112,7 @@
       "utm_content": "feather-evidence",
       "guid": "gsa-20261115-am-feather-evidence",
       "feed": "pinterest-homeschool-rss.xml",
-      "board": "Gaia's Secret Agents — Homeschool Nature Learning",
+      "board": "Homeschool Nature Activities",
       "path": "assets/pinterest/2026-11-15-am/feather-evidence.jpg",
       "sha256": "ad8a8659b2b526589a360d3cf505557c5bc71178e11e22a23bec30cea94209bb",
       "illustration": "https://www.gutenberg.org/files/30221/30221-h/images/img056.jpg",
@@ -100,8 +124,16 @@
       "text_disclosure": "not required for non-generative visual",
       "qa1": "PASS. Offer or activity, signup terms, source, copy, original angle, metadata, UTF-8 and one-board route checked.",
       "qa2": "PASS. Final 1000x1500 JPEG and 300px preview individually inspected. Copy and destination rechecked, no encoding damage or exposed paid content.",
-      "status": "QA-PASSED",
-      "live_pin": null
+      "status": "DEPLOYED",
+      "live_pin": null,
+      "feed_title": "Gaia's Secret Agents — Homeschool Nature Learning",
+      "history": [
+        "CREATED",
+        "QA-PASSED",
+        "QUEUED-IN-RSS",
+        "DEPLOYED"
+      ],
+      "live_board": "unverified"
     },
     {
       "title": "Beach science for kids: what can you spot in one square metre?",
@@ -125,8 +157,16 @@
       "text_disclosure": "not required for non-generative visual",
       "qa1": "PASS. Offer or activity, signup terms, source, copy, original angle, metadata, UTF-8 and one-board route checked.",
       "qa2": "PASS. Final 1000x1500 JPEG and 300px preview individually inspected. Copy and destination rechecked, no encoding damage or exposed paid content.",
-      "status": "QA-PASSED",
-      "live_pin": null
+      "status": "DEPLOYED",
+      "live_pin": null,
+      "feed_title": "Fun activities to do in Nature for kids",
+      "history": [
+        "CREATED",
+        "QA-PASSED",
+        "QUEUED-IN-RSS",
+        "DEPLOYED"
+      ],
+      "live_board": "unverified"
     }
   ],
   "allocation": "2 morning 40-pack Pins, 3 supporting Pins. Evening allocation 3.",
@@ -138,8 +178,26 @@
   "deduplication": "Reviewed five deployed feeds and repository campaign records available in the preceding 30 days, including yesterday’s held Pins. No morning item or batch log found before creation.",
   "board_mix_yesterday": "November 14: one outdoor and one homeschool item deployed; three paid creatives held off RSS. All five board mappings previously recorded saved after reload on 10 November.",
   "historical_review": "Historical exception 992621574146008868 previously recorded. Current public request denied. No new live evidence or edits.",
-  "deployment": "Pending",
+  "deployment": {
+    "public_sha256": {
+      "pinterest-family-games-rss.xml": "9365a5583a79cc1e359358c0e8bc52f0b3fbcd3daa7282e9cf299c0e7cd2b318",
+      "assets/pinterest/2026-11-15-am/remote-swap.jpg": "a5e4cec36e52ca34ba0a31d6044d3e4b2e583f7482e501c388e9dc7510ddd95c",
+      "pinterest-rss.xml": "ea1cb573912bbe62a866df8d14e066952efafff45fed2890d7386e9a52086383",
+      "assets/pinterest/2026-11-15-am/two-of-us.jpg": "4f3e655769f2666715487d67a96a38ed5f4f299beaf268740ac3f15e7d9f6cbb",
+      "pinterest-earth-protectors-rss.xml": "a14d2bb6d4d429d63fc6ec8b75ec2074ea17652f6f3bc4eed760a04fd0b85188",
+      "assets/pinterest/2026-11-15-am/first-field-mission.jpg": "386a19342a89e7656d31bcfc6123f54f0e1044dc151deee71405522ab67e9488",
+      "pinterest-homeschool-rss.xml": "98898759f29668976cb3ffe0b0db30e666b19944a6eb3924425cce856fd073a7",
+      "assets/pinterest/2026-11-15-am/feather-evidence.jpg": "ad8a8659b2b526589a360d3cf505557c5bc71178e11e22a23bec30cea94209bb",
+      "pinterest-outdoor-rss.xml": "aa4d8a5fcecdf6a381a8e52a314827880167d04c13de8dd645ad663031ba1b07",
+      "assets/pinterest/2026-11-15-am/sand-square.jpg": "342be21924cc2bd02f814bb7377e13092483151fabe1c19deb5df700b61555f5"
+    },
+    "verification": "Each public XML and each image matched the reviewed file byte for byte. All five JPEGs returned image/jpeg and decoded at 1000x1500. Exact public Pin URLs not observed."
+  },
   "preflight": "Mandatory candidate live check passed with 77 items across 5 feeds. History guard preserved all 72 original entries and assets.",
   "created": 5,
-  "qa_passed": 5
+  "qa_passed": 5,
+  "commit": "fd1625c6892a1efd2859929b2af686bd86c137fe",
+  "queued_in_rss": 5,
+  "deployed": 5,
+  "pinterest_published_confirmed": 0
 }
