@@ -89,8 +89,14 @@
       "text_disclosure": false,
       "qa1": "Copy, offer, artwork, source, routing, original intent, UTF-8 and paid content protection passed. Passed.",
       "qa2": "Reviewed final 1000x1500 export and 300px preview with copy and link. Visual pass.",
-      "status": "QA-PASSED",
-      "live_pin": null
+      "status": "DEPLOYED",
+      "live_pin": null,
+      "history": [
+        "CREATED",
+        "QA-PASSED",
+        "QUEUED-IN-RSS",
+        "DEPLOYED"
+      ]
     },
     {
       "guid": "gsa-20261114-pm-leaf-litter-clues",
@@ -111,8 +117,14 @@
       "text_disclosure": false,
       "qa1": "Copy, offer, artwork, source, routing, original intent, UTF-8 and paid content protection passed. Passed.",
       "qa2": "Reviewed final 1000x1500 export and 300px preview with copy and link. Visual pass.",
-      "status": "QA-PASSED",
-      "live_pin": null
+      "status": "DEPLOYED",
+      "live_pin": null,
+      "history": [
+        "CREATED",
+        "QA-PASSED",
+        "QUEUED-IN-RSS",
+        "DEPLOYED"
+      ]
     }
   ],
   "research": {
@@ -125,5 +137,38 @@
   "logo_sha256": "aa338125db1bf7e79eb234e49797755ad0047b6918197301b08770b8ee227efd",
   "routing": "Nov 10 PM record verifies saved mappings. No Nov 13 batch record or feed entries found. Historical saltwater label exception remains logged in Nov 10 PM. No new live inspection confirmed.",
   "preflight": "PASS on candidate before promotion: 72 entries across five feeds, 70 historical entries preserved. python3 scripts/pinterest_preflight.py --base 26c3f9a71929b04cd841a72562a8943dcfaea5ef --live",
-  "deployment": "Verify public XML, JPEG bytes and SHA after promotion."
+  "deployment": [
+    [
+      "pinterest-outdoor-rss.xml",
+      "application/xml",
+      true,
+      "a1be67625e5de725d7903ef19c9fb24365c69492f368e32a0e36837d8c1eacd3"
+    ],
+    [
+      "pinterest-homeschool-rss.xml",
+      "application/xml",
+      true,
+      "5c0da5c51a47780292c173ec8da36580d5d788b09cd9f42e82a80d742fb0359a"
+    ],
+    [
+      "assets/pinterest/2026-11-14-pm/leaf-litter-clues.jpg",
+      "image/jpeg",
+      true,
+      "da453c2fc69819c595a2bf3ad68f6df8deec4edb84b497392fe1687356253b98"
+    ],
+    [
+      "assets/pinterest/2026-11-14-pm/nearest-sound.jpg",
+      "image/jpeg",
+      true,
+      "9e1a542a9b97afdf4ae2212d2b1eb08eb30096cac901fddb7efe4df419bbca89"
+    ]
+  ],
+  "commit": "b9a30baf59b380a0a6321570ade75fe68ed84326",
+  "historical_review": "Pinterest returned Access Denied for historic Pin 992621574146008868. Prior exception remains on record. No edit.",
+  "created": 5,
+  "qa_passed_for_release": 2,
+  "queued_in_rss": 2,
+  "deployed": 2,
+  "pinterest_published_confirmed": 0,
+  "automation": "Existing schedule enabled at 08:00 and 19:00 Australia/Brisbane."
 }
