@@ -24,9 +24,16 @@
       "text_disclosure": "not required for non-generative visual",
       "qa1": "PASS: offer and landing-page metadata, intent, spelling, brand, provenance, one CTA, duplicate checks and paid-content protection.",
       "qa2": "PASS: final 1000 x 1500 JPEG individually inspected; phone-size headline and CTA legible. Rechecked logo, anatomy, no clipped content, copy, UTF-8, spelling, relevant destination and unique composition.",
-      "status": "QA-PASSED",
+      "status": "DEPLOYED",
       "live_pin": null,
-      "live_board": null
+      "live_board": null,
+      "history": [
+        "CREATED",
+        "QA-PASSED",
+        "QUEUED-IN-RSS",
+        "DEPLOYED"
+      ],
+      "live_title": null
     },
     {
       "guid": "gsa-20261116-am-skip-the-score",
@@ -49,9 +56,16 @@
       "text_disclosure": "not required for non-generative visual",
       "qa1": "PASS: offer and landing-page metadata, intent, spelling, brand, provenance, one CTA, duplicate checks and paid-content protection.",
       "qa2": "PASS: final 1000 x 1500 JPEG individually inspected; phone-size headline and CTA legible. Rechecked logo, anatomy, no clipped content, copy, UTF-8, spelling, relevant destination and unique composition.",
-      "status": "QA-PASSED",
+      "status": "DEPLOYED",
       "live_pin": null,
-      "live_board": null
+      "live_board": null,
+      "history": [
+        "CREATED",
+        "QA-PASSED",
+        "QUEUED-IN-RSS",
+        "DEPLOYED"
+      ],
+      "live_title": null
     },
     {
       "guid": "gsa-20261116-am-flower-visitor-tally",
@@ -74,9 +88,16 @@
       "text_disclosure": "not required for non-generative visual",
       "qa1": "PASS: offer and landing-page metadata, intent, spelling, brand, provenance, one CTA, duplicate checks and paid-content protection.",
       "qa2": "PASS: final 1000 x 1500 JPEG individually inspected; phone-size headline and CTA legible. Rechecked logo, anatomy, no clipped content, copy, UTF-8, spelling, relevant destination and unique composition.",
-      "status": "QA-PASSED",
+      "status": "DEPLOYED",
       "live_pin": null,
-      "live_board": null
+      "live_board": null,
+      "history": [
+        "CREATED",
+        "QA-PASSED",
+        "QUEUED-IN-RSS",
+        "DEPLOYED"
+      ],
+      "live_title": null
     },
     {
       "guid": "gsa-20261116-am-nature-signal-a4",
@@ -99,9 +120,16 @@
       "text_disclosure": "not required for non-generative visual",
       "qa1": "PASS: offer and landing-page metadata, intent, spelling, brand, provenance, one CTA, duplicate checks and paid-content protection.",
       "qa2": "PASS: final 1000 x 1500 JPEG individually inspected; phone-size headline and CTA legible. Rechecked logo, anatomy, no clipped content, copy, UTF-8, spelling, relevant destination and unique composition.",
-      "status": "QA-PASSED",
+      "status": "DEPLOYED",
       "live_pin": null,
-      "live_board": null
+      "live_board": null,
+      "history": [
+        "CREATED",
+        "QA-PASSED",
+        "QUEUED-IN-RSS",
+        "DEPLOYED"
+      ],
+      "live_title": null
     },
     {
       "guid": "gsa-20261116-am-lunch-swap-week",
@@ -124,9 +152,16 @@
       "text_disclosure": "not required for non-generative visual",
       "qa1": "PASS: offer and landing-page metadata, intent, spelling, brand, provenance, one CTA, duplicate checks and paid-content protection.",
       "qa2": "PASS: final 1000 x 1500 JPEG individually inspected; phone-size headline and CTA legible. Rechecked logo, anatomy, no clipped content, copy, UTF-8, spelling, relevant destination and unique composition.",
-      "status": "QA-PASSED",
+      "status": "DEPLOYED",
       "live_pin": null,
-      "live_board": null
+      "live_board": null,
+      "history": [
+        "CREATED",
+        "QA-PASSED",
+        "QUEUED-IN-RSS",
+        "DEPLOYED"
+      ],
+      "live_title": null
     }
   ],
   "allocation": "2 of 5 promote the 40-pack; 3 card places remain reserved for the evening.",
@@ -147,5 +182,64 @@
     "other_recent_pins": "869 and 871 returned Pinterest Forbidden; no new live disclosure observation.",
     "action": "Retain for separate authorised review; no historical changes."
   },
-  "publication": "unverified"
+  "publication": "unverified",
+  "campaign_commit": "2768ca295044be5a2fb5aa1dbc4f9de71dba44be",
+  "prepublication": {
+    "command": "python3 scripts/pinterest_preflight.py --base 641eb07395c05893872b85f4ba9f754bfc014497 --live",
+    "result": "PASS: 87 entries across 5 feeds. Candidate tree af2709783e82d98fdcbb81046f0f071990d5b4e6 matched exactly. Main rechecked with expected SHA before update."
+  },
+  "public_checks": [
+    {
+      "url": "https://gaiassecretagents.com/assets/pinterest/2026-11-16-am/flower-visitor-tally.jpg",
+      "mime": "image/jpeg",
+      "sha256": "34e5a2ff9b26ac5c40fd35942bc02e7b9339725106cd11ac7b0f3aab79552bbe"
+    },
+    {
+      "url": "https://gaiassecretagents.com/assets/pinterest/2026-11-16-am/lunch-swap-week.jpg",
+      "mime": "image/jpeg",
+      "sha256": "da833d90ae55042641789c73da8064a43088d47d4d9d46fda9ebfd127eeb3f8b"
+    },
+    {
+      "url": "https://gaiassecretagents.com/assets/pinterest/2026-11-16-am/nature-signal-a4.jpg",
+      "mime": "image/jpeg",
+      "sha256": "67906945ba0799cc6210153d8f952e5982e72835b3d1020dd98dc198d11ab954"
+    },
+    {
+      "url": "https://gaiassecretagents.com/assets/pinterest/2026-11-16-am/rail-journey.jpg",
+      "mime": "image/jpeg",
+      "sha256": "a5a9fc386028ab3d56899afabd65df1b695f14b8f0f67729eb6d0b4379bd7512"
+    },
+    {
+      "url": "https://gaiassecretagents.com/assets/pinterest/2026-11-16-am/skip-the-score.jpg",
+      "mime": "image/jpeg",
+      "sha256": "2bb4ae2a809516f1eaa27621341090087c41ea1abeba14554a317ff526344d1e"
+    },
+    {
+      "url": "https://gaiassecretagents.com/pinterest-earth-protectors-rss.xml",
+      "mime": "application/xml",
+      "sha256": "5d0682ca654230a67c17d5587e1f4e0fef7d38fb619f3c40413d59aa5c50b4e6"
+    },
+    {
+      "url": "https://gaiassecretagents.com/pinterest-family-games-rss.xml",
+      "mime": "application/xml",
+      "sha256": "28010c09b352b2b5f97f6c268eb900753190b3343270bc94f06e0deec55bae4a"
+    },
+    {
+      "url": "https://gaiassecretagents.com/pinterest-homeschool-rss.xml",
+      "mime": "application/xml",
+      "sha256": "5d01f5af06ca52d42267573e7702d74606277312f207bea6b20d4788f51c47ed"
+    },
+    {
+      "url": "https://gaiassecretagents.com/pinterest-outdoor-rss.xml",
+      "mime": "application/xml",
+      "sha256": "03308dfe62fa54df6e8a96d8ca2048c5ddeade1ed92377337754b6b86276ca42"
+    },
+    {
+      "url": "https://gaiassecretagents.com/pinterest-rss.xml",
+      "mime": "application/xml",
+      "sha256": "5ad5c5884844ca2c86a039eca843f0e8bcfa3c01339fa346cc12bc9295091faf"
+    }
+  ],
+  "verified_at": "2026-11-15T22:06:23.549782+00:00",
+  "pinterest_check": "Public profile returned Pinterest - Forbidden. Import of this batch remains unverified."
 }
