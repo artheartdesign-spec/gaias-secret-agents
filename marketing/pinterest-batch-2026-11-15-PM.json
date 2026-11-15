@@ -23,8 +23,16 @@
       "text_disclosure": "not required for non-generative visual",
       "qa1": "PASS: fact, destination, offer or signup, paid content, copy/UTF-8, logo, source, board route and originality reviewed.",
       "qa2": "PASS: final JPEG and phone preview, headline, legibility, exact logo, composition, paid-content protection, destination and copy rechecked.",
-      "status": "QA-PASSED",
-      "live_pin": null
+      "status": "DEPLOYED",
+      "live_pin": null,
+      "history": [
+        "CREATED",
+        "QA-PASSED",
+        "QUEUED-IN-RSS",
+        "DEPLOYED"
+      ],
+      "live_board": "unverified",
+      "live_title": "unverified"
     },
     {
       "title": "Birthday party icebreaker for kids who arrive before the games begin",
@@ -46,8 +54,16 @@
       "text_disclosure": "not required for non-generative visual",
       "qa1": "PASS: fact, destination, offer or signup, paid content, copy/UTF-8, logo, source, board route and originality reviewed.",
       "qa2": "PASS: final JPEG and phone preview, headline, legibility, exact logo, composition, paid-content protection, destination and copy rechecked.",
-      "status": "QA-PASSED",
-      "live_pin": null
+      "status": "DEPLOYED",
+      "live_pin": null,
+      "history": [
+        "CREATED",
+        "QA-PASSED",
+        "QUEUED-IN-RSS",
+        "DEPLOYED"
+      ],
+      "live_board": "unverified",
+      "live_title": "unverified"
     },
     {
       "title": "Last-minute family game night with a print-at-home card set",
@@ -69,8 +85,16 @@
       "text_disclosure": "not required for non-generative visual",
       "qa1": "PASS: fact, destination, offer or signup, paid content, copy/UTF-8, logo, source, board route and originality reviewed.",
       "qa2": "PASS: final JPEG and phone preview, headline, legibility, exact logo, composition, paid-content protection, destination and copy rechecked.",
-      "status": "QA-PASSED",
-      "live_pin": null
+      "status": "DEPLOYED",
+      "live_pin": null,
+      "history": [
+        "CREATED",
+        "QA-PASSED",
+        "QUEUED-IN-RSS",
+        "DEPLOYED"
+      ],
+      "live_board": "unverified",
+      "live_title": "unverified"
     },
     {
       "title": "20-minute homeschool nature lesson with a free student evidence sheet",
@@ -92,8 +116,16 @@
       "text_disclosure": "not required for non-generative visual",
       "qa1": "PASS: fact, destination, offer or signup, paid content, copy/UTF-8, logo, source, board route and originality reviewed.",
       "qa2": "PASS: final JPEG and phone preview, headline, legibility, exact logo, composition, paid-content protection, destination and copy rechecked.",
-      "status": "QA-PASSED",
-      "live_pin": null
+      "status": "DEPLOYED",
+      "live_pin": null,
+      "history": [
+        "CREATED",
+        "QA-PASSED",
+        "QUEUED-IN-RSS",
+        "DEPLOYED"
+      ],
+      "live_board": "unverified",
+      "live_title": "unverified"
     },
     {
       "title": "Ocean plastic activity for kids: trace a wrapper from home to the sea",
@@ -115,11 +147,19 @@
       "text_disclosure": "not required for non-generative visual",
       "qa1": "PASS: fact, destination, offer or signup, paid content, copy/UTF-8, logo, source, board route and originality reviewed.",
       "qa2": "PASS: final JPEG and phone preview, headline, legibility, exact logo, composition, paid-content protection, destination and copy rechecked.",
-      "status": "QA-PASSED",
-      "live_pin": null
+      "status": "DEPLOYED",
+      "live_pin": null,
+      "history": [
+        "CREATED",
+        "QA-PASSED",
+        "QUEUED-IN-RSS",
+        "DEPLOYED"
+      ],
+      "live_board": "unverified",
+      "live_title": "unverified"
     }
   ],
-  "allocation": "Verified AM 2/5 cards already deployed, PM 3/5 planned; day total 5/10.",
+  "allocation": "Deployed 2 card Pins in AM and 3 in PM, five of ten for the day.",
   "checkout": "Homepage #top points through featured CTA to Gumroad zmhyso. Product and thumbnail identify 40-pack. Checkout add_products shows an enabled AUD 9.00 item. No purchase.",
   "provenance": "Placed exact approved logo. No generative visuals. Product name and offer taken from official 40-pack section. Historical coloured and monochrome plates are editorial ornament, not pack illustrations.",
   "logo_sha256": "aa338125db1bf7e79eb234e49797755ad0047b6918197301b08770b8ee227efd",
@@ -130,5 +170,54 @@
   "deduplication": "Compared current campaign records, five live feeds and available batch topics, including held items. No 15 PM slot record or branch matching slot. All fresh files and GUIDs.",
   "historical_disclosure": "Public lookup of 992621574146008868 returned HTTP 403. Previous recorded exception retained for separate review. No new observation or edit.",
   "publication": "Unverified",
-  "preflight": "Passed live candidate validation against d7895f13b69278498d88df9ccc87690070969e15; 82 items across five feeds, with historical items and images protected."
+  "preflight": "Passed live candidate validation against d7895f13b69278498d88df9ccc87690070969e15; 82 items across five feeds, with historical items and images protected.",
+  "campaign_commit": "36f0eaf308fe33fe3e8add10473ac8562a4bfab3",
+  "public_verification": [
+    {
+      "url": "https://gaiassecretagents.com/assets/pinterest/2026-11-15-pm/cafe-wait.jpg",
+      "mime": "image/jpeg",
+      "sha256": "488a5872070fef86b2a2a4edb08ac31909b4e23a218859b79e64c37104d87d39"
+    },
+    {
+      "url": "https://gaiassecretagents.com/assets/pinterest/2026-11-15-pm/first-party-guest.jpg",
+      "mime": "image/jpeg",
+      "sha256": "d6e4fffa2f1fa4d6f6fe4dd473635477115c965a928e02b00bedca45289ea0c8"
+    },
+    {
+      "url": "https://gaiassecretagents.com/assets/pinterest/2026-11-15-pm/game-tonight.jpg",
+      "mime": "image/jpeg",
+      "sha256": "60244877479671beff3e9409ad53d68a6e2397df206074013c8f446817f5a8d5"
+    },
+    {
+      "url": "https://gaiassecretagents.com/assets/pinterest/2026-11-15-pm/twenty-minute-habitat.jpg",
+      "mime": "image/jpeg",
+      "sha256": "f86a737508cb81e2e296a18c095dff821d8ed2c3f9df6810b1e89e28e08475df"
+    },
+    {
+      "url": "https://gaiassecretagents.com/assets/pinterest/2026-11-15-pm/wrapper-route.jpg",
+      "mime": "image/jpeg",
+      "sha256": "0b4b6dbd71071a2695c957ce1bf72ecc5d67bad66596b40815507ea42f4f9d2e"
+    },
+    {
+      "url": "https://gaiassecretagents.com/pinterest-earth-protectors-rss.xml",
+      "mime": "application/xml",
+      "sha256": "584a778f5a7f0fd2797919db48446a89cc7b26b6a31d1972f1e85f48e1848934"
+    },
+    {
+      "url": "https://gaiassecretagents.com/pinterest-family-games-rss.xml",
+      "mime": "application/xml",
+      "sha256": "ab2fb0ea93ced50ad96b8506efda9ab532ca8c0be9cc79fb8a5ce17bebca825e"
+    },
+    {
+      "url": "https://gaiassecretagents.com/pinterest-homeschool-rss.xml",
+      "mime": "application/xml",
+      "sha256": "4232fc86a5e3303e86861b01b7fa65e5d8f87be07463fd953c41ac5f6b676f5d"
+    },
+    {
+      "url": "https://gaiassecretagents.com/pinterest-rss.xml",
+      "mime": "application/xml",
+      "sha256": "4cdf7f9eb6bad1b6a8991c87f0f83e3dc17790585f1a18d4d98f3e908c1c2aeb"
+    }
+  ],
+  "verified_at": "2026-11-15T09:10:55.526568+00:00"
 }
