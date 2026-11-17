@@ -126,7 +126,8 @@
       "status": [
         "CREATED",
         "QA-PASSED",
-        "QUEUED-IN-RSS"
+        "QUEUED-IN-RSS",
+        "DEPLOYED"
       ]
     },
     {
@@ -154,8 +155,15 @@
       "status": [
         "CREATED",
         "QA-PASSED",
-        "QUEUED-IN-RSS"
+        "QUEUED-IN-RSS",
+        "DEPLOYED"
       ]
     }
-  ]
+  ],
+  "receipt": {
+    "commit": "76d6a215851ce7c55bafeb2c5134462e78464fb5",
+    "prepublication": "PASS: 89 entries in five feeds. Latest main SHA and history protection rechecked before moving main.",
+    "deployed": "Both changed XML feeds and five public JPEGs matched candidate bytes over HTTPS with correct MIME types.",
+    "pinterest_published": "Unverified for all five; no live Pin or importer confirmation."
+  }
 }
