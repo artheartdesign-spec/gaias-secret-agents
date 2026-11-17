@@ -221,5 +221,12 @@
     "candidate_scope": "Five JPEG exports, five unchanged signed PNG originals, one batch record.",
     "branch": "campaign/pinterest-2026-11-18-am",
     "publication": "No publishing branch update. No RSS queue or deployment for this batch."
+  },
+  "repository_receipt": {
+    "candidate_commit": "b6c249b17fff1519625601c3b6cf178864cf61f0",
+    "verified": "All five remote JPEG previews returned image/jpeg and SHA256 identical to local final exports. Branch ref matched candidate. Main remained ccf4c1572760b7aeea5f5f62e37b270fd026da10.",
+    "deployed": false,
+    "queued_in_rss": false,
+    "pinterest_published": false
   }
 }
