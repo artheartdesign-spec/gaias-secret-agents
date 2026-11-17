@@ -1,0 +1,225 @@
+{
+  "slot": "2026-11-18 AM",
+  "timezone": "Australia/Brisbane",
+  "base": "ccf4c1572760b7aeea5f5f62e37b270fd026da10",
+  "batch_status": "HELD",
+  "allocation": {
+    "40_pack": 2,
+    "free_resources": 2,
+    "family_activity": 1,
+    "evening_40_pack_reserved": 3
+  },
+  "offer_verification": {
+    "date": "2026-11-18",
+    "landing": "https://gaiassecretagents.com/#top",
+    "checkout": "https://gaiassecretagents.gumroad.com/l/zmhyso?wanted=true",
+    "price": "AUD 9.00",
+    "currency_code": "aud",
+    "price_cents": 900,
+    "link_disabled": false,
+    "product": "40 printable conversation and activity cards",
+    "purchase_made": false
+  },
+  "keywords": {
+    "source": "https://newsroom.pinterest.com/en-au/news/parenting-trend-report-2026/",
+    "accessed": "2026-11-18",
+    "interpretation": "Screen-free and outdoor learning themes support relevance. Exact five phrases are suggestions, no volume or rank claim."
+  },
+  "logo": {
+    "path": "assets/gsa-official-logo.webp",
+    "sha256": "31c69a61cccbb4be9a003532866a122a159cd4329b9434271b13e8e131283970",
+    "method": "Exact approved asset placed by deterministic compositor; no generated replacement."
+  },
+  "deduplication": "No 18 AM branch, record or GUID existed at start. Read available campaign records and all 89 feed titles. Existing 17 AM and PM assets excluded. Each scene, headline and intended search angle is new. Available records have gaps.",
+  "yesterday": "17 PM deployed two nature Pins; three card Pins held. 17 AM draft branch previously held. All five board mappings now verified saved after reload.",
+  "historic_exceptions": {
+    "checked": "2026-11-18",
+    "url": "https://au.pinterest.com/pin/992621574146008868/",
+    "title": "Saltwater float experiment for kids: will the same grape float?",
+    "board": "Homeschool Nature Activities",
+    "visible_ai_label": "Absent in fresh screenshot and accessibility observation",
+    "text_disclosure": "Absent from visible description",
+    "native_setting": "Unverified",
+    "action": "Logged only for separately authorised repair"
+  },
+  "art_decision": "New illustrative scenes with official logo. No inaccurate card mockup retained: first sibling draft rejected and cards removed. Cards are digital; no physical-pack depiction. No eligible non-AI version prepared in this run.",
+  "pins": [
+    {
+      "guid": "gsa-20261118-am-sibling-turns",
+      "title": "Sibling activities without screens: take turns with 40 Secret Meeting Cards",
+      "description": "How can siblings share a family game without keeping score? Take turns choosing a card from the 40 Secret Meeting Cards, then talk, imagine or try the challenge together. Players can pass. Print and cut the digital deck before playing. Explore the 40-pack. AI-generated illustration.",
+      "alt": "A warm eucalyptus-framed reading nook with two cushions, a small table and the headline Siblings, take turns.",
+      "destination": "https://gaiassecretagents.com/?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261118_am&utm_content=sibling-turns#top",
+      "utm_content": "sibling-turns",
+      "keyword": "sibling activities without screens",
+      "keyword_evidence": "Editorial suggestion informed by Pinterest parenting report; exact phrase volume unmeasured.",
+      "asset": "marketing/pinterest-held/2026-11-18-am/sibling-turns.jpg",
+      "sha256": "b340dc785fe5ad67107105e06395e15dd54212e63be681b026fab8839e119eff",
+      "original": "marketing/pinterest-held/2026-11-18-am/originals/sibling-turns.png",
+      "original_sha256": "2ff6a6a224a886ba220c94f0a03cc5bdf8db9095c47f823b88594a3332520279",
+      "dimensions": [
+        1000,
+        1500
+      ],
+      "mime": "image/jpeg",
+      "intended_feed": "pinterest-family-games-rss.xml",
+      "board": "Screen free printable games for the family",
+      "mapping": "Verified in Pinterest RSS settings and retained after reload on 2026-11-18",
+      "visual_ai": true,
+      "native_ai_setting": "NOT APPLIED; no RSS control observed",
+      "visible_ai_label": "UNVERIFIED; unpublished",
+      "text_disclosure": "AI-generated illustration.",
+      "provenance": "Original PNG including caBX C2PA chunk preserved byte-for-byte. JPEG XMP records compositeWithTrainedAlgorithmicMedia and identifies derived export. Original signature not transplanted to edited pixels.",
+      "qa1": "PASS: final facts, spelling, grammar, offer identity, keyword intent, one CTA, logo, no readable paid content; distinct from available last-30-day titles.",
+      "qa2": "PASS: final image reviewed full-size and 300x450; copy and destination rechecked; readable text, safe margins, correct placed logo, no malformed named characters or visual duplicates.",
+      "status": [
+        "CREATED",
+        "QA-PASSED"
+      ],
+      "hold": "Native AI disclosure through RSS unverified. No public-feed entry. Resume this GUID; do not duplicate slot."
+    },
+    {
+      "guid": "gsa-20261118-am-invent-world",
+      "title": "Imagination game for families: invent a world with Secret Meeting Cards",
+      "description": "How can we start an imagination game together? Choose an IMAGINE card from the 40 Secret Meeting Cards and take turns adding ideas. The printable digital deck includes TALK, IMAGINE and DO cards. Explore the 40-pack. AI-generated illustration.",
+      "alt": "A fantastical floating island rises from a blank storybook beneath the words Invent a world together.",
+      "destination": "https://gaiassecretagents.com/?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261118_am&utm_content=invent-world#top",
+      "utm_content": "invent-world",
+      "keyword": "imagination game for families",
+      "keyword_evidence": "Editorial suggestion informed by Pinterest parenting report; exact phrase volume unmeasured.",
+      "asset": "marketing/pinterest-held/2026-11-18-am/invent-world.jpg",
+      "sha256": "1fe678678ffea06be34c8b1fba529e5e2a7bfde9e390728505d3b138d94fa79d",
+      "original": "marketing/pinterest-held/2026-11-18-am/originals/invent-world.png",
+      "original_sha256": "8da992b5f7ea463402fed61597fec90fce7c86aa41de25fb35c9da425809cf7a",
+      "dimensions": [
+        1000,
+        1500
+      ],
+      "mime": "image/jpeg",
+      "intended_feed": "pinterest-rss.xml",
+      "board": "Screen Free activities for kids",
+      "mapping": "Verified in Pinterest RSS settings and retained after reload on 2026-11-18",
+      "visual_ai": true,
+      "native_ai_setting": "NOT APPLIED; no RSS control observed",
+      "visible_ai_label": "UNVERIFIED; unpublished",
+      "text_disclosure": "AI-generated illustration.",
+      "provenance": "Original PNG including caBX C2PA chunk preserved byte-for-byte. JPEG XMP records compositeWithTrainedAlgorithmicMedia and identifies derived export. Original signature not transplanted to edited pixels.",
+      "qa1": "PASS: final facts, spelling, grammar, offer identity, keyword intent, one CTA, logo, no readable paid content; distinct from available last-30-day titles.",
+      "qa2": "PASS: final image reviewed full-size and 300x450; copy and destination rechecked; readable text, safe margins, correct placed logo, no malformed named characters or visual duplicates.",
+      "status": [
+        "CREATED",
+        "QA-PASSED"
+      ],
+      "hold": "Native AI disclosure through RSS unverified. No public-feed entry. Resume this GUID; do not duplicate slot."
+    },
+    {
+      "guid": "gsa-20261118-am-small-space",
+      "title": "Small garden nature activity for kids: start a free secret agent mission",
+      "description": "Can children explore nature in a small outdoor space? Start by noticing living things around a plant or a patch of ground. The free nine-page Nature Signal mission includes a 15-minute outdoor hunt for ages 6–11. A parent or guardian signs up with their email. Get the free mission. AI-generated illustration.",
+      "alt": "A flowering potted plant, a small bird, a bee and a closed notebook in a sunny courtyard.",
+      "destination": "https://gaiassecretagents.com/free-secret-agent-mission.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261118_am&utm_content=small-space",
+      "utm_content": "small-space",
+      "keyword": "small garden nature activity for kids",
+      "keyword_evidence": "Editorial suggestion informed by Pinterest parenting report; exact phrase volume unmeasured.",
+      "asset": "marketing/pinterest-held/2026-11-18-am/small-space.jpg",
+      "sha256": "e1c3ce0c1290e6245d01844cf98d587c389550eb34c24851b87759e4dbcad3f5",
+      "original": "marketing/pinterest-held/2026-11-18-am/originals/small-space.png",
+      "original_sha256": "251696fceb5301a68b8d4b62415c6b972f70660f609a5cc6a06b6d6278d91e3d",
+      "dimensions": [
+        1000,
+        1500
+      ],
+      "mime": "image/jpeg",
+      "intended_feed": "pinterest-earth-protectors-rss.xml",
+      "board": "Gaias Secret Agents protecting the Earth",
+      "mapping": "Verified in Pinterest RSS settings and retained after reload on 2026-11-18",
+      "visual_ai": true,
+      "native_ai_setting": "NOT APPLIED; no RSS control observed",
+      "visible_ai_label": "UNVERIFIED; unpublished",
+      "text_disclosure": "AI-generated illustration.",
+      "provenance": "Original PNG including caBX C2PA chunk preserved byte-for-byte. JPEG XMP records compositeWithTrainedAlgorithmicMedia and identifies derived export. Original signature not transplanted to edited pixels.",
+      "qa1": "PASS: final facts, spelling, grammar, offer identity, keyword intent, one CTA, logo, no readable paid content; distinct from available last-30-day titles.",
+      "qa2": "PASS: final image reviewed full-size and 300x450; copy and destination rechecked; readable text, safe margins, correct placed logo, no malformed named characters or visual duplicates.",
+      "status": [
+        "CREATED",
+        "QA-PASSED"
+      ],
+      "hold": "Native AI disclosure through RSS unverified. No public-feed entry. Resume this GUID; do not duplicate slot."
+    },
+    {
+      "guid": "gsa-20261118-am-rain-route",
+      "title": "After-rain science activity for kids: map where the water goes",
+      "description": "Where does rainwater travel after it lands? After rain, safely observe puddles, slopes and damp ground, then sketch the route you notice. The free Rain Route Map activity takes about 15 minutes and needs paper. Try the free activity. AI-generated illustration.",
+      "alt": "A shallow rainwater trail follows a garden slope beside stepping stones and ferns.",
+      "destination": "https://gaiassecretagents.com/environmental-activities-for-kids.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261118_am&utm_content=rain-route",
+      "utm_content": "rain-route",
+      "keyword": "after rain science activity for kids",
+      "keyword_evidence": "Editorial suggestion informed by Pinterest parenting report; exact phrase volume unmeasured.",
+      "asset": "marketing/pinterest-held/2026-11-18-am/rain-route.jpg",
+      "sha256": "06b9c7007cabfdc212d626cc2657035539f5679d81efaf7b317e7dbc50fe5e64",
+      "original": "marketing/pinterest-held/2026-11-18-am/originals/rain-route.png",
+      "original_sha256": "2b6cde256d1cdd7f330695fb693413e93ed02bdd8b2dabc3da2f1047a80ebec1",
+      "dimensions": [
+        1000,
+        1500
+      ],
+      "mime": "image/jpeg",
+      "intended_feed": "pinterest-outdoor-rss.xml",
+      "board": "Fun activities to do in Nature for kids",
+      "mapping": "Verified in Pinterest RSS settings and retained after reload on 2026-11-18",
+      "visual_ai": true,
+      "native_ai_setting": "NOT APPLIED; no RSS control observed",
+      "visible_ai_label": "UNVERIFIED; unpublished",
+      "text_disclosure": "AI-generated illustration.",
+      "provenance": "Original PNG including caBX C2PA chunk preserved byte-for-byte. JPEG XMP records compositeWithTrainedAlgorithmicMedia and identifies derived export. Original signature not transplanted to edited pixels.",
+      "qa1": "PASS: final facts, spelling, grammar, offer identity, keyword intent, one CTA, logo, no readable paid content; distinct from available last-30-day titles.",
+      "qa2": "PASS: final image reviewed full-size and 300x450; copy and destination rechecked; readable text, safe margins, correct placed logo, no malformed named characters or visual duplicates.",
+      "status": [
+        "CREATED",
+        "QA-PASSED"
+      ],
+      "hold": "Native AI disclosure through RSS unverified. No public-feed entry. Resume this GUID; do not duplicate slot."
+    },
+    {
+      "guid": "gsa-20261118-am-morning-check",
+      "title": "Nature observation before school: a free five-day tracker for kids",
+      "description": "How can we make nature observation part of a busy week? Choose a regular moment, such as before school, to check one small habitat and record clues. The free two-page Nature Tracker covers five days. A parent, guardian or teacher signs up by email. Get the free tracker. AI-generated illustration.",
+      "alt": "A blank notebook, pencil and mug on a porch rail overlooking a garden at sunrise.",
+      "destination": "https://gaiassecretagents.com/nature-tracker.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261118_am&utm_content=morning-check",
+      "utm_content": "morning-check",
+      "keyword": "nature observation before school",
+      "keyword_evidence": "Editorial suggestion informed by Pinterest parenting report; exact phrase volume unmeasured.",
+      "asset": "marketing/pinterest-held/2026-11-18-am/morning-check.jpg",
+      "sha256": "2ba9baf865d2014b898d69617b053cd9e0ea568a4ff747dd01ff3ec20755f337",
+      "original": "marketing/pinterest-held/2026-11-18-am/originals/morning-check.png",
+      "original_sha256": "4024484958aeb25878a27700073c215f6b7e9b84ce5f8967ce8da2b721914333",
+      "dimensions": [
+        1000,
+        1500
+      ],
+      "mime": "image/jpeg",
+      "intended_feed": "pinterest-homeschool-rss.xml",
+      "board": "Homeschool Nature Activities",
+      "mapping": "Verified in Pinterest RSS settings and retained after reload on 2026-11-18",
+      "visual_ai": true,
+      "native_ai_setting": "NOT APPLIED; no RSS control observed",
+      "visible_ai_label": "UNVERIFIED; unpublished",
+      "text_disclosure": "AI-generated illustration.",
+      "provenance": "Original PNG including caBX C2PA chunk preserved byte-for-byte. JPEG XMP records compositeWithTrainedAlgorithmicMedia and identifies derived export. Original signature not transplanted to edited pixels.",
+      "qa1": "PASS: final facts, spelling, grammar, offer identity, keyword intent, one CTA, logo, no readable paid content; distinct from available last-30-day titles.",
+      "qa2": "PASS: final image reviewed full-size and 300x450; copy and destination rechecked; readable text, safe margins, correct placed logo, no malformed named characters or visual duplicates.",
+      "status": [
+        "CREATED",
+        "QA-PASSED"
+      ],
+      "hold": "Native AI disclosure through RSS unverified. No public-feed entry. Resume this GUID; do not duplicate slot."
+    }
+  ],
+  "validation": {
+    "command": "python3 scripts/pinterest_preflight.py --base ccf4c1572760b7aeea5f5f62e37b270fd026da10 --live",
+    "result": "PASS: 89 entries across 5 feeds. No new feed entries due to disclosure hold. All five new destination URLs separately passed live checks.",
+    "candidate_scope": "Five JPEG exports, five unchanged signed PNG originals, one batch record.",
+    "branch": "campaign/pinterest-2026-11-18-am",
+    "publication": "No publishing branch update. No RSS queue or deployment for this batch."
+  }
+}
