@@ -1,0 +1,161 @@
+{
+  "slot": "2026-11-17 PM",
+  "timezone": "Australia/Brisbane",
+  "base": "b8374f00b65447d81ed98ef2a59c5f5c29a7c242",
+  "allocation": "3 PM 40-pack positions reserved. AM batch already exists separately; no backfill.",
+  "offer": "Featured #top buy CTA to Gumroad zmhyso; checkout item 40 Secret Meeting Cards, AUD 9.00. No purchase.",
+  "research": {
+    "date": "2026-11-17",
+    "source": "https://newsroom.pinterest.com/en-au/news/parenting-trend-report-2026/",
+    "scope": "Pinterest parenting report supports screen-free family and outdoor learning themes. Individual phrases are editorial suggestions without measured volume."
+  },
+  "logo_sha256": "aa338125db1bf7e79eb234e49797755ad0047b6918197301b08770b8ee227efd",
+  "comparison": "Available previous 30-day campaign records, five feeds and 17 AM drafts. 16 AM routed to all five boards.",
+  "historical_exception": {
+    "url": "https://www.pinterest.com/pin/992621574146008868/",
+    "board": "Homeschool Nature Activities",
+    "title": "Saltwater float experiment for kids: will the same grape float?",
+    "status": "Previously recorded missing visible label; native setting unverified. No edit."
+  },
+  "importer": "Pinterest Import content returned Forbidden; saved outdoor mapping and import unverified. Keep item solely in outdoor XML. Earth Protectors already has existing items; no duplicate activation.",
+  "pins": [
+    {
+      "guid": "gsa-20261117-pm-act-it-out",
+      "title": "Family acting game for kids: whose turn is it to draw a DO card?",
+      "description": "What can we play when the children would rather move than talk? Draw a DO card from the 40 Secret Meeting Cards, read it aloud and try its action together. Anyone who prefers to watch can pass. Explore the 40-pack. Product artwork is AI-modified.",
+      "alt": "A stack of card backs sits in a stage spotlight beside the words Draw a DO card.",
+      "keyword_suggestion": "family acting game",
+      "destination": "https://gaiassecretagents.com/?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261117_pm&utm_content=act-it-out#top",
+      "utm_content": "act-it-out",
+      "intended_feed": "pinterest-family-games-rss.xml",
+      "board": "Screen free printable games for the family",
+      "asset": "marketing/pinterest-held/2026-11-17-pm/act-it-out.jpg",
+      "sha256": "4691381601a680eaad05d273a40efd9ab1cc61b139a89535b26cdcc410ced590",
+      "art_sources": {
+        "https://public-files.gumroad.com/mbqimk5you1p0sbl7hplmc5doz00": "6d487c8ed2f30097f30b4628f748fb694d9c98c2ab805e1ab6611303bbfd6ed1"
+      },
+      "visual_ai": true,
+      "native_setting": "unverified; RSS has no evidenced native control",
+      "visible_ai_label": "unverified",
+      "text_disclosure": "Product artwork is AI-modified.",
+      "qa1": "PASS: facts, spelling, intent, CTA, product identity, logo, paid content protection and campaign comparison",
+      "qa2": "PASS: final 1000x1500 export plus 300x450 review, artwork text, margins, source artwork, copy, links and encoding",
+      "publication_gate": "HELD: native AI disclosure unverified",
+      "status": [
+        "CREATED",
+        "QA-PASSED"
+      ]
+    },
+    {
+      "guid": "gsa-20261117-pm-stocking-game",
+      "title": "Printable stocking filler for families who like playing together",
+      "description": "What can I tuck into a stocking for the whole family to play? The 40 Secret Meeting Cards are a digital download. Print and cut the cards before wrapping them so the first game is ready on Christmas morning. See the digital pack. Product artwork is AI-modified.",
+      "alt": "A gold ribbon wraps a green parcel with the official 40 Secret Meeting Cards title on its gift label.",
+      "keyword_suggestion": "printable stocking filler",
+      "destination": "https://gaiassecretagents.com/?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261117_pm&utm_content=stocking-game#top",
+      "utm_content": "stocking-game",
+      "intended_feed": "pinterest-rss.xml",
+      "board": "Screen Free activities for kids",
+      "asset": "marketing/pinterest-held/2026-11-17-pm/stocking-game.jpg",
+      "sha256": "2c2f762b486734c37a032c5dfa52726a1d077378a10d795ff503d3914104e63d",
+      "art_sources": {
+        "https://public-files.gumroad.com/mbqimk5you1p0sbl7hplmc5doz00": "6d487c8ed2f30097f30b4628f748fb694d9c98c2ab805e1ab6611303bbfd6ed1"
+      },
+      "visual_ai": true,
+      "native_setting": "unverified; RSS has no evidenced native control",
+      "visible_ai_label": "unverified",
+      "text_disclosure": "Product artwork is AI-modified.",
+      "qa1": "PASS: facts, spelling, intent, CTA, product identity, logo, paid content protection and campaign comparison",
+      "qa2": "PASS: final 1000x1500 export plus 300x450 review, artwork text, margins, source artwork, copy, links and encoding",
+      "publication_gate": "HELD: native AI disclosure unverified",
+      "status": [
+        "CREATED",
+        "QA-PASSED"
+      ]
+    },
+    {
+      "guid": "gsa-20261117-pm-memory-swap",
+      "title": "Family conversation starters: let the grown-ups share a childhood memory",
+      "description": "How can grandparents join in a screen-free family game? Pick a TALK card from the 40 Secret Meeting Cards and let a grown-up answer first. As a follow-up, children can ask what life was like at their age. Discover the 40-pack. Product artwork is AI-modified.",
+      "alt": "A gold-framed memory album says When you were little… beside a nautical illustration and an invitation to pick a TALK card.",
+      "keyword_suggestion": "conversation starters for grandparents and kids",
+      "destination": "https://gaiassecretagents.com/?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261117_pm&utm_content=memory-swap#top",
+      "utm_content": "memory-swap",
+      "intended_feed": "pinterest-family-games-rss.xml",
+      "board": "Screen free printable games for the family",
+      "asset": "marketing/pinterest-held/2026-11-17-pm/memory-swap.jpg",
+      "sha256": "1c488d0347b5b6bc9527a818c8acfee19772831f98e1148331293bde85aee0f2",
+      "art_sources": {
+        "https://public-files.gumroad.com/mbqimk5you1p0sbl7hplmc5doz00": "6d487c8ed2f30097f30b4628f748fb694d9c98c2ab805e1ab6611303bbfd6ed1"
+      },
+      "visual_ai": true,
+      "native_setting": "unverified; RSS has no evidenced native control",
+      "visible_ai_label": "unverified",
+      "text_disclosure": "Product artwork is AI-modified.",
+      "qa1": "PASS: facts, spelling, intent, CTA, product identity, logo, paid content protection and campaign comparison",
+      "qa2": "PASS: final 1000x1500 export plus 300x450 review, artwork text, margins, source artwork, copy, links and encoding",
+      "publication_gate": "HELD: native AI disclosure unverified",
+      "status": [
+        "CREATED",
+        "QA-PASSED"
+      ]
+    },
+    {
+      "guid": "gsa-20261117-pm-seed-journey",
+      "title": "Seed dispersal activity for kids: how might a fallen seed travel?",
+      "description": "How can we explore seed dispersal on a family walk? Look for seeds or pods already on the ground. Compare their shapes and ask which might roll, float, stick or hitch a ride. Try Wind Seed Detective.",
+      "alt": "Botanical plates of oak and sweet gum sit side by side under the question How does a seed get from A to B?",
+      "keyword_suggestion": "seed dispersal activity for kids",
+      "destination": "https://gaiassecretagents.com/environmental-activities-for-kids.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261117_pm&utm_content=seed-journey",
+      "utm_content": "seed-journey",
+      "intended_feed": "pinterest-outdoor-rss.xml",
+      "board": "Fun activities to do in Nature for kids",
+      "asset": "assets/pinterest/2026-11-17-pm/seed-journey.jpg",
+      "sha256": "9120eeb3d23cce464da611453ed69b1ce21c85a75a064f2e707200fc2eccd3d6",
+      "art_sources": {
+        "https://github.com/GITenberg/Studies-of-Trees_16116/blob/e6374d5c4e6d8ff1e7be551334bebe594a3e08b9/16116-h/images/fig057.jpg": "46a8659cbd9e6c85c9ba11dc12ae146c1eddda34a9edbada4be5dfc983ff6ec9",
+        "https://github.com/GITenberg/Studies-of-Trees_16116/blob/e6374d5c4e6d8ff1e7be551334bebe594a3e08b9/16116-h/images/fig076.jpg": "d4c1ef4dc78e9a2a13beb16a74f6530b55d2d078dff7d524710c212e7fe8fb25"
+      },
+      "visual_ai": false,
+      "native_setting": "not applicable",
+      "visible_ai_label": "unverified",
+      "text_disclosure": "not required",
+      "qa1": "PASS: facts, spelling, intent, CTA, product identity, logo, paid content protection and campaign comparison",
+      "qa2": "PASS: final 1000x1500 export plus 300x450 review, artwork text, margins, source artwork, copy, links and encoding",
+      "publication_gate": "eligible",
+      "status": [
+        "CREATED",
+        "QA-PASSED",
+        "QUEUED-IN-RSS"
+      ]
+    },
+    {
+      "guid": "gsa-20261117-pm-leave-the-jar",
+      "title": "Wildlife observation for kids: can we leave the bug jar at home?",
+      "description": "How can children study a butterfly without catching it? Watch where it lands and write down one clue. The two-page Nature Tracker gives families five days of wildlife observations. A parent, guardian or teacher can request it by email. Get the free tracker.",
+      "alt": "A historic colour butterfly plate illustrates a five-day nature tracker with the words Leave the bug jar at home.",
+      "keyword_suggestion": "wildlife observation for kids",
+      "destination": "https://gaiassecretagents.com/nature-tracker.html?utm_source=pinterest&utm_medium=rss&utm_campaign=gsa_20261117_pm&utm_content=leave-the-jar",
+      "utm_content": "leave-the-jar",
+      "intended_feed": "pinterest-homeschool-rss.xml",
+      "board": "Homeschool Nature Activities",
+      "asset": "assets/pinterest/2026-11-17-pm/leave-the-jar.jpg",
+      "sha256": "f81451246938a24dd51861ea2a4bb731be093408d67af4184309c3c4e13b62df",
+      "art_sources": {
+        "https://github.com/GITenberg/British-Butterflies_61981/blob/15f1fe65ddea6668b1a9d7eb954e945531d9f94e/61981-h/images/im097a.jpg": "af41b978ae0e423c392a15b5ecdb624b0f399bc1a18fa11e70e15251b31a1584"
+      },
+      "visual_ai": false,
+      "native_setting": "not applicable",
+      "visible_ai_label": "unverified",
+      "text_disclosure": "not required",
+      "qa1": "PASS: facts, spelling, intent, CTA, product identity, logo, paid content protection and campaign comparison",
+      "qa2": "PASS: final 1000x1500 export plus 300x450 review, artwork text, margins, source artwork, copy, links and encoding",
+      "publication_gate": "eligible",
+      "status": [
+        "CREATED",
+        "QA-PASSED",
+        "QUEUED-IN-RSS"
+      ]
+    }
+  ]
+}
