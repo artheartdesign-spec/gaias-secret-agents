@@ -1,0 +1,92 @@
+{
+  "slot": "2026-11-18 PM",
+  "timezone": "Australia/Brisbane",
+  "base": "ccf4c1572760b7aeea5f5f62e37b270fd026da10",
+  "status": "HELD-BEFORE-CREATION",
+  "allocation": {
+    "secret_meeting_cards_40_pack": 3,
+    "other_verified_offers_or_free_resources": 2
+  },
+  "reason": "Required native/visible AI disclosure through RSS remains unverified. Current approved 40-pack art is recorded as AI-modified. No suitable approved non-AI replacement was verified. Paused further automatic batches rather than accumulating additional held images.",
+  "offer_verification": {
+    "date": "2026-11-18",
+    "homepage": "https://gaiassecretagents.com/#top",
+    "checkout": "https://gaiassecretagents.gumroad.com/l/zmhyso?wanted=true",
+    "currency": "AUD",
+    "price_cents": 900,
+    "link_disabled": false,
+    "product_page_confirms_40_cards": true
+  },
+  "sources": [
+    "https://help.pinterest.com/en/article/gen-ai-labels",
+    "https://help.pinterest.com/en/business/article/auto-publish-pins-from-your-rss-feed"
+  ],
+  "evidence": "Official Pinterest documentation explains automatic metadata/classifier labelling and manual disclosure, but does not document an RSS native disclosure field. This does not prove that RSS cannot receive an automatic label. No live label evidence for new batch exists.",
+  "validation": {
+    "command": "python3 scripts/pinterest_preflight.py --base ccf4c1572760b7aeea5f5f62e37b270fd026da10 --live",
+    "result": "PASS: 89 entries across five feeds. No candidate feed additions. All five deployed XML files matched main bytes."
+  },
+  "previous_batch": {
+    "branch": "campaign/pinterest-2026-11-18-am",
+    "status": "Five prepared images retained on separate branch; two 40-pack positions held."
+  },
+  "slots": [
+    {
+      "guid": "gsa-20261118-pm-reserved-1",
+      "offer": "40-pack Secret Meeting Cards",
+      "created": false,
+      "qa_passed": false,
+      "queued_in_rss": false,
+      "deployed": false,
+      "pinterest_published": false,
+      "error": "Disclosure gate unresolved before asset creation. Resume this slot; do not create another batch for 18 PM."
+    },
+    {
+      "guid": "gsa-20261118-pm-reserved-2",
+      "offer": "40-pack Secret Meeting Cards",
+      "created": false,
+      "qa_passed": false,
+      "queued_in_rss": false,
+      "deployed": false,
+      "pinterest_published": false,
+      "error": "Disclosure gate unresolved before asset creation. Resume this slot; do not create another batch for 18 PM."
+    },
+    {
+      "guid": "gsa-20261118-pm-reserved-3",
+      "offer": "40-pack Secret Meeting Cards",
+      "created": false,
+      "qa_passed": false,
+      "queued_in_rss": false,
+      "deployed": false,
+      "pinterest_published": false,
+      "error": "Disclosure gate unresolved before asset creation. Resume this slot; do not create another batch for 18 PM."
+    },
+    {
+      "guid": "gsa-20261118-pm-reserved-4",
+      "offer": "free resource or family activity",
+      "created": false,
+      "qa_passed": false,
+      "queued_in_rss": false,
+      "deployed": false,
+      "pinterest_published": false,
+      "error": "Disclosure gate unresolved before asset creation. Resume this slot; do not create another batch for 18 PM."
+    },
+    {
+      "guid": "gsa-20261118-pm-reserved-5",
+      "offer": "free resource or family activity",
+      "created": false,
+      "qa_passed": false,
+      "queued_in_rss": false,
+      "deployed": false,
+      "pinterest_published": false,
+      "error": "Disclosure gate unresolved before asset creation. Resume this slot; do not create another batch for 18 PM."
+    }
+  ],
+  "automation": {
+    "id": "6ae642d61c588191b7f3978ccf9a2f80",
+    "enabled": false,
+    "reason": "Publication prerequisite unresolved; prevent repeated generation of held artwork."
+  },
+  "resume_requirement": "Verify a disclosure-compliant RSS path or establish suitable approved non-AI creative provenance before resuming. Run full candidate preflight against then-current main before any publishing update.",
+  "limitations": "No five new finished images or second-pass image QA this evening. Board mappings were verified during morning run; not rechecked this evening. No historic Pin modifications."
+}
