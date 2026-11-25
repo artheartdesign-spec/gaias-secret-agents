@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-26",
+  "timezone": "Australia/Brisbane",
+  "slot": "daily",
+  "status": "HELD-BEFORE-CREATION",
+  "allocation": {
+    "connections_48": 3,
+    "other_gsa": 2
+  },
+  "created": 0,
+  "qa_passed": 0,
+  "queued": 0,
+  "deployed": 0,
+  "pinterest_published_verified": 0,
+  "guids": [],
+  "errors": [
+    "Git clone https://github.com/artheartdesign-spec/gaias-secret-agents.git rejected HTTP 403: Forbidden. Calls to this URL are not allowed.",
+    "Live https://gaiassecretagents.com/ request rejected HTTP 403 in execution environment. Search tool opens of homepage and Gumroad zmhyso returned inaccessible.",
+    "Required candidate checkout preflight could not execute; no pass claimed."
+  ],
+  "source_observation": "Repository main index.html still labels featured buy CTA GET THE 40-CARD SET and links zmhyso. This does not verify the requested 48-card Connections edition or its current live checkout.",
+  "retry": "Resume this daily slot after execution environment permits GitHub checkout and live destination/product access. Verify Connections 48 identity and approved assets, inspect all feeds/recent logs for duplicates, create 3 Connections plus 2 other distinct Pins, complete both QA passes, run python3 scripts/pinterest_preflight.py --base <latest main SHA> --live on exact candidate before publication. Do not reuse old 40/16-pack assets. No historical items changed.",
+  "changes": "This log only, on non-publishing branch. No feeds, artwork, workflows or schedules changed."
+}
