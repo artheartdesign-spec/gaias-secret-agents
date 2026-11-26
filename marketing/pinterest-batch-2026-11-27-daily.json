@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-27",
+  "timezone": "Australia/Brisbane",
+  "slot": "daily",
+  "status": "BLOCKED-BEFORE-CREATION",
+  "allocation": {
+    "connections_48": 3,
+    "other": 2
+  },
+  "created": 0,
+  "qa_passed": 0,
+  "queued": 0,
+  "deployed": 0,
+  "published_verified": 0,
+  "guids": [],
+  "blockers": [
+    "Git checkout HTTP 403: Forbidden. Calls to this URL are not allowed. Repeated from 2026-11-26.",
+    "Live homepage inaccessible using web tool; Connections 48 live sales page and checkout not verified.",
+    "Mandatory candidate-tree preflight unable to execute; no validation pass claimed."
+  ],
+  "observation": "Fresh repository index.html still has GET THE 40-CARD SET CTA to zmhyso. This is not proof of the requested Connections 48 product.",
+  "repair": "Restore execution environment network access for GitHub clone and live destination validation. Verify correct Connections 48 sales URL and approved artwork. Recheck feeds and campaign logs before preparing exactly 3 Connections and 2 other Pins. Run prescribed live preflight before main update.",
+  "changes": "Only this non-publishing branch log. Existing public feeds, artwork and workflow unchanged."
+}
